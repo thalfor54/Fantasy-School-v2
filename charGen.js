@@ -2933,6 +2933,22 @@ function applyNerdAbilities() {
             }
         }
     }
+    if (nerdKnowledgesArray01.selected == '' || nerdKnowledgesArray02.selected == '' || nerdKnowledgesArray03.selected == '') {
+        let nerdMustMakeEveryKnowledgeChoiceDiv = document.getElementById("nerdMustMakeEveryKnowledgeChoiceDiv")
+        nerdMustMakeEveryKnowledgeChoiceDiv.style.display = 'block'
+    }
+    console.log(nerdKnowledgesArray01)
+    console.log(nerdKnowledgesArray02)
+    console.log(nerdKnowledgesArray03)
+
+//for (i=0; i<9; i++) {
+        if (nerdKnowledgesArray01 == nerdKnowledgesArray02 || nerdKnowledgesArray01 == nerdKnowledgesArray03 || nerdKnowledgesArray02 == nerdKnowledgesArray03) {
+            let nerdNoStackingKnowledgesDiv = document.getElementById("nerdNoStackingKnowledgesDiv")
+            nerdNoStackingKnowledgesDiv.style.display = 'block'
+            return
+        }
+    
+//    }
     for (i=0; i<9; i++) {
         if (nerdKnowledgesArray01[i].selected == true) {
             if (knowledgeUntrained[i].selected == true) {

@@ -988,6 +988,12 @@
                 </select>    
             </div>
             <br>
+            <div id="nerdMustMakeEveryKnowledgeChoiceDiv" class="instructionDiv">
+                <h4 id="nerdMustMakeEveryKnowledgeChoiceNotice" class="redNotice"><strong>You must make a choice for every option</strong></h4>
+            </div>
+            <div id="nerdNoStackingKnowledgesDiv" class="instructionDiv">
+                <h4 id="nerdNoStackingKnowledgesNotice" class="redNotice"><strong>You must choose three different Knowledges</strong></h4>
+            </div>
             <h4>Nerd: Knowledge 1</h4>
             <select id="nerdKnowledges01">
                 <option id="nerdKnowledgeBlank01"></option>
@@ -1030,7 +1036,8 @@
                 <option id="nerdSpecial03" class="nerdKnowledge03">Special</option>
             </select>
             <br>
-            <h4>Nerd: One Freebie</h4><br>
+            <h4>Nerd: One Freebie. <strong>Note: You CAN choose an ability you've chosen above in order to be Skilled in it.</strong></h4>
+            <br>
             <input type="radio" id="nerdFreebieTalentRadio" name="nerdFreebie" onclick="presentNerdFreebieTalent()">
             <label for="nerdFreebieTalentRadio">Talent:</label>
             <div id="nerdFreebieTalentDiv" class="nerdFreebieDivs">
@@ -1955,7 +1962,7 @@
                     <option id="medicine02" class="knowledgeSkilled">Skilled</option>
                 </select>
             </td>
-            <td id="medicineModifier" class="knowledgeModifiers">-4</td>
+            <td id="medicineModifier" class="knowledgeModifierCells">-4</td>
         </tr>
         <tr>
             <!--talent-->
@@ -1987,7 +1994,7 @@
                     <option id="nature02" class="knowledgeSkilled">Skilled</option>
                 </select>
             </td>
-            <td id="natureModifier" class="knowledgeModifiers">-4</td>
+            <td id="natureModifier" class="knowledgeModifierCells">-4</td>
         </tr>
         <tr>
             <!--talent-->
