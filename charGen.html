@@ -954,10 +954,13 @@
         <div id="nerdAbilities">
             <h4>Nerd: One Talent or Skill</h4>
             <br>
+            <div id="nerdMustChooseTalentOrSkillDiv" class="instructionDiv">
+                <h4 id="nerdMustChooseTalentOrSkillNotice" class="redNotice"><strong>You must choose a Talent or a Skill</strong></h4>
+            </div>
             <input type="radio" id="nerdTalentInput" name="nerdTalentorSkill" onclick="presentNerdTalent()">
             <label for="nerdTalentInput">Talent:</label>
             <div id="nerdTalentDiv">
-                <select id="nerdTalents">
+                <select id="nerdTalent">
                     <option id="nerdTalentBlank"></option>
                     <option id="nerdTalentActing" class="nerdTalent">Acting</option>
                     <option id="nerdTalentAlertness" class="nerdTalent">Alertness</option>
@@ -974,7 +977,7 @@
             <input type="radio" id="nerdSkillInput" name="nerdTalentorSkill" onclick="presentNerdSkill()">
             <label for="nerdSkillInput">Skill:</label>
             <div id="nerdSkillDiv">
-                <select id="nerdSkills">
+                <select id="nerdSkill">
                     <option id="nerdSkillBlank"></option>
                     <option id="nerdSkillDeception" class="nerdSkill">Deception</option>
                     <option id="nerdSkillFirearms" class="nerdSkill">Firearms</option>
@@ -988,14 +991,11 @@
                 </select>    
             </div>
             <br>
-            <div id="nerdMustMakeEveryKnowledgeChoiceDiv" class="instructionDiv">
-                <h4 id="nerdMustMakeEveryKnowledgeChoiceNotice" class="redNotice"><strong>You must make a choice for every option</strong></h4>
-            </div>
-            <div id="nerdNoStackingKnowledgesDiv" class="instructionDiv">
-                <h4 id="nerdNoStackingKnowledgesNotice" class="redNotice"><strong>You must choose three different Knowledges</strong></h4>
+            <div id="nerdMustChooseThreeKnowledgesDiv" class="instructionDiv">
+                <h4 id="nerdMustChooseThreeKnowledgesNotice" class="redNotice"><strong>You must choose three different Knowledges</strong></h4>
             </div>
             <h4>Nerd: Knowledge 1</h4>
-            <select id="nerdKnowledges01">
+            <select id="nerdKnowledge01">
                 <option id="nerdKnowledgeBlank01"></option>
                 <option id="nerdArcana01" class="nerdKnowledge01">Arcana</option>
                 <option id="nerdCodeBreaking01" class="nerdKnowledge01">Code-Breaking</option>
@@ -1009,7 +1009,7 @@
             </select>
             <br>
             <h4>Nerd: Knowledge 2</h4>
-            <select id="nerdKnowledges02">
+            <select id="nerdKnowledge02">
                 <option id="nerdKnowledgeBlank02"></option>
                 <option id="nerdArcana02" class="nerdKnowledge02">Arcana</option>
                 <option id="nerdCodeBreaking02" class="nerdKnowledge02">Code-Breaking</option>
@@ -1023,7 +1023,7 @@
             </select>
             <br>
             <h4>Nerd: Knowledge 3</h4>
-            <select id="nerdKnowledges03">
+            <select id="nerdKnowledge03">
                 <option id="nerdKnowledgeBlank03"></option>
                 <option id="nerdArcana03" class="nerdKnowledge03">Arcana</option>
                 <option id="nerdCodeBreaking03" class="nerdKnowledge03">Code-Breaking</option>
@@ -1036,12 +1036,18 @@
                 <option id="nerdSpecial03" class="nerdKnowledge03">Special</option>
             </select>
             <br>
-            <h4>Nerd: One Freebie. <strong>Note: You CAN choose an ability you've chosen above in order to be Skilled in it.</strong></h4>
+            <h4>Nerd: One Freebie</h4>
             <br>
+            <div id="nerdMustChooseFreebieDiv" class="instructionDiv">
+                <h4 id="nerdMustChooseFreebieNotice" class="redNotice"><strong>You must choose a Freebie Ability</strong></h4>
+            </div>
+            <div id="nerdCannotStackFreebieDiv" class="instructionDiv">
+                <h4 id="nerdCannotStackFreebieNotice" class="redNotice"><strong>You must choose an Untrained Ability</strong></h4>
+            </div>
             <input type="radio" id="nerdFreebieTalentRadio" name="nerdFreebie" onclick="presentNerdFreebieTalent()">
             <label for="nerdFreebieTalentRadio">Talent:</label>
             <div id="nerdFreebieTalentDiv" class="nerdFreebieDivs">
-                <select id="nerdFreebieTalents">
+                <select id="nerdFreebieTalent">
                     <option id="nerdFreebieTalentBlank"></option>
                     <option id="nerdActingFreebie" class="nerdFreebieTalent">Acting</option>
                     <option id="nerdAlertnessFreebie" class="nerdFreebieTalent">Alertness</option>
@@ -1058,7 +1064,7 @@
             <input type="radio" id="nerdFreebieSkillRadio" name="nerdFreebie" onclick="presentNerdFreebieSkill()">
             <label for="nerdFreebieSkillRadio">Skill:</label>
             <div id="nerdFreebieSkillDiv" class="nerdFreebieDivs">
-                <select id="nerdFreebieSkills">
+                <select id="nerdFreebieSkill">
                     <option id="nerdFreebieSkillBlank"></option>
                     <option id="nerdDeceptionFreebie" class="nerdFreebieSkill">Deception</option>
                     <option id="nerdFirearmsFreebie" class="nerdFreebieSkill">Firearms</option>
@@ -1075,7 +1081,7 @@
             <input type="radio" id="nerdFreebieKnowledgeRadio" name="nerdFreebie" onclick="presentNerdFreebieKnowledge()">
             <label for="nerdFreebieKnowledgeRadio">Knowledge:</label>
             <div id="nerdFreebieKnowledgeDiv" class="nerdFreebieDivs">
-                <select id="nerdFreebieKnowledges">
+                <select id="nerdFreebieKnowledge">
                     <option id="nerdFreebieKnowledgeBlank"></option>
                     <option id="nerdArcanaFreebie" class="nerdFreebieKnowledge">Arcana</option>
                     <option id="nerdCodeBreakingFreebie" class="nerdFreebieKnowledge">Code-Breaking</option>
@@ -1094,11 +1100,18 @@
         <br>
         </div>
         <div id="jockAbilities">
-            <h4>Jock:</h4>
-            <select>
-                <option id="jockAthletics">Athletics</option>
+            <div id="jockMustChooseAthleticsDiv" class="instructionDiv">
+                <h4 id="jockMustChooseAthleticsNotice" class="redNotice"><strong>You must choose Athletics</strong></h4>
+            </div>
+            <h4>Jock: Talent 1</h4>
+            <select id="jockAthletics">
+                <option id="jockAthleticsBlank"></option>
+                <option id="jockAthleticsSelected">Athletics</option>
             </select>
             <br>
+            <div id="jockCannotStackAthleticsDiv" class="instructionDiv">
+                <h4 id="jockCannotStackAthleticsNotice" class="redNotice"><strong>You must choose a second Talent</strong></h4>
+            </div>
             <h4>Jock: Talent 2</h4>
             <select id="jockTalent">
                 <option id="jockTalentBlank"></option>
@@ -1113,6 +1126,9 @@
                 <option id="jockTalentStealth" class="jockTalent">Stealth</option>
             </select>
             <br>
+            <div id="jockMustChooseTwoSkillsDiv" class="instructionDiv">
+                <h4 id="jockMustChooseTwoSkillsNotice" class="redNotice"><strong>You must choose two Skills</strong></h4>
+            </div>
             <h4>Jock: Skill 1</h4>
             <select id="jockSkill01">
                 <option id="jockSkillBlank01"></option>
@@ -1125,23 +1141,30 @@
                 <option id="jockSkillMusic01" class="jockSkill01">Music</option>
                 <option id="jockSkillSecurity01" class="jockSkill01">Security</option>
                 <option id="jockSkillSocializing01" class="jockSkill01">Socializing</option>
-           </select>
-           <br>
-           <h4>Jock: Skill 2</h4>
-           <select id="jockSkill02">
-               <option id="jockSkillBlank02"></option>
-               <option id="jockSkillDeception02" class="jockSkill02">Deception</option>
-               <option id="jockSkillFirearms02" class="jockSkill02">Firearms</option>
-               <option id="jockSkillInvestigation02" class="jockSkill02">Investigation</option>
-               <option id="jockSkillLeadership02" class="jockSkill02">Leadership</option>
-               <option id="jockSkillLegerdemain02" class="jockSkill02">Legerdemain</option>
-               <option id="jockSkillMelee02" class="jockSkill02">Melee</option>
-               <option id="jockSkillMusic02" class="jockSkill02">Music</option>
-               <option id="jockSkillSecurity02" class="jockSkill02">Security</option>
-               <option id="jockSkillSocializing02" class="jockSkill02">Socializing</option>
-           </select>
-           <br>
-           <h4>Jock: One Freebie</h4><br>
+            </select>
+            <br>
+            <h4>Jock: Skill 2</h4>
+            <select id="jockSkill02">
+                <option id="jockSkillBlank02"></option>
+                <option id="jockSkillDeception02" class="jockSkill02">Deception</option>
+                <option id="jockSkillFirearms02" class="jockSkill02">Firearms</option>
+                <option id="jockSkillInvestigation02" class="jockSkill02">Investigation</option>
+                <option id="jockSkillLeadership02" class="jockSkill02">Leadership</option>
+                <option id="jockSkillLegerdemain02" class="jockSkill02">Legerdemain</option>
+                <option id="jockSkillMelee02" class="jockSkill02">Melee</option>
+                <option id="jockSkillMusic02" class="jockSkill02">Music</option>
+                <option id="jockSkillSecurity02" class="jockSkill02">Security</option>
+                <option id="jockSkillSocializing02" class="jockSkill02">Socializing</option>
+            </select>
+            <br>
+            <h4>Jock: One Freebie</h4>
+            <br>
+            <div id="jockMustChooseFreebieDiv" class="instructionDiv">
+                <h4 id="jockMustChooseFreebieNotice" class="redNotice"><strong>You must choose a Freebie Ability</strong></h4>
+            </div>
+            <div id="jockCannotStackFreebieDiv" class="instructionDiv">
+                <h4 id="jockCannotStackFreebieNotice" class="redNotice"><strong>You must choose an Untrained Ability</strong></h4>
+            </div>
            <input type="radio" id="jockFreebieTalentRadio" name="jockFreebie" onclick="presentJockFreebieTalent()">
            <label for="jockFreebieTalentRadio">Talent:</label>
            <div id="jockFreebieTalentDiv" class="jockFreebieDivs">
@@ -1197,18 +1220,29 @@
         <button id="jockCliqueBasedAbilitiesResetButton" type="button" onclick="resetJockAbilities()">Reset</button>
         </div>
         <div id="prepAbilities">
+            <div id="prepMustSelectLeadershipDiv" class="instructionDiv">
+                <h4 id="prepMustSelectKnowledgeNotice" class="redNotice"><strong>You must choose Leadership</strong></h4>
+            </div>
             <h4>Prep:</h4>
-            <select>
-                <option id="prepLeadership">Leadership</option>
+            <select id="prepLeadership">
+                <option id =prepLeadershipBlank></option>
+                <option id="prepLeadershipSelected">Leadership</option>
             </select>
             <br>
+            <div id="prepMustSelectSocializingDiv" class="instructionDiv">
+                <h4 id="prepMustSelectSocializingNotice" class="redNotice"><strong>You must choose Socializing</strong></h4>
+            </div>
             <h4>Prep:</h4>
-            <select>
-                <option id="prepSocializing">Socializing</option>
+            <select id="prepSocializing">
+                <option id="prepSocializingBlank"></option>
+                <option id="prepSocializingSelected">Socializing</option>
             </select>
             <br>
+            <div id="prepMustSelectKnowledgeDiv" class="instructionDiv">
+                <h4 id="prepMustSelectKnowledgeNotice" class="redNotice"><strong>You must choose a Knowledge</strong></h4>
+            </div>
             <h4>Prep: Knowledge</h4>
-            <select>
+            <select id="prepKnowledge01">
                 <option id="prepKnowledgeBlank"></option>                
                 <option id="prepKnowledgeArcana" class="prepKnowledge">Arcana</option>
                 <option id="prepKnowledgeCodeBreaking" class="prepKnowledge">Code-Breaking</option>
@@ -1221,11 +1255,40 @@
                 <option id="prepKnowledgeSpecial" class="prepKnowledge">Special</option>
             </select>
             <br>
+            <div id="prepMustHaveFirstFreebieDiv" class="instructionDiv">
+                <h4 id="prepMustHaveFirstFreebieNotice"class="redNotice"><strong>You must select your first Freebie</strong></h4>
+                <br>
+            </div>
+            <div id="prepMustHaveSecondFreebieDiv" class="instructionDiv">
+                <h4 id="prepMustHaveSecondFreebieNotice" class="redNotice"><strong>You must select your second Freebie</strong></h4>
+                <br>
+            </div>
+            <div id="prepCannotStackFreebiesDiv" class="instructionDiv">
+                <h4 id="prepCannotStackFreebieNotice" class="redNotice"><strong>You must choose two different Abilities</strong></h4>
+                <br>
+            </div>
+            <div id="prepCannotStackSetAbilitiesDiv" class="instructionDiv">
+                <h4 id="prepCannotStackSetAbilitiesNotice" class="redNotice"><strong>You cannot choose a skill you already have</strong></h4>
+                <br>
+            </div>
+            <div id="prepMustHaveDifferentFreebiesDiv" class="instructionDiv">
+                <h4 id="prepMustHaveDifferentFreebiesNotice" class="redNotice"><strong>You cannot select the same Ability twice</strong></h4>
+                <br>
+            </div>
             <div id="prepFreebie01Div" class="prepFreebieDivs">
-                <h4>Prep Freebie 1:</h4>
-                <input id="prepFreebie01Talent" type="radio" name="prepFreebie01">
-                <h4>Talent:</h4>
-                <select id="prepFreebie01Talents">
+                <h4><u>Prep Freebie 1</u>:</h4>
+                <br>
+                <input id="prepFreebie01TalentRadio" type="radio" name="prepFreebie01">
+                <label for="prepFreebie01TalentRadio">Talent</label>
+                <br>
+                <input id="prepFreebie01SkillRadio" type="radio" name="prepFreebie01">
+                <label for="prepFreebie01SkillRadio">Skill</label>
+                <br>
+                <input id="prepFreebie01KnowledgeRadio" type="radio" name="prepFreebie01">
+                <label for="prepFreebie01KnowledgeRadio">Knowledge</label>
+            </div>
+            <div id="prepFreebie01Select" class="prepFreebieDivs">
+                <select id="prepFreebie01TalentSelect" class="prepFreebieSelects">
                     <option id="prepFreebie01TalentBlank"></option>
                     <option id="prepActingFreebie01" class="prepFreebie01Talent">Acting</option>
                     <option id="prepAlertnessFreebie01" class="prepFreebie01Talent">Alertness</option>
@@ -1237,9 +1300,8 @@
                     <option id="prepMemoryFreebie01" class="prepFreebie01Talent">Memory</option>
                     <option id="prepStealthFreebie01" class="prepFreebie01Talent">Stealth</option>
                 </select>
-                <input id="prepFreebie01Skill" type="radio" name="prepFreebie01">
-                <h4>Skill:</h4>
-                <select id="prepFreebie01Skills">
+                <br> 
+                <select id="prepFreebie01SkillSelect" class="prepFreebieSelects">
                     <option id="prepFreebie01SkillBlank"></option>
                     <option id="prepDeceptionFreebie01" class="prepFreebie01Skill">Deception</option>
                     <option id="prepFirearmsFreebie01" class="prepFreebie01Skill">Firearms</option>
@@ -1251,9 +1313,8 @@
                     <option id="prepSecurityFreebie01" class="prepFreebie01Skill">Security</option>
                     <option id="prepSocializingFreebie01" class="prepFreebie01Skill">Socializing</option>
                 </select>
-                <input id="prepFreebie01Knowledge" type="radio" name="prepFreebie01">
-                <h4>Knowledge:</h4>
-                <select id="prepFreebie01Knowledges">
+                <br>
+                <select id="prepFreebie01KnowledgeSelect" class="prepFreebieSelects">
                     <option id="prepFreebie01KnowledgeBlank"></option>
                     <option id="prepArcanaFreebie01" class="prepFreebie01Knowledge">Arcana</option>
                     <option id="prepCodeBreakingFreebie01" class="prepFreebie01Knowledge">Code-Breaking</option>
@@ -1267,10 +1328,19 @@
                 </select>
             </div>
             <div id="prepFreebie02Div" class="prepFreebieDivs">
-                <h4>Prep Freebie 2:</h4>
-                <input id="prepFreebie02Talent" type="radio" name="prepFreebie02">
-                <h4>Talent:</h4>
-                <select id="prepFreebie02Talents">
+                <h4><u>Prep Freebie 2</u>:</h4>
+                <br>
+                <input id="prepFreebie02TalentRadio" type="radio" name="prepFreebie02">
+                <label for="prepFreebie02TalentRadio">Talent</label>
+                <br>
+                <input id="prepFreebie02SkillRadio" type="radio" name="prepFreebie02">
+                <label for="prepFreebie02SkillRadio">Skill</label>
+                <br>
+                <input id="prepFreebie02KnowledgeRadio" type="radio" name="prepFreebie02">
+                <label for="prepFreebie02KnowledgeRadio">Knowledge</label>
+            </div>
+            <div id="prepFreebie02Selects" class="prepFreebieDivs">
+                <select id="prepFreebie02TalentSelect" class="prepFreebieSelects">
                     <option id="prepFreebie02TalentBlank"></option>
                     <option id="prepActingFreebie02" class="prepFreebie02Talent">Acting</option>
                     <option id="prepAlertnessFreebie02" class="prepFreebie02Talent">Alertness</option>
@@ -1282,9 +1352,8 @@
                     <option id="prepMemoryFreebie02" class="prepFreebie02Talent">Memory</option>
                     <option id="prepStealthFreebie02" class="prepFreebie02Talent">Stealth</option>
                 </select>
-                <input id="prepFreebie02Skill" type="radio" name="prepFreebie02">
-                <h4>Skill:</h4>
-                <select id="prepFreebie02Skills">
+                <br>
+                <select id="prepFreebie02SkillSelect" class="prepFreebieSelects">
                     <option id="prepFreebie02SkillBlank"></option>
                     <option id="prepDeceptionFreebie02" class="prepFreebie02Skill">Deception</option>
                     <option id="prepFirearmsFreebie02" class="prepFreebie02Skill">Firearms</option>
@@ -1296,9 +1365,8 @@
                     <option id="prepSecurityFreebie02" class="prepFreebie02Skill">Security</option>
                     <option id="prepSocializingFreebie02" class="prepFreebie02Skill">Socializing</option>
                 </select>
-                <input id="prepFreebie02Knowledge" type="radio" name="prepFreebie02">
-                <h4>Knowledge:</h4>
-                <select id="prepFreebie02Knowledges">
+                <br>
+                <select id="prepFreebie02KnowledgeSelect" class="prepFreebieSelects">
                     <option id="prepFreebie02KnowledgeBlank"></option>
                     <option id="prepArcanaFreebie02" class="prepFreebie02Knowledge">Arcana</option>
                     <option id="prepCodeBreakingFreebie02" class="prepFreebie02Knowledge">Code-Breaking</option>
@@ -1311,9 +1379,12 @@
                     <option id="prepSpecialFreebie02" class="prepFreebie02Knowledge">Special</option>
                 </select>
             </div>
-         <button id="prepCliqueBasedAbilitiesButton" type="button" onclick="applyPrepAbilities()">Commit Choices</button>
-         <button id="prepCliqueBasedAbilitiesResetButton" type="button" onclick="resetPrepAbilities()">Reset</button> 
-        </div>
+            <br>
+            <button id="prepCliqueBasedAbilitiesButton" type="button" onclick="applyPrepAbilities()">Commit Choices</button>
+            <button id="prepCliqueBasedAbilitiesResetButton" type="button" onclick="resetPrepAbilities()">Reset</button> 
+            <br>
+        </div>    
+        <br>
         <div id="theaterKidAbilities">
             <h4>Theater Kid: Acting or Music:</h4>
             <select>
@@ -1726,7 +1797,6 @@
          <button id="chameleonCliqueBasedAbilitiesResetButton" type="button" onclick="resetChameleonAbilities()">Reset</button> 
         </div>
     </div>
-    <br>
     <div id="prioritizeAbilityTypes">
         <h3 id=>Prioritize Talents, Skills, and Knowledges:</h3>
         <br>

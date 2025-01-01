@@ -281,7 +281,18 @@ h3 {
   display: none;
 }
 .prepFreebieDivs {
-  margin-left: 25px;
+  display: inline-block;
+}
+#prepFreebie01Div {
+  width: 105px;
+  display: inline-block;
+}
+#prepFreebie01Select {
+  width: 130px;
+  display: inline-block;
+}
+.prepFreebieSelects {
+  width: 113px;
 }
 #theaterKidAbilities {
   display: none;
