@@ -1384,17 +1384,22 @@
             <button id="prepCliqueBasedAbilitiesResetButton" type="button" onclick="resetPrepAbilities()">Reset</button> 
             <br>
         </div>    
-        <br>
         <div id="theaterKidAbilities">
+            <div id="theaterKidMustSelectActingOrMusicDiv" class="instructionDiv">
+                <h4 id="theaterKidMustSelectActingOrMusicNotice" class="redNotice"><strong>You must choose either Acting or Music</strong></h4>
+            </div>
             <h4>Theater Kid: Acting or Music:</h4>
-            <select>
+            <select id="theaterKidActingOrMusic">
                 <option id="theaterKidActingOrMusicBlank"></option>
                 <option id="theaterKidActing">Acting</option>
                 <option id="theaterKidMusic">Music</option>
             </select>
             <br>
+            <div id="theaterKidMustSelectKnowledgeDiv" class="instructionDiv">
+                <h4 id="theaterKidMustSelectKnowledgeNotice" class="redNotice"><strong>You must choose a Knowledge</strong></h4>
+            </div>
             <h4>Theater Kid: Knowledge</h4>
-            <select id="theaterKidKnowledges01">
+            <select id="theaterKidKnowledge01">
                 <option id="theaterKidKnowledgeBlank"></option>
                 <option id="theaterKidArcana" class="theaterKidKnowledge">Arcana</option>
                 <option id="theaterKidCodeBreaking" class="theaterKidKnowledge">Code-Breaking</option>
@@ -1407,13 +1412,37 @@
                 <option id="theaterKidSpecial" class="theaterKidKnowledge">Special</option>
             </select>
             <br>
-            <h4>Theater Kid: 3 Freebies</h4>
+            <br>
+            <div id="theaterKidMustHaveFreebiesDiv" class="instructionDiv">
+                <h4 id="theaterKidMustHaveFreebiesNotice"class="redNotice"><strong>You must select your Freebies</strong></h4>
+                <br>
+            </div>
+            <div id="theaterKidCannotStackFreebiesDiv" class="instructionDiv">
+                <h4 id="theaterKidCannotStackFreebieNotice" class="redNotice"><strong>You cannot choose the same Ability twice</strong></h4>
+                <br>
+            </div>
+            <div class="theaterKidFreebie123">
+                <h4><u>Theater Kid Freebie 1</u>:</h4>
+            </div>
+            <div class="theaterKidFreebie123">
+                <h4><u>Theater Kid Freebie 2</u>:</h4>
+            </div>
+            <div class="theaterKidFreebie123">
+                <h4><u>Theater Kid Freebie 3</u>:</h4>
+            </div>
             <br>
             <div id="theaterKidFreebie01Div" class="theaterKidFreebieDivs">
-                <h4>Theater Kid Freebie 1:</h4>
-                <input id="theaterKidFreebie01Talent" type="radio" name="theaterKidFreebie01">
-                <h4>Talent:</h4>
-                <select id="theaterKidFreebie01Talents">
+                <input id="theaterKidFreebie01TalentRadio" type="radio" name="theaterKidFreebie01">
+                <label for="theaterKidFreebie01TalentRadio">Talent</label>
+                <br>
+                <input id="theaterKidFreebie01SkillRadio" type="radio" name="theaterKidFreebie01">
+                <label for="theaterKidFreebie01SkillRadio">Skill</label>
+                <br>
+                <input id="theaterKidFreebie01KnowledgeRadio" type="radio" name="theaterKidFreebie01">
+                <label for="theaterKidFreebie01KnowledgeRadio">Knowledge</label>
+            </div>
+            <div id="theaterKidFreebie01Select" class="theaterKidFreebieDivs">
+                <select id="theaterKidFreebie01TalentSelect" class="theaterKidFreebieSelects">
                     <option id="theaterKidFreebie01TalentBlank"></option>
                     <option id="theaterKidActingFreebie01" class="theaterKidFreebie01Talent">Acting</option>
                     <option id="theaterKidAlertnessFreebie01" class="theaterKidFreebie01Talent">Alertness</option>
@@ -1425,9 +1454,8 @@
                     <option id="theaterKidMemoryFreebie01" class="theaterKidFreebie01Talent">Memory</option>
                     <option id="theaterKidStealthFreebie01" class="theaterKidFreebie01Talent">Stealth</option>
                 </select>
-                <input id="theaterKidFreebie01Skill" type="radio" name="theaterKidFreebie01">
-                <h4>Skill:</h4>
-                <select id="theaterKidFreebie01Skills">
+                <br> 
+                <select id="theaterKidFreebie01SkillSelect" class="theaterKidFreebieSelects">
                     <option id="theaterKidFreebie01SkillBlank"></option>
                     <option id="theaterKidDeceptionFreebie01" class="theaterKidFreebie01Skill">Deception</option>
                     <option id="theaterKidFirearmsFreebie01" class="theaterKidFreebie01Skill">Firearms</option>
@@ -1439,9 +1467,8 @@
                     <option id="theaterKidSecurityFreebie01" class="theaterKidFreebie01Skill">Security</option>
                     <option id="theaterKidSocializingFreebie01" class="theaterKidFreebie01Skill">Socializing</option>
                 </select>
-                <input id="theaterKidFreebie01Knowledge" type="radio" name="theaterKidFreebie01">
-                <h4>Knowledge:</h4>
-                <select id="theaterKidFreebie01Knowledges">
+                <br>
+                <select id="theaterKidFreebie01KnowledgeSelect" class="theaterKidFreebieSelects">
                     <option id="theaterKidFreebie01KnowledgeBlank"></option>
                     <option id="theaterKidArcanaFreebie01" class="theaterKidFreebie01Knowledge">Arcana</option>
                     <option id="theaterKidCodeBreakingFreebie01" class="theaterKidFreebie01Knowledge">Code-Breaking</option>
@@ -1455,10 +1482,17 @@
                 </select>
             </div>
             <div id="theaterKidFreebie02Div" class="theaterKidFreebieDivs">
-                <h4>Theater Kid Freebie 2:</h4>
-                <input id="theaterKidFreebie02Talent" type="radio" name="theaterKidFreebie02">
-                <h4>Talent:</h4>
-                <select id="theaterKidFreebie02Talents">
+                <input id="theaterKidFreebie02TalentRadio" type="radio" name="theaterKidFreebie02">
+                <label for="theaterKidFreebie02TalentRadio">Talent</label>
+                <br>
+                <input id="theaterKidFreebie02SkillRadio" type="radio" name="theaterKidFreebie02">
+                <label for="theaterKidFreebie02SkillRadio">Skill</label>
+                <br>
+                <input id="theaterKidFreebie02KnowledgeRadio" type="radio" name="theaterKidFreebie02">
+                <label for="theaterKidFreebie02KnowledgeRadio">Knowledge</label>
+            </div>
+            <div id="theaterKidFreebie02Selects" class="theaterKidFreebieDivs">
+                <select id="theaterKidFreebie02TalentSelect" class="theaterKidFreebieSelects">
                     <option id="theaterKidFreebie02TalentBlank"></option>
                     <option id="theaterKidActingFreebie02" class="theaterKidFreebie02Talent">Acting</option>
                     <option id="theaterKidAlertnessFreebie02" class="theaterKidFreebie02Talent">Alertness</option>
@@ -1470,40 +1504,45 @@
                     <option id="theaterKidMemoryFreebie02" class="theaterKidFreebie02Talent">Memory</option>
                     <option id="theaterKidStealthFreebie02" class="theaterKidFreebie02Talent">Stealth</option>
                 </select>
-                <input id="theaterKidFreebie02Skill" type="radio" name="theaterKidFreebie02">
-                <h4>Skill:</h4>
-                <select id="theaterKidFreebie02Skills">
+                <br>
+                <select id="theaterKidFreebie02SkillSelect" class="theaterKidFreebieSelects">
                     <option id="theaterKidFreebie02SkillBlank"></option>
                     <option id="theaterKidDeceptionFreebie02" class="theaterKidFreebie02Skill">Deception</option>
                     <option id="theaterKidFirearmsFreebie02" class="theaterKidFreebie02Skill">Firearms</option>
                     <option id="theaterKidInvestigationFreebie02" class="theaterKidFreebie02Skill">Investigation</option>
                     <option id="theaterKidLeadershipFreebie02" class="theaterKidFreebie02Skill">Leadership</option>
                     <option id="theaterKidLegerdemainFreebie02" class="theaterKidFreebie02Skill">Legerdemain</option>
-                    <option id="theaterKidMeleeFreebie02" class="theaterKidFreebie02Skill">Melee</option>
-                    <option id="theaterKidMusicFreebie02" class="theaterKidFreebie02Skill">Music</option>
-                    <option id="theaterKidSecurityFreebie02" class="theaterKidFreebie02Skill">Security</option>
-                    <option id="theaterKidSocializingFreebie02" class="theaterKidFreebie02Skill">Socializing</option>
-                </select>
-                <input id="theaterKidFreebie02Knowledge" type="radio" name="theaterKidFreebie02">
-                <h4>Knowledge:</h4>
-                <select id="theaterKidFreebie02Knowledges">
-                    <option id="theaterKidFreebie02KnowledgeBlank"></option>
-                    <option id="theaterKidArcanaFreebie02" class="theaterKidFreebie02Knowledge">Arcana</option>
-                    <option id="theaterKidCodeBreakingFreebie02" class="theaterKidFreebie02Knowledge">Code-Breaking</option>
-                    <option id="theaterKidComputersFreebie02" class="theaterKidFreebie02Knowledge">Computers</option>
-                    <option id="theaterKidHistoryFreebie02" class="theaterKidFreebie02Knowledge">History</option>
-                    <option id="theaterKidMedicineFreebie02" class="theaterKidFreebie02Knowledge">Medicine</option>
-                    <option id="theaterKidNatureFreebie02" class="theaterKidFreebie02Knowledge">Nature</option>
-                    <option id="theaterKidReligionFreebie02" class="theaterKidFreebie02Knowledge">Religion</option>
-                    <option id="theaterKidScienceFreebie02" class="theaterKidFreebie02Knowledge">Science</option>
-                    <option id="theaterKidSpecialFreebie02" class="theaterKidFreebie02Knowledge">Special</option>
-                </select>
+                   <option id="theaterKidMeleeFreebie02" class="theaterKidFreebie02Skill">Melee</option>
+                   <option id="theaterKidMusicFreebie02" class="theaterKidFreebie02Skill">Music</option>
+                   <option id="theaterKidSecurityFreebie02" class="theaterKidFreebie02Skill">Security</option>
+                   <option id="theaterKidSocializingFreebie02" class="theaterKidFreebie02Skill">Socializing</option>
+               </select>
+               <br>
+               <select id="theaterKidFreebie02KnowledgeSelect" class="theaterKidFreebieSelects">
+                   <option id="theaterKidFreebie02KnowledgeBlank"></option>
+                   <option id="theaterKidArcanaFreebie02" class="theaterKidFreebie02Knowledge">Arcana</option>
+                   <option id="theaterKidCodeBreakingFreebie02" class="theaterKidFreebie02Knowledge">Code-Breaking</option>
+                   <option id="theaterKidComputersFreebie02" class="theaterKidFreebie02Knowledge">Computers</option>
+                   <option id="theaterKidHistoryFreebie02" class="theaterKidFreebie02Knowledge">History</option>
+                   <option id="theaterKidMedicineFreebie02" class="theaterKidFreebie02Knowledge">Medicine</option>
+                   <option id="theaterKidNatureFreebie02" class="theaterKidFreebie02Knowledge">Nature</option>
+                   <option id="theaterKidReligionFreebie02" class="theaterKidFreebie02Knowledge">Religion</option>
+                   <option id="theaterKidScienceFreebie02" class="theaterKidFreebie02Knowledge">Science</option>
+                   <option id="theaterKidSpecialFreebie02" class="theaterKidFreebie02Knowledge">Special</option>
+               </select>
             </div>
             <div id="theaterKidFreebie03Div" class="theaterKidFreebieDivs">
-                <h4>Theater Kid Freebie 3:</h4>
-                <input id="theaterKidFreebie03Talent" type="radio" name="theaterKidFreebie03">
-                <h4>Talent:</h4>
-                <select id="theaterKidFreebie03Talents">
+                <input id="theaterKidFreebie03TalentRadio" type="radio" name="theaterKidFreebie03">
+                <label for="theaterKidFreebie03TalentRadio">Talent</label>
+                <br>
+                <input id="theaterKidFreebie03SkillRadio" type="radio" name="theaterKidFreebie03">
+                <label for="theaterKidFreebie03SkillRadio">Skill</label>
+                <br>
+                <input id="theaterKidFreebie03KnowledgeRadio" type="radio" name="theaterKidFreebie03">
+                <label for="theaterKidFreebie03KnowledgeRadio">Knowledge</label>
+            </div>
+            <div id="theaterKidFreebie03Selects" class="theaterKidFreebieDivs">
+                <select id="theaterKidFreebie03TalentSelect" class="theaterKidFreebieSelects">
                     <option id="theaterKidFreebie03TalentBlank"></option>
                     <option id="theaterKidActingFreebie03" class="theaterKidFreebie03Talent">Acting</option>
                     <option id="theaterKidAlertnessFreebie03" class="theaterKidFreebie03Talent">Alertness</option>
@@ -1515,35 +1554,35 @@
                     <option id="theaterKidMemoryFreebie03" class="theaterKidFreebie03Talent">Memory</option>
                     <option id="theaterKidStealthFreebie03" class="theaterKidFreebie03Talent">Stealth</option>
                 </select>
-                <input id="theaterKidFreebie03Skill" type="radio" name="theaterKidFreebie03">
-                <h4>Skill:</h4>
-                <select id="theaterKidFreebie03Skills">
+                <br>
+                <select id="theaterKidFreebie03SkillSelect" class="theaterKidFreebieSelects">
                     <option id="theaterKidFreebie03SkillBlank"></option>
                     <option id="theaterKidDeceptionFreebie03" class="theaterKidFreebie03Skill">Deception</option>
                     <option id="theaterKidFirearmsFreebie03" class="theaterKidFreebie03Skill">Firearms</option>
                     <option id="theaterKidInvestigationFreebie03" class="theaterKidFreebie03Skill">Investigation</option>
                     <option id="theaterKidLeadershipFreebie03" class="theaterKidFreebie03Skill">Leadership</option>
                     <option id="theaterKidLegerdemainFreebie03" class="theaterKidFreebie03Skill">Legerdemain</option>
-                    <option id="theaterKidMeleeFreebie03" class="theaterKidFreebie03Skill">Melee</option>
-                    <option id="theaterKidMusicFreebie03" class="theaterKidFreebie03Skill">Music</option>
-                    <option id="theaterKidSecurityFreebie03" class="theaterKidFreebie03Skill">Security</option>
-                    <option id="theaterKidSocializingFreebie03" class="theaterKidFreebie03Skill">Socializing</option>
-                </select>
-                <input id="theaterKidFreebie03Knowledge" type="radio" name="theaterKidFreebie03">
-                <h4>Knowledge:</h4>
-                <select id="theaterKidFreebie03Knowledges">
-                    <option id="theaterKidFreebie03KnowledgeBlank"></option>
-                    <option id="theaterKidArcanaFreebie03" class="theaterKidFreebie03Knowledge">Arcana</option>
-                    <option id="theaterKidCodeBreakingFreebie03" class="theaterKidFreebie03Knowledge">Code-Breaking</option>
-                    <option id="theaterKidComputersFreebie03" class="theaterKidFreebie03Knowledge">Computers</option>
-                    <option id="theaterKidHistoryFreebie03" class="theaterKidFreebie03Knowledge">History</option>
-                    <option id="theaterKidMedicineFreebie03" class="theaterKidFreebie03Knowledge">Medicine</option>
-                    <option id="theaterKidNatureFreebie03" class="theaterKidFreebie03Knowledge">Nature</option>
-                    <option id="theaterKidReligionFreebie03" class="theaterKidFreebie03Knowledge">Religion</option>
-                    <option id="theaterKidScienceFreebie03" class="theaterKidFreebie03Knowledge">Science</option>
-                    <option id="theaterKidSpecialFreebie03" class="theaterKidFreebie03Knowledge">Special</option>
-                </select>
+                   <option id="theaterKidMeleeFreebie03" class="theaterKidFreebie03Skill">Melee</option>
+                   <option id="theaterKidMusicFreebie03" class="theaterKidFreebie03Skill">Music</option>
+                   <option id="theaterKidSecurityFreebie03" class="theaterKidFreebie03Skill">Security</option>
+                   <option id="theaterKidSocializingFreebie03" class="theaterKidFreebie03Skill">Socializing</option>
+               </select>
+               <br>
+               <select id="theaterKidFreebie03KnowledgeSelect" class="theaterKidFreebieSelects">
+                   <option id="theaterKidFreebie03KnowledgeBlank"></option>
+                   <option id="theaterKidArcanaFreebie03" class="theaterKidFreebie03Knowledge">Arcana</option>
+                   <option id="theaterKidCodeBreakingFreebie03" class="theaterKidFreebie03Knowledge">Code-Breaking</option>
+                   <option id="theaterKidComputersFreebie03" class="theaterKidFreebie03Knowledge">Computers</option>
+                   <option id="theaterKidHistoryFreebie03" class="theaterKidFreebie03Knowledge">History</option>
+                   <option id="theaterKidMedicineFreebie03" class="theaterKidFreebie03Knowledge">Medicine</option>
+                   <option id="theaterKidNatureFreebie03" class="theaterKidFreebie03Knowledge">Nature</option>
+                   <option id="theaterKidReligionFreebie03" class="theaterKidFreebie03Knowledge">Religion</option>
+                   <option id="theaterKidScienceFreebie03" class="theaterKidFreebie03Knowledge">Science</option>
+                   <option id="theaterKidSpecialFreebie03" class="theaterKidFreebie03Knowledge">Special</option>
+               </select>
             </div>
+
+            <br>
             <br>
             <button id="theaterKidCliqueBasedAbilitiesButton" type="button" onclick="applyTheaterKidAbilities()">Commit Choices</button>
             <button id="theaterKidCliqueBasedAbilitiesResetButton" type="button" onclick="resetTheaterKidAbilities()">Reset</button> 

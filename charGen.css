@@ -300,9 +300,29 @@ h3 {
 #theaterKidActingDiv {
   display: none;
 }
-.theaterKidFreebieDivs {
-  margin-left: 25px;
+.theaterKidFreebie123 {
+  display: inline-block;
+  width: 225px;
 }
+.theaterKidFreebieDivs {
+  display: inline-block;
+}
+#theaterKidFreebie01Div {
+  width: 100px;
+  display: inline-block;
+}
+#theaterKidFreebie01Select {
+  width: 115px;
+  display: inline-block;
+}
+.theaterKidFreebieSelects {
+  width: 113px;
+}
+#theaterKidFreebie02Select {
+  width: 130px;
+  display: inline-block;
+}
+
 #lonerAbilities {
   display: none;
 }

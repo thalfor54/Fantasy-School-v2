@@ -1064,7 +1064,7 @@ function changeIntuitionRow() {
     let initiativeTotal = dexterityModifyInitiative - intuitionModifyInitiative
     initiativeTotal = initiativeTotal * -1
     initiativeTotal = Math.floor(initiativeTotal / 2)
-    initiative.innerHTML = initiativeTotal    
+    initiative.innerHTML = initiativeTotal
     calculateFeelsResistancesAndSaves()
 }
 
@@ -3265,7 +3265,6 @@ function applyPrepAbilities() {
     resetAbilitiesToUntrained()
     // remove any previously displayed notices *****need update for prep*****
     let prepMustSelectKnowledgeDiv = document.getElementById("prepMustSelectKnowledgeDiv")
-//    let prepMustChooseFreebiesDiv = document.getElementById("prepMustChooseFreebiesDiv")
     let prepCannotStackFreebiesDiv = document.getElementById("prepCannotStackFreebiesDiv")
     // proficiency in Leadership and Socializing
     let leadershipProficient = document.getElementById("leadership01")
@@ -3286,6 +3285,7 @@ function applyPrepAbilities() {
     let prepFreebie02Talents = document.getElementsByClassName("prepFreebie02Talent")
     let prepFreebie01Skills = document.getElementsByClassName("prepFreebie01Skill")
     let prepFreebie02Skills = document.getElementsByClassName("prepFreebie02Skill")
+    let prepKnowledge01 = document.getElementById("prepKnowledge01").value
 
     // post notices for unused boxes
     let prepMustSelectLeadershipDiv = document.getElementById("prepMustSelectLeadershipDiv")
@@ -3297,7 +3297,6 @@ function applyPrepAbilities() {
         prepMustSelectSocializingDiv.style.display = 'block'
         return
     }
-    let prepKnowledge01 = document.getElementById("prepKnowledge01").value
     if (prepKnowledge01 == '') {
         prepMustSelectKnowledgeDiv.style.display = 'block'
         return
@@ -3430,7 +3429,6 @@ function applyPrepAbilities() {
     removeAbilityOptions()
 }
 
-// fix resetPrepAbilities so it doesn't give 2 extra skill points
 function resetPrepAbilities() {
     whiteOutAbilitiesCells()
     let prepLeadershipBlank = document.getElementById("prepLeadershipBlank")
@@ -3462,45 +3460,143 @@ function resetPrepAbilities() {
     reAddAbilityOptions()       
 }
 
+// declarations
+let theaterKidKnowledge01 = document.getElementById("theaterKidKnowledge01")
+let theaterKidActingOrMusic = document.getElementById("theaterKidActingOrMusic")
+let theaterKidMustSelectActingOrMusicDiv = document.getElementById("theaterKidMustSelectActingOrMusicDiv")
+let theaterKidMustSelectKnowledgeDiv = document.getElementById("theaterKidMustSelectKnowledgeDiv")
+let theaterKidMustHaveFreebiesDiv = document.getElementById("theaterKidMustHaveFreebiesDiv")
+let theaterKidCannotStackFreebiesDiv = document.getElementById("theaterKidCannotStackFreebiesDiv")
+let theaterKidFreebie01TalentRadio = document.getElementById("theaterKidFreebie01TalentRadio")
+let theaterKidFreebie01SkillRadio = document.getElementById("theaterKidFreebie01SkillRadio")
+let theaterKidFreebie01KnowledgeRadio = document.getElementById("theaterKidFreebie01KnowledgeRadio")
+let theaterKidFreebie02TalentRadio = document.getElementById("theaterKidFreebie02TalentRadio")
+let theaterKidFreebie02SkillRadio = document.getElementById("theaterKidFreebie02SkillRadio")
+let theaterKidFreebie02KnowledgeRadio = document.getElementById("theaterKidFreebie02KnowledgeRadio")
+let theaterKidFreebie03TalentRadio = document.getElementById("theaterKidFreebie03TalentRadio")
+let theaterKidFreebie03SkillRadio = document.getElementById("theaterKidFreebie03SkillRadio")
+let theaterKidFreebie03KnowledgeRadio = document.getElementById("theaterKidFreebie03KnowledgeRadio")
 
-/*
-
-    for (i=0; i<talentUntrained.length; i++) {
-        if (talentSkilled[i].selected == true) {
-            talentProficient[i].selected= true
-        }
-        if (talentProficient[i].selected == true) {
-            talentUntrained[i].selected = true
-        }
-    }
-    for (i=0; i<skillUntrained.length; i++) {
-        if (skillSkilled[i].selected == true) {
-            skillProficient[i].selected = true
-        }
-        if (skillProficient[i].selected == true) {
-            skillUntrained[i].selected = true
-        }
-    }
-    for (i=0; i<knowledgeUntrained.length; i++) {
-        if (knowledgeSkilled[i].selected == true) {
-            knowledgeProficient[i].selected = true
-        }
-        if (knowledgeProficient[i].selected == true) {
-            knowledgeUntrained[i].selected= true
-        }
-    }
-
-    abilityChange()
-    reAddAbilityOptions()
-}
-*/
-let music00 = document.getElementById("music00")
-let music01 = document.getElementById("music01")
-let music02 = document.getElementById("music02")
 
 function applyTheaterKidAbilities() {
     resetAbilitiesToUntrained()
-    let theaterKidActing = document.getElementById("theaterKidActing")
+    if (theaterKidActingOrMusic.value == '') {
+        theaterKidMustSelectActingOrMusicDiv.style.display = 'block'
+        return
+    }
+    if (theaterKidKnowledge01.value == '') {
+        theaterKidMustSelectKnowledgeDiv.style.display = 'block'
+        return
+    }
+    if (theaterKidFreebie01TalentRadio.checked == false && theaterKidFreebie01SkillRadio.checked == false && theaterKidFreebie01KnowledgeRadio.checked == false) {
+        theaterKidMustHaveFreebiesDiv.style.display = 'block'
+        return
+    }
+    if (theaterKidFreebie02TalentRadio.checked == false && theaterKidFreebie02SkillRadio.checked == false && theaterKidFreebie02KnowledgeRadio.checked == false) {
+        theaterKidMustHaveFreebiesDiv.style.display = 'block'
+        return
+    }
+    if (theaterKidFreebie03TalentRadio.checked == false && theaterKidFreebie03SkillRadio.checked == false && theaterKidFreebie03KnowledgeRadio.checked == false) {
+        theaterKidMustHaveFreebiesDiv.style.display = 'block'
+        return
+    }
+    if (theaterKidFreebie01TalentRadio.checked == true && theaterKidFreebie02TalentRadio == true) {
+        for (i=0; i<theaterKidFreebie01Talents.length; i++) {
+            if (theaterKidFreebie01Talents[i].selected == true && theaterKidFreebie02Talents[i].selected) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return    
+            } 
+        }
+    }
+    if (theaterKidFreebie01TalentRadio.checked == true && theaterKidFreebie03TalentRadio == true) {
+        for (i=0; i<theaterKidFreebie01Talents.length; i++) {
+            if (theaterKidFreebie01Talents[i].selected == true && theaterKidFreebie03Talents[i].selected) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return    
+            } 
+        }
+    }
+    if (theaterKidFreebie02TalentRadio.checked == true && theaterKidFreebie03TalentRadio == true) {
+        for (i=0; i<theaterKidFreebie02Talents.length; i++) {
+            if (theaterKidFreebie02Talents[i].selected == true && theaterKidFreebie03Talents[i].selected) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return    
+            } 
+        }
+    }
+    if (theaterKidFreebie01SkillRadio.checked == true && theaterKidFreebie02SkillRadio == true) {
+        for (i=0; i<theaterKidFreebie01Skills.length; i++) {
+            if (theaterKidFreebie01Skills[i].selected == true && theaterKidFreebie02Skills[i].selected) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return    
+            } 
+        }
+    }
+    if (theaterKidFreebie01SkillRadio.checked == true && theaterKidFreebie03SkillRadio == true) {
+        for (i=0; i<theaterKidFreebie01Skills.length; i++) {
+            if (theaterKidFreebie01Skills[i].selected == true && theaterKidFreebie03Skills[i].selected) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return    
+            } 
+        }
+    }
+    if (theaterKidFreebie02SkillRadio.checked == true && theaterKidFreebie03SkillRadio == true) {
+        for (i=0; i<theaterKidFreebie02Skills.length; i++) {
+            if (theaterKidFreebie02Skills[i].selected == true && theaterKidFreebie03Skills[i].selected) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return    
+            } 
+        }
+    }
+    if (theaterKidFreebie01KnowledgeRadio.checked == true && theaterKidFreebie02KnowledgeRadio == true) {
+        for (i=0; i<theaterKidFreebie01Knowledges.length; i++) {
+            if (theaterKidFreebie01Knowledges[i].selected == true && theaterKidFreebie02Knowledges[i].selected) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return    
+            } 
+        }
+    }
+    if (theaterKidFreebie01KnowledgeRadio.checked == true && theaterKidFreebie03KnowledgeRadio == true) {
+        for (i=0; i<theaterKidFreebie01Knowledges.length; i++) {
+            if (theaterKidFreebie01Knowledges[i].selected == true && theaterKidFreebie03Knowledges[i].selected) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return    
+            } 
+        }
+    }
+    if (theaterKidFreebie02KnowledgeRadio.checked == true && theaterKidFreebie03KnowledgeRadio == true) {
+        for (i=0; i<theaterKidFreebie02Knowledges.length; i++) {
+            if (theaterKidFreebie02Knowledges[i].selected == true && theaterKidFreebie03Knowledges[i].selected) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return    
+            } 
+        }
+    }
+        
+
+
+    // apply selections
+    if (theaterKidActingOrMusic.value == 'Acting') {
+        let actingCell = document.getElementById("actingCell")
+        let actingModifier = document.getElementById("actingModifier")
+        actingCell.style.backgroundColor = '#50C878'
+        actingModifier.style.backgroundColor = '#50C878'
+    } 
+    if (theaterKidActingOrMusic.value == 'Music') {
+        let musicCell = document.getElementById("actingCell")
+        let musicModifier = document.getElementById("actingModifier")
+        musicCell.style.backgroundColor = '#50C878'
+        musicModifier.style.backgroundColor = '#50C878'
+    }
+    for (i=0; i<knowledgeStringArray.length; i++) {
+        if (theaterKidKnowledge01.value == knowledgeStringArray[i]) {
+            knowledgeProficient[i].selected = true
+            knowledgeCells[i].style.backgroundColor = '#50C878'
+            knowledgeModifierCells[i].style.backgroundColor = '#50C878'
+        }
+    }
+
+/*    let theaterKidActing = document.getElementById("theaterKidActing")
     let theaterKidMusic = document.getElementById("theaterKidMusic")
     if (theaterKidActing.selected == true) {
         if (acting00.selected == true) {
@@ -3515,6 +3611,7 @@ function applyTheaterKidAbilities() {
             music02.seleted = true
         }
     }
+*/
     for (i=0; i<theaterKidKnowledgesArray.length; i++) {
         if (theaterKidKnowledgesArray[i].selected == true) {
             if (knowledgeUntrained[i].selected == true) {
