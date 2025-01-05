@@ -1136,6 +1136,11 @@ function werewolfModifiers() {
     calculateFeelsResistancesAndSaves()
 }
 function witchModifiers() {
+    // remove any prior notice
+    let witchNoStackingDiv = document.getElementById("witchNoStackingDiv")
+    if (witchNoStackingDiv.style.display = 'block') {
+        witchNoStackingDiv.style.display = 'none'
+    }
     // zero out any prior values
     for (i=0; i<23; i++) {
         speciesModifierArray[i].innerHTML = ''
@@ -1152,25 +1157,20 @@ function witchModifiers() {
     calculateFeelsResistancesAndSaves()
 }
 
-function checkForWitchStackWarning() {
+function applyWitchStatModifiers() {
+    // remove any previously-generated notice
     let witchNoStackingDiv = document.getElementById("witchNoStackingDiv")
     if (witchNoStackingDiv.style.display == "block") {
         witchNoStackingDiv.style.display = "none"
     }
-}
-
-function applyWitchStatModifiers() {
+    let witchMustPickFeelDiv = document.getElementById("witchMustPickFeelDiv")
+    if (witchMustPickFeelDiv.style.display == 'block') {
+        witchMustPickFeelDiv.style.display = 'none'
+    }
     // zero out any prior values
     for (i=0; i<23; i++) {
         speciesModifierArray[i].innerHTML = ''
     }
-    // set focus/resolve/self-control species modifiers
-    focusSpeciesModifier.innerHTML = 3
-    resolveSpeciesModifier.innerHTML = 1
-    selfControlSpeciesModifier.innerHTML = 1
-    // set witch species save modifiers
-    mindSpeciesModifier.innerHTML = 1
-    willSpeciesModifier.innerHTML = 1
     // assign bonuses to selected stats
     let witchStatOption01 = document.getElementById("witchStatOption01").value
     let witchStatOption02 = document.getElementById("witchStatOption02").value
@@ -1179,7 +1179,8 @@ function applyWitchStatModifiers() {
         let witchNoStackingDiv = document.getElementById("witchNoStackingDiv")
         witchNoStackingDiv.style.display = "block"
         return
-    } else {
+    } 
+    else {
         for (i=0; i<12; i++) {
             if (witchStatOption01 == statStringArray[i] || witchStatOption02 == statStringArray[i] || witchStatOption03 == statStringArray[i]) {
                 speciesModifierArray[i].innerHTML = 2
@@ -1189,25 +1190,32 @@ function applyWitchStatModifiers() {
             changeRowArray[i]()
         }    
     }
-    calculateFeelsResistancesAndSaves()
-}  
-
-function applyWitchFeelModifiers() {
+    let witchFeelPick = document.getElementById("witchFeelPick")  
     angrySpeciesModifier.innerHTML = ''
     melancholySpeciesModifier.innerHTML = ''
-    agitatedSpeciesModifier.innerHTML = 2
-    hornySpeciesModifier.innerHTML = 3
-    let witchFeelPick = document.getElementById("witchFeelPick").value
-    if (witchFeelPick == 'angry') {
+    if (witchFeelPick.value == 'blank') {
+        witchMustPickFeelDiv.style.display = 'block'
+    } 
+    else if (witchFeelPick.value == 'angry') {
+        console.log("test")
         angrySpeciesModifier.innerHTML = 1
-    } else if (witchFeelPick == 'melancholy') {
+    } else if (witchFeelPick.value == 'melancholy') {
         melancholySpeciesModifier.innerHTML = 1
     }
+    agitatedSpeciesModifier.innerHTML = 2
+    hornySpeciesModifier.innerHTML = 3
     for (i=0; i<12; i++) {
         changeRowArray[i]()
     }
+    // set focus/resolve/self-control species modifiers
+    focusSpeciesModifier.innerHTML = 3
+    resolveSpeciesModifier.innerHTML = 1
+    selfControlSpeciesModifier.innerHTML = 1
+    // set witch species save modifiers
+    mindSpeciesModifier.innerHTML = 1
+    willSpeciesModifier.innerHTML = 1
     calculateFeelsResistancesAndSaves()
-}
+}  
 
 function fairyModifiers() {
     let witchStatPicks = document.getElementById("witchStatPicks")
@@ -1314,15 +1322,24 @@ function resetAbilitiesToUntrained() {
             knowledgeModifierCells[i].style.backgroundColor = 'initial'
         }
     }
-    if (jockRadio.checked == true) {
+/*    if (jockRadio.checked == true) {
         let jockAthleticsSelected = document.getElementById("jockAthleticsSelected")
         jockAthleticsSelected = true
     }
-    // ***** this should leave Athletics cells green
+*/
 }
 
 
-function displayNerdDiv() {
+function displayNerdStatDiv() {
+    // remove any previously-generated notices
+    let nerdMustMakeEveryChoiceDiv = document.getElementById("nerdMustMakeEveryChoiceDiv")
+    if (nerdMustMakeEveryChoiceDiv.style.display == 'block') {
+        nerdMustMakeEveryChoiceDiv.style.display = 'none'
+    }
+    let nerdNoStackingDiv = document.getElementById("nerdNoStackingDiv")
+    if (nerdNoStackingDiv.style.display == "block") {
+        nerdNoStackingDiv.style.display = "none"
+    }
     // remove any previously-generated Ability divs
     for (i=0; i<cliqueAbilityArray.length; i++) {
         cliqueAbilityArray[i].style.display = "none"
@@ -1335,11 +1352,6 @@ function displayNerdDiv() {
     // display div "nerdStatPicks"
     let nerdStatPicks = document.getElementById("nerdStatPicks")
     nerdStatPicks.style.display = "block"
-    // check for no stacking warning
-    let nerdNoStackingDiv = document.getElementById("nerdNoStackingDiv")
-    if (nerdNoStackingDiv.style.display == "block") {
-        nerdNoStackingDiv.style.display = "none"
-    }
     // zero out any prior values
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
@@ -1355,8 +1367,8 @@ function displayNerdDiv() {
     calculateFeelsResistancesAndSaves()
 }
 
-function applyNerdModifiers() {
-    // check for prior instructions
+function applyNerdStatModifiers() {
+    // remove any previously-generated notices
     let nerdNoStackingDiv = document.getElementById("nerdNoStackingDiv")
     if (nerdMustMakeEveryChoiceDiv.style.display == "block") {
         nerdMustMakeEveryChoiceDiv.style.display = "none"
@@ -1409,7 +1421,16 @@ function applyNerdModifiers() {
     calculateFeelsResistancesAndSaves()
 }
 
-function displayJockDiv() {
+function displayJockStatDiv() {
+    // remove any previously-generated notices
+    let jockMustMakeEveryChoiceDiv = document.getElementById("jockMustMakeEveryChoiceDiv")
+    if (jockMustMakeEveryChoiceDiv.style.display == 'block') {
+        jockMustMakeEveryChoiceDiv.style.display = 'none'
+    }
+    let jockNoStackingDiv = document.getElementById("jockNoStackingDiv")
+    if (jockNoStackingDiv.style.display == "block") {
+        jockNoStackingDiv.style.display = "none"
+    }
     // remove any previously-generated Ability divs
     for (i=0; i<cliqueAbilityArray.length; i++) {
         cliqueAbilityArray[i].style.display = "none"
@@ -1422,11 +1443,6 @@ function displayJockDiv() {
     // display div "jockStatPicks"
     let jockStatPicks = document.getElementById("jockStatPicks")
     jockStatPicks.style.display = "block"
-    // check for no stacking warning
-    let jockNoStackingDiv = document.getElementById("jockNoStackingDiv")
-    if (jockNoStackingDiv.style.display == "block") {
-        jockNoStackingDiv.style.display = "none"
-    }
     // zero out any prior values
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
@@ -1445,8 +1461,8 @@ function displayJockDiv() {
     calculateFeelsResistancesAndSaves()
 }
 
-function applyJockModifiers() {
-    // check for prior instructions
+function applyJockStatModifiers() {
+    // remove any previously-generated notices
     let jockMustMakeEveryChoiceDiv = document.getElementById("jockMustMakeEveryChoiceDiv")
     let jockNoStackingDiv = document.getElementById("jockNoStackingDiv")
     if (jockMustMakeEveryChoiceDiv.style.display == "block") {
@@ -1507,7 +1523,33 @@ function applyJockModifiers() {
 calculateFeelsResistancesAndSaves()
 }
 
-function displayPrepDiv() {
+let prepMustMakeEveryChoiceDiv = document.getElementById("prepMustMakeEveryChoiceDiv")
+let prepNoStackingDiv = document.getElementById("prepNoStackingDiv")
+let prepNoSameBonusAndPenaltyDiv = document.getElementById("prepNoSameBonusAndPenaltyDiv")
+let prepMustChooseASaveDiv = document.getElementById("prepMustChooseASaveDiv")
+let prepNoticeDivs = [prepMustMakeEveryChoiceDiv, prepNoStackingDiv, prepNoSameBonusAndPenaltyDiv, prepMustChooseASaveDiv]
+
+function displayPrepStatDiv() {
+    // remove any previously-generated notices
+    for (i=0; i<prepNoticeDivs.length; i++) {
+        if (prepNoticeDivs[i].style.display == 'block') {
+            prepNoticeDivs[i].style.display = 'none'
+        }
+    }
+/*
+    if (prepMustMakeEveryChoiceDiv.style.display == 'block') {
+        prepMustMakeEveryChoiceDiv.style.display = 'none'
+    }
+    if (prepNoStackingDiv.style.display == "block") {
+        prepNoStackingDiv.style.display = "none"
+    }
+    if (prepNoSameBonusAndPenaltyDiv.style.display == 'block') {
+        prepNoSameBonusAndPenaltyDiv.style.display = 'none'
+    }
+    if (prepMustChooseASaveDiv.style.display == 'block') {
+        prepMustChooseASaveDiv.style.display = 'none'
+    }
+*/
     // remove any previously-generated Ability divs
     for (i=0; i<cliqueAbilityArray.length; i++) {
         cliqueAbilityArray[i].style.display = "none"
@@ -1520,11 +1562,6 @@ function displayPrepDiv() {
     // display div "prepStatPicks"
     let prepStatPicks = document.getElementById("prepStatPicks")
     prepStatPicks.style.display = "block"
-    // check for no stacking warning
-    let prepNoStackingDiv = document.getElementById("prepNoStackingDiv")
-    if (prepNoStackingDiv.style.display == "block") {
-        prepNoStackingDiv.style.display = "none"
-    }
     // zero out any prior values
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
@@ -1538,13 +1575,20 @@ function displayPrepDiv() {
     for (i=0; i<12; i++) {
         changeRowArray[i]()
     }
-    // display jockAbilities
+    // display prepAbilities
     prepAbilities.style.display = "inline"
     calculateFeelsResistancesAndSaves()
 }
 
-function applyPrepModifiers() {
-     // check for prior instructions
+function applyPrepStatModifiers() {
+     // remove any previously-generated notices
+     for (i=0; i<prepNoticeDivs.length; i++) {
+        if (prepNoticeDivs[i].style.display == 'block') {
+            prepNoticeDivs[i].style.display = 'none'
+        }
+    }
+
+/*
      let prepMustMakeEveryChoiceDiv = document.getElementById("prepMustMakeEveryChoiceDiv")
      let prepNoStackingDiv = document.getElementById("prepNoStackingDiv")
      if (prepMustMakeEveryChoiceDiv.style.display == "block") {
@@ -1553,13 +1597,15 @@ function applyPrepModifiers() {
      if (prepNoStackingDiv.style.display == "block") {
         prepNoStackingDiv.style.display = "none"
      }
-    // assign selected values  
+*/
+     // assign selected values  
     let selection01 = document.getElementById("prepStatOption01").value
     let selection02 = document.getElementById("prepStatOption02").value
     let selection03 = document.getElementById("prepStatOption03").value
     let selection04 = document.getElementById("prepStatOption04").value
+    let selection05 = document.getElementById("prepSaveIncrease").value
     // make sure a choice is made for every option
-    if (selection01 == '' || selection02 == '' || selection03 == '' || selection04 == '') {
+    if (selection01 == '' || selection02 == '' || selection03 == '' || selection04 == '' || selection05 == '') {
         let prepMustMakeEveryChoiceDiv = document.getElementById("prepMustMakeEveryChoiceDiv")
         prepMustMakeEveryChoiceDiv.style.display = "block"
         return
@@ -1597,7 +1643,6 @@ function applyPrepModifiers() {
     melancholyCliqueModifier.innerHTML = 2
     // set saves clique modifiers
     mindCliqueModifier.innerHTML = 2
-    let selection05 = document.getElementById("prepSaveIncrease").value
     if (selection05 == 'Fortitude') {
         fortitudeCliqueModifier.innerHTML = 2
     } 
@@ -1610,7 +1655,33 @@ function applyPrepModifiers() {
     calculateFeelsResistancesAndSaves()
 }
 
-function displayTheaterKidDiv() {
+let theaterKidMustMakeEveryChoiceDiv = document.getElementById("theaterKidMustMakeEveryChoiceDiv")
+let theaterKidNoStackingDiv = document.getElementById("theaterKidNoStackingDiv")
+let theaterKidNoSameBonusAndPenaltyDiv = document.getElementById("theaterKidNoSameBonusAndPenaltyDiv")
+let theaterKidMustChooseAResistanceDiv = document.getElementById("theaterKidMustChooseAResistanceDiv")
+let theaterKidNoticeDivs = [theaterKidMustMakeEveryChoiceDiv, theaterKidNoStackingDiv, theaterKidNoSameBonusAndPenaltyDiv, theaterKidMustChooseAResistanceDiv]
+
+function displayTheaterKidStatDiv() {
+    // remove any previously-generated notices
+    for (i=0; i<theaterKidNoticeDivs.length; i++) {
+        if (theaterKidNoticeDivs[i].style.display == 'block') {
+            theaterKidNoticeDivs[i].style.display = 'none'
+        }
+    }
+/*
+    if (theaterKidMustMakeEveryChoiceDiv.style.display == "block") {
+        theaterKidMustMakeEveryChoiceDiv.style.display = 'none'
+    }
+    if (theaterKidNoStackingDiv.style.display == "block") {
+        theaterKidNoStackingDiv.style.display = "none"
+    }
+    if (theaterKidNoSameBonusAndPenaltyDiv.style.display == 'block') {
+        theaterKidNoSameBonusAndPenaltyDiv.style.display = 'none'
+    }
+    if (theaterKidMustChooseAResistanceDiv.style.display == 'block') {
+        theaterKidMustChooseAResistanceDiv.style.display = 'none'
+    }
+*/
     // remove any previously-generated Ability divs
     for (i=0; i<cliqueAbilityArray.length; i++) {
         cliqueAbilityArray[i].style.display = "none"
@@ -1623,11 +1694,6 @@ function displayTheaterKidDiv() {
     // display div "theaterKidStatPicks"
     let theaterKidStatPicks = document.getElementById("theaterKidStatPicks")
     theaterKidStatPicks.style.display = "block"
-    // check for no stacking warning
-    let theaterKidNoStackingDiv = document.getElementById("theaterKidNoStackingDiv")
-    if (theaterKidNoStackingDiv.style.display == "block") {
-        theaterKidNoStackingDiv.style.display = "none"
-    }
     // zero out any prior values
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
@@ -1647,21 +1713,18 @@ function displayTheaterKidDiv() {
 }
 
 function applyTheaterKidStatModifiers() {
-     // check for prior instructions
-     let theaterKidMustMakeEveryChoiceDiv = document.getElementById("theaterKidMustMakeEveryChoiceDiv")
-     let theaterKidNoStackingDiv = document.getElementById("theaterKidNoStackingDiv")
-     if (theaterKidMustMakeEveryChoiceDiv.style.display == "block") {
-        theaterKidMustMakeEveryChoiceDiv.style.display = "none"
-     }
-     if (theaterKidNoStackingDiv.style.display == "block") {
-        theaterKidNoStackingDiv.style.display = "none"
-     }
+    // remove any previously-generated notices
+    for (i=0; i<theaterKidNoticeDivs.length; i++) {
+        if (theaterKidNoticeDivs[i].style.display == 'block') {
+            theaterKidNoticeDivs[i].style.display = 'none'
+        }
+    }
     // assign selected values  
     let selection01 = document.getElementById("theaterKidStatOption01").value
     let selection02 = document.getElementById("theaterKidStatOption02").value
     let selection03 = document.getElementById("theaterKidStatOption03").value
     let selection04 = document.getElementById("theaterKidStatOption04").value
-    let selection05 = document.getElementById("theaterKidResistancesOption").value
+    let selection05 = document.getElementById("theaterKidResistanceIncrease").value
     // make sure a choice is made for every option
     if (selection01 == '' || selection02 == '' || selection03 == '' || selection04 == '' || selection05 == '') {
         let theaterKidMustMakeEveryChoiceDiv = document.getElementById("theaterKidMustMakeEveryChoiceDiv")
@@ -1693,17 +1756,21 @@ function applyTheaterKidStatModifiers() {
             changeRowArray[i]()
         }
     }
-    // set focus/resolve/self-control clique modifiers
-    focusCliqueModifier.innerHTML = 1
-    if (selection05 == 'Resolve') {
-        resolveCliqueModifier.innerHTML = 1
-    }
-    if (selection05 == 'Self-Control') {
-        selfControlCliqueModifier.innerHTML = 1
-    }
     // set FEELS clique modifiers
     hornyCliqueModifier.innerHTML = 2
     melancholyCliqueModifier.innerHTML = 2
+    // set resistances clique modifiers
+    focusCliqueModifier.innerHTML = 1
+    if (selection05 == '') {
+        theaterKidMustChooseAResistanceDiv.style.display = 'block'
+        return
+    }
+    else if (selection05 == 'Resolve') {
+        resolveCliqueModifier.innerHTML = 1
+    }
+    else if (selection05 == 'Self-Control') {
+        selfControlCliqueModifier.innerHTML = 1
+    }
     // set saves clique modifiers
     reflexCliqueModifier.innerHTML = 2
     willCliqueModifier.innerHTML = 2
@@ -1723,7 +1790,21 @@ function applyTheaterKidStatModifiers() {
     calculateFeelsResistancesAndSaves()
 }
 
-function displayLonerDiv() {
+let lonerMustMakeEveryChoiceDiv = document.getElementById("lonerMustMakeEveryChoiceDiv")
+let lonerNoStackingDiv = document.getElementById("lonerNoStackingDiv")
+let lonerNoSameBonusAndPenaltyDiv = document.getElementById("lonerNoSameBonusAndPenaltyDiv")
+let lonerMustChooseOneResistanceOrTwoDiv = document.getElementById("lonerMustChooseOneResistanceOrTwoDiv")
+let lonerMustChooseAResistanceDiv = document.getElementById("lonerMustChooseAResistanceDiv")
+let lonerMustChooseTwoResistancesDiv = document.getElementById("lonerMustChooseTwoResistancesDiv")
+let lonerNoticeDivs = [lonerMustMakeEveryChoiceDiv, lonerNoStackingDiv, lonerNoSameBonusAndPenaltyDiv, lonerMustChooseOneResistanceOrTwoDiv, lonerMustChooseAResistanceDiv, lonerMustChooseTwoResistancesDiv]
+
+function displayLonerStatDiv() {
+    // remove any previously-generated notices
+    for (i=0; i<lonerNoticeDivs.length; i++) {
+        if (lonerNoticeDivs[i].style.display == 'block') {
+            lonerNoticeDivs[i].style.display = 'none'
+        }
+    }
     // remove any previously-generated Ability divs
     for (i=0; i<cliqueAbilityArray.length; i++) {
         cliqueAbilityArray[i].style.display = "none"
@@ -1736,11 +1817,6 @@ function displayLonerDiv() {
     // display div "lonerStatPicks"
     let lonerStatPicks = document.getElementById("lonerStatPicks")
     lonerStatPicks.style.display = "block"
-    // check for no stacking warning
-    let lonerNoStackingDiv = document.getElementById("lonerNoStackingDiv")
-    if (lonerNoStackingDiv.style.display == "block") {
-        lonerNoStackingDiv.style.display = "none"
-    } 
     // zero out any prior values
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
@@ -1760,16 +1836,13 @@ function displayLonerDiv() {
 }
 
 function applyLonerStatModifiers() {
-     // check for prior instructions
-     let lonerMustMakeEveryChoiceDiv = document.getElementById("lonerMustMakeEveryChoiceDiv")
-     let lonerNoStackingDiv = document.getElementById("lonerNoStackingDiv")
-     if (lonerMustMakeEveryChoiceDiv.style.display == "block") {
-        lonerMustMakeEveryChoiceDiv.style.display = "none"
-     }
-     if (lonerNoStackingDiv.style.display == "block") {
-        lonerNoStackingDiv.style.display = "none"
-     }
-    // zero out any prior values
+     // remove any previously-generated notices
+     for (i=0; i<lonerNoticeDivs.length; i++) {
+        if (lonerNoticeDivs[i].style.display == 'block') {
+            lonerNoticeDivs[i].style.display = 'none'
+        }
+    }
+     // zero out any prior values
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
@@ -1784,30 +1857,34 @@ function applyLonerStatModifiers() {
         lonerMustMakeEveryChoiceDiv.style.display = "block"
         return
     } 
-    // check for no stacking
+    // check for no stat stacking
     if (selection01 == selection02) {
-        let lonerNoStackingDiv = document.getElementById("lonerNoStackingDiv")
         lonerNoStackingDiv.style.display = "block"
         return
     } else if (selection01 == selection03 || selection01 == selection04 || selection02 == selection03 || selection02 == selection04) {
-        let lonerNoSameBonusAndPenaltyDiv = document.getElementById("lonerNoSameBonusAndPenaltyDiv")
         lonerNoSameBonusAndPenaltyDiv.style.display = "block"
         return
-    } else {
+    } 
+    // confirm a resistance option has been selected
+    let selection05 = document.getElementById("oneResistance")
+    let selection06 = document.getElementById("twoResistances")
+    if (selection05.checked == false && selection06.checked == false) {
+        lonerMustChooseOneResistanceOrTwoDiv.style.display = 'block'
+        return
+    }
     // assign bonuses to selected stats
-        for (i=0; i<statStringArray.length; i++) {
-            if (selection01 == statStringArray[i] || selection02 == statStringArray[i]) {
-                cliqueModifierArray[i].innerHTML = 2
-            }
+    for (i=0; i<statStringArray.length; i++) {
+        if (selection01 == statStringArray[i] || selection02 == statStringArray[i]) {
+            cliqueModifierArray[i].innerHTML = 2
         }
-        for (i=0; i<statStringArray.length; i++) {
-            if (selection03 == statStringArray[i] || selection04 == statStringArray[i]) {
-                cliqueModifierArray[i].innerHTML = -2
-            }
+    }
+    for (i=0; i<statStringArray.length; i++) {
+        if (selection03 == statStringArray[i] || selection04 == statStringArray[i]) {
+            cliqueModifierArray[i].innerHTML = -2
         }
-        for (i=0; i<statStringArray.length; i++) {
-            changeRowArray[i]()
-        }
+    }
+    for (i=0; i<statStringArray.length; i++) {
+        changeRowArray[i]()
     }
     // set FEELS clique modifiers
     angryCliqueModifier.innerHTML = 2
@@ -1816,26 +1893,27 @@ function applyLonerStatModifiers() {
     fortitudeCliqueModifier.innerHTML = 2
     willCliqueModifier.innerHTML = 2
     // set Resistances
-    let selection05 = document.getElementById("oneResistance")
     let selection05a = resistanceList01.value
-    let selection06 = document.getElementById("twoResistances")
-    let selection06a = resistanceList02.value
-    let selection06b = resistanceList03.value
     if (selection05.checked == true) {
-        if (selection05a == 'Focus') {
+        if (selection05a == '') {
+            lonerMustChooseAResistanceDiv.style.display = 'block'
+            return
+        }        
+        else if (selection05a == 'Focus') {
             focusCliqueModifier.innerHTML = 2
         } else if (selection05a == 'Resolve') {
             resolveCliqueModifier.innerHTML = 2
         } else if (selection05a == 'Self-Control') {
             selfControlCliqueModifier.innerHTML = 2
-        }
+        }    
     }
+    let selection06a = resistanceList02.value
+    let selection06b = resistanceList03.value
     if (selection06.checked == true) {
         if (selection06a == selection06b) {
-            let lonerNoResistancesStackingDiv = document.getElementById("lonerNoResistancesStackingDiv")
-            lonerNoResistancesStackingDiv.style.display = "block"
+            let lonerMustChooseTwoResistancesDiv = document.getElementById("lonerMustChooseTwoResistancesDiv")
+            lonerMustChooseTwoResistancesDiv.style.display = "block"
             return
-    
         }
         if (selection06a == 'Focus' || selection06b == 'Focus') {
             focusCliqueModifier.innerHTML = 1
@@ -1847,10 +1925,26 @@ function applyLonerStatModifiers() {
             selfControlCliqueModifier.innerHTML = 1
         }
     }
+    calculateFeelsResistancesAndSaves()
 }
 
+let chameleonMustMakeEveryChoiceDiv = document.getElementById("chameleonMustMakeEveryChoiceDiv")
+let chameleonNoStackingDiv = document.getElementById("chameleonNoStackingDiv")
+let chameleonMustChooseTwoFeelsDiv = document.getElementById("chameleonMustChooseTwoFeelsDiv")
+let chameleonNoStackingFeelsDiv = document.getElementById("chameleonNoStackingFeelsDiv")
+let chameleonMustChooseTwoResistancesDiv = document.getElementById("chameleonMustChooseTwoResistancesDiv")
+let chameleonNoStackingResistancesDiv = document.getElementById("chameleonNoStackingResistancesDiv")
+let chameleonMustChooseTwoSavesDiv = document.getElementById("chameleonMustChooseTwoSavesDiv")
+let chameleonNoStackingSavesDiv = document.getElementById("chameleonNoStackingSavesDiv")
+let chameleonNoticeDivs = [chameleonMustMakeEveryChoiceDiv, chameleonNoStackingDiv, chameleonMustChooseTwoFeelsDiv, chameleonNoStackingFeelsDiv, chameleonMustChooseTwoResistancesDiv, chameleonNoStackingResistancesDiv, chameleonMustChooseTwoSavesDiv, chameleonNoStackingSavesDiv]
 
-function displayChameleonDiv() {
+function displayChameleonStatDiv() {
+    // remove any previously-generated notices
+    for (i=0; i<chameleonNoticeDivs.length; i++) {
+        if (chameleonNoticeDivs[i].style.display == "block") {
+            chameleonNoticeDivs[i].style.display = "none"
+        }
+    }
     // remove any previously-generated Ability divs
     for (i=0; i<cliqueAbilityArray.length; i++) {
         cliqueAbilityArray[i].style.display = "none"
@@ -1863,11 +1957,13 @@ function displayChameleonDiv() {
     // display div "chameleonStatPicks"
     let chameleonStatPicks = document.getElementById("chameleonStatPicks")
     chameleonStatPicks.style.display = "block"
+/*
     // check for no stacking warning
     let chameleonNoStackingDiv = document.getElementById("chameleonNoStackingDiv")
     if (chameleonNoStackingDiv.style.display == "block") {
         chameleonNoStackingDiv.style.display = "none"
     } 
+*/
     // hide other clique abilities
     nerdStatPicks.style.display = 'none'
     jockStatPicks.style.display = 'none'
@@ -1884,18 +1980,9 @@ function displayChameleonDiv() {
 
 function applyChameleonStatModifiers() {
      // check for prior instructions
-    let chameleonMustMakeEveryChoiceDiv = document.getElementById("chameleonMustMakeEveryChoiceDiv")
-    let chameleonNoStackingDiv = document.getElementById("chameleonNoStackingDiv")
-    let chameleonMustChooseTwoFeelsDiv = document.getElementById("chameleonMustChooseTwoFeelsDiv")
-    let chameleonNoStackingFeelsDiv = document.getElementById("chameleonNoStackingFeelsDiv")
-    let chameleonMustChooseTwoResistancesDiv = document.getElementById("chameleonMustChooseTwoResistancesDiv")
-    let chameleonNoStackingResistancesDiv = document.getElementById("chameleonNoStackingResistancesDiv")
-    let chameleonMustChooseTwoSavesDiv = document.getElementById("chameleonMustChooseTwoSavesDiv")
-    let chameleonNoStackingSavesDiv = document.getElementById("chameleonNoStackingSavesDiv")
-    let chameleonDivsArray = [chameleonMustMakeEveryChoiceDiv, chameleonNoStackingDiv, chameleonMustChooseTwoFeelsDiv, chameleonNoStackingFeelsDiv, chameleonMustChooseTwoResistancesDiv, chameleonNoStackingResistancesDiv, chameleonMustChooseTwoSavesDiv, chameleonNoStackingSavesDiv]
-    for (i=0; i<chameleonDivsArray.length; i++) {
-        if (chameleonDivsArray[i].style.display == "block") {
-            chameleonDivsArray[i].style.display = "none"
+    for (i=0; i<chameleonNoticeDivs.length; i++) {
+        if (chameleonNoticeDivs[i].style.display == "block") {
+            chameleonNoticeDivs[i].style.display = "none"
         }
     }
     // zero out any prior values
@@ -2402,21 +2489,21 @@ let prepSocializing = document.getElementById("prepSocializing")
 // theaterKid variables
 let theaterKids = document.getElementById("theaterKids")
 let theaterKidKnowledgesArray = document.getElementsByClassName("theaterKidKnowledge")
-let theaterKidFreebie01Talent = document.getElementById("theaterKidFreebie01Talent")
-let theaterKidFreebie02Talent = document.getElementById("theaterKidFreebie02Talent")
-let theaterKidFreebie03Talent = document.getElementById("theaterKidFreebie03Talent")
+let theaterKidFreebie01TalentRadio = document.getElementById("theaterKidFreebie01TalentRadio")
+let theaterKidFreebie02TalentRadio = document.getElementById("theaterKidFreebie02TalentRadio")
+let theaterKidFreebie03TalentRadio = document.getElementById("theaterKidFreebie03TalentRadio")
 let theaterKidFreebie01Talents = document.getElementsByClassName("theaterKidFreebie01Talent")
 let theaterKidFreebie02Talents = document.getElementsByClassName("theaterKidFreebie02Talent")
 let theaterKidFreebie03Talents = document.getElementsByClassName("theaterKidFreebie03Talent")
-let theaterKidFreebie01Skill = document.getElementById("theaterKidFreebie01Skill")
-let theaterKidFreebie02Skill = document.getElementById("theaterKidFreebie02Skill")
-let theaterKidFreebie03Skill = document.getElementById("theaterKidFreebie03Skill")
+let theaterKidFreebie01SkillRadio = document.getElementById("theaterKidFreebie01SkillRadio")
+let theaterKidFreebie02SkillRadio = document.getElementById("theaterKidFreebie02SkillRadio")
+let theaterKidFreebie03SkillRadio = document.getElementById("theaterKidFreebie03SkillRadio")
 let theaterKidFreebie01Skills = document.getElementsByClassName("theaterKidFreebie01Skill")
 let theaterKidFreebie02Skills = document.getElementsByClassName("theaterKidFreebie02Skill")
 let theaterKidFreebie03Skills = document.getElementsByClassName("theaterKidFreebie03Skill")
-let theaterKidFreebie01Knowledge = document.getElementById("theaterKidFreebie01Knowledge")
-let theaterKidFreebie02Knowledge = document.getElementById("theaterKidFreebie02Knowledge")
-let theaterKidFreebie03Knowledge = document.getElementById("theaterKidFreebie03Knowledge")
+let theaterKidFreebie01KnowledgeRadio = document.getElementById("theaterKidFreebie01KnowledgeRadio")
+let theaterKidFreebie02KnowledgeRadio = document.getElementById("theaterKidFreebie02KnowledgeRadio")
+let theaterKidFreebie03KnowledgeRadio = document.getElementById("theaterKidFreebie03KnowledgeRadio")
 let theaterKidFreebie01Knowledges = document.getElementsByClassName("theaterKidFreebie01Knowledge")
 let theaterKidFreebie02Knowledges = document.getElementsByClassName("theaterKidFreebie02Knowledge")
 let theaterKidFreebie03Knowledges = document.getElementsByClassName("theaterKidFreebie03Knowledge")
@@ -2706,63 +2793,63 @@ function spendAbilityPoints() {
             }
         }
         // correct for freebies
-        if (theaterKidFreebie01Talent.checked == true) {
+        if (theaterKidFreebie01TalentRadio.checked == true) {
             for (i=0; i<theaterKidFreebie01Talents.length; i++) {
                 if (theaterKidFreebie01Talents[i].selected == true) {
                     talentCounter += 1
                 }
             }    
         }
-        else if (theaterKidFreebie01Skill.checked == true) {
+        else if (theaterKidFreebie01SkillRadio.checked == true) {
             for (i=0; i<theaterKidFreebie01Skills.length; i++) {
                 if (theaterKidFreebie01Skills[i].selected == true) {
                     skillCounter += 1
                 }
             }
         } 
-        else if (theaterKidFreebie01Knowledge.checked == true) {
+        else if (theaterKidFreebie01KnowledgeRadio.checked == true) {
             for (i=0; i<theaterKidFreebie01Knowledges.length; i++) {
                 if (theaterKidFreebie03Knowledges[i].selected == true) {
                     knowledgeCounter += 1
                 }
             }    
         }
-        if (theaterKidFreebie02Talent.checked == true) {
+        if (theaterKidFreebie02TalentRadio.checked == true) {
             for (i=0; i<theaterKidFreebie02Talents.length; i++) {
                 if (theaterKidFreebie02Talents[i].selected == true) {
                     talentCounter += 1
                 }
             }    
         } 
-        else if (theaterKidFreebie02Skill.checked == true) {
+        else if (theaterKidFreebie02SkillRadio.checked == true) {
             for (i=0; i<theaterKidFreebie02Skills.length; i++) {
                 if (theaterKidFreebie02Skills[i].selected == true) {
                     skillCounter += 1
                 }
             }
         }
-        else if (theaterKidFreebie02Knowledge.checked == true) {
+        else if (theaterKidFreebie02KnowledgeRadio.checked == true) {
             for (i=0; i<theaterKidFreebie02Knowledges.length; i++) {
                 if (theaterKidFreebie02Knowledges[i].selected == true) {
                     knowledgeCounter += 1
                 }
             }
         }
-        if (theaterKidFreebie03Talent.checked == true) {
+        if (theaterKidFreebie03TalentRadio.checked == true) {
             for (i=0; i<theaterKidFreebie03Talents.length; i++) {
                 if (theaterKidFreebie03Talents[i].selected == true) {
                     talentCounter += 1
                 }
             }    
         }
-        else if (theaterKidFreebie03Skill.checked == true) {
+        else if (theaterKidFreebie03SkillRadio.checked == true) {
             for (i=0; i<theaterKidFreebie03Skills.length; i++) {
                 if (theaterKidFreebie03Skills[i].selected == true) {
                     skillCounter += 1
                 }
             }
         }
-        else if (theaterKidFreebie03Knowledge.checked == true) {
+        else if (theaterKidFreebie03KnowledgeRadio.checked == true) {
             for (i=0; i<theaterKidFreebie03Knowledges.length; i++) {
                 if (theaterKidFreebie03Knowledges[i].selected == true) {
                     knowledgeCounter += 1
@@ -2935,18 +3022,18 @@ function presentNerdFreebieKnowledge() {
     nerdFreebieSkillBlank.selected = true
 }
 
+let nerdMustChooseTalentOrSkillDiv = document.getElementById("nerdMustChooseTalentOrSkillDiv")
+let nerdMustChooseThreeKnowledgesDiv = document.getElementById("nerdMustChooseThreeKnowledgesDiv")
+let nerdMustChooseFreebieDiv = document.getElementById("nerdMustChooseFreebieDiv")
+let nerdCannotStackFreebieDiv = document.getElementById("nerdCannotStackFreebieDiv")
+let nerdNotificiationDivs = [nerdMustChooseTalentOrSkillDiv, nerdMustChooseThreeKnowledgesDiv, nerdMustChooseFreebieDiv, nerdCannotStackFreebieDiv]
 
 function applyNerdAbilities() {
     resetAbilitiesToUntrained()
     // remove any previously displayed notices
-    let nerdMustChooseTalentOrSkillDiv = document.getElementById("nerdMustChooseTalentOrSkillDiv")
-    let nerdMustChooseThreeKnowledgesDiv = document.getElementById("nerdMustChooseThreeKnowledgesDiv")
-    let nerdMustChooseFreebieDiv = document.getElementById("nerdMustChooseFreebieDiv")
-    let nerdCannotStackFreebieDiv = document.getElementById("nerdCannotStackFreebieDiv")
-    nerdMustChooseTalentOrSkillDiv.style.display = 'none'
-    nerdMustChooseThreeKnowledgesDiv.style.display = 'none'
-    nerdMustChooseFreebieDiv.style.display = 'none'
-    nerdCannotStackFreebieDiv.style.display = 'none'
+    for (i=0; i<nerdNotificiationDivs.length; i++) {
+        nerdNotificiationDivs[i].style.display = 'none'
+    }
     // display notice to select either a Talent or a Skill
     let nerdTalent = document.getElementById("nerdTalent").value
     let nerdSkill = document.getElementById("nerdSkill").value
@@ -3002,14 +3089,11 @@ function applyNerdAbilities() {
             }
         }
     }
-//for (i=0; i<9; i++) {
-        if (nerdKnowledgesArray01 == nerdKnowledgesArray02 || nerdKnowledgesArray01 == nerdKnowledgesArray03 || nerdKnowledgesArray02 == nerdKnowledgesArray03) {
-            let nerdNoStackingKnowledgesDiv = document.getElementById("nerdNoStackingKnowledgesDiv")
-            nerdNoStackingKnowledgesDiv.style.display = 'block'
-            return
-        }
-    
-//    }
+    if (nerdKnowledgesArray01 == nerdKnowledgesArray02 || nerdKnowledgesArray01 == nerdKnowledgesArray03 || nerdKnowledgesArray02 == nerdKnowledgesArray03) {
+        let nerdNoStackingKnowledgesDiv = document.getElementById("nerdNoStackingKnowledgesDiv")
+        nerdNoStackingKnowledgesDiv.style.display = 'block'
+        return
+    }
     for (i=0; i<9; i++) {
         if (nerdKnowledgesArray01[i].selected == true) {
             if (knowledgeUntrained[i].selected == true) {
@@ -3060,6 +3144,7 @@ function applyNerdAbilities() {
         } else if (nerdFreebieKnowledgeRadio.checked == true) {
             if (nerdFreebieKnowledge == nerdKnowledge01 || nerdFreebieKnowledge == nerdKnowledge02 || nerdFreebieKnowledge == nerdKnowledge03) {
                 nerdCannotStackFreebieDiv.style.display = 'block'
+                return
             }
             if (nerdFreebieKnowledges[i].selected == true) {
                 if (knowledgeUntrained[i].selected == true) {
@@ -3140,18 +3225,18 @@ function presentJockFreebieKnowledge() {
     jockFreebieSkillBlank.selected = true
 }
 
+let jockMustChooseAthleticsDiv = document.getElementById("jockMustChooseAthleticsDiv")
+let jockCannotStackAthleticsDiv = document.getElementById("jockCannotStackAthleticsDiv")
+let jockMustChooseFreebieDiv = document.getElementById("jockMustChooseFreebieDiv")
+let jockCannotStackFreebieDiv = document.getElementById("jockCannotStackFreebieDiv")
+let jockNotificiationDivs = [jockMustChooseAthleticsDiv, jockCannotStackAthleticsDiv, jockMustChooseFreebieDiv, jockCannotStackFreebieDiv]
+
 function applyJockAbilities() {
-    let jockMustChooseAthleticsDiv = document.getElementById("jockMustChooseAthleticsDiv")
-    let jockCannotStackAthleticsDiv = document.getElementById("jockCannotStackAthleticsDiv")
-    let jockMustChooseFreebieDiv = document.getElementById("jockMustChooseFreebieDiv")
-//    let jockCannotStackSkillsDiv = document.getElementById("jockCannotStackSkillsDiv")
-    let jockCannotStackFreebieDiv = document.getElementById("jockCannotStackFreebieDiv")
     resetAbilitiesToUntrained()
     // remove any previously displayed notices
-    jockMustChooseAthleticsDiv.style.display = 'none'
-    jockCannotStackAthleticsDiv.style.display = 'none'
-    jockMustChooseFreebieDiv.style.display = 'none'
-    jockCannotStackFreebieDiv.style.display = 'none'
+    for (i=0; i<jockNotificiationDivs.length; i++) {
+        jockNotificiationDivs[i].style.display = 'none'
+    }
     let athleticsProficient = document.getElementById("athletics01")
     athleticsProficient.selected = true
     // display notices to select Abilities correctly
@@ -3261,11 +3346,22 @@ function resetJockAbilities() {
     reAddAbilityOptions()
 }    
 
+let prepMustSelectLeadershipDiv = document.getElementById("prepMustSelectLeadershipDiv")
+let prepMustSelectSocializingDiv = document.getElementById("prepMustSelectSocializingDiv")
+let prepMustSelectKnowledgeDiv = document.getElementById("prepMustSelectKnowledgeDiv")
+let prepMustHaveFirstFreebieDiv = document.getElementById("prepMustHaveFirstFreebieDiv")
+let prepMustHaveSecondFreebieDiv = document.getElementById("prepMustHaveSecondFreebieDiv")
+let prepCannotStackFreebiesDiv = document.getElementById("prepCannotStackFreebiesDiv")
+let prepCannotStackSetAbilitiesDiv = document.getElementById("prepCannotStackSetAbilitiesDiv")
+let prepMustHaveDifferentFreebiesDiv = document.getElementById("prepMustHaveDifferentFreebiesDiv")
+let prepNotificationDivs = [prepMustSelectLeadershipDiv, prepMustSelectSocializingDiv, prepMustSelectKnowledgeDiv, prepMustHaveFirstFreebieDiv, prepMustHaveSecondFreebieDiv, prepCannotStackFreebiesDiv, prepCannotStackSetAbilitiesDiv, prepMustHaveDifferentFreebiesDiv]
+
 function applyPrepAbilities() {
     resetAbilitiesToUntrained()
-    // remove any previously displayed notices *****need update for prep*****
-    let prepMustSelectKnowledgeDiv = document.getElementById("prepMustSelectKnowledgeDiv")
-    let prepCannotStackFreebiesDiv = document.getElementById("prepCannotStackFreebiesDiv")
+    // remove any previously-displayed notices
+    for (i=0; i<prepNotificationDivs.length; i++) {
+        prepNotificationDivs[i].style.display = 'none'
+    }
     // proficiency in Leadership and Socializing
     let leadershipProficient = document.getElementById("leadership01")
     leadershipProficient.selected = true
@@ -3288,7 +3384,6 @@ function applyPrepAbilities() {
     let prepKnowledge01 = document.getElementById("prepKnowledge01").value
 
     // post notices for unused boxes
-    let prepMustSelectLeadershipDiv = document.getElementById("prepMustSelectLeadershipDiv")
     if (prepLeadership.value == '') {
         prepMustSelectLeadershipDiv.style.display = 'block'
         return
@@ -3462,44 +3557,56 @@ function resetPrepAbilities() {
 
 // declarations
 let theaterKidKnowledge01 = document.getElementById("theaterKidKnowledge01")
-let theaterKidActingOrMusic = document.getElementById("theaterKidActingOrMusic")
+let theaterKidActingOrMusic = document.getElementById("theaterKidActingOrMusic") 
+let theaterKidFreebieRadioArray = [theaterKidFreebie01TalentRadio, theaterKidFreebie01SkillRadio, theaterKidFreebie01KnowledgeRadio, theaterKidFreebie02TalentRadio, theaterKidFreebie02SkillRadio, theaterKidFreebie02KnowledgeRadio, theaterKidFreebie03TalentRadio, theaterKidFreebie03SkillRadio, theaterKidFreebie03KnowledgeRadio]
+let theaterKidFreebie01TalentSelect = document.getElementById("theaterKidFreebie01TalentSelect")
+let theaterKidFreebie01SkillSelect = document.getElementById("theaterKidFreebie01SkillSelect")
+let theaterKidFreebie01KnowledgeSelect = document.getElementById("theaterKidFreebie01KnowledgeSelect")
+let theaterKidFreebie02TalentSelect = document.getElementById("theaterKidFreebie02TalentSelect")
+let theaterKidFreebie02SkillSelect = document.getElementById("theaterKidFreebie02SkillSelect")
+let theaterKidFreebie02KnowledgeSelect = document.getElementById("theaterKidFreebie02KnowledgeSelect")
+let theaterKidFreebie03TalentSelect = document.getElementById("theaterKidFreebie03TalentSelect")
+let theaterKidFreebie03SkillSelect = document.getElementById("theaterKidFreebie03SkillSelect")
+let theaterKidFreebie03KnowledgeSelect = document.getElementById("theaterKidFreebie03KnowledgeSelect")
+let theaterKidFreebieSelectArray = [theaterKidFreebie01TalentSelect, theaterKidFreebie01SkillSelect, theaterKidFreebie01KnowledgeSelect, theaterKidFreebie02TalentSelect, theaterKidFreebie02SkillSelect, theaterKidFreebie02KnowledgeSelect, theaterKidFreebie03TalentSelect, theaterKidFreebie03SkillSelect, theaterKidFreebie03KnowledgeSelect]
 let theaterKidMustSelectActingOrMusicDiv = document.getElementById("theaterKidMustSelectActingOrMusicDiv")
 let theaterKidMustSelectKnowledgeDiv = document.getElementById("theaterKidMustSelectKnowledgeDiv")
 let theaterKidMustHaveFreebiesDiv = document.getElementById("theaterKidMustHaveFreebiesDiv")
 let theaterKidCannotStackFreebiesDiv = document.getElementById("theaterKidCannotStackFreebiesDiv")
-let theaterKidFreebie01TalentRadio = document.getElementById("theaterKidFreebie01TalentRadio")
-let theaterKidFreebie01SkillRadio = document.getElementById("theaterKidFreebie01SkillRadio")
-let theaterKidFreebie01KnowledgeRadio = document.getElementById("theaterKidFreebie01KnowledgeRadio")
-let theaterKidFreebie02TalentRadio = document.getElementById("theaterKidFreebie02TalentRadio")
-let theaterKidFreebie02SkillRadio = document.getElementById("theaterKidFreebie02SkillRadio")
-let theaterKidFreebie02KnowledgeRadio = document.getElementById("theaterKidFreebie02KnowledgeRadio")
-let theaterKidFreebie03TalentRadio = document.getElementById("theaterKidFreebie03TalentRadio")
-let theaterKidFreebie03SkillRadio = document.getElementById("theaterKidFreebie03SkillRadio")
-let theaterKidFreebie03KnowledgeRadio = document.getElementById("theaterKidFreebie03KnowledgeRadio")
-
+let theaterKidNotificationDivs = [theaterKidMustSelectActingOrMusicDiv, theaterKidMustSelectKnowledgeDiv, theaterKidMustHaveFreebiesDiv, theaterKidCannotStackFreebiesDiv]
 
 function applyTheaterKidAbilities() {
     resetAbilitiesToUntrained()
+    // remove any previously-displayed notices
+    for (i=0; i<theaterKidNotificationDivs.length; i++) {
+        theaterKidNotificationDivs[i].style.display = 'none'
+    }
+    // must choose either Acting or Music
     if (theaterKidActingOrMusic.value == '') {
         theaterKidMustSelectActingOrMusicDiv.style.display = 'block'
         return
     }
+    // must choose a Knowledge
     if (theaterKidKnowledge01.value == '') {
         theaterKidMustSelectKnowledgeDiv.style.display = 'block'
         return
     }
+    // must check something for Freebie01
     if (theaterKidFreebie01TalentRadio.checked == false && theaterKidFreebie01SkillRadio.checked == false && theaterKidFreebie01KnowledgeRadio.checked == false) {
         theaterKidMustHaveFreebiesDiv.style.display = 'block'
         return
     }
+    // must check something for Freebie02
     if (theaterKidFreebie02TalentRadio.checked == false && theaterKidFreebie02SkillRadio.checked == false && theaterKidFreebie02KnowledgeRadio.checked == false) {
         theaterKidMustHaveFreebiesDiv.style.display = 'block'
         return
     }
+    // must check something for Freebie03
     if (theaterKidFreebie03TalentRadio.checked == false && theaterKidFreebie03SkillRadio.checked == false && theaterKidFreebie03KnowledgeRadio.checked == false) {
         theaterKidMustHaveFreebiesDiv.style.display = 'block'
         return
     }
+    // can't stack Freebies
     if (theaterKidFreebie01TalentRadio.checked == true && theaterKidFreebie02TalentRadio == true) {
         for (i=0; i<theaterKidFreebie01Talents.length; i++) {
             if (theaterKidFreebie01Talents[i].selected == true && theaterKidFreebie02Talents[i].selected) {
@@ -3572,22 +3679,137 @@ function applyTheaterKidAbilities() {
             } 
         }
     }
-        
+    // must make a selection for each checked Freebie
+    for (i=0; i<theaterKidFreebieRadioArray.length; i++) {
+        if (theaterKidFreebieRadioArray[i].checked == true) {
+            if (theaterKidFreebieSelectArray[i].value == '') {
+                theaterKidMustHaveFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
+    // Freebies cannot match Acting/Music choice or Knowledge01
+    let theaterKidFreebieTalentRadioArray = [theaterKidFreebie01TalentRadio, theaterKidFreebie02TalentRadio, theaterKidFreebie03TalentRadio]
+    let theaterKidFreebieTalentSelectArray = [theaterKidFreebie01TalentSelect, theaterKidFreebie02TalentSelect, theaterKidFreebie03TalentSelect]
+    for (i=0; i<theaterKidFreebieTalentRadioArray.length; i++) {
+        if (theaterKidFreebieTalentRadioArray[i].checked == true) {
+            if (theaterKidActingOrMusic.value == theaterKidFreebieTalentSelectArray[i].value) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
+    let theaterKidFreebieSkillRadioArray = [theaterKidFreebie01SkillRadio, theaterKidFreebie02SkillRadio, theaterKidFreebie03SkillRadio]
+    let theaterKidFreebieSkillSelectArray = [theaterKidFreebie01SkillSelect, theaterKidFreebie02SkillSelect, theaterKidFreebie03SkillSelect]
+    for (i=0; i<theaterKidFreebieSkillRadioArray.length; i++) {
+        if (theaterKidFreebieSkillRadioArray[i].checked == true) {
+            if (theaterKidActingOrMusic.value == theaterKidFreebieSkillSelectArray[i].value) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
+    let theaterKidFreebieKnowledgeRadioArray = [theaterKidFreebie01KnowledgeRadio, theaterKidFreebie02KnowledgeRadio, theaterKidFreebie03KnowledgeRadio]
+    let theaterKidFreebieKnowledgeSelectArray = [theaterKidFreebie01KnowledgeSelect, theaterKidFreebie02KnowledgeSelect, theaterKidFreebie03KnowledgeSelect]
+    for (i=0; i<theaterKidFreebieKnowledgeRadioArray.length; i++) {
+        if (theaterKidFreebieKnowledgeRadioArray[i].checked == true) {
+            if (theaterKidKnowledge01.value == theaterKidFreebieKnowledgeSelectArray.value) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
+    // cannot stack freebies
+    if (theaterKidFreebie01TalentRadio.checked == true && theaterKidFreebie02TalentRadio.checked == true) {
+        for (i=0; i<theaterKidFreebie01TalentSelect.length; i++) {
+            if (theaterKidFreebie01TalentSelect.value == theaterKidFreebie02TalentSelect.value) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
+    if (theaterKidFreebie01TalentRadio.checked == true && theaterKidFreebie03TalentRadio.checked == true) {
+        for (i=0; i<theaterKidFreebie01TalentSelect.length; i++) {
+            if (theaterKidFreebie01TalentSelect.value == theaterKidFreebie03TalentSelect.value) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
+    if (theaterKidFreebie02TalentRadio.checked == true && theaterKidFreebie03TalentRadio.checked == true) {
+        for (i=0; i<theaterKidFreebie02TalentSelect.length; i++) {
+            if (theaterKidFreebie02TalentSelect.value == theaterKidFreebie03TalentSelect.value) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
+    if (theaterKidFreebie01SkillRadio.checked == true && theaterKidFreebie02SkillRadio.checked == true) {
+        for (i=0; i<theaterKidFreebie01SkillSelect.length; i++) {
+            if (theaterKidFreebie01SkillSelect.value == theaterKidFreebie02SkillSelect.value) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
+    if (theaterKidFreebie01SkillRadio.checked == true && theaterKidFreebie03SkillRadio.checked == true) {
+        for (i=0; i<theaterKidFreebie01SkillSelect.length; i++) {
+            if (theaterKidFreebie01SkillSelect.value == theaterKidFreebie03SkillSelect.value) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
+    if (theaterKidFreebie02SkillRadio.checked == true && theaterKidFreebie03SkillRadio.checked == true) {
+        for (i=0; i<theaterKidFreebie02SkillSelect.length; i++) {
+            if (theaterKidFreebie02SkillSelect.value == theaterKidFreebie03SkillSelect.value) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
 
-
+    if (theaterKidFreebie01KnowledgeRadio.checked == true && theaterKidFreebie02KnowledgeRadio.checked == true) {
+        for (i=0; i<theaterKidFreebie01KnowledgeSelect.length; i++) {
+            if (theaterKidFreebie01KnowledgeSelect.value == theaterKidFreebie02KnowledgeSelect.value) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
+    if (theaterKidFreebie01KnowledgeRadio.checked == true && theaterKidFreebie03KnowledgeRadio.checked == true) {
+        for (i=0; i<theaterKidFreebie01KnowledgeSelect.length; i++) {
+            if (theaterKidFreebie01KnowledgeSelect.value == theaterKidFreebie03KnowledgeSelect.value) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
+    if (theaterKidFreebie02KnowledgeRadio.checked == true && theaterKidFreebie03KnowledgeRadio.checked == true) {
+        for (i=0; i<theaterKidFreebie02KnowledgeSelect.length; i++) {
+            if (theaterKidFreebie02KnowledgeSelect.value == theaterKidFreebie03KnowledgeSelect.value) {
+                theaterKidCannotStackFreebiesDiv.style.display = 'block'
+                return
+            }
+        }
+    }
     // apply selections
     if (theaterKidActingOrMusic.value == 'Acting') {
+        let actingProficient = document.getElementById("acting01")
+        actingProficient.selected = true
         let actingCell = document.getElementById("actingCell")
         let actingModifier = document.getElementById("actingModifier")
         actingCell.style.backgroundColor = '#50C878'
         actingModifier.style.backgroundColor = '#50C878'
     } 
     if (theaterKidActingOrMusic.value == 'Music') {
-        let musicCell = document.getElementById("actingCell")
-        let musicModifier = document.getElementById("actingModifier")
+        let musicProficient = document.getElementById("music01")
+        musicProficient.selected = true
+        let musicCell = document.getElementById("musicCell")
+        let musicModifier = document.getElementById("musicModifier")
         musicCell.style.backgroundColor = '#50C878'
         musicModifier.style.backgroundColor = '#50C878'
-    }
+    } 
     for (i=0; i<knowledgeStringArray.length; i++) {
         if (theaterKidKnowledge01.value == knowledgeStringArray[i]) {
             knowledgeProficient[i].selected = true
@@ -3595,128 +3817,85 @@ function applyTheaterKidAbilities() {
             knowledgeModifierCells[i].style.backgroundColor = '#50C878'
         }
     }
-
-/*    let theaterKidActing = document.getElementById("theaterKidActing")
-    let theaterKidMusic = document.getElementById("theaterKidMusic")
-    if (theaterKidActing.selected == true) {
-        if (acting00.selected == true) {
-            acting01.selected = true
-        } else if (acting01.seleted == true) {
-            acting02.selected = true
-        }
-    } else if (theaterKidMusic.selected == true) {
-        if (music00.selected == true) {
-            music01.selected = true
-        } else if (music01.selected == true) {
-            music02.seleted = true
-        }
-    }
-*/
-    for (i=0; i<theaterKidKnowledgesArray.length; i++) {
-        if (theaterKidKnowledgesArray[i].selected == true) {
-            if (knowledgeUntrained[i].selected == true) {
-                knowledgeProficient[i].selected = true
-            } else if (knowledgeProficient[i].selected == true) {
-                knowledgeSkilled[i].selected = true
-            }
-        }
-    }
-    if (theaterKidFreebie01Talent.checked == true) {
+    if (theaterKidFreebie01TalentRadio.checked == true) {
         for (i=0; i<theaterKidFreebie01Talents.length; i++) {
             if (theaterKidFreebie01Talents[i].selected == true) {
-                if (talentUntrained[i].selected == true) {
-                    talentProficient[i].selected = true
-                } else if (talentProficient[i].selected == true) {
-                    talentSkilled[i].selected = true
-                }
+                talentProficient[i].selected = true
+                talentCells[i].style.backgroundColor = '#50C878'
+                talentModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
-    if (theaterKidFreebie02Talent.checked == true) {
+    if (theaterKidFreebie02TalentRadio.checked == true) {
         for (i=0; i<theaterKidFreebie02Talents.length; i++) {
             if (theaterKidFreebie02Talents[i].selected == true) {
-                if (talentUntrained[i].selected == true) {
                 talentProficient[i].selected = true
-                } else if (talentProficient[i].selected == true) {
-                talentSkilled[i].selected = true
-                }
+                talentCells[i].style.backgroundColor = '#50C878'
+                talentModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
-    if (theaterKidFreebie03Talent.checked == true) {
+    if (theaterKidFreebie03TalentRadio.checked == true) {
         for (i=0; i<theaterKidFreebie03Talents.length; i++) {
             if (theaterKidFreebie03Talents[i].selected == true) {
-                if (talentUntrained[i].selected == true) {
-                    talentProficient[i].selected = true
-                } else if (talentProficient[i].selected == true) {
-                    talentSkilled[i].selected = true
-                }
+                talentProficient[i].selected = true
+                talentCells[i].style.backgroundColor = '#50C878'
+                talentModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
-    if (theaterKidFreebie01Skill.checked == true) {
+    if (theaterKidFreebie01SkillRadio.checked == true) {
         for (i=0; i<theaterKidFreebie01Skills.length; i++) {
             if (theaterKidFreebie01Skills[i].selected == true) {
-                if (skillUntrained[i].selected == true) {
-                    skillProficient[i].selected = true
-                } else if (skillProficient[i].selected == true) {
-                    skillSkilled[i].selected = true
-                }
+                skillProficient[i].selected = true
+                skillCells[i].style.backgroundColor = '#50C878'
+                skillModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
-    if (theaterKidFreebie02Skill.checked == true) {
+    if (theaterKidFreebie02SkillRadio.checked == true) {
         for (i=0; i<theaterKidFreebie02Skills.length; i++) {
             if (theaterKidFreebie02Skills[i].selected == true) {
-                if (skillUntrained[i].selected == true) {
-                    skillProficient[i].selected = true
-                } else if (skillProficient[i].selected == true) {
-                    skillSkilled[i].selected = true
-                }
+                skillProficient[i].selected = true
+                skillCells[i].style.backgroundColor = '#50C878'
+                skillModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
-    if (theaterKidFreebie03Skill.checked == true) {
+    if (theaterKidFreebie03SkillRadio.checked == true) {
         for (i=0; i<theaterKidFreebie03Skills.length; i++) {
             if (theaterKidFreebie03Skills[i].selected == true) {
-                if (skillUntrained[i].selected == true) {
-                    skillProficient[i].selected = true
-                } else if (skillProficient[i].selected == true) {
-                    skillSkilled[i].selected = true
-                }
+                skillProficient[i].selected = true
+                skillCells[i].style.backgroundColor = '#50C878'
+                skillModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
-    if (theaterKidFreebie01Knowledge.checked == true) {
+
+    if (theaterKidFreebie01KnowledgeRadio.checked == true) {
         for (i=0; i<theaterKidFreebie01Knowledges.length; i++) {
             if (theaterKidFreebie01Knowledges[i].selected == true) {
-                if (knowledgeUntrained[i].selected == true) {
-                    knowledgeProficient[i].selected = true
-                } else if (knowledgeProficient[i].selected == true) {
-                    knowledgeSkilled[i].selected = true
-                }
+                knowledgeProficient[i].selected = true
+                knowledgeCells[i].style.backgroundColor = '#50C878'
+                knowledgeModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
-    if (theaterKidFreebie02Knowledge.checked == true) {
+    if (theaterKidFreebie02KnowledgeRadio.checked == true) {
         for (i=0; i<theaterKidFreebie02Knowledges.length; i++) {
             if (theaterKidFreebie02Knowledges[i].selected == true) {
-                if (knowledgeUntrained[i].selected == true) {
-                    knowledgeProficient[i].selected = true
-                } else if (knowledgeProficient[i].selected == true) {
-                    knowledgeSkilled[i].selected = true
-                }
+                knowledgeProficient[i].selected = true
+                knowledgeCells[i].style.backgroundColor = '#50C878'
+                knowledgeModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
-    if (theaterKidFreebie03Knowledge.checked == true) {
+    if (theaterKidFreebie03KnowledgeRadio.checked == true) {
         for (i=0; i<theaterKidFreebie03Knowledges.length; i++) {
             if (theaterKidFreebie03Knowledges[i].selected == true) {
-                if (knowledgeUntrained[i].selected == true) {
-                    knowledgeProficient[i].selected = true
-                } else if (knowledgeProficient[i].selected == true) {
-                    knowledgeSkilled[i].selected = true
-                }
+                knowledgeProficient[i].selected = true
+                knowledgeCells[i].style.backgroundColor = '#50C878'
+                knowledgeModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
@@ -3725,30 +3904,7 @@ function applyTheaterKidAbilities() {
 }
 
 function resetTheaterKidAbilities() {
-    for (i=0; i<talentUntrained.length; i++) {
-        if (talentSkilled[i].selected == true) {
-            talentProficient[i].selected= true
-        }
-        if (talentProficient[i].selected == true) {
-            talentUntrained[i].selected = true
-        }
-    }
-    for (i=0; i<skillUntrained.length; i++) {
-        if (skillSkilled[i].selected == true) {
-            skillProficient[i].selected = true
-        }
-        if (skillProficient[i].selected == true) {
-            skillUntrained[i].selected = true
-        }
-    }
-    for (i=0; i<knowledgeUntrained.length; i++) {
-        if (knowledgeSkilled[i].selected == true) {
-            knowledgeProficient[i].selected = true
-        }
-        if (knowledgeProficient[i].selected == true) {
-            knowledgeUntrained[i].selected= true
-        }
-    }
+    whiteOutAbilitiesCells()
     let theaterKidActingOrMusicBlank = document.getElementById("theaterKidActingOrMusicBlank")
     let theaterKidKnowledgeBlank = document.getElementById("theaterKidKnowledgeBlank")
     let theaterKidFreebie01TalentBlank = document.getElementById("theaterKidFreebie01TalentBlank")
@@ -3792,100 +3948,120 @@ function presentLonerFreebieKnowledge() {
     lonerFreebieSkillBlank.selected = true
 }
 
+// loner declarations
+let lonerTalent = document.getElementById("lonerTalent")
+let lonerSkill01 = document.getElementById("lonerSkill01")
+let lonerSkill02 = document.getElementById("lonerSkill02")
+let lonerSkill03 = document.getElementById("lonerSkill03")
+
+let lonerMustChooseTalentDiv = document.getElementById("lonerMustChooseTalentDiv")
+let lonerMustChooseThreeSkillsDiv = document.getElementById("lonerMustChooseThreeSkillsDiv")
+let lonerMustChooseFreebieDiv = document.getElementById("lonerMustChooseFreebieDiv")
+let lonerCannotStackSkillsDiv = document.getElementById("lonerCannotStackSkillsDiv")
+let lonerCannotStackTalentsDiv = document.getElementById("lonerCannotStackTalentsDiv")
+let lonerNotificationDivs = [lonerMustChooseTalentDiv, lonerMustChooseThreeSkillsDiv, lonerMustChooseFreebieDiv, lonerCannotStackSkillsDiv, lonerCannotStackTalentsDiv]
+
 function applyLonerAbilities() {
     resetAbilitiesToUntrained()
-    for (i=0; i<lonerTalentsArray.length; i++) {
-        if (lonerTalentsArray[i].selected == true) {
-            if (talentUntrained[i].selected == true) {
-                talentProficient[i].selected = true
-            } else if (talentProficient[i].selected == true) {
-                talentSkilled[i].selected = true
-            }
+    // remove any previously-displayed notices
+    for (i=0; i<lonerNotificationDivs.length; i++) {
+        lonerNotificationDivs[i].style.display = 'none'
+    }
+    // lonerTalent must be chosen
+    if (lonerTalent.value == '') {
+        lonerMustChooseTalentDiv.style.display = 'block'
+        return
+    }
+    // must choose 3 different Skills
+    if (lonerSkill01.value == '' || lonerSkill02.value == '' || lonerSkill03.value == '') {
+        lonerMustChooseThreeSkillsDiv.style.display = 'block'
+        return
+    }
+    if (lonerSkill01.value == lonerSkill02.value || lonerSkill01.value == lonerSkill02.value || lonerSkill02.value == lonerSkill03.value) {
+        lonerMustChooseThreeSkillsDiv.style.display = 'block'
+        return
+    }
+    // must choose one freebie type
+    if (lonerFreebieTalentRadio.checked == false && lonerFreebieSkillRadio.checked == false && lonerFreebieKnowledgeRadio.checked == false) {
+        lonerMustChooseFreebieDiv.style.display = 'block'
+        return
+    }
+    // if freebie is Talent, Talent must be selected  
+    if (lonerFreebieTalentRadio.checked == true) {
+        if (lonerFreebieTalentBlank.selected == true) {
+            lonerMustChooseFreebieDiv.style.display = 'block'
+            return
         }
-    }    
-    for (i=0; i<lonerSkillsArray01.length; i++) {
-        if (lonerSkillsArray01[i].selected == true) {
-            if (skillUntrained[i].selected == true) {
-                skillProficient[i].selected = true
-            } else if (skillProficient[i].selected == true) {
-                skillSkilled[i].selected = true
+    }
+    // if freebie is Skill, Skill must be selected
+    if (lonerFreebieSkillRadio.checked == true) {
+        if (lonerFreebieSkillBlank.selected == true) {
+            lonerMustChooseFreebieDiv.style.display = 'block'
+            return
+        }
+    }
+    // if freebie is Knowledge, Knowledge must be selected
+    if (lonerFreebieKnowledgeRadio.checked == true) {
+        if (lonerFreebieKnowledgeBlank.selected == true) {
+            lonerMustChooseFreebieDiv.style.display = 'block'
+            return
+        }
+    }
+    // cannot stack lonerTalent with freebie Talent
+    if (lonerFreebieTalentRadio.checked == true) {
+        for (i=0; i<lonerFreebieTalents.length; i++) {
+            if (lonerTalent.value == lonerFreebieTalents[i].value) {
+                lonerCannotStackTalentsDiv.style.display = 'block'
+                return
             }
         }
     }
-    for (i=0; i<lonerSkillsArray02.length; i++) {
-        if (lonerSkillsArray02[i].selected == true) {
-            if (skillUntrained[i].selected == true) {
-                skillProficient[i].selected = true
-            } else if (skillProficient[i].selected == true) {
-                skillSkilled[i].selected = true
-            }
+    // cannot stack freebie skills
+    if (lonerFreebieSkillRadio.checked == true) {
+        if (lonerSkill01.value == lonerFreebieSkills.value || lonerSkill02.value == lonerFreebieSkills.value || lonerSkill03.value == lonerFreebieSkills.value) {
+            lonerCannotStackSkillsDiv.style.display = 'block'
+            return
         }
     }
-    for (i=0; i<lonerSkillsArray03.length; i++) {
-        if (lonerSkillsArray03[i].selected == true) {
-            if (skillUntrained[i].selected == true) {
-                skillProficient[i].selected = true
-            } else if (skillProficient[i].selected == true) {
-                skillSkilled[i].selected = true
-            }
+    // apply selections
+    for (i=0; i<talentStringArray.length; i++) {
+        if (lonerTalent.value == talentStringArray[i]) {
+            talentProficient[i].selected = true
+            talentCells[i].style.backgroundColor = '#50C878'
+            talentModifierCells[i].style.backgroundColor = '#50C878'
         }
     }
-    for (i=0; i<9; i++) {
-        if (lonerFreebieTalentRadio.checked == true) {
+    for (i=0; i<skillStringArray.length; i++) {
+        if (lonerSkill01.value == skillStringArray[i] || lonerSkill02.value == skillStringArray[i] || lonerSkill03.value == skillStringArray[i]) {
+            skillProficient[i].selected = true
+            skillCells[i].style.backgroundColor = '#50C878'
+            skillModifierCells[i].style.backgroundColor = '#50C878'
+        }
+    }
+    if (lonerFreebieTalentRadio.checked == true) {
+        for (i=0; i<lonerFreebieTalents.length; i++) {
             if (lonerFreebieTalents[i].selected == true) {
-                if (talentUntrained[i].selected == true) {
-                    talentProficient[i].selected = true
-                } else if (talentProficient[i].selected == true) {
-                    talentSkilled[i].selected = true
-                }
-            }    
-        } else if (lonerFreebieSkillRadio.checked == true) {
-            if (lonerFreebieSkills[i].selected == true) {
-                if (skillUntrained[i].selected == true) {
-                    skillProficient[i].selected = true
-                } else if (skillProficient[i].selected == true) {
-                    skillSkilled[i].selected = true
-                }
-            }    
-        } else if (lonerFreebieKnowledgeRadio.checked == true) {
-            if (lonerFreebieKnowledges[i].selected == true) {
-                if (knowledgeUntrained[i].selected == true) {
-                    knowledgeProficient[i].selected = true
-                } else if (knowledgeProficient[i].selected == true) {
-                    knowledgeSkilled[i].selected = true
-                }
-            }    
+                talentProficient[i].selected = true
+                talentCells[i].style.backgroundColor = '#50C878'
+                talentModifierCells[i].style.backgroundColor = '#50C878'
+            }
         }
+    }
+    for (i=0; i<lonerFreebieSkills.length; i++) {
+        if (lonerFreebieSkills[i].selected == true) {
+            if (skillUntrained[i].selected == true) {
+                skillProficient[i].selected = true
+                skillCells[i].style.backgroundColor = '#50C878'
+                skillModifierCells[i].style.backgroundColor = '#50C878'
+            }
+        }    
     }
     abilityChange()
     removeAbilityOptions()
 }
 
 function resetLonerAbilities() {
-    for (i=0; i<talentUntrained.length; i++) {
-        if (talentSkilled[i].selected == true) {
-            talentProficient[i].selected= true
-        }
-        if (talentProficient[i].selected == true) {
-            talentUntrained[i].selected = true
-        }
-    }
-    for (i=0; i<skillUntrained.length; i++) {
-        if (skillSkilled[i].selected == true) {
-            skillProficient[i].selected = true
-        }
-        if (skillProficient[i].selected == true) {
-            skillUntrained[i].selected = true
-        }
-    }
-    for (i=0; i<knowledgeUntrained.length; i++) {
-        if (knowledgeSkilled[i].selected == true) {
-            knowledgeProficient[i].selected = true
-        }
-        if (knowledgeProficient[i].selected == true) {
-            knowledgeUntrained[i].selected= true
-        }
-    }
+    whiteOutAbilitiesCells()
     let lonerTalentBlank = document.getElementById("lonerTalentBlank")
     let lonerSkill01Blank = document.getElementById("lonerSkill01Blank")
     let lonerSkill02Blank = document.getElementById("lonerSkill02Blank")

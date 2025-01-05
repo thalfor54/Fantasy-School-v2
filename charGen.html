@@ -51,16 +51,18 @@
                 <option value='Intuition'>Intuition</option>
             </select>
             <br>
-            <button id="commitButton01" type="button" onclick="checkForWitchStackWarning(); applyWitchStatModifiers()">Commit choices</button>
-            <br>
+            <div id="witchMustPickFeelDiv" class="instructionDiv">
+                <h4 id="witchMustPickFeelNotice" class="redNotice"><strong>You must choose a FEEL</strong></h4>
+            </div>          
             <h4>Increase which FEEL?</h4>
             <select id="witchFeelPick">
                 <option value="blank"></option>
-                <option value="melancholy">Melancholy</option>
                 <option value="angry">Angry</option>
+                <option value="melancholy">Melancholy</option>
             </select>
             <br>
-            <button id="commitButton02" type="button" onclick="applyWitchFeelModifiers()">Commit choice</button>
+            <button id="commitButton01" type="button" onclick="applyWitchStatModifiers()">Commit choices</button>
+            <br>
         </div>
         <input type="radio" id="fairy" name="species" onclick="fairyModifiers()">
         <label for="fairy">Fairy</label><br>
@@ -70,7 +72,7 @@
 <div id="clique">
     <div id="cliqueRadio">
         <h2 id="selectClique">Select Clique</h2>
-        <input type="radio" id="nerds" name="clique" onclick="displayNerdDiv()">
+        <input type="radio" id="nerds" name="clique" onclick="displayNerdStatDiv()">
         <label for="nerds">Nerds</label><br>
         <!--nerds-->
         <div id="nerdStatPicks">
@@ -116,11 +118,11 @@
                 <option value='Charisma'>Charisma</option>
             </select>
             <br>
-            <button type="button" onclick="applyNerdModifiers()">Commit choices</button>
+            <button type="button" onclick="applyNerdStatModifiers()">Commit choices</button>
             <br>
         </div>
         <!--jocks-->
-        <input type="radio" id="jocks" name="clique" onclick="displayJockDiv()">
+        <input type="radio" id="jocks" name="clique" onclick="displayJockStatDiv()">
         <label for="jocks">Jocks</label><br>
         <div id="jockStatPicks">
             <div id="jockMustMakeEveryChoiceDiv" class="instructionDiv">
@@ -176,11 +178,11 @@
                 <option value='Intuition'>Intuition</option>
             </select>
             <br>
-            <button type="button" onclick="applyJockModifiers()">Commit choices</button>
+            <button type="button" onclick="applyJockStatModifiers()">Commit choices</button>
             <br>
         </div>
         <!--preps-->        
-        <input type="radio" id="preps" name="clique" onclick="displayPrepDiv()">
+        <input type="radio" id="preps" name="clique" onclick="displayPrepStatDiv()">
         <label for="preps">Preps</label><br>
         <div id="prepStatPicks">
             <div id="prepMustMakeEveryChoiceDiv" class="instructionDiv">
@@ -248,24 +250,27 @@
                 <option value='Intuition'>Intuition</option>
             </select>
             <br>
-            <label for="prepSaveIncrease">Increase which save?</label>
+            <label for="prepSaveIncrease">Increase which Save?</label>
+            <div id="prepMustChooseASaveDiv" class="instructionDiv">
+                <h4 id="prepMustChooseASaveNotice" class="redNotice"><strong>You must choose a Save</strong></h4>
+            </div>
             <select id="prepSaveIncrease">
                 <option value=''></option>
                 <option value='Fortitude'>Fortitude</option>
                 <option value='Reflex'>Reflex</option>
             </select>
             <br>
-            <button type="button" onclick="applyPrepModifiers()">Commit choices</button>
+            <button type="button" onclick="applyPrepStatModifiers()">Commit choices</button>
         </div>
         <!--theater kids-->
-        <input type="radio" id="theaterKids" name="clique" onclick="displayTheaterKidDiv()">
+        <input type="radio" id="theaterKids" name="clique" onclick="displayTheaterKidStatDiv()">
         <label for="theaterKids">Theater Kids</label><br>
         <div id="theaterKidStatPicks">
             <div id="theaterKidMustMakeEveryChoiceDiv" class="instructionDiv">
                 <h4 id="theaterKidMustMakeEveryChoiceNotice" class="redNotice"><strong>You must make a choice for every stat</strong></h4>
             </div>
-        <div id="theaterKidNoStackingDiv" class="instructionDiv">
-            <h4 id="theaterKidNoStackingNotice" class="redNotice"><strong>You must choose two different stat bonuses and two different stat penalties</strong></h4>
+            <div id="theaterKidNoStackingDiv" class="instructionDiv">
+                <h4 id="theaterKidNoStackingNotice" class="redNotice"><strong>You must choose two different stat bonuses and two different stat penalties</strong></h4>
             </div>
             <div id="theaterKidNoSameBonusAndPenaltyDiv" class="instructionDiv">
                 <h4 id="theaterKidNoSameBonusAndPenaltyNotice" class="redNotice"><strong>You cannot put a bonus and a penalty in the same stat</strong></h4>
@@ -322,6 +327,9 @@
                 <option value='Intuition'>Intuition</option>
             </select>
             <br>
+            <div id="theaterKidMustChooseAResistanceDiv" class="instructionDiv">
+                <h4 id="theaterKidMustChooseAResistanceNotice" class="redNotice"><strong>You must choose a Resistance</strong></h4>
+            </div>
             <label for="theaterKidResistanceIncrease">Resistance Bonus Selection</label>
             <select id="theaterKidResistanceIncrease">
                 <option value=''></option>
@@ -332,7 +340,7 @@
             <button type="button" onclick="applyTheaterKidStatModifiers()">Commit choices</button>
         </div>
         <!--loner-->
-        <input type="radio" id="loners" name="clique" onclick="displayLonerDiv()">
+        <input type="radio" id="loners" name="clique" onclick="displayLonerStatDiv()">
         <label for="loners">Loners</label><br>
         <div id="lonerStatPicks">
             <div id="lonerMustMakeEveryChoiceDiv" class="instructionDiv">
@@ -404,8 +412,14 @@
                 <option value='Intuition'>Intuition</option>
             </select>
             <br>
+            <div id="lonerMustChooseOneResistanceOrTwoDiv" class="instructionDiv">
+                <h4 id="lonerMustChooseOneResistanceOrTwoNotice" class="redNotice"><strong>You must choose an option</strong></h4>
+            </div>
             <h4><strong>+2 to one Resistance or +1 to two Resistances?</strong></h4>
             <br>
+            <div id="lonerMustChooseAResistanceDiv" class="instructionDiv">
+                <h4 id="lonerMustChooseAResistanceNotice" class="redNotice"><strong>You must choose a Resistance</strong></h4>
+            </div>
             <input type="radio" name="lonerRadio" id="oneResistance">
             <h4><em>+2 to one Resistance</em></h4>
             <br>
@@ -417,12 +431,12 @@
                 <option value='Self-Control'>Self-Control</option>
             </select>
             <br>
+            <div id="lonerMustChooseTwoResistancesDiv" class="instructionDiv">
+                <h4 id="lonerMustChooseTwoResistancesNotice" class="redNotice"><strong>You must choose two Resistance</strong></h4>
+            </div>
             <input type="radio" name="lonerRadio" id="twoResistances">
             <h4><em>+1 to two Resistances</em></h4>
             <br>
-            <div id="lonerNoResistancesStackingDiv">
-                <h4 class="redNotice"><strong>You must select two different Resistances</strong></h4>
-            </div>
             <h4 class="lonerResistanceRequests">Select first Resistance:</h4>
             <select id="resistanceList02">
                 <option value=''></option>
@@ -442,7 +456,7 @@
             <button type="button" onclick="applyLonerStatModifiers()">Commit choices</button>
         </div>
         <!--chameleons-->
-        <input type="radio" id="chameleons" name="clique" onclick="displayChameleonDiv()">
+        <input type="radio" id="chameleons" name="clique" onclick="displayChameleonStatDiv()">
         <label for="chameleons">Chameleons</label><br>
         <div id="chameleonStatPicks">
             <div id="chameleonMustMakeEveryChoiceDiv" class="instructionDiv">
@@ -1098,6 +1112,7 @@
         <button id="nerdCliqueBasedAbilitiesButton" type="button" onclick="applyNerdAbilities()">Commit Choices</button>
         <button id="nerdCliqueBasedAbilitiesResetButton" type="button" onclick="resetNerdAbilities()">Reset</button>
         <br>
+        <br>
         </div>
         <div id="jockAbilities">
             <div id="jockMustChooseAthleticsDiv" class="instructionDiv">
@@ -1218,7 +1233,10 @@
         <br>
         <button id="jockCliqueBasedAbilitiesButton" type="button" onclick="applyJockAbilities()">Commit Choices</button>
         <button id="jockCliqueBasedAbilitiesResetButton" type="button" onclick="resetJockAbilities()">Reset</button>
+        <br>
+        <br>
         </div>
+        <!--prep abilities-->
         <div id="prepAbilities">
             <div id="prepMustSelectLeadershipDiv" class="instructionDiv">
                 <h4 id="prepMustSelectKnowledgeNotice" class="redNotice"><strong>You must choose Leadership</strong></h4>
@@ -1383,7 +1401,9 @@
             <button id="prepCliqueBasedAbilitiesButton" type="button" onclick="applyPrepAbilities()">Commit Choices</button>
             <button id="prepCliqueBasedAbilitiesResetButton" type="button" onclick="resetPrepAbilities()">Reset</button> 
             <br>
+            <br>
         </div>    
+        <!--theater kid abilities-->
         <div id="theaterKidAbilities">
             <div id="theaterKidMustSelectActingOrMusicDiv" class="instructionDiv">
                 <h4 id="theaterKidMustSelectActingOrMusicNotice" class="redNotice"><strong>You must choose either Acting or Music</strong></h4>
@@ -1581,13 +1601,20 @@
                    <option id="theaterKidSpecialFreebie03" class="theaterKidFreebie03Knowledge">Special</option>
                </select>
             </div>
-
-            <br>
             <br>
             <button id="theaterKidCliqueBasedAbilitiesButton" type="button" onclick="applyTheaterKidAbilities()">Commit Choices</button>
-            <button id="theaterKidCliqueBasedAbilitiesResetButton" type="button" onclick="resetTheaterKidAbilities()">Reset</button> 
+            <button id="theaterKidCliqueBasedAbilitiesResetButton" type="button" onclick="resetTheaterKidAbilities()">Reset</button>             
+            <br>
+            <br>
         </div>
+        <!--loner-->
         <div id="lonerAbilities">
+            <div id="lonerMustChooseTalentDiv" class="instructionDiv">
+                <h4 id="lonerMustChooseTalentNotice" class="redNotice"><strong>You must choose a Talent</strong></h4>
+            </div>
+            <div id="lonerCannotStackTalentsDiv" class="instructionDiv">
+                <h4 id="lonerCannotStackTalentsNotice" class="redNotice"><strong>You must choose different Talents</strong></h4>
+            </div>
             <h4>Loner: Talent</h4>
             <select id="lonerTalent">
                 <option id="lonerTalentBlank"></option>
@@ -1602,6 +1629,12 @@
                 <option id="lonerTalentStealth" class="lonerTalent">Stealth</option>
             </select>
             <br>
+            <div id="lonerMustChooseThreeSkillsDiv" class="instructionDiv">
+                <h4 id="lonerMustChooseThreeSkillsNotice" class="redNotice"><strong>You must choose three different Skills</strong></h4>
+            </div>
+            <div id="lonerCannotStackSkillsDiv" class="instructionDiv">
+                <h4 id="lonerCannotStackSkillsNotice" class="redNotice"><strong>You must choose different Skills</strong></h4>
+            </div>
             <h4>Loner: Skill 1</h4>
             <select id="lonerSkill01">
                 <option id="lonerSkill01Blank"></option>
@@ -1644,6 +1677,9 @@
                 <option id="lonerSkill03Socializing" class="lonerSkill03">Socializing</option>
             </select>
             <br>
+            <div id="lonerMustChooseFreebieDiv" class="instructionDiv">
+                <h4 id="lonerMustChooseFreebieNotice" class="redNotice"><strong>You must choose a Freebie</strong></h4>
+            </div>
             <h4>Loner: One Freebie</h4><br>
             <input id="lonerFreebieTalentRadio" type="radio" name="lonerFreebie" onclick="presentLonerFreebieTalent()">
             <label for="lonerFreebieTalentRadio">Talent:</label>
@@ -1699,6 +1735,8 @@
         <button id="lonerCliqueBasedAbilitiesButton" type="button" onclick="applyLonerAbilities()">Commit Choices</button>
         <button id="lonerCliqueBasedAbilitiesResetButton" type="button" onclick="resetLonerAbilities()">Reset</button>
         </div>
+        <br>
+        <br>
         <div id="chameleonAbilities">
             <h4>Chameleon: Talent</h4>
             <select id="chameleonTalent">
