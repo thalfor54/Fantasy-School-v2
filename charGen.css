@@ -329,11 +329,12 @@ h3 {
 .lonerFreebieDivs {
   display: none;
 }
+.chameleonFreebieDivs {
+  display: inline-block;
+}
+
 #chameleonAbilities {
   display: none;
-}
-.chameleonFreebieDivs {
-  margin-left: 25px;
 }
 #hiddenTable {
   display: inline-block;

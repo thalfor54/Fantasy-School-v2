@@ -1111,8 +1111,6 @@
         <br>
         <button id="nerdCliqueBasedAbilitiesButton" type="button" onclick="applyNerdAbilities()">Commit Choices</button>
         <button id="nerdCliqueBasedAbilitiesResetButton" type="button" onclick="resetNerdAbilities()">Reset</button>
-        <br>
-        <br>
         </div>
         <div id="jockAbilities">
             <div id="jockMustChooseAthleticsDiv" class="instructionDiv">
@@ -1233,8 +1231,6 @@
         <br>
         <button id="jockCliqueBasedAbilitiesButton" type="button" onclick="applyJockAbilities()">Commit Choices</button>
         <button id="jockCliqueBasedAbilitiesResetButton" type="button" onclick="resetJockAbilities()">Reset</button>
-        <br>
-        <br>
         </div>
         <!--prep abilities-->
         <div id="prepAbilities">
@@ -1400,8 +1396,6 @@
             <br>
             <button id="prepCliqueBasedAbilitiesButton" type="button" onclick="applyPrepAbilities()">Commit Choices</button>
             <button id="prepCliqueBasedAbilitiesResetButton" type="button" onclick="resetPrepAbilities()">Reset</button> 
-            <br>
-            <br>
         </div>    
         <!--theater kid abilities-->
         <div id="theaterKidAbilities">
@@ -1603,9 +1597,7 @@
             </div>
             <br>
             <button id="theaterKidCliqueBasedAbilitiesButton" type="button" onclick="applyTheaterKidAbilities()">Commit Choices</button>
-            <button id="theaterKidCliqueBasedAbilitiesResetButton" type="button" onclick="resetTheaterKidAbilities()">Reset</button>             
-            <br>
-            <br>
+            <button id="theaterKidCliqueBasedAbilitiesResetButton" type="button" onclick="resetTheaterKidAbilities()">Reset</button>
         </div>
         <!--loner-->
         <div id="lonerAbilities">
@@ -1734,10 +1726,14 @@
         <br>
         <button id="lonerCliqueBasedAbilitiesButton" type="button" onclick="applyLonerAbilities()">Commit Choices</button>
         <button id="lonerCliqueBasedAbilitiesResetButton" type="button" onclick="resetLonerAbilities()">Reset</button>
+        <br>
+        <br>
         </div>
-        <br>
-        <br>
+        <!--chameleons-->
         <div id="chameleonAbilities">
+            <div id="chameleonMustChooseTalentDiv" class="instructionDiv">
+                <h4 id="chameleonMustChooseTalentNotice" class="redNotice"><strong>You must choose a Talent</strong></h4>
+            </div>
             <h4>Chameleon: Talent</h4>
             <select id="chameleonTalent">
                 <option id="chameleonTalentBlank"></option>
@@ -1752,6 +1748,9 @@
                 <option id="chameleonTalentStealth" class="chameleonTalent">Stealth</option>
             </select>
             <br>
+            <div id="chameleonMustChooseSkillDiv" class="instructionDiv">
+                <h4 id="chameleonMustChooseSkillNotice" class="redNotice"><strong>You must choose a Skill</strong></h4>
+            </div>
             <h4>Chameleon: Skill</h4>
             <select id="chameleonSkill">
                 <option id="chameleonSkillBlank"></option>
@@ -1766,6 +1765,9 @@
                 <option id="chameleonSkillSocializing" class="chameleonSkill">Socializing</option>
             </select>
             <br>
+            <div id="chameleonMustChooseKnowledgeDiv" class="instructionDiv">
+                <h4 id="chameleonMustChooseKnowledgeNotice" class="redNotice"><strong>You must choose a Knowledge</strong></h4>
+            </div>
             <h4>Chameleon: Knowledge</h4>
             <select id="chameleonKnowledge">
                 <option id="chameleonKnowledgeBlank"></option>                
@@ -1780,11 +1782,32 @@
                 <option id="chameleonKnowledgeSpecial" class="chameleonKnowledge">Special</option>
             </select>
             <br>
+            <div id="chameleonMustHaveFirstFreebieDiv" class="instructionDiv">
+                <h4 id="chameleonMustHaveFirstFreebieNotice"class="redNotice"><strong>You must select your first Freebie</strong></h4>
+                <br>
+            </div>
+            <div id="chameleonMustHaveSecondFreebieDiv" class="instructionDiv">
+                <h4 id="chameleonMustHaveSecondFreebieNotice" class="redNotice"><strong>You must select your second Freebie</strong></h4>
+                <br>
+            </div>
+            <div id="chameleonCannotStackFreebiesDiv" class="instructionDiv">
+                <h4 id="chameleonCannotStackFreebieNotice" class="redNotice"><strong>You must choose all different Abilities</strong></h4>
+                <br>
+            </div>
             <div id="chameleonFreebie01Div" class="chameleonFreebieDivs">
-                <h4>Chameleon Freebie 1:</h4>
-                <input id="chameleonFreebie01Talent" type="radio" name="chameleonFreebie01">
-                <h4>Talent:</h4>
-                <select id="chameleonFreebie01Talents">
+                <h4><u>Chameleon Freebie 1</u>:</h4>
+                <br>
+                <input id="chameleonFreebie01TalentRadio" type="radio" name="chameleonFreebie01">
+                <label for="chameleonFreebie01TalentRadio">Talent</label>
+                <br>
+                <input id="chameleonFreebie01SkillRadio" type="radio" name="chameleonFreebie01">
+                <label for="chameleonFreebie01SkillRadio">Skill</label>
+                <br>
+                <input id="chameleonFreebie01KnowledgeRadio" type="radio" name="chameleonFreebie01">
+                <label for="chameleonFreebie01KnowledgeRadio">Knowledge</label>
+            </div>
+            <div id="chameleonFreebie01Select" class="chameleonFreebieDivs">
+                <select id="chameleonFreebie01TalentSelect" class="chameleonFreebieSelects">
                     <option id="chameleonFreebie01TalentBlank"></option>
                     <option id="chameleonActingFreebie01" class="chameleonFreebie01Talent">Acting</option>
                     <option id="chameleonAlertnessFreebie01" class="chameleonFreebie01Talent">Alertness</option>
@@ -1796,9 +1819,8 @@
                     <option id="chameleonMemoryFreebie01" class="chameleonFreebie01Talent">Memory</option>
                     <option id="chameleonStealthFreebie01" class="chameleonFreebie01Talent">Stealth</option>
                 </select>
-                <input id="chameleonFreebie01Skill" type="radio" name="chameleonFreebie01">
-                <h4>Skill:</h4>
-                <select id="chameleonFreebie01Skills">
+                <br> 
+                <select id="chameleonFreebie01SkillSelect" class="chameleonFreebieSelects">
                     <option id="chameleonFreebie01SkillBlank"></option>
                     <option id="chameleonDeceptionFreebie01" class="chameleonFreebie01Skill">Deception</option>
                     <option id="chameleonFirearmsFreebie01" class="chameleonFreebie01Skill">Firearms</option>
@@ -1810,9 +1832,8 @@
                     <option id="chameleonSecurityFreebie01" class="chameleonFreebie01Skill">Security</option>
                     <option id="chameleonSocializingFreebie01" class="chameleonFreebie01Skill">Socializing</option>
                 </select>
-                <input id="chameleonFreebie01Knowledge" type="radio" name="chameleonFreebie01">
-                <h4>Knowledge:</h4>
-                <select id="chameleonFreebie01Knowledges">
+                <br>
+                <select id="chameleonFreebie01KnowledgeSelect" class="chameleonFreebieSelects">
                     <option id="chameleonFreebie01KnowledgeBlank"></option>
                     <option id="chameleonArcanaFreebie01" class="chameleonFreebie01Knowledge">Arcana</option>
                     <option id="chameleonCodeBreakingFreebie01" class="chameleonFreebie01Knowledge">Code-Breaking</option>
@@ -1826,10 +1847,19 @@
                 </select>
             </div>
             <div id="chameleonFreebie02Div" class="chameleonFreebieDivs">
-                <h4>Chameleon Freebie 2:</h4>
-                <input id="chameleonFreebie02Talent" type="radio" name="chameleonFreebie02">
-                <h4>Talent:</h4>
-                <select id="chameleonFreebie02Talents">
+                <h4><u>Chameleon Freebie 2</u>:</h4>
+                <br>
+                <input id="chameleonFreebie02TalentRadio" type="radio" name="chameleonFreebie02">
+                <label for="chameleonFreebie02TalentRadio">Talent</label>
+                <br>
+                <input id="chameleonFreebie02SkillRadio" type="radio" name="chameleonFreebie02">
+                <label for="chameleonFreebie02SkillRadio">Skill</label>
+                <br>
+                <input id="chameleonFreebie02KnowledgeRadio" type="radio" name="chameleonFreebie02">
+                <label for="chameleonFreebie02KnowledgeRadio">Knowledge</label>
+            </div>
+            <div id="chameleonFreebie02Selects" class="chameleonFreebieDivs">
+                <select id="chameleonFreebie02TalentSelect" class="chameleonFreebieSelects">
                     <option id="chameleonFreebie02TalentBlank"></option>
                     <option id="chameleonActingFreebie02" class="chameleonFreebie02Talent">Acting</option>
                     <option id="chameleonAlertnessFreebie02" class="chameleonFreebie02Talent">Alertness</option>
@@ -1841,9 +1871,8 @@
                     <option id="chameleonMemoryFreebie02" class="chameleonFreebie02Talent">Memory</option>
                     <option id="chameleonStealthFreebie02" class="chameleonFreebie02Talent">Stealth</option>
                 </select>
-                <input id="chameleonFreebie02Skill" type="radio" name="chameleonFreebie02">
-                <h4>Skill:</h4>
-                <select id="chameleonFreebie02Skills">
+                <br>
+                <select id="chameleonFreebie02SkillSelect" class="chameleonFreebieSelects">
                     <option id="chameleonFreebie02SkillBlank"></option>
                     <option id="chameleonDeceptionFreebie02" class="chameleonFreebie02Skill">Deception</option>
                     <option id="chameleonFirearmsFreebie02" class="chameleonFreebie02Skill">Firearms</option>
@@ -1855,9 +1884,8 @@
                     <option id="chameleonSecurityFreebie02" class="chameleonFreebie02Skill">Security</option>
                     <option id="chameleonSocializingFreebie02" class="chameleonFreebie02Skill">Socializing</option>
                 </select>
-                <input id="chameleonFreebie02Knowledge" type="radio" name="chameleonFreebie02">
-                <h4>Knowledge:</h4>
-                <select id="chameleonFreebie02Knowledges">
+                <br>
+                <select id="chameleonFreebie02KnowledgeSelect" class="chameleonFreebieSelects">
                     <option id="chameleonFreebie02KnowledgeBlank"></option>
                     <option id="chameleonArcanaFreebie02" class="chameleonFreebie02Knowledge">Arcana</option>
                     <option id="chameleonCodeBreakingFreebie02" class="chameleonFreebie02Knowledge">Code-Breaking</option>
@@ -1870,8 +1898,11 @@
                     <option id="chameleonSpecialFreebie02" class="chameleonFreebie02Knowledge">Special</option>
                 </select>
             </div>
-         <button id="chameleonCliqueBasedAbilitiesButton" type="button" onclick="applyChameleonAbilities()">Commit Choices</button>
-         <button id="chameleonCliqueBasedAbilitiesResetButton" type="button" onclick="resetChameleonAbilities()">Reset</button> 
+            <br>
+            <button id="chameleonCliqueBasedAbilitiesButton" type="button" onclick="applyChameleonAbilities()">Commit Choices</button>
+            <button id="chameleonCliqueBasedAbilitiesResetButton" type="button" onclick="resetChameleonAbilities()">Reset</button> 
+            <br>
+            <br>
         </div>
     </div>
     <div id="prioritizeAbilityTypes">

@@ -1668,20 +1668,6 @@ function displayTheaterKidStatDiv() {
             theaterKidNoticeDivs[i].style.display = 'none'
         }
     }
-/*
-    if (theaterKidMustMakeEveryChoiceDiv.style.display == "block") {
-        theaterKidMustMakeEveryChoiceDiv.style.display = 'none'
-    }
-    if (theaterKidNoStackingDiv.style.display == "block") {
-        theaterKidNoStackingDiv.style.display = "none"
-    }
-    if (theaterKidNoSameBonusAndPenaltyDiv.style.display == 'block') {
-        theaterKidNoSameBonusAndPenaltyDiv.style.display = 'none'
-    }
-    if (theaterKidMustChooseAResistanceDiv.style.display == 'block') {
-        theaterKidMustChooseAResistanceDiv.style.display = 'none'
-    }
-*/
     // remove any previously-generated Ability divs
     for (i=0; i<cliqueAbilityArray.length; i++) {
         cliqueAbilityArray[i].style.display = "none"
@@ -1957,13 +1943,6 @@ function displayChameleonStatDiv() {
     // display div "chameleonStatPicks"
     let chameleonStatPicks = document.getElementById("chameleonStatPicks")
     chameleonStatPicks.style.display = "block"
-/*
-    // check for no stacking warning
-    let chameleonNoStackingDiv = document.getElementById("chameleonNoStackingDiv")
-    if (chameleonNoStackingDiv.style.display == "block") {
-        chameleonNoStackingDiv.style.display = "none"
-    } 
-*/
     // hide other clique abilities
     nerdStatPicks.style.display = 'none'
     jockStatPicks.style.display = 'none'
@@ -2919,42 +2898,42 @@ function spendAbilityPoints() {
             }
         }
         // correct for freebies
-        if (chameleonFreebie01Talent.checked == true) {
+        if (chameleonFreebie01TalentRadio.checked == true) {
             for (i=0; i<chameleonFreebie01Talents.length; i++) {
                 if (chameleonFreebie01Talents[i].selected == true) {
                     talentCounter += 1
                 }
             }
         }
-        else if (chameleonFreebie01Skill.checked == true) {
+        else if (chameleonFreebie01SkillRadio.checked == true) {
             for (i=0; i<chameleonFreebie01Skills.length; i++) {
                 if (chameleonFreebie01Skills[i].selected == true) {
                     skillCounter += 1
                 }
             }
         }
-        else if (chameleonFreebie01Knowledge.checked == true) {
+        else if (chameleonFreebie01KnowledgeRadio.checked == true) {
             for (i=0; i<chameleonFreebie01Knowledges.length; i++) {
                 if (chameleonFreebie01Knowledges[i].selected == true) {
                     knowledgeCounter += 1
                 }
             }
         }
-        if (chameleonFreebie02Talent.checked == true) {
+        if (chameleonFreebie02TalentRadio.checked == true) {
             for (i=0; i<chameleonFreebie02Talents.length; i++) {
                 if (chameleonFreebie02Talents[i].selected == true) {
                     talentCounter += 1
                 }
             }
         }
-        else if (chameleonFreebie02Skill.checked == true) {
+        else if (chameleonFreebie02SkillRadio.checked == true) {
             for (i=0; i<chameleonFreebie02Skills.length; i++) {
                 if (chameleonFreebie02Skills[i].selected == true) {
                     skillCounter += 1
                 }
             }
         }
-        else if (chameleonFreebie02Knowledge.checked == true) {
+        else if (chameleonFreebie02KnowledgeRadio.checked == true) {
             for (i=0; i<chameleonFreebie02Knowledges.length; i++) {
                 if (chameleonFreebie02Knowledges[i].selected == true) {
                     knowledgeCounter += 1
@@ -4056,6 +4035,15 @@ function applyLonerAbilities() {
             }
         }    
     }
+    for (i=0; i<lonerFreebieKnowledges.length; i++) {
+        if (lonerFreebieKnowledges[i].selected == true) {
+            if (knowledgeUntrained[i].selected == true) {
+                knowledgeProficient[i].selected = true
+                knowledgeCells[i].style.backgroundColor = '#50C878'
+                knowledgeModifierCells[i].style.backgroundColor = '#50C878'
+            }
+        }    
+    }
     abilityChange()
     removeAbilityOptions()
 }
@@ -4077,98 +4065,214 @@ function resetLonerAbilities() {
     reAddAbilityOptions()
 }
 
+// declarations
+let chameleonFreebie01TalentRadio = document.getElementById("chameleonFreebie01TalentRadio")
+let chameleonFreebie01SkillRadio = document.getElementById("chameleonFreebie01SkillRadio")
+let chameleonFreebie01KnowledgeRadio = document.getElementById("chameleonFreebie01KnowledgeRadio")
+let chameleonFreebie02TalentRadio = document.getElementById("chameleonFreebie02TalentRadio")
+let chameleonFreebie02SkillRadio = document.getElementById("chameleonFreebie02SkillRadio")
+let chameleonFreebie02KnowledgeRadio = document.getElementById("chameleonFreebie02KnowledgeRadio")
+let chameleonFreebie01TalentBlank = document.getElementById("chameleonFreebie01TalentBlank")
+let chameleonFreebie01SkillBlank = document.getElementById("chameleonFreebie01SkillBlank")
+let chameleonFreebie01KnowledgeBlank = document.getElementById("chameleonFreebie01KnowledgeBlank")
+let chameleonFreebie02TalentBlank = document.getElementById("chameleonFreebie02TalentBlank")
+let chameleonFreebie02SkillBlank = document.getElementById("chameleonFreebie02SkillBlank")
+let chameleonFreebie02KnowledgeBlank = document.getElementById("chameleonFreebie02KnowledgeBlank")
+let chameleonFreebie01TalentSelect = document.getElementById("chameleonFreebie01TalentSelect")
+let chameleonFreebie01SkillSelect = document.getElementById("chameleonFreebie01SkillSelect")
+let chameleonFreebie01KnowledgeSelect = document.getElementById("chameleonFreebie01KnowledgeSelect")
+let chameleonFreebie02TalentSelect = document.getElementById("chameleonFreebie02TalentSelect")
+let chameleonFreebie02SkillSelect = document.getElementById("chameleonFreebie02SkillSelect")
+let chameleonFreebie02KnowledgeSelect = document.getElementById("chameleonFreebie02KnowledgeSelect")
+
+let chameleonMustChooseTalentDiv = document.getElementById("chameleonMustChooseTalentDiv")
+let chameleonMustChooseSkillDiv = document.getElementById("chameleonMustChooseSkillDiv")
+let chameleonMustChooseKnowledgeDiv = document.getElementById("chameleonMustChooseKnowledgeDiv")
+let chameleonMustHaveFirstFreebieDiv = document.getElementById("chameleonMustHaveFirstFreebieDiv")
+let chameleonMustHaveSecondFreebieDiv = document.getElementById("chameleonMustHaveSecondFreebieDiv")
+let chameleonCannotStackFreebiesDiv = document.getElementById("chameleonCannotStackFreebiesDiv")
+let chameleonNotificationDivs = [chameleonMustChooseTalentDiv, chameleonMustChooseSkillDiv, chameleonMustChooseKnowledgeDiv, chameleonMustHaveFirstFreebieDiv, chameleonMustHaveSecondFreebieDiv, chameleonCannotStackFreebiesDiv]
+
 function applyChameleonAbilities() {
     resetAbilitiesToUntrained()
-    for (i=0; i<chameleonTalentsArray.length; i++) {
-        if (chameleonTalentsArray[i].selected == true) {
-            if (talentUntrained[i].selected == true) {
-                talentProficient[i].selected = true
-            } else if (talentProficient[i].selected == true) {
-                talentSkilled[i].selected = true
-            }
-        }
-    }    
-    for (i=0; i<chameleonSkillsArray.length; i++) {
-        if (chameleonSkillsArray[i].selected == true) {
-            if (skillUntrained[i].selected == true) {
-                skillProficient[i].selected = true
-            } else if (skillProficient[i].selected == true) {
-                skillSkilled[i].selected = true
-            }
+    // remove any previously-displayed notices
+    for (i=0; i<chameleonNotificationDivs.length; i++) {
+        chameleonNotificationDivs[i].style.display = 'none'
+    }
+    // chameleonTalent must be chosen
+    if (chameleonTalent.value == '') {
+        chameleonMustChooseTalentDiv.style.display = 'block'
+        return
+    }
+    // chameleonSkill must be chosen
+    if (chameleonSkill.value == '') {
+        chameleonMustChooseSkillDiv.style.display = 'block'
+        return
+    }
+    // chameleonKnowledge must be chosen
+    if (chameleonKnowledge.value == '') {
+        chameleonMustChooseKnowledgeDiv.style.display = 'block'
+        return
+    }
+    // First freebie must be chosen
+    if (chameleonFreebie01TalentRadio.checked == false && chameleonFreebie01SkillRadio.checked == false && chameleonFreebie01KnowledgeRadio.checked == false) {
+        chameleonMustHaveFirstFreebieDiv.style.display = 'block'
+        return
+    }
+    if (chameleonFreebie01TalentRadio.checked == true) {
+        if (chameleonFreebie01TalentBlank.selected == true) {
+            chameleonMustHaveFirstFreebieDiv.style.display = 'block'
+            return
         }
     }
-    for (i=0; i<chameleonKnowledgesArray.length; i++) {
-        if (chameleonKnowledgesArray[i].selected == true) {
-            if (knowledgeUntrained[i].selected == true) {
-                knowledgeProficient[i].selected = true
-            } else if (knowledgeProficient[i].selected == true) {
-                knowledgeSkilled[i].selected = true
-            }
+    if (chameleonFreebie01SkillRadio.checked == true) {
+        if (chameleonFreebie01SkillBlank.selected == true) {
+            chameleonMustHaveFirstFreebieDiv.style.display = 'block'
+            return
+        }       
+    }
+    if (chameleonFreebie01KnowledgeRadio.checked == true) {
+        if (chameleonFreebie01KnowledgeBlank.selected == true) {
+            chameleonMustHaveFirstFreebieDiv.style.display = 'block'
+            return
+        }       
+    }
+    // Freebie 1 can't stack an earlier choice
+    if (chameleonFreebie01TalentRadio.checked == true) {
+        if (chameleonTalent.value == chameleonFreebie01TalentSelect.value) {
+            chameleonCannotStackFreebiesDiv.style.display = 'block'
+            return
         }
     }
-    if (chameleonFreebie01Talent.checked == true) {
+    if (chameleonFreebie01SkillRadio.checked == true) {
+        if (chameleonSkill.value == chameleonFreebie01SkillSelect.value) {
+            chameleonCannotStackFreebiesDiv.style.display = 'block'
+            return
+        }
+    }
+    if (chameleonFreebie01KnowledgeRadio.checked == true) {
+        if (chameleonKnowledge.value == chameleonFreebie01KnowledgeSelect.value) {
+            chameleonCannotStackFreebiesDiv.style.display = 'block'
+            return
+        }
+    }
+    // Second freebie must be chosen
+    if (chameleonFreebie02TalentRadio.checked == false && chameleonFreebie02SkillRadio.checked == false && chameleonFreebie02KnowledgeRadio.checked == false) {
+        chameleonMustHaveSecondFreebieDiv.style.display = 'block'
+        return
+    }
+    if (chameleonFreebie02TalentRadio.checked == true) {
+        if (chameleonFreebie02TalentBlank.selected == true) {
+            chameleonMustHaveSecondFreebieDiv.style.display = 'block'
+            return
+        }
+    }
+    if (chameleonFreebie02SkillRadio.checked == true) {
+        if (chameleonFreebie02SkillBlank.selected == true) {
+            chameleonMustHaveSecondFreebieDiv.style.display = 'block'
+            return
+        }       
+    }
+    if (chameleonFreebie02KnowledgeRadio.checked == true) {
+        if (chameleonFreebie02KnowledgeBlank.selected == true) {
+            chameleonMustHaveSecondFreebieDiv.style.display = 'block'
+            return
+        }       
+    }
+    // Freebie 2 can't stack an earlier choice
+    if (chameleonFreebie02TalentRadio.checked == true) {
+        if (chameleonTalent.value == chameleonFreebie02TalentSelect.value) {
+            chameleonCannotStackFreebiesDiv.style.display = 'block'
+            return
+        }
+    }
+    if (chameleonFreebie02SkillRadio.checked == true) {
+        if (chameleonSkill.value == chameleonFreebie02SkillSelect.value) {
+            chameleonCannotStackFreebiesDiv.style.display = 'block'
+            return
+        }
+    }
+    if (chameleonFreebie02KnowledgeRadio.checked == true) {
+        if (chameleonKnowledge.value == chameleonFreebie02KnowledgeSelect.value) {
+            chameleonCannotStackFreebiesDiv.style.display = 'block'
+            return
+        }
+    }
+
+
+    // apply selections
+    for (i=0; i<talentStringArray.length; i++) {
+        if (chameleonTalent.value == talentStringArray[i]) {
+            talentProficient[i].selected = true
+            talentCells[i].style.backgroundColor = '#50C878'
+            talentModifierCells[i].style.backgroundColor = '#50C878'
+        }
+    }
+    for (i=0; i<skillStringArray.length; i++) {
+        if (chameleonSkill.value == skillStringArray[i]) {
+            skillProficient[i].selected = true
+            skillCells[i].style.backgroundColor = '#50C878'
+            skillModifierCells[i].style.backgroundColor = '#50C878'
+        }
+    }
+    for (i=0; i<knowledgeStringArray.length; i++) {
+        if (chameleonKnowledge.value == knowledgeStringArray[i]) {
+            knowledgeProficient[i].selected = true
+            knowledgeCells[i].style.backgroundColor = '#50C878'
+            knowledgeModifierCells[i].style.backgroundColor = '#50C878'
+        }
+    }
+    if (chameleonFreebie01TalentRadio.checked == true) {
         for (i=0; i<chameleonFreebie01Talents.length; i++) {
             if (chameleonFreebie01Talents[i].selected == true) {
-                if (talentUntrained[i].selected == true) {
-                    talentProficient[i].selected = true
-                } else if (talentProficient[i].selected == true) {
-                    talentSkilled[i].selected = true
-                }
-            }
-        }
-    }
-    if (chameleonFreebie02Talent.checked == true) {
-        for (i=0; i<chameleonFreebie02Talents.length; i++) {
-            if (chameleonFreebie02Talents[i].selected == true) {
-                if (talentUntrained[i].selected == true) {
                 talentProficient[i].selected = true
-                } else if (talentProficient[i].selected == true) {
-                talentSkilled[i].selected = true
-                }
+                talentCells[i].style.backgroundColor = '#50C878'
+                talentModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
-    if (chameleonFreebie01Skill.checked == true) {
+    if (chameleonFreebie01SkillRadio.checked == true) {
         for (i=0; i<chameleonFreebie01Skills.length; i++) {
             if (chameleonFreebie01Skills[i].selected == true) {
-                if (skillUntrained[i].selected == true) {
-                    skillProficient[i].selected = true
-                } else if (skillProficient[i].selected == true) {
-                    skillSkilled[i].selected = true
-                }
+                skillProficient[i].selected = true
+                skillCells[i].style.backgroundColor = '#50C878'
+                skillModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
-    if (chameleonFreebie02Skill.checked == true) {
-        for (i=0; i<chameleonFreebie02Skills.length; i++) {
-            if (chameleonFreebie02Skills[i].selected == true) {
-                if (skillUntrained[i].selected == true) {
-                    skillProficient[i].selected = true
-                } else if (skillProficient[i].selected == true) {
-                    skillSkilled[i].selected = true
-                }
-            }
-        }
-    }
-    if (chameleonFreebie01Knowledge.checked == true) {
+    if (chameleonFreebie01KnowledgeRadio.checked == true) {
         for (i=0; i<chameleonFreebie01Knowledges.length; i++) {
             if (chameleonFreebie01Knowledges[i].selected == true) {
-                if (knowledgeUntrained[i].selected == true) {
-                    knowledgeProficient[i].selected = true
-                } else if (knowledgeProficient[i].selected == true) {
-                    knowledgeSkilled[i].selected = true
-                }
+                knowledgeProficient[i].selected = true
+                knowledgeCells[i].style.backgroundColor = '#50C878'
+                knowledgeModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
-    if (chameleonFreebie02Knowledge.checked == true) {
+    if (chameleonFreebie02TalentRadio.checked == true) {
+        for (i=0; i<chameleonFreebie02Talents.length; i++) {
+            if (chameleonFreebie02Talents[i].selected == true) {
+                talentProficient[i].selected = true
+                talentCells[i].style.backgroundColor = '#50C878'
+                talentModifierCells[i].style.backgroundColor = '#50C878'
+            }
+        }
+    }
+    if (chameleonFreebie02SkillRadio.checked == true) {
+        for (i=0; i<chameleonFreebie02Skills.length; i++) {
+            if (chameleonFreebie02Skills[i].selected == true) {
+                skillProficient[i].selected = true
+                skillCells[i].style.backgroundColor = '#50C878'
+                skillModifierCells[i].style.backgroundColor = '#50C878'
+            }
+        }
+    }
+    if (chameleonFreebie02KnowledgeRadio.checked == true) {
         for (i=0; i<chameleonFreebie02Knowledges.length; i++) {
             if (chameleonFreebie02Knowledges[i].selected == true) {
-                if (knowledgeUntrained[i].selected == true) {
-                    knowledgeProficient[i].selected = true
-                } else if (knowledgeProficient[i].selected == true) {
-                    knowledgeSkilled[i].selected = true
-                }
+                knowledgeProficient[i].selected = true
+                knowledgeCells[i].style.backgroundColor = '#50C878'
+                knowledgeModifierCells[i].style.backgroundColor = '#50C878'
             }
         }
     }
@@ -4177,6 +4281,7 @@ function applyChameleonAbilities() {
 }
 
 function resetChameleonAbilities() {
+    whiteOutAbilitiesCells()
     let chameleonTalentBlank = document.getElementById("chameleonTalentBlank")
     let chamaleonSkillBlank = document.getElementById("chameleonSkillBlank")
     let chameleonKnowledgeBlank = document.getElementById("chameleonKnowledgeBlank")
@@ -4188,7 +4293,7 @@ function resetChameleonAbilities() {
     let chameleonFreebie02KnowledgeBlank = document.getElementById("chameleonFreebie02KnowledgeBlank")
     let chameleonBlanks = [chameleonTalentBlank, chamaleonSkillBlank, chameleonKnowledgeBlank, chameleonFreebie01TalentBlank, chameleonFreebie02TalentBlank, chameleonFreebie01SkillBlank, chameleonFreebie02SkillBlank, chameleonFreebie01KnowledgeBlank, chameleonFreebie02KnowledgeBlank]
     for (i=0; i<chameleonBlanks.length; i++) {
-        lonerBlanks[i].selected = true
+        chameleonBlanks[i].selected = true
     }
     abilityChange()
     reAddAbilityOptions()
