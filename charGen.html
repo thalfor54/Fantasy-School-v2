@@ -23,10 +23,9 @@
                 <option value=''></option>
                 <option value='Persuasion'>Persuasion</option>
                 <option value='Manipulation'>Manipulation</option>
+                <option value='Ingratiation'>Ingratiation</option>
                 <option value='Charisma'>Charisma</option>
                 <option value='Insight'>Insight</option>
-                <option value='Reason'>Reason</option>
-                <option value='Intuition'>Intuition</option>
             </select>
             <br>
             <h4>Stat Choice #2</h4>
@@ -34,10 +33,9 @@
                 <option value=''></option>
                 <option value='Persuasion'>Persuasion</option>
                 <option value='Manipulation'>Manipulation</option>
+                <option value='Ingratiation'>Ingratiation</option>
                 <option value='Charisma'>Charisma</option>
                 <option value='Insight'>Insight</option>
-                <option value='Reason'>Reason</option>
-                <option value='Intuition'>Intuition</option>
             </select>
             <br>
             <h4>Stat Choice #3</h4>
@@ -45,8 +43,17 @@
                 <option value=''></option>
                 <option value='Persuasion'>Persuasion</option>
                 <option value='Manipulation'>Manipulation</option>
+                <option value='Ingratiation'>Ingratiation</option>
                 <option value='Charisma'>Charisma</option>
                 <option value='Insight'>Insight</option>
+            </select>
+            <br>
+            <div id="witchMustPickReasonOrIntuitionDiv" class="instructionDiv">
+                <h4 id="witchMustPickReasonOrIntuitionNotice" class="redNotice"><strong>You must choose Reason or Intuition</strong></h4>
+            </div>          
+            <h4>Stat: Reason or Intuition?</h4>
+            <select id="witchReasonOrIntuitionSelect">
+                <option value=''></option>
                 <option value='Reason'>Reason</option>
                 <option value='Intuition'>Intuition</option>
             </select>
@@ -56,12 +63,13 @@
             </div>          
             <h4>Increase which FEEL?</h4>
             <select id="witchFeelPick">
-                <option value="blank"></option>
-                <option value="angry">Angry</option>
-                <option value="melancholy">Melancholy</option>
+                <option value=''></option>
+                <option value='angry'>Angry</option>
+                <option value='melancholy'>Melancholy</option>
             </select>
             <br>
             <button id="commitButton01" type="button" onclick="applyWitchStatModifiers()">Commit choices</button>
+            <button id="resetWitchSelections" type="button" onclick="resetWitchSelections()">Reset</button>
             <br>
         </div>
         <input type="radio" id="fairy" name="species" onclick="fairyModifiers()">
@@ -119,6 +127,7 @@
             </select>
             <br>
             <button type="button" onclick="applyNerdStatModifiers()">Commit choices</button>
+            <button type="button" onclick="resetNerdStatModifiers()">Reset</button>
             <br>
         </div>
         <!--jocks-->
@@ -179,6 +188,7 @@
             </select>
             <br>
             <button type="button" onclick="applyJockStatModifiers()">Commit choices</button>
+            <button type="button" onclick="resetJockStatModifiers()">Reset</button>            
             <br>
         </div>
         <!--preps-->        
@@ -261,6 +271,7 @@
             </select>
             <br>
             <button type="button" onclick="applyPrepStatModifiers()">Commit choices</button>
+            <button type="button" onclick="resetPrepStatModifiers()">Reset</button>
         </div>
         <!--theater kids-->
         <input type="radio" id="theaterKids" name="clique" onclick="displayTheaterKidStatDiv()">

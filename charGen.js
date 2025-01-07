@@ -1157,6 +1157,13 @@ function witchModifiers() {
     calculateFeelsResistancesAndSaves()
 }
 
+let witchStatOption01 = document.getElementById("witchStatOption01")
+let witchStatOption02 = document.getElementById("witchStatOption02")
+let witchStatOption03 = document.getElementById("witchStatOption03")
+let witchReasonOrIntuitionSelect = document.getElementById("witchReasonOrIntuitionSelect")
+let witchMustPickReasonOrIntuitionDiv = document.getElementById("witchMustPickReasonOrIntuitionDiv")
+let witchFeelPick = document.getElementById("witchFeelPick")  
+
 function applyWitchStatModifiers() {
     // remove any previously-generated notice
     let witchNoStackingDiv = document.getElementById("witchNoStackingDiv")
@@ -1172,32 +1179,29 @@ function applyWitchStatModifiers() {
         speciesModifierArray[i].innerHTML = ''
     }
     // assign bonuses to selected stats
-    let witchStatOption01 = document.getElementById("witchStatOption01").value
-    let witchStatOption02 = document.getElementById("witchStatOption02").value
-    let witchStatOption03 = document.getElementById("witchStatOption03").value
-    if (witchStatOption01 === witchStatOption02 || witchStatOption01 === witchStatOption03 || witchStatOption02 === witchStatOption03) {
+    if (witchStatOption01.value == witchStatOption02.value || witchStatOption01.value == witchStatOption03.value || witchStatOption02.value == witchStatOption03.value) {
         let witchNoStackingDiv = document.getElementById("witchNoStackingDiv")
         witchNoStackingDiv.style.display = "block"
         return
     } 
-    else {
-        for (i=0; i<12; i++) {
-            if (witchStatOption01 == statStringArray[i] || witchStatOption02 == statStringArray[i] || witchStatOption03 == statStringArray[i]) {
-                speciesModifierArray[i].innerHTML = 2
-            } 
-        }
-        for (i=0; i<12; i++) {
-            changeRowArray[i]()
-        }    
+    if (witchReasonOrIntuitionSelect.value == '') {
+        witchMustPickReasonOrIntuitionDiv.style.display = 'block'
+        return
     }
-    let witchFeelPick = document.getElementById("witchFeelPick")  
+    for (i=0; i<12; i++) {
+        if (witchStatOption01.value == statStringArray[i] || witchStatOption02.value == statStringArray[i] || witchStatOption03.value == statStringArray[i] || witchReasonOrIntuitionSelect.value == statStringArray[i]) {
+            speciesModifierArray[i].innerHTML = 2
+        } 
+    }
+    for (i=0; i<12; i++) {
+        changeRowArray[i]()
+    }    
     angrySpeciesModifier.innerHTML = ''
     melancholySpeciesModifier.innerHTML = ''
-    if (witchFeelPick.value == 'blank') {
+    if (witchFeelPick.value == '') {
         witchMustPickFeelDiv.style.display = 'block'
     } 
     else if (witchFeelPick.value == 'angry') {
-        console.log("test")
         angrySpeciesModifier.innerHTML = 1
     } else if (witchFeelPick.value == 'melancholy') {
         melancholySpeciesModifier.innerHTML = 1
@@ -1216,6 +1220,21 @@ function applyWitchStatModifiers() {
     willSpeciesModifier.innerHTML = 1
     calculateFeelsResistancesAndSaves()
 }  
+
+function resetWitchSelections() {
+    witchStatOption01.value = ''
+    witchStatOption02.value = ''
+    witchStatOption03.value = ''
+    witchReasonOrIntuitionSelect.value = ''
+    witchFeelPick.value = ''
+    for (i=0; i<23; i++) {
+        speciesModifierArray[i].innerHTML = ''
+    }
+    for (i=0; i<12; i++) {
+        changeRowArray[i]()
+    }    
+    calculateFeelsResistancesAndSaves()
+}
 
 function fairyModifiers() {
     let witchStatPicks = document.getElementById("witchStatPicks")
@@ -1322,11 +1341,6 @@ function resetAbilitiesToUntrained() {
             knowledgeModifierCells[i].style.backgroundColor = 'initial'
         }
     }
-/*    if (jockRadio.checked == true) {
-        let jockAthleticsSelected = document.getElementById("jockAthleticsSelected")
-        jockAthleticsSelected = true
-    }
-*/
 }
 
 
@@ -1367,34 +1381,35 @@ function displayNerdStatDiv() {
     calculateFeelsResistancesAndSaves()
 }
 
+// declarations
+let nerdNoStackingDiv = document.getElementById("nerdNoStackingDiv")
+let nerdMustMakeEveryChoiceDiv = document.getElementById("nerdMustMakeEveryChoiceDiv")
+let nerdStatOption01 = document.getElementById("nerdStatOption01")
+let nerdStatOption02 = document.getElementById("nerdStatOption02")
+let nerdStatOption03 = document.getElementById("nerdStatOption03")
+let nerdStatOption04 = document.getElementById("nerdStatOption04")
+
+
 function applyNerdStatModifiers() {
     // remove any previously-generated notices
-    let nerdNoStackingDiv = document.getElementById("nerdNoStackingDiv")
     if (nerdMustMakeEveryChoiceDiv.style.display == "block") {
         nerdMustMakeEveryChoiceDiv.style.display = "none"
     }
     if (nerdNoStackingDiv.style.display == "block") {
         nerdNoStackingDiv.style.display = "none"
     }
-    // assign selected values  
-    let nerdStatOption01 = document.getElementById("nerdStatOption01").value
-    let nerdStatOption02 = document.getElementById("nerdStatOption02").value
-    let nerdStatOption03 = document.getElementById("nerdStatOption03").value
-    let nerdStatOption04 = document.getElementById("nerdStatOption04").value
     // make sure a choice is made for every option
-    if (nerdStatOption01 == '' || nerdStatOption02 == '' || nerdStatOption03 == '' || nerdStatOption04 == '') {
-        let nerdMustMakeEveryChoiceDiv = document.getElementById("nerdMustMakeEveryChoiceDiv")
+    if (nerdStatOption01.value == '' || nerdStatOption02.value == '' || nerdStatOption03.value == '' || nerdStatOption04.value == '') {
         nerdMustMakeEveryChoiceDiv.style.display = "block"
         return
     // check for no stacking
-    } else if (nerdStatOption01 == nerdStatOption02 || nerdStatOption03 == nerdStatOption04) {
-        let nerdNoStackingDiv = document.getElementById("nerdNoStackingDiv")
+    } else if (nerdStatOption01.value == nerdStatOption02.value || nerdStatOption03.value == nerdStatOption04.value) {
         nerdNoStackingDiv.style.display = "block"
         return
     } else {
     // assign bonuses to selected stats
     for (i=0; i<12; i++) {
-            if (nerdStatOption01 == statStringArray[i] || nerdStatOption02 == statStringArray[i]) {
+            if (nerdStatOption01.value == statStringArray[i] || nerdStatOption02.value == statStringArray[i]) {
                 cliqueModifierArray[i].innerHTML = 2
             } 
         }
@@ -1403,7 +1418,7 @@ function applyNerdStatModifiers() {
         }    
     }
     for (i=0; i<statStringArray.length; i++) {
-        if (nerdStatOption03 == statStringArray[i] || nerdStatOption04 == statStringArray[i]) {
+        if (nerdStatOption03.value == statStringArray[i] || nerdStatOption04.value == statStringArray[i]) {
             cliqueModifierArray[i].innerHTML = -2
         }
     }
@@ -1419,6 +1434,28 @@ function applyNerdStatModifiers() {
     mindCliqueModifier.innerHTML = 2
     willCliqueModifier.innerHTML = 2 
     calculateFeelsResistancesAndSaves()
+}
+
+function resetNerdStatModifiers() {
+    // remove any previously-generated notices
+    if (nerdMustMakeEveryChoiceDiv.style.display == "block") {
+        nerdMustMakeEveryChoiceDiv.style.display = "none"
+    }
+    if (nerdNoStackingDiv.style.display == "block") {
+        nerdNoStackingDiv.style.display = "none"
+    }
+    // reset choices
+    nerdStatOption01.value = ''
+    nerdStatOption02.value = ''
+    nerdStatOption03.value = ''
+    nerdStatOption04.value = ''
+    for (i=0; i<23; i++) {
+        cliqueModifierArray[i].innerHTML = ''
+    }
+    for (i=0; i<12; i++) {
+        changeRowArray[i]()
+    }    
+    calculateFeelsResistancesAndSaves() 
 }
 
 function displayJockStatDiv() {
@@ -1461,6 +1498,11 @@ function displayJockStatDiv() {
     calculateFeelsResistancesAndSaves()
 }
 
+let jockStatOption01 = document.getElementById("jockStatOption01")
+let jockStatOption02 = document.getElementById("jockStatOption02")
+let jockStatOption03 = document.getElementById("jockStatOption03")
+let jockStatOption04 = document.getElementById("jockStatOption04")
+
 function applyJockStatModifiers() {
     // remove any previously-generated notices
     let jockMustMakeEveryChoiceDiv = document.getElementById("jockMustMakeEveryChoiceDiv")
@@ -1472,22 +1514,18 @@ function applyJockStatModifiers() {
         jockNoStackingDiv.style.display = "none"
     }
     // assign selected values  
-    let selection01 = document.getElementById("jockStatOption01").value
-    let selection02 = document.getElementById("jockStatOption02").value
-    let selection03 = document.getElementById("jockStatOption03").value
-    let selection04 = document.getElementById("jockStatOption04").value
     // make sure a choice is made for every option
-    if (selection01 == '' || selection02 == '' || selection03 == '' || selection04 == '') {
+    if (jockStatOption01.value == '' || jockStatOption02.value == '' || jockStatOption03.value == '' || jockStatOption04.value == '') {
         let jockMustMakeEveryChoiceDiv = document.getElementById("jockMustMakeEveryChoiceDiv")
         jockMustMakeEveryChoiceDiv.style.display = "block"
         return
     } 
     // check for no stacking
-    if (selection01 === selection02) {
+    if (jockStatOption01.value == jockStatOption02.value) {
         let jockNoStackingDiv = document.getElementById("jockNoStackingDiv")
         jockNoStackingDiv.style.display = "block"
         return
-    } else if (selection02 === selection04) {
+    } else if (jockStatOption02.value == jockStatOption04.value) {
         let jockNoSameBonusAndPenaltyDiv = document.getElementById("jockNoSameBonusAndPenaltyDiv")
         jockNoSameBonusAndPenaltyDiv.style.display = "block"
         return
@@ -1495,12 +1533,12 @@ function applyJockStatModifiers() {
     else {
     // assign bonuses to selected stats
         for (i=0; i<statStringArray.length; i++) {
-            if (selection01 == statStringArray[i] || selection02 == statStringArray[i]) {
+            if (jockStatOption01.value == statStringArray[i] || jockStatOption02.value == statStringArray[i]) {
                 cliqueModifierArray[i].innerHTML = 2
             }
         }
         for (i=0; i<statStringArray.length; i++) {
-            if (selection03 == statStringArray[i] || selection04 == statStringArray[i]) {
+            if (jockStatOption03.value == statStringArray[i] || jockStatOption04.value == statStringArray[i]) {
                 cliqueModifierArray[i].innerHTML = -2
             }
         }
@@ -1523,6 +1561,35 @@ function applyJockStatModifiers() {
 calculateFeelsResistancesAndSaves()
 }
 
+let jockMustMakeEveryChoiceDiv = document.getElementById("jockMustMakeEveryChoiceDiv")
+let jockNoStackingDiv = document.getElementById("jockNoStackingDiv")
+let jockNoSameBonusAndPenaltyDiv = document.getElementById("jockNoSameBonusAndPenaltyDiv")
+
+function resetJockStatModifiers() {
+    // remove any previously-generated notices
+    if (jockMustMakeEveryChoiceDiv.style.display == "block") {
+        jockMustMakeEveryChoiceDiv.style.display = "none"
+    }
+    if (jockNoStackingDiv.style.display == "block") {
+        jockNoStackingDiv.style.display = "none"
+    }
+    if (jockNoSameBonusAndPenaltyDiv.style.display == 'block') {
+        jockNoSameBonusAndPenaltyDiv.style.display = 'none'
+    }
+    // reset choices
+    jockStatOption01.value = ''
+    jockStatOption02.value = ''
+    jockStatOption03.value = ''
+    jockStatOption04.value = ''
+    for (i=0; i<23; i++) {
+        cliqueModifierArray[i].innerHTML = ''
+    }
+    for (i=0; i<12; i++) {
+        changeRowArray[i]()
+    }    
+    calculateFeelsResistancesAndSaves() 
+}
+
 let prepMustMakeEveryChoiceDiv = document.getElementById("prepMustMakeEveryChoiceDiv")
 let prepNoStackingDiv = document.getElementById("prepNoStackingDiv")
 let prepNoSameBonusAndPenaltyDiv = document.getElementById("prepNoSameBonusAndPenaltyDiv")
@@ -1536,20 +1603,6 @@ function displayPrepStatDiv() {
             prepNoticeDivs[i].style.display = 'none'
         }
     }
-/*
-    if (prepMustMakeEveryChoiceDiv.style.display == 'block') {
-        prepMustMakeEveryChoiceDiv.style.display = 'none'
-    }
-    if (prepNoStackingDiv.style.display == "block") {
-        prepNoStackingDiv.style.display = "none"
-    }
-    if (prepNoSameBonusAndPenaltyDiv.style.display == 'block') {
-        prepNoSameBonusAndPenaltyDiv.style.display = 'none'
-    }
-    if (prepMustChooseASaveDiv.style.display == 'block') {
-        prepMustChooseASaveDiv.style.display = 'none'
-    }
-*/
     // remove any previously-generated Ability divs
     for (i=0; i<cliqueAbilityArray.length; i++) {
         cliqueAbilityArray[i].style.display = "none"
@@ -1587,17 +1640,6 @@ function applyPrepStatModifiers() {
             prepNoticeDivs[i].style.display = 'none'
         }
     }
-
-/*
-     let prepMustMakeEveryChoiceDiv = document.getElementById("prepMustMakeEveryChoiceDiv")
-     let prepNoStackingDiv = document.getElementById("prepNoStackingDiv")
-     if (prepMustMakeEveryChoiceDiv.style.display == "block") {
-        prepMustMakeEveryChoiceDiv.style.display = "none"
-     }
-     if (prepNoStackingDiv.style.display == "block") {
-        prepNoStackingDiv.style.display = "none"
-     }
-*/
      // assign selected values  
     let selection01 = document.getElementById("prepStatOption01").value
     let selection02 = document.getElementById("prepStatOption02").value
@@ -1654,6 +1696,15 @@ function applyPrepStatModifiers() {
     }
     calculateFeelsResistancesAndSaves()
 }
+
+function resetPrepStatModifiers() {
+    // ***** work here *****
+}
+
+
+
+
+
 
 let theaterKidMustMakeEveryChoiceDiv = document.getElementById("theaterKidMustMakeEveryChoiceDiv")
 let theaterKidNoStackingDiv = document.getElementById("theaterKidNoStackingDiv")
