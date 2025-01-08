@@ -8,10 +8,20 @@
 <div id="species">
     <div id="speciesRadio">
         <h2 id="selectSpecies">Select Species</h2>
-        <input type="radio" id="vampire" name="species" onclick="vampireModifiers()">
+        <input type="radio" id="vampire" name="species" onclick="vampireModifiers(); displayVampireModifiers()">
         <label for="vampire">Vampire</label><br>
-        <input type="radio" id="werewolf" name="species" onclick="werewolfModifiers()">
+        <div id="vampireModifiers" class="speciesModifierDivs">
+            <h4>Stats: Str +2, Resil +2, Manip +2, Cha +2</h4><br>
+            <h4>FEELS: Melancholy +3, Horny +2, Angry +1</h4><br>
+            <h4>Resistances: Focus: 2, Resolve: 2, Self-Control: 1</h4>
+        </div>
+        <input type="radio" id="werewolf" name="species" onclick="werewolfModifiers(); displayWerewolfModifiers()">
         <label for="werewolf">Werewolf</label><br>
+        <div id="werewolfModifiers" class="speciesModifierDivs">
+            <h4>Stats: Str +2, Con +2, Resil +2, Percep +2</h4><br>
+            <h4>FEELS: Angry +3, Melancholy +2, Horny +1</h4><br>
+            <h4>Resistances: Focus: 1, Resolve: 3, Self-Control: 1</h4>
+        </div>
         <input type="radio" id="witch" name="species" onclick="witchModifiers()">
         <label for="witch">Witch</label><br>
         <div id="witchStatPicks">
@@ -60,20 +70,27 @@
             <br>
             <div id="witchMustPickFeelDiv" class="instructionDiv">
                 <h4 id="witchMustPickFeelNotice" class="redNotice"><strong>You must choose a FEEL</strong></h4>
-            </div>          
-            <h4>Increase which FEEL?</h4>
+            </div>   
+            <h4>FEELS: Horny +3, Agitated +1, and:</h4><br>       
+            <h4>+2 to Angry or Melancholy?</h4>
             <select id="witchFeelPick">
                 <option value=''></option>
                 <option value='angry'>Angry</option>
                 <option value='melancholy'>Melancholy</option>
             </select>
             <br>
+            <h4>Resistances: Focus: 3, Resolve: 1, Self-Control: 2</h4><br>
             <button id="commitButton01" type="button" onclick="applyWitchStatModifiers()">Commit choices</button>
             <button id="resetWitchSelections" type="button" onclick="resetWitchSelections()">Reset</button>
             <br>
         </div>
-        <input type="radio" id="fairy" name="species" onclick="fairyModifiers()">
+        <input type="radio" id="fairy" name="species" onclick="fairyModifiers(); displayFairyModifiers()">
         <label for="fairy">Fairy</label><br>
+        <div id="fairyModifiers" class="speciesModifierDivs">
+            <h4>Stats: Dex +2, Manip +2, Ingrat +2, Intuit +2</h4><br>
+            <h4>FEELS: Agitated +3, Horny +2, Melancholy +1</h4><br>
+            <h4>Resistances: Focus: 1, Resolve: 2, Self-Control: 2</h4>
+        </div>
     </div>
 </div>
 <!-- Clique Selection -->
@@ -349,6 +366,7 @@
             </select>
             <br>
             <button type="button" onclick="applyTheaterKidStatModifiers()">Commit choices</button>
+            <button type="button" onclick="resetTheaterKidStatModifiers()">Reset</button>
         </div>
         <!--loner-->
         <input type="radio" id="loners" name="clique" onclick="displayLonerStatDiv()">
@@ -465,6 +483,7 @@
             </select>
             <br>
             <button type="button" onclick="applyLonerStatModifiers()">Commit choices</button>
+            <button type="button" onclick="resetLonerStatModifiers()">Reset</button>
         </div>
         <!--chameleons-->
         <input type="radio" id="chameleons" name="clique" onclick="displayChameleonStatDiv()">
@@ -602,6 +621,7 @@
             </select>
             <br>
             <button type="button" onclick="applyChameleonStatModifiers()">Commit choices</button>
+            <button type="button" onclick="resetChameleonStatModifiers()">Reset</button>
         </div>
     </div>
 </div>

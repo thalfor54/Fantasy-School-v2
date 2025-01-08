@@ -27,6 +27,10 @@ table, th, td {
   vertical-align: top;
   margin-left: 20px;
 }
+.speciesModifierDivs {
+  display: none;
+  margin-left: 25px;
+}
 .redNotice {
   color: red;
 }

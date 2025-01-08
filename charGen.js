@@ -1112,6 +1112,21 @@ function vampireModifiers() {
     calculateFeelsResistancesAndSaves()
 }
 
+let vampireModifiersDiv = document.getElementById("vampireModifiers")
+let werewolfModifiersDiv = document.getElementById("werewolfModifiers")
+let fairyModifiersDiv = document.getElementById("fairyModifiers")
+let speciesModifierDivsArray = [vampireModifiersDiv, werewolfModifiersDiv, fairyModifiersDiv]
+let speciesRadioBox = document.getElementById("speciesRadio")
+
+function displayVampireModifiers() {
+    for (i=0; i<speciesModifierDivsArray.length; i++) {
+        speciesModifierDivsArray[i].style.display = 'none'
+    }
+    vampireModifiersDiv.style.display = 'block'
+    let speciesRadioBox = document.getElementById("speciesRadio")
+    speciesRadioBox.style.marginRight = "50px"
+}
+
 function werewolfModifiers() {
     witchStatPicks.style.display = "none"
     for (i=0; i<23; i++) {
@@ -1135,7 +1150,23 @@ function werewolfModifiers() {
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
 }
+
+function displayWerewolfModifiers() {
+    for (i=0; i<speciesModifierDivsArray.length; i++) {
+        speciesModifierDivsArray[i].style.display = 'none'
+    }
+    werewolfModifiersDiv.style.display = 'block'
+    speciesRadioBox.style.marginRight = "50px"
+}
+
 function witchModifiers() {
+    // space Clique box correctly
+    let speciesRadioBox = document.getElementById("speciesRadio")
+    speciesRadioBox.style.marginRight = "50px"
+    // remove any other Species modifier statements
+    for (i=0; i<speciesModifierDivsArray.length; i++) {
+        speciesModifierDivsArray[i].style.display = 'none'
+    }
     // remove any prior notice
     let witchNoStackingDiv = document.getElementById("witchNoStackingDiv")
     if (witchNoStackingDiv.style.display = 'block') {
@@ -1202,11 +1233,11 @@ function applyWitchStatModifiers() {
         witchMustPickFeelDiv.style.display = 'block'
     } 
     else if (witchFeelPick.value == 'angry') {
-        angrySpeciesModifier.innerHTML = 1
+        angrySpeciesModifier.innerHTML = 2
     } else if (witchFeelPick.value == 'melancholy') {
-        melancholySpeciesModifier.innerHTML = 1
+        melancholySpeciesModifier.innerHTML = 2
     }
-    agitatedSpeciesModifier.innerHTML = 2
+    agitatedSpeciesModifier.innerHTML = 1
     hornySpeciesModifier.innerHTML = 3
     for (i=0; i<12; i++) {
         changeRowArray[i]()
@@ -1262,6 +1293,13 @@ function fairyModifiers() {
     calculateFeelsResistancesAndSaves()
 }
 
+function displayFairyModifiers() {
+    for (i=0; i<speciesModifierDivsArray.length; i++) {
+        speciesModifierDivsArray[i].style.display = 'none'
+    }
+    fairyModifiersDiv.style.display = 'block'
+    speciesRadioBox.style.marginRight = "50px"
+}
 function removeAbilityOptions() {
     for (i=0; i<talentSkilled.length; i++) {
         if (talentSkilled[i].selected == true) {
@@ -1633,6 +1671,13 @@ function displayPrepStatDiv() {
     calculateFeelsResistancesAndSaves()
 }
 
+// declarations
+let prepStatOption01 = document.getElementById("prepStatOption01")
+let prepStatOption02 = document.getElementById("prepStatOption02")
+let prepStatOption03 = document.getElementById("prepStatOption03")
+let prepStatOption04 = document.getElementById("prepStatOption04")
+let prepSaveIncrease = document.getElementById("prepSaveIncrease")
+
 function applyPrepStatModifiers() {
      // remove any previously-generated notices
      for (i=0; i<prepNoticeDivs.length; i++) {
@@ -1640,36 +1685,29 @@ function applyPrepStatModifiers() {
             prepNoticeDivs[i].style.display = 'none'
         }
     }
-     // assign selected values  
-    let selection01 = document.getElementById("prepStatOption01").value
-    let selection02 = document.getElementById("prepStatOption02").value
-    let selection03 = document.getElementById("prepStatOption03").value
-    let selection04 = document.getElementById("prepStatOption04").value
-    let selection05 = document.getElementById("prepSaveIncrease").value
     // make sure a choice is made for every option
-    if (selection01 == '' || selection02 == '' || selection03 == '' || selection04 == '' || selection05 == '') {
-        let prepMustMakeEveryChoiceDiv = document.getElementById("prepMustMakeEveryChoiceDiv")
+    if (prepStatOption01.value == '' || prepStatOption02.value == '' || prepStatOption03.value == '' || prepStatOption04.value == '' || prepSaveIncrease.value == '') {
         prepMustMakeEveryChoiceDiv.style.display = "block"
         return
     } 
     // check for no stacking
-    if (selection01 == selection02) {
+    if (prepStatOption01.value == prepStatOption02.value) {
         let prepNoStackingDiv = document.getElementById("prepNoStackingDiv")
         prepNoStackingDiv.style.display = "block"
         return
-    } else if (selection01 == selection03 || selection01 == selection04 || selection02 == selection03 || selection02 == selection04) {
+    } else if (prepStatOption01.value == prepStatOption03.value || prepStatOption01.value == prepStatOption04.value || prepStatOption02.value == prepStatOption03.value || prepStatOption02.value == prepStatOption04.value) {
         let prepNoSameBonusAndPenaltyDiv = document.getElementById("prepNoSameBonusAndPenaltyDiv")
         prepNoSameBonusAndPenaltyDiv.style.display = "block"
         return
     } else {
         // assign bonuses to selected stats
         for (i=0; i<statStringArray.length; i++) {
-            if (selection01 == statStringArray[i] || selection02 == statStringArray[i]) {
+            if (prepStatOption01.value == statStringArray[i] || prepStatOption02.value == statStringArray[i]) {
                 cliqueModifierArray[i].innerHTML = 2
             }
         }
         for (i=0; i<statStringArray.length; i++) {
-            if (selection03 == statStringArray[i] || selection04 == statStringArray[i]) {
+            if (prepStatOption03.value == statStringArray[i] || prepStatOption04.value == statStringArray[i]) {
                 cliqueModifierArray[i].innerHTML = -2
             }
         }
@@ -1685,10 +1723,10 @@ function applyPrepStatModifiers() {
     melancholyCliqueModifier.innerHTML = 2
     // set saves clique modifiers
     mindCliqueModifier.innerHTML = 2
-    if (selection05 == 'Fortitude') {
+    if (prepSaveIncrease.value == 'Fortitude') {
         fortitudeCliqueModifier.innerHTML = 2
     } 
-    if (selection05 == 'Reflex') {
+    if (prepSaveIncrease.value == 'Reflex') {
         reflexCliqueModifier.innerHTML = 2
     }
     for (i=0; i<12; i++) {
@@ -1698,13 +1736,30 @@ function applyPrepStatModifiers() {
 }
 
 function resetPrepStatModifiers() {
-    // ***** work here *****
-}
-
-
-
-
-
+    // remove any previously-generated notices
+    if (prepMustMakeEveryChoiceDiv.style.display == "block") {
+        prepMustMakeEveryChoiceDiv.style.display = "none"
+    }
+    if (prepNoStackingDiv.style.display == "block") {
+        prepNoStackingDiv.style.display = "none"
+    }
+    if (prepNoSameBonusAndPenaltyDiv.style.display == 'block') {
+        prepNoSameBonusAndPenaltyDiv.style.display = 'none'
+    }
+    // reset choices
+    prepStatOption01.value = ''
+    prepStatOption02.value = ''
+    prepStatOption03.value = ''
+    prepStatOption04.value = ''
+    prepSaveIncrease.value = ''
+    for (i=0; i<23; i++) {
+        cliqueModifierArray[i].innerHTML = ''
+    }
+    for (i=0; i<12; i++) {
+        changeRowArray[i]()
+    }    
+    calculateFeelsResistancesAndSaves() 
+ }
 
 let theaterKidMustMakeEveryChoiceDiv = document.getElementById("theaterKidMustMakeEveryChoiceDiv")
 let theaterKidNoStackingDiv = document.getElementById("theaterKidNoStackingDiv")
@@ -1749,6 +1804,13 @@ function displayTheaterKidStatDiv() {
     calculateFeelsResistancesAndSaves()
 }
 
+// declarations
+let theaterKidStatOption01 = document.getElementById("theaterKidStatOption01")
+let theaterKidStatOption02 = document.getElementById("theaterKidStatOption02")
+let theaterKidStatOption03 = document.getElementById("theaterKidStatOption03")
+let theaterKidStatOption04 = document.getElementById("theaterKidStatOption04")
+let theaterKidResistanceIncrease = document.getElementById("theaterKidResistanceIncrease")
+
 function applyTheaterKidStatModifiers() {
     // remove any previously-generated notices
     for (i=0; i<theaterKidNoticeDivs.length; i++) {
@@ -1756,36 +1818,30 @@ function applyTheaterKidStatModifiers() {
             theaterKidNoticeDivs[i].style.display = 'none'
         }
     }
-    // assign selected values  
-    let selection01 = document.getElementById("theaterKidStatOption01").value
-    let selection02 = document.getElementById("theaterKidStatOption02").value
-    let selection03 = document.getElementById("theaterKidStatOption03").value
-    let selection04 = document.getElementById("theaterKidStatOption04").value
-    let selection05 = document.getElementById("theaterKidResistanceIncrease").value
     // make sure a choice is made for every option
-    if (selection01 == '' || selection02 == '' || selection03 == '' || selection04 == '' || selection05 == '') {
+    if (theaterKidStatOption01.value == '' || theaterKidStatOption02.value == '' || theaterKidStatOption03.value == '' || theaterKidStatOption04.value == '' || theaterKidResistanceIncrease.value == '') {
         let theaterKidMustMakeEveryChoiceDiv = document.getElementById("theaterKidMustMakeEveryChoiceDiv")
         theaterKidMustMakeEveryChoiceDiv.style.display = "block"
         return
     } 
     // check for no stacking
-    if (selection01 == selection02) {
+    if (theaterKidStatOption01.value == theaterKidStatOption02.value) {
         let theaterKidNoStackingDiv = document.getElementById("theaterKidNoStackingDiv")
         theaterKidNoStackingDiv.style.display = "block"
         return
-    } else if (selection01 == selection03 || selection01 == selection04 || selection02 == selection03 || selection02 == selection04) {
+    } else if (theaterKidStatOption01.value == theaterKidStatOption03.value || theaterKidStatOption01.value == theaterKidStatOption04.value || theaterKidStatOption02.value == theaterKidStatOption03.value || theaterKidStatOption02.value == theaterKidStatOption04.value) {
         let theaterKidNoSameBonusAndPenaltyDiv = document.getElementById("theaterKidNoSameBonusAndPenaltyDiv")
         theaterKidNoSameBonusAndPenaltyDiv.style.display = "block"
         return
     } else {
         // assign bonuses to selected stats
         for (i=0; i<statStringArray.length; i++) {
-            if (selection01 == statStringArray[i] || selection02 == statStringArray[i]) {
+            if (theaterKidStatOption01.value == statStringArray[i] || theaterKidStatOption02.value == statStringArray[i]) {
                 cliqueModifierArray[i].innerHTML = 2
             }
         }
         for (i=0; i<statStringArray.length; i++) {
-            if (selection03 == statStringArray[i] || selection04 == statStringArray[i]) {
+            if (theaterKidStatOption03.value == statStringArray[i] || theaterKidStatOption04.value == statStringArray[i]) {
                 cliqueModifierArray[i].innerHTML = -2
             }
         }
@@ -1798,26 +1854,26 @@ function applyTheaterKidStatModifiers() {
     melancholyCliqueModifier.innerHTML = 2
     // set resistances clique modifiers
     focusCliqueModifier.innerHTML = 1
-    if (selection05 == '') {
+    if (theaterKidResistanceIncrease.value == '') {
         theaterKidMustChooseAResistanceDiv.style.display = 'block'
         return
     }
-    else if (selection05 == 'Resolve') {
+    else if (theaterKidResistanceIncrease.value == 'Resolve') {
         resolveCliqueModifier.innerHTML = 1
     }
-    else if (selection05 == 'Self-Control') {
+    else if (theaterKidResistanceIncrease.value == 'Self-Control') {
         selfControlCliqueModifier.innerHTML = 1
     }
     // set saves clique modifiers
     reflexCliqueModifier.innerHTML = 2
     willCliqueModifier.innerHTML = 2
     for (i=0; i<12; i++) {
-        if (selection01 == statStringArray[i] || selection02 == statStringArray[i]) {
+        if (theaterKidStatOption01.value == statStringArray[i] || theaterKidStatOption02.value == statStringArray[i]) {
             cliqueModifierArray[i].innerHTML = 2
         }
     }
     for (i=0; i<12; i++) {
-        if (selection03 == statStringArray[i] || selection04 == statStringArray[i]) {
+        if (theaterKidStatOption03.value == statStringArray[i] || theaterKidStatOption04.value == statStringArray[i]) {
             cliqueModifierArray[i].innerHTML = - 2
         }
     }
@@ -1825,6 +1881,29 @@ function applyTheaterKidStatModifiers() {
         changeRowArray[i]()
     }
     calculateFeelsResistancesAndSaves()
+}
+
+
+function resetTheaterKidStatModifiers() {
+    // remove any previously-generated notices
+    for (i=0; i<theaterKidNoticeDivs.length; i++) {
+        if (theaterKidNoticeDivs[i].style.display == 'block') {
+            theaterKidNoticeDivs[i].style.display = 'none'
+        }
+    }
+    // reset choices
+    theaterKidStatOption01.value = ''
+    theaterKidStatOption02.value = ''
+    theaterKidStatOption03.value = ''
+    theaterKidStatOption04.value = ''
+    theaterKidResistanceIncrease.value = ''
+    for (i=0; i<23; i++) {
+        cliqueModifierArray[i].innerHTML = ''
+    }
+    for (i=0; i<12; i++) {
+        changeRowArray[i]()
+    }    
+    calculateFeelsResistancesAndSaves() 
 }
 
 let lonerMustMakeEveryChoiceDiv = document.getElementById("lonerMustMakeEveryChoiceDiv")
@@ -1872,6 +1951,11 @@ function displayLonerStatDiv() {
     calculateFeelsResistancesAndSaves()
 }
 
+let lonerStatOption01 = document.getElementById("lonerStatOption01")
+let lonerStatOption02 = document.getElementById("lonerStatOption02")
+let lonerStatOption03 = document.getElementById("lonerStatOption03")
+let lonerStatOption04 = document.getElementById("lonerStatOption04")
+
 function applyLonerStatModifiers() {
      // remove any previously-generated notices
      for (i=0; i<lonerNoticeDivs.length; i++) {
@@ -1883,40 +1967,35 @@ function applyLonerStatModifiers() {
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
-    // assign selected values  
-    let selection01 = document.getElementById("lonerStatOption01").value
-    let selection02 = document.getElementById("lonerStatOption02").value
-    let selection03 = document.getElementById("lonerStatOption03").value
-    let selection04 = document.getElementById("lonerStatOption04").value
     // make sure a choice is made for every option
-    if (selection01 == '' || selection02 == '' || selection03 == '' || selection04 == '') {
+    if (lonerStatOption01.value == '' || lonerStatOption02.value == '' || lonerStatOption03.value == '' || lonerStatOption04.value == '') {
         let lonerMustMakeEveryChoiceDiv = document.getElementById("lonerMustMakeEveryChoiceDiv")
         lonerMustMakeEveryChoiceDiv.style.display = "block"
         return
     } 
     // check for no stat stacking
-    if (selection01 == selection02) {
+    if (lonerStatOption01.value == lonerStatOption02.value) {
         lonerNoStackingDiv.style.display = "block"
         return
-    } else if (selection01 == selection03 || selection01 == selection04 || selection02 == selection03 || selection02 == selection04) {
+    } else if (lonerStatOption01.value == lonerStatOption03.value || lonerStatOption01.value == lonerStatOption04.value || lonerStatOption02.value == lonerStatOption03.value || lonerStatOption02.value == lonerStatOption04.value) {
         lonerNoSameBonusAndPenaltyDiv.style.display = "block"
         return
     } 
     // confirm a resistance option has been selected
-    let selection05 = document.getElementById("oneResistance")
-    let selection06 = document.getElementById("twoResistances")
-    if (selection05.checked == false && selection06.checked == false) {
+    let oneResistance = document.getElementById("oneResistance")
+    let twoResistances = document.getElementById("twoResistances")
+    if (oneResistance.checked == false && twoResistances.checked == false) {
         lonerMustChooseOneResistanceOrTwoDiv.style.display = 'block'
         return
     }
     // assign bonuses to selected stats
     for (i=0; i<statStringArray.length; i++) {
-        if (selection01 == statStringArray[i] || selection02 == statStringArray[i]) {
+        if (lonerStatOption01.value == statStringArray[i] || lonerStatOption02.value == statStringArray[i]) {
             cliqueModifierArray[i].innerHTML = 2
         }
     }
     for (i=0; i<statStringArray.length; i++) {
-        if (selection03 == statStringArray[i] || selection04 == statStringArray[i]) {
+        if (lonerStatOption03.value == statStringArray[i] || lonerStatOption04.value == statStringArray[i]) {
             cliqueModifierArray[i].innerHTML = -2
         }
     }
@@ -1930,40 +2009,72 @@ function applyLonerStatModifiers() {
     fortitudeCliqueModifier.innerHTML = 2
     willCliqueModifier.innerHTML = 2
     // set Resistances
-    let selection05a = resistanceList01.value
-    if (selection05.checked == true) {
-        if (selection05a == '') {
+    let singleResistancePick = resistanceList01.value
+    if (oneResistance.checked == true) {
+        if (singleResistancePick == '') {
             lonerMustChooseAResistanceDiv.style.display = 'block'
             return
         }        
-        else if (selection05a == 'Focus') {
+        else if (singleResistancePick == 'Focus') {
             focusCliqueModifier.innerHTML = 2
-        } else if (selection05a == 'Resolve') {
+        } else if (singleResistancePick == 'Resolve') {
             resolveCliqueModifier.innerHTML = 2
-        } else if (selection05a == 'Self-Control') {
+        } else if (singleResistancePick == 'Self-Control') {
             selfControlCliqueModifier.innerHTML = 2
         }    
     }
-    let selection06a = resistanceList02.value
-    let selection06b = resistanceList03.value
-    if (selection06.checked == true) {
-        if (selection06a == selection06b) {
+    let firstResistanceOfTwo = resistanceList02.value
+    let secondResistanceOfTwo = resistanceList03.value
+    if (twoResistances.checked == true) {
+        if (firstResistanceOfTwo == secondResistanceOfTwo) {
             let lonerMustChooseTwoResistancesDiv = document.getElementById("lonerMustChooseTwoResistancesDiv")
             lonerMustChooseTwoResistancesDiv.style.display = "block"
             return
         }
-        if (selection06a == 'Focus' || selection06b == 'Focus') {
+        if (firstResistanceOfTwo == 'Focus' || secondResistanceOfTwo == 'Focus') {
             focusCliqueModifier.innerHTML = 1
         }
-        if (selection06a == 'Resolve' || selection06b == 'Resolve') {
+        if (firstResistanceOfTwo == 'Resolve' || secondResistanceOfTwo == 'Resolve') {
             resolveCliqueModifier.innerHTML = 1
         }
-        if (selection06a == 'Self-Control' || selection06b == 'Self-Control') {
+        if (firstResistanceOfTwo == 'Self-Control' || secondResistanceOfTwo == 'Self-Control') {
             selfControlCliqueModifier.innerHTML = 1
         }
     }
     calculateFeelsResistancesAndSaves()
 }
+
+
+
+function resetLonerStatModifiers() {
+    // remove any previously-generated notices
+    for (i=0; i<lonerNoticeDivs.length; i++) {
+        if (lonerNoticeDivs[i].style.display == 'block') {
+            lonerNoticeDivs[i].style.display = 'none'
+        }
+    }
+    // reset choices
+    lonerStatOption01.value = ''
+    lonerStatOption02.value = ''
+    lonerStatOption03.value = ''
+    lonerStatOption04.value = ''
+    resistanceList01.value = ''
+    resistanceList02.value = ''
+    resistanceList03.value = ''
+    oneResistance.checked = false
+    twoResistances.checked = false
+    singleResistancePick = ''
+    firstResistanceOfTwo = ''
+    secondResistanceOfTwo = ''
+    for (i=0; i<23; i++) {
+        cliqueModifierArray[i].innerHTML = ''
+    }
+    for (i=0; i<12; i++) {
+        changeRowArray[i]()
+    }    
+    calculateFeelsResistancesAndSaves()     
+}
+
 
 let chameleonMustMakeEveryChoiceDiv = document.getElementById("chameleonMustMakeEveryChoiceDiv")
 let chameleonNoStackingDiv = document.getElementById("chameleonNoStackingDiv")
@@ -2096,6 +2207,43 @@ function applyChameleonStatModifiers() {
     }
     calculateFeelsResistancesAndSaves()
 }
+
+function resetChameleonStatModifiers() {
+    // remove any previously-generated notices
+    for (i=0; i<chameleonNoticeDivs.length; i++) {
+        if (chameleonNoticeDivs[i].style.display == 'block') {
+            chameleonNoticeDivs[i].style.display = 'none'
+        }
+    }
+    let selection01 = document.getElementById("chameleonStatOption01")
+    let selection02 = document.getElementById("chameleonStatOption02")
+    let selection03 = document.getElementById("chameleonStatOption03")
+    let selection04 = document.getElementById("chameleonStatOption04")
+    let selection05 = document.getElementById("chameleonFeelIncrease01")
+    let selection06 = document.getElementById("chameleonFeelIncrease02")
+    let selection07 = document.getElementById("chameleonResistanceIncrease01")
+    let selection08 = document.getElementById("chameleonResistanceIncrease02")
+    let selection09 = document.getElementById("chameleonSavingThrowOption01")
+    let selection10 = document.getElementById("chameleonSavingThrowOption02")
+    selection01.value = ''
+    selection02.value = ''
+    selection03.value = ''
+    selection04.value = ''
+    selection05.value = ''
+    selection06.value = ''
+    selection07.value = ''
+    selection08.value = ''
+    selection09.value = ''
+    selection10.value = ''
+    for (i=0; i<23; i++) {
+        cliqueModifierArray[i].innerHTML = ''
+    }
+    for (i=0; i<12; i++) {
+        changeRowArray[i]()
+    }    
+    calculateFeelsResistancesAndSaves()
+}
+
 
 let acting = document.getElementById("acting")
 let actingModifier = document.getElementById("actingModifier")
