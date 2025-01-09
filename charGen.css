@@ -158,6 +158,16 @@ input[type='number']::-webkit-outer-spin-button {
   vertical-align: top;
   padding-right: 0;
 }
+#statPointsLeftTable {
+  display: inline-table;
+  float: right;
+}
+#statPointsLeftLabel {
+  width: 97px;
+}
+#statPointsLeft {
+  width: 73px;
+}
 #resistancesAndCombatDiv {
   margin: 0;
 }

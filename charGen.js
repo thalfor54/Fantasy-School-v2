@@ -188,6 +188,29 @@ function calculateFeelsResistancesAndSaves() {
 
 }
 
+function calculateStatPointsLeft() {
+    let strengthPointCost = document.getElementById("strengthPointCost").innerHTML
+    let dexterityPointCost = document.getElementById("dexterityPointCost").innerHTML
+    let constitutionPointCost = document.getElementById("constitutionPointCost").innerHTML
+    let resiliencePointCost = document.getElementById("resiliencePointCost").innerHTML
+    let persuasionhPointCost = document.getElementById("persuasionPointCost").innerHTML
+    let manipulationPointCost = document.getElementById("manipulationPointCost").innerHTML
+    let ingratiationPointCost = document.getElementById("ingratiationPointCost").innerHTML
+    let charismaPointCost = document.getElementById("charismaPointCost").innerHTML
+    let perceptionPointCost = document.getElementById("perceptionPointCost").innerHTML
+    let insightPointCost = document.getElementById("insightPointCost").innerHTML
+    let reasonPointCost = document.getElementById("reasonPointCost").innerHTML
+    let intuitionPointCost = document.getElementById("intuitionPointCost").innerHTML
+    let statPointArray = [strengthPointCost, dexterityPointCost, constitutionPointCost, resiliencePointCost, persuasionhPointCost, manipulationPointCost, ingratiationPointCost, charismaPointCost, perceptionPointCost, insightPointCost, reasonPointCost, intuitionPointCost]
+    let runningStatPointCost = 54
+    for (i=0; i<statPointArray.length; i++) {
+        runningStatPointCost = runningStatPointCost - statPointArray[i]
+    }
+    runningStatPointCost = Number(runningStatPointCost)
+    let statPointsLeft = document.getElementById("statPointsLeft")
+    statPointsLeft.innerHTML = runningStatPointCost
+    }
+
 function changeStrengthRow() {
     let strengthScore = document.getElementById("strengthScore").value
     let strengthModifier = document.getElementById("strengthModifier")
@@ -252,6 +275,7 @@ function changeStrengthRow() {
     } else if (strengthTotalScore.innerHTML == '20' || strengthTotalScore.innerHTML == '21') {
         strengthTotalModifier.innerHTML = 5
     }
+    calculateStatPointsLeft()
 }
 
 
@@ -335,6 +359,7 @@ function changeDexterityRow() {
     initiativeTotal = Math.floor(initiativeTotal / 2)
     initiative.innerHTML = initiativeTotal    
     calculateFeelsResistancesAndSaves()
+    calculateStatPointsLeft()
 }
 
 function changeConstitutionRow() {
@@ -411,6 +436,7 @@ function changeConstitutionRow() {
     fortitudeBaseScore.innerHTML = fortitudeBaseSave
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
+    calculateStatPointsLeft()
 }
 
 function changeResilienceRow() {
@@ -486,6 +512,7 @@ function changeResilienceRow() {
     fortitudeBaseSave = Math.floor(fortitudeBaseSave / 2)
     fortitudeBaseScore.innerHTML = fortitudeBaseSave
     calculateFeelsResistancesAndSaves()
+    calculateStatPointsLeft()
 }
 
 function changePersuasionRow() {
@@ -552,6 +579,7 @@ function changePersuasionRow() {
     } else if (persuasionTotalScore.innerHTML == '20' || persuasionTotalScore.innerHTML == '21') {
         persuasionTotalModifier.innerHTML = 5
     }
+    calculateStatPointsLeft()
 }
 
 function changeManipulationRow() {
@@ -618,6 +646,7 @@ function changeManipulationRow() {
     } else if (manipulationTotalScore.innerHTML == '20' || manipulationTotalScore.innerHTML == '21') {
         manipulationTotalModifier.innerHTML = 5
     }
+    calculateStatPointsLeft()
 }
 
 function changeIngratiationRow() {
@@ -684,6 +713,7 @@ function changeIngratiationRow() {
     } else if (ingratiationTotalScore.innerHTML == '20' || ingratiationTotalScore.innerHTML == '21') {
         ingratiationTotalModifier.innerHTML = 5
     }
+    calculateStatPointsLeft()
 }
 
 function changeCharismaRow() {
@@ -759,6 +789,7 @@ function changeCharismaRow() {
     willBaseSave = Math.floor(willBaseSave / 2)
     willBaseScore.innerHTML = willBaseSave
     calculateFeelsResistancesAndSaves()
+    calculateStatPointsLeft()
 }
 
 function changePerceptionRow() {
@@ -834,6 +865,7 @@ function changePerceptionRow() {
     reflexBaseSave = Math.floor(reflexBaseSave / 2)
     reflexBaseScore.innerHTML = reflexBaseSave
     calculateFeelsResistancesAndSaves()
+    calculateStatPointsLeft()
 }
 
 function changeInsightRow() {
@@ -909,6 +941,7 @@ function changeInsightRow() {
     willBaseSave = Math.floor(willBaseSave / 2)
     willBaseScore.innerHTML = willBaseSave
     calculateFeelsResistancesAndSaves()
+    calculateStatPointsLeft()
 }
 
 function changeReasonRow() {
@@ -984,6 +1017,7 @@ function changeReasonRow() {
     mindBaseSave = Math.floor(mindBaseSave / 2)
     mindBaseScore.innerHTML = mindBaseSave
     calculateFeelsResistancesAndSaves()
+    calculateStatPointsLeft()
 }
 
 function changeIntuitionRow() {
@@ -1066,6 +1100,7 @@ function changeIntuitionRow() {
     initiativeTotal = Math.floor(initiativeTotal / 2)
     initiative.innerHTML = initiativeTotal
     calculateFeelsResistancesAndSaves()
+    calculateStatPointsLeft()
 }
 
 let vampire = document.getElementById("vampire")
