@@ -126,22 +126,22 @@ function calculateFeelsResistancesAndSaves() {
     let agitatedCliqueModifier = document.getElementById("agitatedCliqueModifier").innerHTML
     agitatedCliqueModifier = agitatedCliqueModifier * -1
     let agitatedTotal = document.getElementById("agitatedTotal")
-    agitatedTotal.innerHTML = agitatedSpeciesModifier - agitatedCliqueModifier
+    agitatedTotal.innerHTML = agitatedSpeciesModifier - agitatedCliqueModifier +1
     let angrySpeciesModifier = document.getElementById("angrySpeciesModifier").innerHTML
     let angryCliqueModifier = document.getElementById("angryCliqueModifier").innerHTML
     angryCliqueModifier = angryCliqueModifier * -1
     let angryTotal = document.getElementById("angryTotal")
-    angryTotal.innerHTML = angrySpeciesModifier - angryCliqueModifier
+    angryTotal.innerHTML = angrySpeciesModifier - angryCliqueModifier +1
     let hornySpeciesModifier = document.getElementById("hornySpeciesModifier").innerHTML
     let hornyCliqueModifier = document.getElementById("hornyCliqueModifier").innerHTML
     hornyCliqueModifier = hornyCliqueModifier * -1
     let hornyTotal = document.getElementById("hornyTotal")
-    hornyTotal.innerHTML = hornySpeciesModifier - hornyCliqueModifier
+    hornyTotal.innerHTML = hornySpeciesModifier - hornyCliqueModifier +1
     let melancholySpeciesModifier = document.getElementById("melancholySpeciesModifier").innerHTML
     let melancholyCliqueModifier = document.getElementById("melancholyCliqueModifier").innerHTML
     melancholyCliqueModifier = melancholyCliqueModifier * -1
     let melancholyTotal = document.getElementById("melancholyTotal")
-    melancholyTotal.innerHTML = melancholySpeciesModifier - melancholyCliqueModifier
+    melancholyTotal.innerHTML = melancholySpeciesModifier - melancholyCliqueModifier +1
     let focusSpeciesModifier = document.getElementById("focusSpeciesModifier").innerHTML
     let focusCliqueModifier = document.getElementById("focusCliqueModifier").innerHTML
     focusCliqueModifier = focusCliqueModifier * -1
@@ -357,9 +357,28 @@ function changeDexterityRow() {
     let initiativeTotal = dexterityModifyInitiative - intuitionModifyInitiative
     initiativeTotal = initiativeTotal * -1
     initiativeTotal = Math.floor(initiativeTotal / 2)
-    initiative.innerHTML = initiativeTotal    
+    initiative.innerHTML = initiativeTotal   
     calculateFeelsResistancesAndSaves()
     calculateStatPointsLeft()
+    setArmorClass()
+}
+
+function setArmorClass() {
+    let dexterityModifyArmorClass = document.getElementById("dexterityTotalModifier").innerHTML
+    dexterityModifyArmorClass = dexterityModifyArmorClass * -1
+    let dodgeModifyArmorClass = document.getElementById("dodgeModifier").innerHTML
+//    dodgeModifyArmorClass = dodgeModifyArmorClass * -1
+    if (vampire.checked == false && werewolf.checked == false && witch.checked == false && fairy.checked == false) {
+        return
+    } 
+    else {
+        let armorClassBase = 10
+        let armorClassModifier = dexterityModifyArmorClass - dodgeModifyArmorClass
+        if (vampire.checked == true) {
+            armorClassModifier = armorClassModifier - 3
+        }
+        armorClass.innerHTML = armorClassBase - armorClassModifier
+    }
 }
 
 function changeConstitutionRow() {
@@ -1131,9 +1150,9 @@ function vampireModifiers() {
     resilienceSpeciesModifier.innerHTML = 2
     manipulationSpeciesModifier.innerHTML = 2
     charismaSpeciesModifier.innerHTML = 2
-    focusSpeciesModifier.innerHTML = 2
-    resolveSpeciesModifier.innerHTML = 2
-    selfControlSpeciesModifier.innerHTML = 1
+    focusSpeciesModifier.innerHTML = 3
+    resolveSpeciesModifier.innerHTML = 3
+    selfControlSpeciesModifier.innerHTML = 2
     angrySpeciesModifier.innerHTML = 1
     hornySpeciesModifier.innerHTML = 2
     melancholySpeciesModifier.innerHTML = 3
@@ -1142,9 +1161,9 @@ function vampireModifiers() {
     for (i=0; i<12; i++) {
         changeRowArray[i]()
     }
-    armorClass.innerHTML = 13
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
+    setArmorClass()
 }
 
 let vampireModifiersDiv = document.getElementById("vampireModifiers")
@@ -1171,9 +1190,9 @@ function werewolfModifiers() {
     constitutionSpeciesModifier.innerHTML = 2
     resilienceSpeciesModifier.innerHTML = 2
     perceptionSpeciesModifier.innerHTML = 2
-    focusSpeciesModifier.innerHTML = 1
-    resolveSpeciesModifier.innerHTML = 3
-    selfControlSpeciesModifier.innerHTML = 1
+    focusSpeciesModifier.innerHTML = 2
+    resolveSpeciesModifier.innerHTML = 4
+    selfControlSpeciesModifier.innerHTML = 2
     angrySpeciesModifier.innerHTML = 3
     hornySpeciesModifier.innerHTML = 1
     melancholySpeciesModifier.innerHTML = 2
@@ -1181,9 +1200,9 @@ function werewolfModifiers() {
     for (i=0; i<12; i++) {
         changeRowArray[i]()
     }
-    armorClass.innerHTML = 10
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
+    setArmorClass()
 }
 
 function displayWerewolfModifiers() {
@@ -1218,9 +1237,9 @@ function witchModifiers() {
     for (i=0; i<12; i++) {
         changeRowArray[i]()
     }
-    armorClass.innerHTML = 10
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
+    setArmorClass()
 }
 
 let witchStatOption01 = document.getElementById("witchStatOption01")
@@ -1278,9 +1297,9 @@ function applyWitchStatModifiers() {
         changeRowArray[i]()
     }
     // set focus/resolve/self-control species modifiers
-    focusSpeciesModifier.innerHTML = 3
-    resolveSpeciesModifier.innerHTML = 1
-    selfControlSpeciesModifier.innerHTML = 1
+    focusSpeciesModifier.innerHTML = 4
+    resolveSpeciesModifier.innerHTML = 2
+    selfControlSpeciesModifier.innerHTML = 2
     // set witch species save modifiers
     mindSpeciesModifier.innerHTML = 1
     willSpeciesModifier.innerHTML = 1
@@ -1312,9 +1331,9 @@ function fairyModifiers() {
     manipulationSpeciesModifier.innerHTML = 2
     ingratiationSpeciesModifier.innerHTML = 2
     intuitionSpeciesModifier.innerHTML = 2
-    focusSpeciesModifier.innerHTML = 1
-    resolveSpeciesModifier.innerHTML = 2
-    selfControlSpeciesModifier.innerHTML = 2
+    focusSpeciesModifier.innerHTML = 2
+    resolveSpeciesModifier.innerHTML = 3
+    selfControlSpeciesModifier.innerHTML = 3
     agitatedSpeciesModifier.innerHTML = 3
     hornySpeciesModifier.innerHTML = 2
     melancholySpeciesModifier.innerHTML = 1
@@ -1323,9 +1342,9 @@ function fairyModifiers() {
     for (i=0; i<12; i++) {
         changeRowArray[i]()
     }
-    armorClass.innerHTML = 10    
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
+    setArmorClass()
 }
 
 function displayFairyModifiers() {
@@ -2290,6 +2309,8 @@ let brawling = document.getElementById("brawling")
 let brawlingModifier = document.getElementById("brawlingModifier")
 let calmingDown = document.getElementById("calmingDown")
 let calmingDownModifier = document.getElementById("calmingDownModifier")
+let dodge = document.getElementById("dodge")
+let dodgeModifier = document.getElementById("dodgeModifier")
 let empathy = document.getElementById("empathy")
 let empathyModifier = document.getElementById("empathyModifier")
 let intimidation = document.getElementById("intimidation")
@@ -2306,12 +2327,14 @@ let investigation = document.getElementById("investigation")
 let investigationModifier = document.getElementById("investigationModifier")
 let leadership = document.getElementById("leadership")
 let leadershipModifier = document.getElementById("leadershipModifier")
-let legerdemain = document.getElementById("legerdemain")
-let legerdemainModifier = document.getElementById("legerdemainModifier")
+let lockPicking = document.getElementById("lockPicking")
+let lockPickingModifier = document.getElementById("lockPickingModifier")
 let melee = document.getElementById("melee")
 let meleeModifier = document.getElementById("meleeModifier")
 let music = document.getElementById("music")
 let musicModifier = document.getElementById("musicModifier")
+let sleightOfHand = document.getElementById("sleightOfHand")
+let sleightOfHandModifier = document.getElementById("sleightOfHandModifier")
 let security = document.getElementById("security")
 let securityModifier = document.getElementById("securityModifier")
 let socializing = document.getElementById("socializing")
@@ -2328,6 +2351,8 @@ let medicine = document.getElementById("medicine")
 let medicineModifier = document.getElementById("medicineModifier")
 let nature = document.getElementById("nature")
 let natureModifier = document.getElementById("natureModifier")
+let occult = document.getElementById("occult")
+let occultModifier = document.getElementById("occultModifier")
 let religion = document.getElementById("religion")
 let religionModifier = document.getElementById("religionModifier")
 let science = document.getElementById("science")
@@ -2335,18 +2360,18 @@ let scienceModifier = document.getElementById("scienceModifier")
 let special = document.getElementById("special")
 let specialModifier = document.getElementById("specialModifier")
 
-let talentStringArray = ['Acting', 'Alertness', 'Athletics', 'Brawling', 'Calming Down', 'Empathy', 'Intimidation', 'Memory', 'Stealth']
-let talentArray = [acting, alertness, athletics, brawling, calmingDown, empathy, intimidation, memory, stealth]
-let talentModifierArray = [actingModifier, alertnessModifier, athleticsModifier, brawlingModifier, calmingDownModifier, empathyModifier, intimidationModifier, memoryModifier, stealthModifier]
-let skillStringArray = ['Deception', 'Firearms', 'Investigation', 'Leadership', 'Legerdemain', 'Melee', 'Music', 'Security', 'Socializing']
-let skillArray = [deception, firearms, investigation, leadership, legerdemain, melee, music, security, socializing]
-let skillModifierArray = [deceptionModifier, firearmsModifier, investigationModifier, leadershipModifier, legerdemainModifier, meleeModifier, musicModifier, securityModifier, socializingModifier]
-let knowledgeStringArray = ['Arcana', 'Code-Breaking', 'Computers', 'History', 'Medicine', 'Nature', 'Religion', 'Science', 'Special']
-let knowledgeArray = [arcana, codeBreaking, computers, history, medicine, nature, religion, science, special]
-let knowledgeModifierArray = [arcanaModifier, codeBreakingModifier, computersModifier, historyModifier, medicineModifier, natureModifier, religionModifier, scienceModifier, specialModifier]
+let talentStringArray = ['Acting', 'Alertness', 'Athletics', 'Brawling', 'Calming Down', 'Dodge', 'Empathy', 'Intimidation', 'Memory', 'Stealth']
+let talentArray = [acting, alertness, athletics, brawling, calmingDown, dodge, empathy, intimidation, memory, stealth]
+let talentModifierArray = [actingModifier, alertnessModifier, athleticsModifier, brawlingModifier, calmingDownModifier, dodgeModifier, empathyModifier, intimidationModifier, memoryModifier, stealthModifier]
+let skillStringArray = ['Deception', 'Firearms', 'Investigation', 'Leadership', 'Lock-Picking', 'Melee', 'Music', 'Security', 'Sleight of Hand', 'Socializing']
+let skillArray = [deception, firearms, investigation, leadership, lockPicking, melee, music, security, sleightOfHand, socializing]
+let skillModifierArray = [deceptionModifier, firearmsModifier, investigationModifier, leadershipModifier, lockPickingModifier, meleeModifier, musicModifier, securityModifier, sleightOfHandModifier, socializingModifier]
+let knowledgeStringArray = ['Arcana', 'Code-Breaking', 'Computers', 'History', 'Medicine', 'Nature', 'Occult', 'Religion', 'Science', 'Special']
+let knowledgeArray = [arcana, codeBreaking, computers, history, medicine, nature, occult, science, special, theology]
+let knowledgeModifierArray = [arcanaModifier, codeBreakingModifier, computersModifier, historyModifier, medicineModifier, natureModifier, occultModifier, scienceModifier, specialModifier, theologyModifier]
 
 function talentChange() {
-    for (i=0; i<9; i++) {
+    for (i=0; i<talentArray.length; i++) {
         if (talentArray[i].value == 'Untrained') {
             talentModifierArray[i].innerHTML = 0
         } 
@@ -2360,7 +2385,7 @@ function talentChange() {
 } 
 
 function skillChange() {
-    for (i=0; i<9; i++) {
+    for (i=0; i<skillArray.length; i++) {
         if (skillArray[i].value == 'Untrained') {
             skillModifierArray[i].innerHTML = -2
         } 
@@ -2374,7 +2399,7 @@ function skillChange() {
 }
 
 function knowledgeChange() {
-    for (i=0; i<9; i++) {
+    for (i=0; i<knowledgeArray.length; i++) {
         if (knowledgeArray[i].value == 'Untrained') {
             knowledgeModifierArray[i].innerHTML = -4
         } 
@@ -2402,29 +2427,29 @@ let knowledgeRanksLeft = document.getElementById("knowledgeRanksLeft")
 
 function assignAbilityPoints() {
     if (talentsFirst.checked == true) {
-        talentRanksLeft.innerHTML = 9 
+        talentRanksLeft.innerHTML = 10 
     } else if (talentsSecond.checked == true) {
-        talentRanksLeft.innerHTML = 6
+        talentRanksLeft.innerHTML = 7
     } else if (talentsThird.checked == true) {
-        talentRanksLeft.innerHTML = 3
+        talentRanksLeft.innerHTML = 4
     } else {
         talentRanksLeft.innerHTML = 0
     }
     if (skillsFirst.checked == true) {
-        skillRanksLeft.innerHTML = 9 
+        skillRanksLeft.innerHTML = 10 
     } else if (skillsSecond.checked == true) {
-        skillRanksLeft.innerHTML = 6
+        skillRanksLeft.innerHTML = 7
     } else if (skillsThird.checked == true) {
-        skillRanksLeft.innerHTML = 3
+        skillRanksLeft.innerHTML = 4
     } else {
         skillRanksLeft.innerHTML = 0
     }
     if (knowledgesFirst.checked == true) {
-        knowledgeRanksLeft.innerHTML = 9 
+        knowledgeRanksLeft.innerHTML = 10 
     } else if (knowledgesSecond.checked == true) {
-        knowledgeRanksLeft.innerHTML = 6
+        knowledgeRanksLeft.innerHTML = 7
     } else if (knowledgesThird.checked == true) {
-        knowledgeRanksLeft.innerHTML = 3
+        knowledgeRanksLeft.innerHTML = 4
     }
     else {
         knowledgeRanksLeft.innerHTML = 0
@@ -2769,10 +2794,8 @@ function spendAbilityPoints() {
     assignAbilityPoints()
     let talentRanksLeftValue = talentRanksLeft.innerHTML
     talentRanksLeftValue = Number(talentRanksLeftValue)
-    let skillRanksLeft = document.getElementById("skillRanksLeft")
     let skillRanksLeftValue = skillRanksLeft.innerHTML
     skillRanksLeftValue = Number(skillRanksLeftValue)
-    let knowledgeRanksLeft = document.getElementById("knowledgeRanksLeft")
     let knowledgeRanksLeftValue = knowledgeRanksLeft.innerHTML
     knowledgeRanksLeftValue = Number(knowledgeRanksLeftValue)
     let talentProficientSpend = 0
@@ -3307,7 +3330,7 @@ function applyNerdAbilities() {
         nerdNoStackingKnowledgesDiv.style.display = 'block'
         return
     }
-    for (i=0; i<9; i++) {
+    for (i=0; i<nerdKnowledgesArray01.length; i++) {
         if (nerdKnowledgesArray01[i].selected == true) {
             if (knowledgeUntrained[i].selected == true) {
                 knowledgeProficient[i].selected = true
@@ -3330,7 +3353,7 @@ function applyNerdAbilities() {
             } 
         }
     }
-    for (i=0; i<9; i++) {
+    for (i=0; i<nerdFreebieTalents.length; i++) {
         if (nerdFreebieTalentRadio.checked == true) {
             if (nerdFreebieTalent == nerdTalent) {
                 nerdCannotStackFreebieDiv.style.display = 'block'
@@ -3373,21 +3396,21 @@ function applyNerdAbilities() {
 }
 
 function whiteOutAbilitiesCells() {
-    for (i=0; i<9; i++) {
+    for (i=0; i<10; i++) {
         if (talentSkilled[i].selected == true || talentProficient[i].selected == true) {
             talentUntrained[i].selected = true
             talentCells[i].style.backgroundColor = 'initial'
             talentModifierCells[i].style.backgroundColor = 'initial'
         }
     }
-    for (i=0; i<9; i++) {
+    for (i=0; i<10; i++) {
         if (skillSkilled[i].selected == true || skillProficient[i].selected == true) {
             skillUntrained[i].selected = true
             skillCells[i].style.backgroundColor = 'initial'
             skillModifierCells[i].style.backgroundColor = 'initial'
         }
     }
-    for (i=0; i<9; i++) {
+    for (i=0; i<10; i++) {
         if (knowledgeSkilled[i].selected == true || knowledgeProficient[i].selected == true) {
             knowledgeUntrained[i].selected= true
             knowledgeCells[i].style.backgroundColor = 'initial'
@@ -3516,7 +3539,7 @@ function applyJockAbilities() {
         }
     }
 
-    for (i=0; i<9; i++) {
+    for (i=0; i<jockFreebieTalents.length; i++) {
         if (jockFreebieTalentRadio.checked == true) {
             if (jockFreebieTalents[i].selected == true) {
                 talentProficient[i].selected = true

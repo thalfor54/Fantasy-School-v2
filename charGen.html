@@ -871,25 +871,25 @@
             <td>Agitated</td>
             <td id="agitatedSpeciesModifier" class="speciesModifier"></td>
             <td id="agitatedCliqueModifier" class="cliqueModifier"></td>
-            <td id="agitatedTotal"></td>
+            <td id="agitatedTotal">1</td>
         </tr>
         <tr>
             <td>Angry</td>
             <td id="angrySpeciesModifier" class="speciesModifier"></td>
             <td id="angryCliqueModifier" class="cliqueModifier"></td>
-            <td id="angryTotal"></td>
+            <td id="angryTotal">1</td>
         </tr>
         <tr>
             <td>Horny</td>
             <td id="hornySpeciesModifier" class="speciesModifier"></td>
             <td id="hornyCliqueModifier" class="cliqueModifier"></td>
-            <td id="hornyTotal"></td>
+            <td id="hornyTotal">1</td>
         </tr>
         <tr>
             <td>Melancholy</td>
             <td id="melancholySpeciesModifier" class="speciesModifier"></td>
             <td id="melancholyCliqueModifier" class="cliqueModifier"></td>
-            <td id="melancholyTotal"></td>
+            <td id="melancholyTotal">1</td>
         </tr>
     </table>
     <table id="statPointsLeftTable">
@@ -1018,6 +1018,7 @@
                     <option id="nerdTalentAthletics" class="nerdTalent">Athletics</option>
                     <option id="nerdTalentBrawling" class="nerdTalent">Brawling</option>
                     <option id="nerdTalentCalmingDown" class="nerdTalent">Calming Down</option>
+                    <option id="nerdTalentDodge" class="nerdTalent">Dodge</option>
                     <option id="nerdTalentEmpathy" class="nerdTalent">Empathy</option>
                     <option id="nerdTalentIntimidation" class="nerdTalent">Intimidation</option>
                     <option id="nerdTalentMemory" class="nerdTalent">Memory</option>
@@ -1034,7 +1035,7 @@
                     <option id="nerdSkillFirearms" class="nerdSkill">Firearms</option>
                     <option id="nerdSkillInvestigation" class="nerdSkill">Investigation</option>
                     <option id="nerdSkillLeadership" class="nerdSkill">Leadership</option>
-                    <option id="nerdSkillLegerdemain" class="nerdSkill">Legerdemain</option>
+                    <option id="nerdSkillLockPicking" class="nerdSkill">Lock-Picking</option>
                     <option id="nerdSkillMelee" class="nerdSkill">Melee</option>
                     <option id="nerdSkillMusic" class="nerdSkill">Music</option>
                     <option id="nerdSkillSecurity" class="nerdSkill">Security</option>
@@ -1054,6 +1055,7 @@
                 <option id="nerdHistory01" class="nerdKnowledge01">History</option>
                 <option id="nerdMedicine01" class="nerdKnowledge01">Medicine</option>
                 <option id="nerdNature01" class="nerdKnowledge01">Nature</option>
+                <option id="nerdOccult01" class="nerdKnowledge01">Nature</option>
                 <option id="nerdReligion01" class="nerdKnowledge01">Religion</option>
                 <option id="nerdScience01" class="nerdKnowledge01">Science</option>
                 <option id="nerdSpecial01" class="nerdKnowledge01">Special</option>
@@ -1068,6 +1070,7 @@
                 <option id="nerdHistory02" class="nerdKnowledge02">History</option>
                 <option id="nerdMedicine02" class="nerdKnowledge02">Medicine</option>
                 <option id="nerdNature02" class="nerdKnowledge02">Nature</option>
+                <option id="nerdOccult02" class="nerdKnowledge01">Occult</option>
                 <option id="nerdReligion02" class="nerdKnowledge02">Religion</option>
                 <option id="nerdScience02" class="nerdKnowledge02">Science</option>
                 <option id="nerdSpecial02" class="nerdKnowledge02">Special</option>
@@ -1082,6 +1085,7 @@
                 <option id="nerdHistory03" class="nerdKnowledge03">History</option>
                 <option id="nerdMedicine03" class="nerdKnowledge03">Medicine</option>
                 <option id="nerdNature03" class="nerdKnowledge03">Nature</option>
+                <option id="nerdOccult03" class="nerdKnowledge01">Occult</option>
                 <option id="nerdReligion03" class="nerdKnowledge03">Religion</option>
                 <option id="nerdScience03" class="nerdKnowledge03">Science</option>
                 <option id="nerdSpecial03" class="nerdKnowledge03">Special</option>
@@ -1105,6 +1109,7 @@
                     <option id="nerdAthleticsFreebie" class="nerdFreebieTalent">Athletics</option>
                     <option id="nerdBrawlingFreebie" class="nerdFreebieTalent">Brawling</option>
                     <option id="nerdCalmingDownFreebie" class="nerdFreebieTalent">Calming Down</option>
+                    <option id="nerdTalentDodgeFreebie" class="nerdFreebieTalent">Dodge</option>                   
                     <option id="nerdEmpathyFreebie" class="nerdFreebieTalent">Empathy</option>
                     <option id="nerdIntimidationFreebie" class="nerdFreebieTalent">Intimidation</option>
                     <option id="nerdMemoryFreebie" class="nerdFreebieTalent">Memory</option>
@@ -1121,7 +1126,7 @@
                     <option id="nerdFirearmsFreebie" class="nerdFreebieSkill">Firearms</option>
                     <option id="nerdInvestigationFreebie" class="nerdFreebieSkill">Investigation</option>
                     <option id="nerdLeadershipFreebie" class="nerdFreebieSkill">Leadership</option>
-                    <option id="nerdLegerdemainFreebie" class="nerdFreebieSkill">Legerdemain</option>
+                    <option id="nerdLockPickingFreebie" class="nerdFreebieSkill">Lock-Picking</option>
                     <option id="nerdMeleeFreebie" class="nerdFreebieSkill">Melee</option>
                     <option id="nerdMusicFreebie" class="nerdFreebieSkill">Music</option>
                     <option id="nerdSecurityFreebie" class="nerdFreebieSkill">Security</option>
@@ -1140,6 +1145,7 @@
                     <option id="nerdHistoryFreebie" class="nerdFreebieKnowledge">History</option>
                     <option id="nerdMedicineFreebie" class="nerdFreebieKnowledge">Medicine</option>
                     <option id="nerdNatureFreebie" class="nerdFreebieKnowledge">Nature</option>
+                    <option id="nerdOccultFreebie" class="nerdFreebieKnowledge">Occult</option>
                     <option id="nerdReligionFreebie" class="nerdFreebieKnowledge">Religion</option>
                     <option id="nerdScienceFreebie" class="nerdFreebieKnowledge">Science</option>
                     <option id="nerdSpecialFreebie" class="nerdFreebieKnowledge">Special</option>
@@ -1170,6 +1176,7 @@
                 <option id="jockTalentAthletics" class="jockTalent">Athletics</option>
                 <option id="jockTalentBrawling" class="jockTalent">Brawling</option>
                 <option id="jockTalentCalmingDown" class="jockTalent">Calming Down</option>
+                <option id="jockTalentDodge" class="jockTalent">Dodge</option>
                 <option id="jockTalentEmpathy" class="jockTalent">Empathy</option>
                 <option id="jockTalentIntimidation" class="jockTalent">Intimidation</option>
                 <option id="jockTalentMemory" class="jockTalent">Memory</option>
@@ -1186,7 +1193,7 @@
                 <option id="jockSkillFirearms01" class="jockSkill01">Firearms</option>
                 <option id="jockSkillInvestigation01" class="jockSkill01">Investigation</option>
                 <option id="jockSkillLeadership01" class="jockSkill01">Leadership</option>
-                <option id="jockSkillLegerdemain01" class="jockSkill01">Legerdemain</option>
+                <option id="jockSkillLockPicking01" class="jockSkill01">Lock-Picking</option>
                 <option id="jockSkillMelee01" class="jockSkill01">Melee</option>
                 <option id="jockSkillMusic01" class="jockSkill01">Music</option>
                 <option id="jockSkillSecurity01" class="jockSkill01">Security</option>
@@ -1200,7 +1207,7 @@
                 <option id="jockSkillFirearms02" class="jockSkill02">Firearms</option>
                 <option id="jockSkillInvestigation02" class="jockSkill02">Investigation</option>
                 <option id="jockSkillLeadership02" class="jockSkill02">Leadership</option>
-                <option id="jockSkillLegerdemain02" class="jockSkill02">Legerdemain</option>
+                <option id="jockSkillLockPicking02" class="jockSkill02">Lock-Picking</option>
                 <option id="jockSkillMelee02" class="jockSkill02">Melee</option>
                 <option id="jockSkillMusic02" class="jockSkill02">Music</option>
                 <option id="jockSkillSecurity02" class="jockSkill02">Security</option>
@@ -1225,6 +1232,7 @@
                    <option id="jockAthleticsFreebie" class="jockFreebieTalent">Athletics</option>
                    <option id="jockBrawlingFreebie" class="jockFreebieTalent">Brawling</option>
                    <option id="jockCalmingDownFreebie" class="jockFreebieTalent">Calming Down</option>
+                   <option id="jockDodgeFreebie" class="jockFreebieTalent">Dodge</option>
                    <option id="jockEmpathyFreebie" class="jockFreebieTalent">Empathy</option>
                    <option id="jockIntimidationFreebie" class="jockFreebieTalent">Intimidation</option>
                    <option id="jockMemoryFreebie" class="jockFreebieTalent">Memory</option>
@@ -1241,7 +1249,7 @@
                    <option id="jockFirearmsFreebie" class="jockFreebieSkill">Firearms</option>
                    <option id="jockInvestigationFreebie" class="jockFreebieSkill">Investigation</option>
                    <option id="jockLeadershipFreebie" class="jockFreebieSkill">Leadership</option>
-                   <option id="jockLegerdemainFreebie" class="jockFreebieSkill">Legerdemain</option>
+                   <option id="jockLockPickingFreebie" class="jockFreebieSkill">Lock-Picking</option>
                    <option id="jockMeleeFreebie" class="jockFreebieSkill">Melee</option>
                    <option id="jockMusicFreebie" class="jockFreebieSkill">Music</option>
                    <option id="jockSecurityFreebie" class="jockFreebieSkill">Security</option>
@@ -1260,6 +1268,7 @@
                    <option id="jockHistoryFreebie" class="jockFreebieKnowledge">History</option>
                    <option id="jockMedicineFreebie" class="jockFreebieKnowledge">Medicine</option>
                    <option id="jockNatureFreebie" class="jockFreebieKnowledge">Nature</option>
+                   <option id="jockOccultFreebie" class="jockFreebieKnowledge">Occult</option>
                    <option id="jockReligionFreebie" class="jockFreebieKnowledge">Religion</option>
                    <option id="jockScienceFreebie" class="jockFreebieKnowledge">Science</option>
                    <option id="jockSpecialFreebie" class="jockFreebieKnowledge">Special</option>
@@ -1301,6 +1310,7 @@
                 <option id="prepKnowledgeHistory" class="prepKnowledge">History</option>
                 <option id="prepKnowledgeMedicine" class="prepKnowledge">Medicine</option>
                 <option id="prepKnowledgeNature" class="prepKnowledge">Nature</option>
+                <option id="prepKnowledgeOccult" class="prepKnowledge">Occult</option>
                 <option id="prepKnowledgeReligion" class="prepKnowledge">Religion</option>
                 <option id="prepKnowledgeScience" class="prepKnowledge">Science</option>
                 <option id="prepKnowledgeSpecial" class="prepKnowledge">Special</option>
@@ -1346,6 +1356,7 @@
                     <option id="prepAthleticsFreebie01" class="prepFreebie01Talent">Athletics</option>
                     <option id="prepBrawlingFreebie01" class="prepFreebie01Talent">Brawling</option>
                     <option id="prepCalmingDownFreebie01" class="prepFreebie01Talent">Calming Down</option>
+                    <option id="prepDodgeFreebie01" class="prepFreebie01Talent">Dodge</option>
                     <option id="prepEmpathyFreebie01" class="prepFreebie01Talent">Empathy</option>
                     <option id="prepIntimidationFreebie01" class="prepFreebie01Talent">Intimidation</option>
                     <option id="prepMemoryFreebie01" class="prepFreebie01Talent">Memory</option>
@@ -1358,7 +1369,7 @@
                     <option id="prepFirearmsFreebie01" class="prepFreebie01Skill">Firearms</option>
                     <option id="prepInvestigationFreebie01" class="prepFreebie01Skill">Investigation</option>
                     <option id="prepLeadershipFreebie01" class="prepFreebie01Skill">Leadership</option>
-                    <option id="prepLegerdemainFreebie01" class="prepFreebie01Skill">Legerdemain</option>
+                    <option id="prepLockPickingFreebie01" class="prepFreebie01Skill">Lock-Picking</option>
                     <option id="prepMeleeFreebie01" class="prepFreebie01Skill">Melee</option>
                     <option id="prepMusicFreebie01" class="prepFreebie01Skill">Music</option>
                     <option id="prepSecurityFreebie01" class="prepFreebie01Skill">Security</option>
@@ -1373,6 +1384,7 @@
                     <option id="prepHistoryFreebie01" class="prepFreebie01Knowledge">History</option>
                     <option id="prepMedicineFreebie01" class="prepFreebie01Knowledge">Medicine</option>
                     <option id="prepNatureFreebie01" class="prepFreebie01Knowledge">Nature</option>
+                    <option id="prepOccultFreebie01" class="prepFreebie01Knowledge">Occult</option>
                     <option id="prepReligionFreebie01" class="prepFreebie01Knowledge">Religion</option>
                     <option id="prepScienceFreebie01" class="prepFreebie01Knowledge">Science</option>
                     <option id="prepSpecialFreebie01" class="prepFreebie01Knowledge">Special</option>
@@ -1398,6 +1410,7 @@
                     <option id="prepAthleticsFreebie02" class="prepFreebie02Talent">Athletics</option>
                     <option id="prepBrawlingFreebie02" class="prepFreebie02Talent">Brawling</option>
                     <option id="prepCalmingDownFreebie02" class="prepFreebie02Talent">Calming Down</option>
+                    <option id="prepDodgeFreebie02" class="prepFreebie02Talent">Dodge</option>
                     <option id="prepEmpathyFreebie02" class="prepFreebie02Talent">Empathy</option>
                     <option id="prepIntimidationFreebie02" class="prepFreebie02Talent">Intimidation</option>
                     <option id="prepMemoryFreebie02" class="prepFreebie02Talent">Memory</option>
@@ -1410,7 +1423,7 @@
                     <option id="prepFirearmsFreebie02" class="prepFreebie02Skill">Firearms</option>
                     <option id="prepInvestigationFreebie02" class="prepFreebie02Skill">Investigation</option>
                     <option id="prepLeadershipFreebie02" class="prepFreebie02Skill">Leadership</option>
-                    <option id="prepLegerdemainFreebie02" class="prepFreebie02Skill">Legerdemain</option>
+                    <option id="prepLockPickingFreebie02" class="prepFreebie02Skill">Lock-Picking</option>
                     <option id="prepMeleeFreebie02" class="prepFreebie02Skill">Melee</option>
                     <option id="prepMusicFreebie02" class="prepFreebie02Skill">Music</option>
                     <option id="prepSecurityFreebie02" class="prepFreebie02Skill">Security</option>
@@ -1425,6 +1438,7 @@
                     <option id="prepHistoryFreebie02" class="prepFreebie02Knowledge">History</option>
                     <option id="prepMedicineFreebie02" class="prepFreebie02Knowledge">Medicine</option>
                     <option id="prepNatureFreebie02" class="prepFreebie02Knowledge">Nature</option>
+                    <option id="prepOccultFreebie02" class="prepFreebie02Knowledge">Occult</option>
                     <option id="prepReligionFreebie02" class="prepFreebie02Knowledge">Religion</option>
                     <option id="prepScienceFreebie02" class="prepFreebie02Knowledge">Science</option>
                     <option id="prepSpecialFreebie02" class="prepFreebie02Knowledge">Special</option>
@@ -1458,6 +1472,7 @@
                 <option id="theaterKidHistory" class="theaterKidKnowledge">History</option>
                 <option id="theaterKidMedicine" class="theaterKidKnowledge">Medicine</option>
                 <option id="theaterKidNature" class="theaterKidKnowledge">Nature</option>
+                <option id="theaterKidOccult" class="theaterKidKnowledge">Occult</option>
                 <option id="theaterKidReligion" class="theaterKidKnowledge">Religion</option>
                 <option id="theaterKidScience" class="theaterKidKnowledge">Science</option>
                 <option id="theaterKidSpecial" class="theaterKidKnowledge">Special</option>
@@ -1500,6 +1515,7 @@
                     <option id="theaterKidAthleticsFreebie01" class="theaterKidFreebie01Talent">Athletics</option>
                     <option id="theaterKidBrawlingFreebie01" class="theaterKidFreebie01Talent">Brawling</option>
                     <option id="theaterKidCalmingDownFreebie01" class="theaterKidFreebie01Talent">Calming Down</option>
+                    <option id="theaterKidDodgeFreebie01" class="theaterKidFreebie01Talent">Dodge</option>
                     <option id="theaterKidEmpathyFreebie01" class="theaterKidFreebie01Talent">Empathy</option>
                     <option id="theaterKidIntimidationFreebie01" class="theaterKidFreebie01Talent">Intimidation</option>
                     <option id="theaterKidMemoryFreebie01" class="theaterKidFreebie01Talent">Memory</option>
@@ -1512,7 +1528,7 @@
                     <option id="theaterKidFirearmsFreebie01" class="theaterKidFreebie01Skill">Firearms</option>
                     <option id="theaterKidInvestigationFreebie01" class="theaterKidFreebie01Skill">Investigation</option>
                     <option id="theaterKidLeadershipFreebie01" class="theaterKidFreebie01Skill">Leadership</option>
-                    <option id="theaterKidLegerdemainFreebie01" class="theaterKidFreebie01Skill">Legerdemain</option>
+                    <option id="theaterKidLockPickingFreebie01" class="theaterKidFreebie01Skill">Lock-Picking</option>
                     <option id="theaterKidMeleeFreebie01" class="theaterKidFreebie01Skill">Melee</option>
                     <option id="theaterKidMusicFreebie01" class="theaterKidFreebie01Skill">Music</option>
                     <option id="theaterKidSecurityFreebie01" class="theaterKidFreebie01Skill">Security</option>
@@ -1527,6 +1543,7 @@
                     <option id="theaterKidHistoryFreebie01" class="theaterKidFreebie01Knowledge">History</option>
                     <option id="theaterKidMedicineFreebie01" class="theaterKidFreebie01Knowledge">Medicine</option>
                     <option id="theaterKidNatureFreebie01" class="theaterKidFreebie01Knowledge">Nature</option>
+                    <option id="theaterKidOccultFreebie01" class="theaterKidFreebie01Knowledge">Occult</option>
                     <option id="theaterKidReligionFreebie01" class="theaterKidFreebie01Knowledge">Religion</option>
                     <option id="theaterKidScienceFreebie01" class="theaterKidFreebie01Knowledge">Science</option>
                     <option id="theaterKidSpecialFreebie01" class="theaterKidFreebie01Knowledge">Special</option>
@@ -1550,6 +1567,7 @@
                     <option id="theaterKidAthleticsFreebie02" class="theaterKidFreebie02Talent">Athletics</option>
                     <option id="theaterKidBrawlingFreebie02" class="theaterKidFreebie02Talent">Brawling</option>
                     <option id="theaterKidCalmingDownFreebie02" class="theaterKidFreebie02Talent">Calming Down</option>
+                    <option id="theaterKidDodgeFreebie02" class="theaterKidFreebie02Talent">Dodge</option>
                     <option id="theaterKidEmpathyFreebie02" class="theaterKidFreebie02Talent">Empathy</option>
                     <option id="theaterKidIntimidationFreebie02" class="theaterKidFreebie02Talent">Intimidation</option>
                     <option id="theaterKidMemoryFreebie02" class="theaterKidFreebie02Talent">Memory</option>
@@ -1562,11 +1580,11 @@
                     <option id="theaterKidFirearmsFreebie02" class="theaterKidFreebie02Skill">Firearms</option>
                     <option id="theaterKidInvestigationFreebie02" class="theaterKidFreebie02Skill">Investigation</option>
                     <option id="theaterKidLeadershipFreebie02" class="theaterKidFreebie02Skill">Leadership</option>
-                    <option id="theaterKidLegerdemainFreebie02" class="theaterKidFreebie02Skill">Legerdemain</option>
-                   <option id="theaterKidMeleeFreebie02" class="theaterKidFreebie02Skill">Melee</option>
-                   <option id="theaterKidMusicFreebie02" class="theaterKidFreebie02Skill">Music</option>
-                   <option id="theaterKidSecurityFreebie02" class="theaterKidFreebie02Skill">Security</option>
-                   <option id="theaterKidSocializingFreebie02" class="theaterKidFreebie02Skill">Socializing</option>
+                    <option id="theaterKidLockPickingFreebie02" class="theaterKidFreebie02Skill">Lock-Picking</option>
+                    <option id="theaterKidMeleeFreebie02" class="theaterKidFreebie02Skill">Melee</option>
+                    <option id="theaterKidMusicFreebie02" class="theaterKidFreebie02Skill">Music</option>
+                    <option id="theaterKidSecurityFreebie02" class="theaterKidFreebie02Skill">Security</option>
+                    <option id="theaterKidSocializingFreebie02" class="theaterKidFreebie02Skill">Socializing</option>
                </select>
                <br>
                <select id="theaterKidFreebie02KnowledgeSelect" class="theaterKidFreebieSelects">
@@ -1577,6 +1595,7 @@
                    <option id="theaterKidHistoryFreebie02" class="theaterKidFreebie02Knowledge">History</option>
                    <option id="theaterKidMedicineFreebie02" class="theaterKidFreebie02Knowledge">Medicine</option>
                    <option id="theaterKidNatureFreebie02" class="theaterKidFreebie02Knowledge">Nature</option>
+                   <option id="theaterKidOccultFreebie02" class="theaterKidFreebie02Knowledge">Occult</option>
                    <option id="theaterKidReligionFreebie02" class="theaterKidFreebie02Knowledge">Religion</option>
                    <option id="theaterKidScienceFreebie02" class="theaterKidFreebie02Knowledge">Science</option>
                    <option id="theaterKidSpecialFreebie02" class="theaterKidFreebie02Knowledge">Special</option>
@@ -1600,6 +1619,7 @@
                     <option id="theaterKidAthleticsFreebie03" class="theaterKidFreebie03Talent">Athletics</option>
                     <option id="theaterKidBrawlingFreebie03" class="theaterKidFreebie03Talent">Brawling</option>
                     <option id="theaterKidCalmingDownFreebie03" class="theaterKidFreebie03Talent">Calming Down</option>
+                    <option id="theaterKidDodgeFreebie03" class="theaterKidFreebie03Talent">Dodge</option>
                     <option id="theaterKidEmpathyFreebie03" class="theaterKidFreebie03Talent">Empathy</option>
                     <option id="theaterKidIntimidationFreebie03" class="theaterKidFreebie03Talent">Intimidation</option>
                     <option id="theaterKidMemoryFreebie03" class="theaterKidFreebie03Talent">Memory</option>
@@ -1612,11 +1632,11 @@
                     <option id="theaterKidFirearmsFreebie03" class="theaterKidFreebie03Skill">Firearms</option>
                     <option id="theaterKidInvestigationFreebie03" class="theaterKidFreebie03Skill">Investigation</option>
                     <option id="theaterKidLeadershipFreebie03" class="theaterKidFreebie03Skill">Leadership</option>
-                    <option id="theaterKidLegerdemainFreebie03" class="theaterKidFreebie03Skill">Legerdemain</option>
-                   <option id="theaterKidMeleeFreebie03" class="theaterKidFreebie03Skill">Melee</option>
-                   <option id="theaterKidMusicFreebie03" class="theaterKidFreebie03Skill">Music</option>
-                   <option id="theaterKidSecurityFreebie03" class="theaterKidFreebie03Skill">Security</option>
-                   <option id="theaterKidSocializingFreebie03" class="theaterKidFreebie03Skill">Socializing</option>
+                    <option id="theaterKidLockPickingFreebie03" class="theaterKidFreebie03Skill">Lock-Picking</option>
+                    <option id="theaterKidMeleeFreebie03" class="theaterKidFreebie03Skill">Melee</option>
+                    <option id="theaterKidMusicFreebie03" class="theaterKidFreebie03Skill">Music</option>
+                    <option id="theaterKidSecurityFreebie03" class="theaterKidFreebie03Skill">Security</option>
+                    <option id="theaterKidSocializingFreebie03" class="theaterKidFreebie03Skill">Socializing</option>
                </select>
                <br>
                <select id="theaterKidFreebie03KnowledgeSelect" class="theaterKidFreebieSelects">
@@ -1627,6 +1647,7 @@
                    <option id="theaterKidHistoryFreebie03" class="theaterKidFreebie03Knowledge">History</option>
                    <option id="theaterKidMedicineFreebie03" class="theaterKidFreebie03Knowledge">Medicine</option>
                    <option id="theaterKidNatureFreebie03" class="theaterKidFreebie03Knowledge">Nature</option>
+                   <option id="theaterKidOccultFreebie03" class="theaterKidFreebie03Knowledge">Occult</option>
                    <option id="theaterKidReligionFreebie03" class="theaterKidFreebie03Knowledge">Religion</option>
                    <option id="theaterKidScienceFreebie03" class="theaterKidFreebie03Knowledge">Science</option>
                    <option id="theaterKidSpecialFreebie03" class="theaterKidFreebie03Knowledge">Special</option>
@@ -1652,6 +1673,7 @@
                 <option id="lonerTalentAthletics" class="lonerTalent">Athletics</option>
                 <option id="lonerTalentBrawling" class="lonerTalent">Brawling</option>
                 <option id="lonerTalentCalmingDown" class="lonerTalent">Calming Down</option>
+                <option id="lonerTalentDodge" class="lonerTalent">Dodge</option>
                 <option id="lonerTalentEmpathy" class="lonerTalent">Empathy</option>
                 <option id="lonerTalentIntimidation" class="lonerTalent">Intimidation</option>
                 <option id="lonerTalentMemory" class="lonerTalent">Memory</option>
@@ -1671,7 +1693,7 @@
                 <option id="lonerSkill01Firearms" class="lonerSkill01">Firearms</option>
                 <option id="lonerSkill01Investigation" class="lonerSkill01">Investigation</option>
                 <option id="lonerSkill01Leadership" class="lonerSkill01">Leadership</option>
-                <option id="lonerSkill01Legerdemain" class="lonerSkill01">Legerdemain</option>
+                <option id="lonerSkill01LockPicking" class="lonerSkill01">Lock-Picking</option>
                 <option id="lonerSkill01Melee" class="lonerSkill01">Melee</option>
                 <option id="lonerSkill01Music" class="lonerSkill01">Music</option>
                 <option id="lonerSkill01Security" class="lonerSkill01">Security</option>
@@ -1685,7 +1707,7 @@
                 <option id="lonerSkill02Firearms" class="lonerSkill02">Firearms</option>
                 <option id="lonerSkill02Investigation" class="lonerSkill02">Investigation</option>
                 <option id="lonerSkill02Leadership" class="lonerSkill02">Leadership</option>
-                <option id="lonerSkill02Legerdemain" class="lonerSkill02">Legerdemain</option>
+                <option id="lonerSkill02LockPicking" class="lonerSkill02">Lock-Picking</option>
                 <option id="lonerSkill02Melee" class="lonerSkill02">Melee</option>
                 <option id="lonerSkill02Music" class="lonerSkill02">Music</option>
                 <option id="lonerSkill02Security" class="lonerSkill02">Security</option>
@@ -1699,7 +1721,7 @@
                 <option id="lonerSkill03Firearms" class="lonerSkill03">Firearms</option>
                 <option id="lonerSkill03Investigation" class="lonerSkill03">Investigation</option>
                 <option id="lonerSkill03Leadership" class="lonerSkill03">Leadership</option>
-                <option id="lonerSkill03Legerdemain" class="lonerSkill03">Legerdemain</option>
+                <option id="lonerSkill03LockPicking" class="lonerSkill03">Lock-Picking</option>
                 <option id="lonerSkill03Melee" class="lonerSkill03">Melee</option>
                 <option id="lonerSkill03Music" class="lonerSkill03">Music</option>
                 <option id="lonerSkill03Security" class="lonerSkill03">Security</option>
@@ -1720,6 +1742,7 @@
                     <option id="lonerAthleticsFreebie" class="lonerFreebieTalent">Athletics</option>
                     <option id="lonerBrawlingFreebie" class="lonerFreebieTalent">Brawling</option>
                     <option id="lonerCalmingDownFreebie" class="lonerFreebieTalent">Calming Down</option>
+                    <option id="lonerDodgeFreebie" class="lonerFreebieTalent">Dodge</option>
                     <option id="lonerEmpathyFreebie" class="lonerFreebieTalent">Empathy</option>
                     <option id="lonerIntimidationFreebie" class="lonerFreebieTalent">Intimidation</option>
                     <option id="lonerMemoryFreebie" class="lonerFreebieTalent">Memory</option>
@@ -1736,7 +1759,7 @@
                     <option id="lonerFirearmsFreebie" class="lonerFreebieSkill">Firearms</option>
                     <option id="lonerInvestigationFreebie" class="lonerFreebieSkill">Investigation</option>
                     <option id="lonerLeadershipFreebie" class="lonerFreebieSkill">Leadership</option>
-                    <option id="lonerLegerdemainFreebie" class="lonerFreebieSkill">Legerdemain</option>
+                    <option id="lonerLockPickingFreebie" class="lonerFreebieSkill">Lock-Picking</option>
                     <option id="lonerMeleeFreebie" class="lonerFreebieSkill">Melee</option>
                     <option id="lonerMusicFreebie" class="lonerFreebieSkill">Music</option>
                     <option id="lonerSecurityFreebie" class="lonerFreebieSkill">Security</option>
@@ -1755,6 +1778,7 @@
                     <option id="lonerHistoryFreebie" class="lonerFreebieKnowledge">History</option>
                     <option id="lonerMedicineFreebie" class="lonerFreebieKnowledge">Medicine</option>
                     <option id="lonerNatureFreebie" class="lonerFreebieKnowledge">Nature</option>
+                    <option id="lonerOccultFreebie" class="lonerFreebieKnowledge">Occult</option>
                     <option id="lonerReligionFreebie" class="lonerFreebieKnowledge">Religion</option>
                     <option id="lonerScienceFreebie" class="lonerFreebieKnowledge">Science</option>
                     <option id="lonerSpecialFreebie" class="lonerFreebieKnowledge">Special</option>
@@ -1779,6 +1803,7 @@
                 <option id="chameleonTalentAthletics" class="chameleonTalent">Athletics</option>
                 <option id="chameleonTalentBrawling" class="chameleonTalent">Brawling</option>
                 <option id="chameleonTalentCalmingDown" class="chameleonTalent">Calming Down</option>
+                <option id="chameleonTalentDodge" class="chameleonTalent">Dodge</option>
                 <option id="chameleonTalentEmpathy" class="chameleonTalent">Empathy</option>
                 <option id="chameleonTalentIntimidation" class="chameleonTalent">Intimidation</option>
                 <option id="chameleonTalentMemory" class="chameleonTalent">Memory</option>
@@ -1795,7 +1820,7 @@
                 <option id="chameleonSkillFirearms" class="chameleonSkill">Firearms</option>
                 <option id="chameleonSkillInvestigation" class="chameleonSkill">Investigation</option>
                 <option id="chameleonSkillLeadership" class="chameleonSkill">Leadership</option>
-                <option id="chameleonSkillLegerdemain" class="chameleonSkill">Legerdemain</option>
+                <option id="chameleonSkillLockPicking" class="chameleonSkill">Lock-Picking</option>
                 <option id="chameleonSkillMelee" class="chameleonSkill">Melee</option>
                 <option id="chameleonSkillMusic" class="chameleonSkill">Music</option>
                 <option id="chameleonSkillSecurity" class="chameleonSkill">Security</option>
@@ -1814,6 +1839,7 @@
                 <option id="chameleonKnowledgeHistory" class="chameleonKnowledge">History</option>
                 <option id="chameleonKnowledgeMedicine" class="chameleonKnowledge">Medicine</option>
                 <option id="chameleonKnowledgeNature" class="chameleonKnowledge">Nature</option>
+                <option id="chameleonKnowledgeOccult" class="chameleonKnowledge">Occult</option>
                 <option id="chameleonKnowledgeReligion" class="chameleonKnowledge">Religion</option>
                 <option id="chameleonKnowledgeScience" class="chameleonKnowledge">Science</option>
                 <option id="chameleonKnowledgeSpecial" class="chameleonKnowledge">Special</option>
@@ -1851,6 +1877,7 @@
                     <option id="chameleonAthleticsFreebie01" class="chameleonFreebie01Talent">Athletics</option>
                     <option id="chameleonBrawlingFreebie01" class="chameleonFreebie01Talent">Brawling</option>
                     <option id="chameleonCalmingDownFreebie01" class="chameleonFreebie01Talent">Calming Down</option>
+                    <option id="chameleonDodgeFreebie01" class="chameleonFreebie01Talent">Dodge</option>
                     <option id="chameleonEmpathyFreebie01" class="chameleonFreebie01Talent">Empathy</option>
                     <option id="chameleonIntimidationFreebie01" class="chameleonFreebie01Talent">Intimidation</option>
                     <option id="chameleonMemoryFreebie01" class="chameleonFreebie01Talent">Memory</option>
@@ -1863,7 +1890,7 @@
                     <option id="chameleonFirearmsFreebie01" class="chameleonFreebie01Skill">Firearms</option>
                     <option id="chameleonInvestigationFreebie01" class="chameleonFreebie01Skill">Investigation</option>
                     <option id="chameleonLeadershipFreebie01" class="chameleonFreebie01Skill">Leadership</option>
-                    <option id="chameleonLegerdemainFreebie01" class="chameleonFreebie01Skill">Legerdemain</option>
+                    <option id="chameleonLockPickingFreebie01" class="chameleonFreebie01Skill">Lock-Picking</option>
                     <option id="chameleonMeleeFreebie01" class="chameleonFreebie01Skill">Melee</option>
                     <option id="chameleonMusicFreebie01" class="chameleonFreebie01Skill">Music</option>
                     <option id="chameleonSecurityFreebie01" class="chameleonFreebie01Skill">Security</option>
@@ -1878,6 +1905,7 @@
                     <option id="chameleonHistoryFreebie01" class="chameleonFreebie01Knowledge">History</option>
                     <option id="chameleonMedicineFreebie01" class="chameleonFreebie01Knowledge">Medicine</option>
                     <option id="chameleonNatureFreebie01" class="chameleonFreebie01Knowledge">Nature</option>
+                    <option id="chameleonOccultFreebie01" class="chameleonFreebie01Knowledge">Occult</option>
                     <option id="chameleonReligionFreebie01" class="chameleonFreebie01Knowledge">Religion</option>
                     <option id="chameleonScienceFreebie01" class="chameleonFreebie01Knowledge">Science</option>
                     <option id="chameleonSpecialFreebie01" class="chameleonFreebie01Knowledge">Special</option>
@@ -1903,6 +1931,7 @@
                     <option id="chameleonAthleticsFreebie02" class="chameleonFreebie02Talent">Athletics</option>
                     <option id="chameleonBrawlingFreebie02" class="chameleonFreebie02Talent">Brawling</option>
                     <option id="chameleonCalmingDownFreebie02" class="chameleonFreebie02Talent">Calming Down</option>
+                    <option id="chameleonDodgeFreebie02" class="chameleonFreebie02Talent">Dodge</option>
                     <option id="chameleonEmpathyFreebie02" class="chameleonFreebie02Talent">Empathy</option>
                     <option id="chameleonIntimidationFreebie02" class="chameleonFreebie02Talent">Intimidation</option>
                     <option id="chameleonMemoryFreebie02" class="chameleonFreebie02Talent">Memory</option>
@@ -1915,7 +1944,7 @@
                     <option id="chameleonFirearmsFreebie02" class="chameleonFreebie02Skill">Firearms</option>
                     <option id="chameleonInvestigationFreebie02" class="chameleonFreebie02Skill">Investigation</option>
                     <option id="chameleonLeadershipFreebie02" class="chameleonFreebie02Skill">Leadership</option>
-                    <option id="chameleonLegerdemainFreebie02" class="chameleonFreebie02Skill">Legerdemain</option>
+                    <option id="chameleonLockPickingFreebie02" class="chameleonFreebie02Skill">Lock-Picking</option>
                     <option id="chameleonMeleeFreebie02" class="chameleonFreebie02Skill">Melee</option>
                     <option id="chameleonMusicFreebie02" class="chameleonFreebie02Skill">Music</option>
                     <option id="chameleonSecurityFreebie02" class="chameleonFreebie02Skill">Security</option>
@@ -1930,6 +1959,7 @@
                     <option id="chameleonHistoryFreebie02" class="chameleonFreebie02Knowledge">History</option>
                     <option id="chameleonMedicineFreebie02" class="chameleonFreebie02Knowledge">Medicine</option>
                     <option id="chameleonNatureFreebie02" class="chameleonFreebie02Knowledge">Nature</option>
+                    <option id="chameleonOccultFreebie02" class="chameleonFreebie02Knowledge">Occult</option>
                     <option id="chameleonReligionFreebie02" class="chameleonFreebie02Knowledge">Religion</option>
                     <option id="chameleonScienceFreebie02" class="chameleonFreebie02Knowledge">Science</option>
                     <option id="chameleonSpecialFreebie02" class="chameleonFreebie02Knowledge">Special</option>
@@ -2159,15 +2189,15 @@
             </td>
             <td id="calmingDownModifier" class="talentModifierCells">0</td>
             <!--skill-->
-            <td id="legerdemainCell" class="skillCells">Legerdemain:</td>
+            <td id="lockPickingCell" class="skillCells">Lock-Picking:</td>
             <td>
-                <select id="legerdemain" onchange="abilityChange()">
-                    <option id="legerdemain00" class="skillUntrained">Untrained</option>
-                    <option id="legerdemain01" class="skillProficient">Proficient</option>
-                    <option id="legerdemain02" class="skillSkilled">Skilled</option>
+                <select id="lockPicking" onchange="abilityChange()">
+                    <option id="lockPicking00" class="skillUntrained">Untrained</option>
+                    <option id="lockPicking01" class="skillProficient">Proficient</option>
+                    <option id="lockPicking02" class="skillSkilled">Skilled</option>
                 </select>
             </td>
-            <td id="legerdemainModifier" class="skillModifierCells">-2</td>
+            <td id="lockPickingModifier" class="skillModifierCells">-2</td>
             <!--knowledge-->
             <td id="medicineCell" class="knowledgeCells">Medicine:</td>
             <td>
@@ -2181,15 +2211,15 @@
         </tr>
         <tr>
             <!--talent-->
-            <td id="empathyCell" class="talentCells">Empathy:</td>
+            <td id="dodgeCell" class="talentCells">Dodge:</td>
             <td>
-                <select id="empathy" onchange="abilityChange()">
-                    <option id="empathy00" class="talentUntrained">Untrained</option>
-                    <option id="empathy01" class="talentProficient">Proficient</option>
-                    <option id="empathy02" class="talentSkilled">Skilled</option>
+                <select id="dodge" onchange="abilityChange(); setArmorClass()">
+                    <option id="dodge00" class="talentUntrained">Untrained</option>
+                    <option id="dodge01" class="talentProficient">Proficient</option>
+                    <option id="dodge02" class="talentSkilled">Skilled</option>
                 </select>
             </td>
-            <td id="empathyModifier" class="talentModifierCells">0</td>
+            <td id="dodgeModifier" class="talentModifierCells">0</td>
             <!--skill-->
             <td id="meleeCell" class="skillCells">Melee:</td>
             <td>
@@ -2213,15 +2243,15 @@
         </tr>
         <tr>
             <!--talent-->
-            <td id="intimidationCell" class="talentCells">Intimidation:</td>
+            <td id="empathyCell" class="talentCells">Empathy:</td>
             <td>
-                <select id="intimidation" onchange="abilityChange()">
-                    <option id="intimidation00" class="talentUntrained">Untrained</option>
-                    <option id="intimidation01" class="talentProficient">Proficient</option>
-                    <option id="intimidation02" class="talentSkilled">Skilled</option>
+                <select id="empathy" onchange="abilityChange()">
+                    <option id="empathy00" class="talentUntrained">Untrained</option>
+                    <option id="empathy01" class="talentProficient">Proficient</option>
+                    <option id="empathy02" class="talentSkilled">Skilled</option>
                 </select>
             </td>
-            <td id="intimidationModifier" class="talentModifierCells">0</td>
+            <td id="empathyModifier" class="talentModifierCells">0</td>
             <!--skill-->
             <td id="musicCell" class="skillCells">Music:</td>
             <td>
@@ -2233,27 +2263,27 @@
             </td>
             <td id="musicModifier" class="skillModifierCells">-2</td>
             <!--knowledge-->
-            <td id="religionCell" class="knowledgeCells">Religion</td>
+            <td id="occultCell" class="knowledgeCells">Occult</td>
             <td>
-                <select id="religion" onchange="abilityChange()">
-                    <option id="religion00" class="knowledgeUntrained">Untrained</option>
-                    <option id="religion01" class="knowledgeProficient">Proficient</option>
-                    <option id="religion02" class="knowledgeSkilled">Skilled</option>
+                <select id="occult" onchange="abilityChange()">
+                    <option id="occult00" class="knowledgeUntrained">Untrained</option>
+                    <option id="occult01" class="knowledgeProficient">Proficient</option>
+                    <option id="occult02" class="knowledgeSkilled">Skilled</option>
                 </select>
             </td>
-            <td id="religionModifier" class="knowledgeModifierCells">-4</td>
+            <td id="occultModifier" class="knowledgeModifierCells">-4</td>
         </tr>
         <tr>
             <!--talent-->
-            <td id="memoryCell" class="talentCells">Memory:</td>
+            <td id="intimidationCell" class="talentCells">Intimidation:</td>
             <td>
-                <select id="memory" onchange="abilityChange()">
-                    <option id="memory00" class="talentUntrained">Untrained</option>
-                    <option id="memory01" class="talentProficient">Proficient</option>
-                    <option id="memory02" class="talentSkilled">Skilled</option>
+                <select id="intimidation" onchange="abilityChange()">
+                    <option id="intimidation00" class="talentUntrained">Untrained</option>
+                    <option id="intimidation01" class="talentProficient">Proficient</option>
+                    <option id="intimidation02" class="talentSkilled">Skilled</option>
                 </select>
             </td>
-            <td id="memoryModifier" class="talentModifierCells">0</td>
+            <td id="intimidationModifier" class="talentModifierCells">0</td>
             <!--skill-->
             <td id="securityCell" class="skillCells">Security:</td>
             <td>
@@ -2277,6 +2307,38 @@
         </tr>
         <tr>
             <!--talent-->
+            <td id="memoryCell" class="talentCells">Memory:</td>
+            <td>
+                <select id="memory" onchange="abilityChange()">
+                    <option id="memory00" class="talentUntrained">Untrained</option>
+                    <option id="memory01" class="talentProficient">Proficient</option>
+                    <option id="memory02" class="talentSkilled">Skilled</option>
+                </select>
+            </td>
+            <td id="memoryModifier" class="talentModifierCells">0</td>
+            <!--skill-->
+            <td id="sleightOfHandCell" class="skillCells">Sleight of Hand:</td>
+            <td>
+                <select id="sleightOfHand" onchange="abilityChange()">
+                    <option id="sleightOfHand00" class="skillUntrained">Untrained</option>
+                    <option id="sleightOfHand01" class="skillProficient">Proficient</option>
+                    <option id="sleightOfHand02" class="skillSkilled">Skilled</option>
+                </select>
+            </td>
+            <td id="sleightOfHandModifier" class="skillModifierCells">-2</td>
+            <!--knowledge-->
+            <td id="specialCell" class="knowledgeCells">Special:<span id="specialSpan"></span></td>
+            <td>
+                <select id="special" onchange="abilityChange()">
+                    <option id="special00" class="knowledgeUntrained">Untrained</option>
+                    <option id="special01" class="knowledgeProficient">Proficient</option>
+                    <option id="special02" class="knowledgeSkilled">Skilled</option>
+                </select>
+            </td>
+            <td id="specialModifier" class="knowledgeModifierCells">-4</td>
+        </tr>
+        <tr>
+            <!--talent-->
             <td id="stealthCell" class="talentCells">Stealth:</td>
             <td>
                 <select id="stealth" onchange="abilityChange()">
@@ -2297,15 +2359,15 @@
             </td>
             <td id="socializingModifier" class="skillModifierCells">-2</td>
             <!--knowledge-->
-            <td id="specialCell" class="knowledgeCells">Special:<span id="specialSpan"></span></td>
+            <td id="theologyCell" class="knowledgeCells">Theology:</td>
             <td>
-                <select id="special" onchange="abilityChange()">
-                    <option id="special00" class="knowledgeUntrained">Untrained</option>
-                    <option id="special01" class="knowledgeProficient">Proficient</option>
-                    <option id="special02" class="knowledgeSkilled">Skilled</option>
+                <select id="theology" onchange="abilityChange()">
+                    <option id="theology00" class="knowledgeUntrained">Untrained</option>
+                    <option id="theology01" class="knowledgeProficient">Proficient</option>
+                    <option id="theology02" class="knowledgeSkilled">Skilled</option>
                 </select>
             </td>
-            <td id="specialModifier" class="knowledgeModifierCells">-4</td>
+            <td id="theologyModifier" class="knowledgeModifierCells">-4</td>
         </tr>
     </table>
 
