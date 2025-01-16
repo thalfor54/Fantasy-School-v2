@@ -92,7 +92,7 @@ let prepRadio = document.getElementById("preps")
 
 let speciesModifierArray = [strengthSpeciesModifier, dexteritySpeciesModifier, constitutionSpeciesModifier, resilienceSpeciesModifier, persuasionSpeciesModifier, manipulationSpeciesModifier, ingratiationSpeciesModifier, charismaSpeciesModifier, perceptionSpeciesModifier, insightSpeciesModifier, reasonSpeciesModifier, intuitionSpeciesModifier, focusSpeciesModifier, resolveSpeciesModifier, selfControlSpeciesModifier, agitatedSpeciesModifier, angrySpeciesModifier, hornySpeciesModifier, melancholySpeciesModifier, fortitudeSpeciesModifier, reflexSpeciesModifier, mindSpeciesModifier, willSpeciesModifier]
 let cliqueModifierArray = [strengthCliqueModifier, dexterityCliqueModifier, constitutionCliqueModifier, resilienceCliqueModifier, persuasionCliqueModifier, manipulationCliqueModifier, ingratiationCliqueModifier, charismaCliqueModifier, perceptionCliqueModifier, insightCliqueModifier, reasonCliqueModifier, intuitionCliqueModifier, focusCliqueModifier, resolveCliqueModifier, selfControlCliqueModifier, agitatedCliqueModifier, angryCliqueModifier, hornyCliqueModifier, melancholyCliqueModifier, fortitudeCliqueModifier, reflexCliqueModifier, mindCliqueModifier, willCliqueModifier]
-let changeRowArray = [changeStrengthRow, changeDexterityRow, changeConstitutionRow, changeResilienceRow, changePersuasionRow, changeManipulationRow, changeIngratiationRow, changeCharismaRow, changePerceptionRow, changeInsightRow, changeReasonRow, changeIntuitionRow]
+// let changeRowArray = [changeStrengthRow, changeDexterityRow, changeConstitutionRow, changeResilienceRow, changePersuasionRow, changeManipulationRow, changeIngratiationRow, changeCharismaRow, changePerceptionRow, changeInsightRow, changeReasonRow, changeIntuitionRow]
 let cliqueArray = [nerdStatPicks, jockStatPicks, prepStatPicks, theaterKidStatPicks, lonerStatPicks, chameleonStatPicks]
 let cliqueAbilityArray = [nerdAbilities, jockAbilities, prepAbilities, theaterKidAbilities, lonerAbilities, chameleonAbilities]
 let statStringArray = ['Strength', 'Dexterity', 'Constitution', 'Resilience', 'Persuasion', 'Manipulation', 'Ingratiation', 'Charisma', 'Perception', 'Insight', 'Reason', 'Intuition']
@@ -1147,9 +1147,13 @@ function vampireModifiers() {
         speciesModifierArray[i].innerHTML = ''
     }
     strengthSpeciesModifier.innerHTML = 2
+//    changeStrengthRow()
     resilienceSpeciesModifier.innerHTML = 2
+//    changeResilienceRow()
     manipulationSpeciesModifier.innerHTML = 2
+//    changeManipulationRow()
     charismaSpeciesModifier.innerHTML = 2
+//    changeCharismaRow()
     focusSpeciesModifier.innerHTML = 3
     resolveSpeciesModifier.innerHTML = 3
     selfControlSpeciesModifier.innerHTML = 2
@@ -1158,9 +1162,7 @@ function vampireModifiers() {
     melancholySpeciesModifier.innerHTML = 3
     fortitudeSpeciesModifier.innerHTML = 2
     reflexSpeciesModifier.innerHTML = 2
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }
+    baselineModifiers()
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
     setArmorClass()
@@ -1183,6 +1185,7 @@ function displayVampireModifiers() {
 
 function werewolfModifiers() {
     witchStatPicks.style.display = "none"
+    // zero out any prior values
     for (i=0; i<23; i++) {
         speciesModifierArray[i].innerHTML = ''
     }
@@ -1190,6 +1193,7 @@ function werewolfModifiers() {
     constitutionSpeciesModifier.innerHTML = 2
     resilienceSpeciesModifier.innerHTML = 2
     perceptionSpeciesModifier.innerHTML = 2
+    baselineModifiers()
     focusSpeciesModifier.innerHTML = 2
     resolveSpeciesModifier.innerHTML = 4
     selfControlSpeciesModifier.innerHTML = 2
@@ -1197,9 +1201,6 @@ function werewolfModifiers() {
     hornySpeciesModifier.innerHTML = 1
     melancholySpeciesModifier.innerHTML = 2
     fortitudeSpeciesModifier.innerHTML = 2
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
     setArmorClass()
@@ -1230,13 +1231,10 @@ function witchModifiers() {
     for (i=0; i<23; i++) {
         speciesModifierArray[i].innerHTML = ''
     }
-
+    baselineModifiers()
     // display div "witchStatPicks"
     let witchStatPicks = document.getElementById("witchStatPicks")
     witchStatPicks.style.display = "block"
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
     setArmorClass()
@@ -1278,9 +1276,7 @@ function applyWitchStatModifiers() {
             speciesModifierArray[i].innerHTML = 2
         } 
     }
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }    
+    baselineModifiers()
     angrySpeciesModifier.innerHTML = ''
     melancholySpeciesModifier.innerHTML = ''
     if (witchFeelPick.value == '') {
@@ -1293,9 +1289,6 @@ function applyWitchStatModifiers() {
     }
     agitatedSpeciesModifier.innerHTML = 1
     hornySpeciesModifier.innerHTML = 3
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }
     // set focus/resolve/self-control species modifiers
     focusSpeciesModifier.innerHTML = 4
     resolveSpeciesModifier.innerHTML = 2
@@ -1315,9 +1308,7 @@ function resetWitchSelections() {
     for (i=0; i<23; i++) {
         speciesModifierArray[i].innerHTML = ''
     }
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }    
+    baselineModifiers()
     calculateFeelsResistancesAndSaves()
 }
 
@@ -1331,6 +1322,7 @@ function fairyModifiers() {
     manipulationSpeciesModifier.innerHTML = 2
     ingratiationSpeciesModifier.innerHTML = 2
     intuitionSpeciesModifier.innerHTML = 2
+    baselineModifiers()
     focusSpeciesModifier.innerHTML = 2
     resolveSpeciesModifier.innerHTML = 3
     selfControlSpeciesModifier.innerHTML = 3
@@ -1339,9 +1331,6 @@ function fairyModifiers() {
     melancholySpeciesModifier.innerHTML = 1
     reflexSpeciesModifier.innerHTML = 1
     mindSpeciesModifier.innerHTML = 2
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
     setArmorClass()
@@ -1521,18 +1510,13 @@ function applyNerdStatModifiers() {
                 cliqueModifierArray[i].innerHTML = 2
             } 
         }
-        for (i=0; i<12; i++) {
-            changeRowArray[i]()
-        }    
     }
     for (i=0; i<statStringArray.length; i++) {
         if (nerdStatOption03.value == statStringArray[i] || nerdStatOption04.value == statStringArray[i]) {
             cliqueModifierArray[i].innerHTML = -2
         }
     }
-    for (i=0; i<statStringArray.length; i++) {
-        changeRowArray[i]()
-    }
+    baselineModifiers()
     // set focus/resolve/self-control clique modifiers
     focusCliqueModifier.innerHTML = 2
     // set FEELS clique modifiers
@@ -1560,9 +1544,7 @@ function resetNerdStatModifiers() {
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }    
+    baselineModifiers()
     calculateFeelsResistancesAndSaves() 
 }
 
@@ -1598,9 +1580,7 @@ function displayJockStatDiv() {
     theaterKidStatPicks.style.display = 'none'
     lonerStatPicks.style.display = 'none'
     chameleonStatPicks.style.display = 'none'
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }
+    baselineModifiers()
     // display jockAbilities
     jockAbilities.style.display = "inline"
     calculateFeelsResistancesAndSaves()
@@ -1650,9 +1630,6 @@ function applyJockStatModifiers() {
                 cliqueModifierArray[i].innerHTML = -2
             }
         }
-        for (i=0; i<statStringArray.length; i++) {
-            changeRowArray[i]()
-        }
     }
     // set focus/resolve/self-control clique modifiers
     resolveCliqueModifier.innerHTML = 2
@@ -1663,10 +1640,8 @@ function applyJockStatModifiers() {
     fortitudeCliqueModifier.innerHTML = 2
     reflexCliqueModifier.innerHTML = 2
     // apply selected modifiers
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }    
-calculateFeelsResistancesAndSaves()
+    baselineModifiers()
+    calculateFeelsResistancesAndSaves()
 }
 
 let jockMustMakeEveryChoiceDiv = document.getElementById("jockMustMakeEveryChoiceDiv")
@@ -1692,9 +1667,7 @@ function resetJockStatModifiers() {
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }    
+    baselineModifiers()
     calculateFeelsResistancesAndSaves() 
 }
 
@@ -1733,9 +1706,7 @@ function displayPrepStatDiv() {
     theaterKidStatPicks.style.display = 'none'
     lonerStatPicks.style.display = 'none'
     chameleonStatPicks.style.display = 'none'
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }
+    baselineModifiers()
     // display prepAbilities
     prepAbilities.style.display = "inline"
     calculateFeelsResistancesAndSaves()
@@ -1781,9 +1752,7 @@ function applyPrepStatModifiers() {
                 cliqueModifierArray[i].innerHTML = -2
             }
         }
-        for (i=0; i<statStringArray.length; i++) {
-            changeRowArray[i]()
-        }
+        baselineModifiers()
     }
     // set focus/resolve/self-control clique modifiers
     focusCliqueModifier.innerHTML = 1
@@ -1798,9 +1767,6 @@ function applyPrepStatModifiers() {
     } 
     if (prepSaveIncrease.value == 'Reflex') {
         reflexCliqueModifier.innerHTML = 2
-    }
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
     }
     calculateFeelsResistancesAndSaves()
 }
@@ -1825,9 +1791,7 @@ function resetPrepStatModifiers() {
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }    
+    baselineModifiers()
     calculateFeelsResistancesAndSaves() 
  }
 
@@ -1866,9 +1830,7 @@ function displayTheaterKidStatDiv() {
     prepStatPicks.style.display = 'none'
     lonerStatPicks.style.display = 'none'
     chameleonStatPicks.style.display = 'none'
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }
+    baselineModifiers()
     // display theater kid Abilities
     theaterKidAbilities.style.display = "inline"
     calculateFeelsResistancesAndSaves()
@@ -1915,9 +1877,7 @@ function applyTheaterKidStatModifiers() {
                 cliqueModifierArray[i].innerHTML = -2
             }
         }
-        for (i=0; i<statStringArray.length; i++) {
-            changeRowArray[i]()
-        }
+        baselineModifiers()
     }
     // set FEELS clique modifiers
     hornyCliqueModifier.innerHTML = 2
@@ -1947,12 +1907,9 @@ function applyTheaterKidStatModifiers() {
             cliqueModifierArray[i].innerHTML = - 2
         }
     }
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }
+    baselineModifiers()
     calculateFeelsResistancesAndSaves()
 }
-
 
 function resetTheaterKidStatModifiers() {
     // remove any previously-generated notices
@@ -1970,9 +1927,7 @@ function resetTheaterKidStatModifiers() {
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }    
+    baselineModifiers()
     calculateFeelsResistancesAndSaves() 
 }
 
@@ -2013,9 +1968,7 @@ function displayLonerStatDiv() {
     prepStatPicks.style.display = 'none'
     theaterKidStatPicks.style.display = 'none'
     chameleonStatPicks.style.display = 'none'
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }
+    baselineModifiers()
     // display loner Abilities
     lonerAbilities.style.display = "inline"
     calculateFeelsResistancesAndSaves()
@@ -2069,9 +2022,7 @@ function applyLonerStatModifiers() {
             cliqueModifierArray[i].innerHTML = -2
         }
     }
-    for (i=0; i<statStringArray.length; i++) {
-        changeRowArray[i]()
-    }
+    baselineModifiers()
     // set FEELS clique modifiers
     angryCliqueModifier.innerHTML = 2
     melancholyCliqueModifier.innerHTML = 2
@@ -2139,9 +2090,7 @@ function resetLonerStatModifiers() {
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }    
+    baselineModifiers()
     calculateFeelsResistancesAndSaves()     
 }
 
@@ -2181,9 +2130,7 @@ function displayChameleonStatDiv() {
     prepStatPicks.style.display = 'none'
     theaterKidStatPicks.style.display = 'none'
     lonerStatPicks.style.display = 'none'
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }
+    baselineModifiers()
     // display chameleon Abilities
     chameleonAbilities.style.display = "inline"
     calculateFeelsResistancesAndSaves()
@@ -2247,9 +2194,7 @@ function applyChameleonStatModifiers() {
                 cliqueModifierArray[i].innerHTML = -2
             }
         }
-        for (i=0; i<statStringArray.length; i++) {
-            changeRowArray[i]()
-        }
+        baselineModifiers()
     }
     let feelsStringsArray = ['Agitated', 'Angry', 'Horny', 'Melancholy']
     let resistancesStringsArray = ['Focus', 'Resolve', 'Self-Control'] 
@@ -2272,9 +2217,7 @@ function applyChameleonStatModifiers() {
             savesCliqueModifierArray[i].innerHTML = 2
         }
     }
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }
+    baselineModifiers()
     calculateFeelsResistancesAndSaves()
 }
 
@@ -2308,9 +2251,7 @@ function resetChameleonStatModifiers() {
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
-    for (i=0; i<12; i++) {
-        changeRowArray[i]()
-    }    
+    baselineModifiers()
     calculateFeelsResistancesAndSaves()
 }
 
