@@ -31,6 +31,10 @@ table, th, td {
   display: none;
   margin-left: 25px;
 }
+.cliqueModifierDivs {
+  display: none;
+  margin-left: 25px;
+}
 .redNotice {
   color: red;
 }

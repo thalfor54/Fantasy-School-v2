@@ -1435,6 +1435,22 @@ function resetAbilitiesToUntrained() {
     }
 }
 
+let nerdModifiersDiv = document.getElementById("nerdModifiers")
+let jockModifiersDiv = document.getElementById("jockModifiers")
+let prepModifiersDiv = document.getElementById("prepModifiers")
+let theaterKidModifiersDiv = document.getElementById("theaterKidModifiers")
+let lonerModifiersDiv = document.getElementById("lonerModifiers")
+let chameleonModifiersDiv = document.getElementById("chameleonModifiers")
+let cliqueModifierDivsArray = [nerdModifiersDiv, jockModifiersDiv, prepModifiersDiv, theaterKidModifiersDiv, lonerModifiersDiv, chameleonModifiersDiv]
+
+function displayNerdModifiers() {
+    for (i=0; i<cliqueModifierDivsArray.length; i++) {
+        cliqueModifierDivsArray[i].style.display = 'none'
+    }
+    nerdModifiersDiv.style.display = 'block'
+    let cliqueRadioBox = document.getElementById("cliqueRadio")
+    cliqueRadioBox.style.marginRight = "50px"
+}
 
 function displayNerdStatDiv() {
     // remove any previously-generated notices

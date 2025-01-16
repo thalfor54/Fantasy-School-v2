@@ -97,9 +97,14 @@
 <div id="clique">
     <div id="cliqueRadio">
         <h2 id="selectClique">Select Clique</h2>
-        <input type="radio" id="nerds" name="clique" onclick="displayNerdStatDiv()">
-        <label for="nerds">Nerds</label><br>
         <!--nerds-->
+        <input type="radio" id="nerds" name="clique" onclick="displayNerdStatDiv(); displayNerdModifiers()">
+        <label for="nerds">Nerds</label><br>
+        <div id="nerdModifiers" class="cliqueModifierDivs">
+            <h4>FEELS: Horny +2, Agitated +2</h4><br>
+            <h4>Resistances: Focus +2</h4><br>
+            <h4>Skilled Saves: Mind and Will</h4>
+        </div>
         <div id="nerdStatPicks">
             <div id="nerdMustMakeEveryChoiceDiv" class="instructionDiv">
                 <h4 id="nerdMustMakeEveryChoiceNotice" class="redNotice"><strong>You must make a choice for every stat</strong></h4>
@@ -150,6 +155,11 @@
         <!--jocks-->
         <input type="radio" id="jocks" name="clique" onclick="displayJockStatDiv()">
         <label for="jocks">Jocks</label><br>
+        <div id="jockModifiers" class="cliqueModifierDivs">
+            <h4>FEELS: Horny +2, Angry +2</h4><br>
+            <h4>Resistances: Resolve +2</h4><br>
+            <h4>Skilled Saves: Fortitude and Reflex</h4>
+        </div>
         <div id="jockStatPicks">
             <div id="jockMustMakeEveryChoiceDiv" class="instructionDiv">
                 <h4 id="jockMustMakeEveryChoiceNotice" class="redNotice"><strong>You must make a choice for every stat</strong></h4>
@@ -211,6 +221,11 @@
         <!--preps-->        
         <input type="radio" id="preps" name="clique" onclick="displayPrepStatDiv()">
         <label for="preps">Preps</label><br>
+        <div id="prepModifiers" class="cliqueModifierDivs">
+            <h4>FEELS: Melancholy +2, Agitated +2</h4><br>
+            <h4>Resistances: Focus +1, Self-Control +1</h4><br>
+            <h4>Skilled Saves: Mind and either Fortitude or Reflex</h4>
+        </div>
         <div id="prepStatPicks">
             <div id="prepMustMakeEveryChoiceDiv" class="instructionDiv">
                 <h4 id="prepMustMakeEveryChoiceNotice" class="redNotice"><strong>You must make a choice for every stat</strong></h4>
@@ -293,6 +308,11 @@
         <!--theater kids-->
         <input type="radio" id="theaterKids" name="clique" onclick="displayTheaterKidStatDiv()">
         <label for="theaterKids">Theater Kids</label><br>
+        <div id="theaterKidModifiers" class="cliqueModifierDivs">
+            <h4>FEELS: Horny +2, Melancholy +2</h4><br>
+            <h4>Resistances: Focus +1, either Resolve or Self-Control +1</h4><br>
+            <h4>Skilled Saves: Reflex and Will</h4>
+        </div>
         <div id="theaterKidStatPicks">
             <div id="theaterKidMustMakeEveryChoiceDiv" class="instructionDiv">
                 <h4 id="theaterKidMustMakeEveryChoiceNotice" class="redNotice"><strong>You must make a choice for every stat</strong></h4>
@@ -371,6 +391,10 @@
         <!--loner-->
         <input type="radio" id="loners" name="clique" onclick="displayLonerStatDiv()">
         <label for="loners">Loners</label><br>
+        <div id="lonerModifiers" class="cliqueModifierDivs">
+            <h4>FEELS: Angry +2, Melancholy +2</h4><br>
+            <h4>Skilled Saves: Fortitude and Will</h4>
+        </div>
         <div id="lonerStatPicks">
             <div id="lonerMustMakeEveryChoiceDiv" class="instructionDiv">
                 <h4 id="lonerMustMakeEveryChoiceNotice" class="redNotice"><strong>You must make a choice for every stat</strong></h4>
@@ -488,6 +512,10 @@
         <!--chameleons-->
         <input type="radio" id="chameleons" name="clique" onclick="displayChameleonStatDiv()">
         <label for="chameleons">Chameleons</label><br>
+        <div id="chameleonModifiers" class="cliqueModifierDivs">
+            <h4>FEELS: +2 to any two</h4><br>
+            <h4>Resistances: +1 to any two</h4>
+        </div>
         <div id="chameleonStatPicks">
             <div id="chameleonMustMakeEveryChoiceDiv" class="instructionDiv">
                 <h4 id="chameleonMustMakeEveryChoiceNotice" class="redNotice"><strong>You must make a choice for every option</strong></h4>
@@ -859,37 +887,42 @@
 <!-- tables for FEELS, resistances, combat, and saving throws -->
     <table id="feelsTable" class="feelsResistancesSavesTables">
         <tr>
-            <th colspan="4" class="otherHeader">FEELS</th>
+            <th colspan="5" class="otherHeader">FEELS</th>
         </tr>
         <tr>
             <th scope="col">Feel:</th>
+            <th scope="col"></th>
             <th scope="col">Species Modifier</th>
             <th scope="col">Clique Modifier</th>
             <th scope="col">Baseline Value</th>
         </tr>
         <tr>
             <td>Agitated</td>
+            <td>1+</td>
             <td id="agitatedSpeciesModifier" class="speciesModifier"></td>
             <td id="agitatedCliqueModifier" class="cliqueModifier"></td>
-            <td id="agitatedTotal">1</td>
+            <td id="agitatedTotal"></td>
         </tr>
         <tr>
             <td>Angry</td>
+            <td>1+</td>
             <td id="angrySpeciesModifier" class="speciesModifier"></td>
             <td id="angryCliqueModifier" class="cliqueModifier"></td>
-            <td id="angryTotal">1</td>
+            <td id="angryTotal"></td>
         </tr>
         <tr>
             <td>Horny</td>
+            <td>1+</td>
             <td id="hornySpeciesModifier" class="speciesModifier"></td>
             <td id="hornyCliqueModifier" class="cliqueModifier"></td>
-            <td id="hornyTotal">1</td>
+            <td id="hornyTotal"></td>
         </tr>
         <tr>
             <td>Melancholy</td>
+            <td>1+</td>
             <td id="melancholySpeciesModifier" class="speciesModifier"></td>
             <td id="melancholyCliqueModifier" class="cliqueModifier"></td>
-            <td id="melancholyTotal">1</td>
+            <td id="melancholyTotal"></td>
         </tr>
     </table>
     <table id="statPointsLeftTable">
