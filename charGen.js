@@ -1147,21 +1147,18 @@ function vampireModifiers() {
         speciesModifierArray[i].innerHTML = ''
     }
     strengthSpeciesModifier.innerHTML = 2
-//    changeStrengthRow()
     resilienceSpeciesModifier.innerHTML = 2
-//    changeResilienceRow()
     manipulationSpeciesModifier.innerHTML = 2
-//    changeManipulationRow()
     charismaSpeciesModifier.innerHTML = 2
-//    changeCharismaRow()
     focusSpeciesModifier.innerHTML = 3
     resolveSpeciesModifier.innerHTML = 3
     selfControlSpeciesModifier.innerHTML = 2
     angrySpeciesModifier.innerHTML = 1
     hornySpeciesModifier.innerHTML = 2
     melancholySpeciesModifier.innerHTML = 3
-    fortitudeSpeciesModifier.innerHTML = 2
-    reflexSpeciesModifier.innerHTML = 2
+    fortitudeSpeciesModifier.innerHTML = 1
+    reflexSpeciesModifier.innerHTML = 1
+    willSpeciesModifier.innerHTML = 1
     baselineModifiers()
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
@@ -1201,6 +1198,7 @@ function werewolfModifiers() {
     hornySpeciesModifier.innerHTML = 1
     melancholySpeciesModifier.innerHTML = 2
     fortitudeSpeciesModifier.innerHTML = 2
+    reflexSpeciesModifier.innerHTML = 1
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
     setArmorClass()
@@ -1295,7 +1293,7 @@ function applyWitchStatModifiers() {
     selfControlSpeciesModifier.innerHTML = 2
     // set witch species save modifiers
     mindSpeciesModifier.innerHTML = 1
-    willSpeciesModifier.innerHTML = 1
+    willSpeciesModifier.innerHTML = 2
     calculateFeelsResistancesAndSaves()
 }  
 
