@@ -13,14 +13,16 @@
         <div id="vampireModifiers" class="speciesModifierDivs">
             <h4>Stats: Str +2, Resil +2, Manip +2, Cha +2</h4><br>
             <h4>FEELS: Melancholy +3, Horny +2, Angry +1</h4><br>
-            <h4>Resistances: Focus: 2, Resolve: 2, Self-Control: 1</h4>
+            <h4>Resistances: Focus: 2, Resolve: 2, Self-Control: 1</h4><br>
+            <h4>Saves: Fortitude +1, Reflex +1, Will +1</h4>
         </div>
         <input type="radio" id="werewolf" name="species" onclick="werewolfModifiers(); displayWerewolfModifiers()">
         <label for="werewolf">Werewolf</label><br>
         <div id="werewolfModifiers" class="speciesModifierDivs">
             <h4>Stats: Str +2, Con +2, Resil +2, Percep +2</h4><br>
             <h4>FEELS: Angry +3, Melancholy +2, Horny +1</h4><br>
-            <h4>Resistances: Focus: 1, Resolve: 3, Self-Control: 1</h4>
+            <h4>Resistances: Focus: 1, Resolve: 3, Self-Control: 1</h4><br>
+            <h4>Saves: Fortitude +1, Reflex +1</h4>
         </div>
         <input type="radio" id="witch" name="species" onclick="witchModifiers()">
         <label for="witch">Witch</label><br>
@@ -90,7 +92,8 @@
         <div id="fairyModifiers" class="speciesModifierDivs">
             <h4>Stats: Dex +2, Manip +2, Ingrat +2, Intuit +2</h4><br>
             <h4>FEELS: Agitated +3, Horny +2, Melancholy +1</h4><br>
-            <h4>Resistances: Focus: 1, Resolve: 2, Self-Control: 2</h4>
+            <h4>Resistances: Focus: 1, Resolve: 2, Self-Control: 2</h4><br>
+            <h4>Saves: Reflex +1, Mind +1</h4>
         </div>
     </div>
 </div>
@@ -104,7 +107,7 @@
         <div id="nerdModifiers" class="cliqueModifierDivs">
             <h4>FEELS: Horny +2, Agitated +2</h4><br>
             <h4>Resistances: Focus +2</h4><br>
-            <h4>Skilled Saves: Mind and Will</h4>
+            <h4>Saves: Mind +1, Will +1</h4>
         </div>
         <div id="nerdStatPicks">
             <div id="nerdMustMakeEveryChoiceDiv" class="instructionDiv">
@@ -159,7 +162,7 @@
         <div id="jockModifiers" class="cliqueModifierDivs">
             <h4>FEELS: Horny +2, Angry +2</h4><br>
             <h4>Resistances: Resolve +2</h4><br>
-            <h4>Skilled Saves: Fortitude and Reflex</h4>
+            <h4>Saves: Fortitude +1, Reflex +1</h4>
         </div>
         <div id="jockStatPicks">
             <div id="jockMustMakeEveryChoiceDiv" class="instructionDiv">
@@ -225,7 +228,7 @@
         <div id="prepModifiers" class="cliqueModifierDivs">
             <h4>FEELS: Melancholy +2, Agitated +2</h4><br>
             <h4>Resistances: Focus +1, Self-Control +1</h4><br>
-            <h4>Skilled Saves: Mind and either Fortitude or Reflex</h4>
+            <h4>Saves: Mind +1; one other +1 (choose below)</h4>
         </div>
         <div id="prepStatPicks">
             <div id="prepMustMakeEveryChoiceDiv" class="instructionDiv">
@@ -301,6 +304,7 @@
                 <option value=''></option>
                 <option value='Fortitude'>Fortitude</option>
                 <option value='Reflex'>Reflex</option>
+                <option value='Will'>Will</option>
             </select>
             <br>
             <button type="button" onclick="applyPrepStatModifiers()">Commit choices</button>
@@ -312,7 +316,7 @@
         <div id="theaterKidModifiers" class="cliqueModifierDivs">
             <h4>FEELS: Horny +2, Melancholy +2</h4><br>
             <h4>Resistances: Focus +1, either Resolve or Self-Control +1</h4><br>
-            <h4>Skilled Saves: Reflex and Will</h4>
+            <h4>Saves: Reflex +1, Will +1</h4>
         </div>
         <div id="theaterKidStatPicks">
             <div id="theaterKidMustMakeEveryChoiceDiv" class="instructionDiv">
@@ -394,7 +398,7 @@
         <label for="loners">Loners</label><br>
         <div id="lonerModifiers" class="cliqueModifierDivs">
             <h4>FEELS: Angry +2, Melancholy +2</h4><br>
-            <h4>Skilled Saves: Fortitude and Will</h4>
+            <h4>Saves: Fortitude +1, Will +1</h4>
         </div>
         <div id="lonerStatPicks">
             <div id="lonerMustMakeEveryChoiceDiv" class="instructionDiv">
@@ -515,7 +519,8 @@
         <label for="chameleons">Chameleons</label><br>
         <div id="chameleonModifiers" class="cliqueModifierDivs">
             <h4>FEELS: +2 to any two</h4><br>
-            <h4>Resistances: +1 to any two</h4>
+            <h4>Resistances: +1 to any two</h4><br>
+            <h4>Saves: +1 to any two</h4>
         </div>
         <div id="chameleonStatPicks">
             <div id="chameleonMustMakeEveryChoiceDiv" class="instructionDiv">

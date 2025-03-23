@@ -1521,8 +1521,8 @@ function applyNerdStatModifiers() {
     agitatedCliqueModifier.innerHTML = 2
     hornyCliqueModifier.innerHTML = 2
     // set saves clique modifiers
-    mindCliqueModifier.innerHTML = 2
-    willCliqueModifier.innerHTML = 2 
+    mindCliqueModifier.innerHTML = 1
+    willCliqueModifier.innerHTML = 1 
     calculateFeelsResistancesAndSaves()
 }
 
@@ -1635,8 +1635,8 @@ function applyJockStatModifiers() {
     hornyCliqueModifier.innerHTML = 2
     angryCliqueModifier.innerHTML = 2
     // set saves clique modifiers
-    fortitudeCliqueModifier.innerHTML = 2
-    reflexCliqueModifier.innerHTML = 2
+    fortitudeCliqueModifier.innerHTML = 1
+    reflexCliqueModifier.innerHTML = 1
     // apply selected modifiers
     baselineModifiers()
     calculateFeelsResistancesAndSaves()
@@ -1759,12 +1759,15 @@ function applyPrepStatModifiers() {
     agitatedCliqueModifier.innerHTML = 2
     melancholyCliqueModifier.innerHTML = 2
     // set saves clique modifiers
-    mindCliqueModifier.innerHTML = 2
+    mindCliqueModifier.innerHTML = 1
     if (prepSaveIncrease.value == 'Fortitude') {
-        fortitudeCliqueModifier.innerHTML = 2
+        fortitudeCliqueModifier.innerHTML = 1
     } 
     if (prepSaveIncrease.value == 'Reflex') {
-        reflexCliqueModifier.innerHTML = 2
+        reflexCliqueModifier.innerHTML = 1
+    }
+    if (prepSaveIncrease.value == 'Will') {
+        willCliqueModifier.innerHTML = 1
     }
     calculateFeelsResistancesAndSaves()
 }
