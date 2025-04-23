@@ -68,6 +68,11 @@ table, th, td {
   margin-left: 25px;
   margin-bottom: 20px;
 }
+#gothStatPicks {
+  display: none;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
 #lonerStatPicks {
   display: none;
   margin-left: 25px;

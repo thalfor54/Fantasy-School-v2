@@ -60,6 +60,7 @@ let nerdStatPicks = document.getElementById("nerdStatPicks")
 let jockStatPicks = document.getElementById("jockStatPicks")
 let prepStatPicks = document.getElementById("prepStatPicks")
 let theaterKidStatPicks = document.getElementById("theaterKidStatPicks")
+let gothStatPicks = document.getElementById("gothStatPicks")
 let lonerStatPicks = document.getElementById("lonerStatPicks")
 let chameleonStatPicks = document.getElementById("chameleonStatPicks")
 
@@ -93,7 +94,7 @@ let prepRadio = document.getElementById("preps")
 let speciesModifierArray = [strengthSpeciesModifier, dexteritySpeciesModifier, constitutionSpeciesModifier, resilienceSpeciesModifier, persuasionSpeciesModifier, manipulationSpeciesModifier, ingratiationSpeciesModifier, charismaSpeciesModifier, perceptionSpeciesModifier, insightSpeciesModifier, reasonSpeciesModifier, intuitionSpeciesModifier, focusSpeciesModifier, resolveSpeciesModifier, selfControlSpeciesModifier, agitatedSpeciesModifier, angrySpeciesModifier, hornySpeciesModifier, melancholySpeciesModifier, fortitudeSpeciesModifier, reflexSpeciesModifier, mindSpeciesModifier, willSpeciesModifier]
 let cliqueModifierArray = [strengthCliqueModifier, dexterityCliqueModifier, constitutionCliqueModifier, resilienceCliqueModifier, persuasionCliqueModifier, manipulationCliqueModifier, ingratiationCliqueModifier, charismaCliqueModifier, perceptionCliqueModifier, insightCliqueModifier, reasonCliqueModifier, intuitionCliqueModifier, focusCliqueModifier, resolveCliqueModifier, selfControlCliqueModifier, agitatedCliqueModifier, angryCliqueModifier, hornyCliqueModifier, melancholyCliqueModifier, fortitudeCliqueModifier, reflexCliqueModifier, mindCliqueModifier, willCliqueModifier]
 // let changeRowArray = [changeStrengthRow, changeDexterityRow, changeConstitutionRow, changeResilienceRow, changePersuasionRow, changeManipulationRow, changeIngratiationRow, changeCharismaRow, changePerceptionRow, changeInsightRow, changeReasonRow, changeIntuitionRow]
-let cliqueArray = [nerdStatPicks, jockStatPicks, prepStatPicks, theaterKidStatPicks, lonerStatPicks, chameleonStatPicks]
+let cliqueArray = [nerdStatPicks, jockStatPicks, prepStatPicks, theaterKidStatPicks, gothStatPicks, lonerStatPicks, chameleonStatPicks]
 let cliqueAbilityArray = [nerdAbilities, jockAbilities, prepAbilities, theaterKidAbilities, lonerAbilities, chameleonAbilities]
 let statStringArray = ['Strength', 'Dexterity', 'Constitution', 'Resilience', 'Persuasion', 'Manipulation', 'Ingratiation', 'Charisma', 'Perception', 'Insight', 'Reason', 'Intuition']
 let resetCliqueAbilitiesArray = [resetNerdAbilities, resetJockAbilities, resetPrepAbilities, resetTheaterKidAbilities, resetLonerAbilities, resetChameleonAbilities]
@@ -1426,9 +1427,10 @@ let nerdModifiersDiv = document.getElementById("nerdModifiers")
 let jockModifiersDiv = document.getElementById("jockModifiers")
 let prepModifiersDiv = document.getElementById("prepModifiers")
 let theaterKidModifiersDiv = document.getElementById("theaterKidModifiers")
+let gothModifiersDiv = document.getElementById("gothModifiers")
 let lonerModifiersDiv = document.getElementById("lonerModifiers")
 let chameleonModifiersDiv = document.getElementById("chameleonModifiers")
-let cliqueModifierDivsArray = [nerdModifiersDiv, jockModifiersDiv, prepModifiersDiv, theaterKidModifiersDiv, lonerModifiersDiv, chameleonModifiersDiv]
+let cliqueModifierDivsArray = [nerdModifiersDiv, jockModifiersDiv, prepModifiersDiv, theaterKidModifiersDiv, gothModifiersDiv, lonerModifiersDiv, chameleonModifiersDiv]
 
 function displayNerdModifiers() {
     for (i=0; i<cliqueModifierDivsArray.length; i++) {
@@ -1458,19 +1460,17 @@ function displayNerdStatDiv() {
     talentChange()
     skillChange()
     knowledgeChange()
-    // display div "nerdStatPicks"
-    let nerdStatPicks = document.getElementById("nerdStatPicks")
-    nerdStatPicks.style.display = "block"
     // zero out any prior values
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
-    // remove any other clique picks
-    jockStatPicks.style.display = 'none'
-    prepStatPicks.style.display = 'none'
-    theaterKidStatPicks.style.display = 'none'
-    lonerStatPicks.style.display = 'none'
-    chameleonStatPicks.style.display = 'none'
+    // remove all clique picks
+    for (i=0; i<cliqueArray.length; i++) {
+        cliqueArray[i].style.display = 'none'
+    }
+    // display div "nerdStatPicks"
+    let nerdStatPicks = document.getElementById("nerdStatPicks")
+    nerdStatPicks.style.display = "block"
     // display nerdAbilities
     nerdAbilities.style.display = "inline"
     calculateFeelsResistancesAndSaves()
@@ -1546,6 +1546,15 @@ function resetNerdStatModifiers() {
     calculateFeelsResistancesAndSaves() 
 }
 
+function displayJockModifiers() {
+    for (i=0; i<cliqueModifierDivsArray.length; i++) {
+        cliqueModifierDivsArray[i].style.display = 'none'
+    }
+    jockModifiersDiv.style.display = 'block'
+    let cliqueRadioBox = document.getElementById("cliqueRadio")
+    cliqueRadioBox.style.marginRight = "50px"
+}
+
 function displayJockStatDiv() {
     // remove any previously-generated notices
     let jockMustMakeEveryChoiceDiv = document.getElementById("jockMustMakeEveryChoiceDiv")
@@ -1565,6 +1574,10 @@ function displayJockStatDiv() {
     talentChange()
     skillChange()
     knowledgeChange()
+    // remove all clique picks
+    for (i=0; i<cliqueArray.length; i++) {
+        cliqueArray[i].style.display = 'none'
+    }
     // display div "jockStatPicks"
     let jockStatPicks = document.getElementById("jockStatPicks")
     jockStatPicks.style.display = "block"
@@ -1572,12 +1585,6 @@ function displayJockStatDiv() {
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
-    // hide other clique abilities
-    nerdStatPicks.style.display = 'none'
-    prepStatPicks.style.display = 'none'
-    theaterKidStatPicks.style.display = 'none'
-    lonerStatPicks.style.display = 'none'
-    chameleonStatPicks.style.display = 'none'
     baselineModifiers()
     // display jockAbilities
     jockAbilities.style.display = "inline"
@@ -1675,6 +1682,17 @@ let prepNoSameBonusAndPenaltyDiv = document.getElementById("prepNoSameBonusAndPe
 let prepMustChooseASaveDiv = document.getElementById("prepMustChooseASaveDiv")
 let prepNoticeDivs = [prepMustMakeEveryChoiceDiv, prepNoStackingDiv, prepNoSameBonusAndPenaltyDiv, prepMustChooseASaveDiv]
 
+function displayPrepModifiers() {
+
+    for (i=0; i<cliqueModifierDivsArray.length; i++) {
+        cliqueModifierDivsArray[i].style.display = 'none'
+    }
+    prepModifiersDiv.style.display = 'block'
+    let cliqueRadioBox = document.getElementById("cliqueRadio")
+    cliqueRadioBox.style.marginRight = "50px"
+}
+
+    // not working to display PerpStatDiv
 function displayPrepStatDiv() {
     // remove any previously-generated notices
     for (i=0; i<prepNoticeDivs.length; i++) {
@@ -1691,19 +1709,17 @@ function displayPrepStatDiv() {
     talentChange()
     skillChange()
     knowledgeChange()
-    // display div "prepStatPicks"
-    let prepStatPicks = document.getElementById("prepStatPicks")
-    prepStatPicks.style.display = "block"
     // zero out any prior values
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
     // hide other clique abilities
-    nerdStatPicks.style.display = 'none'
-    jockStatPicks.style.display = 'none'
-    theaterKidStatPicks.style.display = 'none'
-    lonerStatPicks.style.display = 'none'
-    chameleonStatPicks.style.display = 'none'
+    for (i=0; i<cliqueArray.length; i++) {
+        cliqueArray[i].style.display = 'none'
+    }
+    // display div "prepStatPicks"
+    let prepStatPicks = document.getElementById("prepStatPicks")
+    prepStatPicks.style.display = "block"
     baselineModifiers()
     // display prepAbilities
     prepAbilities.style.display = "inline"
@@ -1804,6 +1820,55 @@ let theaterKidNoticeDivs = [theaterKidMustMakeEveryChoiceDiv, theaterKidNoStacki
 
 function displayTheaterKidStatDiv() {
     // remove any previously-generated notices
+    let theaterKidMustMakeEveryChoiceDiv = document.getElementById("theaterKidMustMakeEveryChoiceDiv")
+    if (theaterKidMustMakeEveryChoiceDiv.style.display == 'block') {
+        theaterKidMustMakeEveryChoiceDiv.style.display = 'none'
+    }
+    let theaterKidNoStackingDiv = document.getElementById("theaterKidNoStackingDiv")
+    if (theaterKidNoStackingDiv.style.display == "block") {
+        theaterKidNoStackingDiv.style.display = "none"
+    }
+    // remove any previously-generated Ability divs
+    for (i=0; i<cliqueAbilityArray.length; i++) {
+        cliqueAbilityArray[i].style.display = "none"
+    }
+    // remove any previously-generated Ability picks
+    resetAbilitiesToUntrained()
+    talentChange()
+    skillChange()
+    knowledgeChange()
+    // remove all clique picks
+    for (i=0; i<cliqueArray.length; i++) {
+        cliqueArray[i].style.display = 'none'
+    }
+    // display div "theaterKidStatPicks"
+    let theaterKidStatPicks = document.getElementById("theaterKidStatPicks")
+    theaterKidStatPicks.style.display = "block"
+    // zero out any prior values
+    for (i=0; i<23; i++) {
+        cliqueModifierArray[i].innerHTML = ''
+    }
+    baselineModifiers()
+    // display theaterKidAbilities
+    theaterKidAbilities.style.display = "inline"
+    calculateFeelsResistancesAndSaves()
+}
+
+// declarations
+let theaterKidStatOption01 = document.getElementById("theaterKidStatOption01")
+let theaterKidStatOption02 = document.getElementById("theaterKidStatOption02")
+let theaterKidStatOption03 = document.getElementById("theaterKidStatOption03")
+let theaterKidStatOption04 = document.getElementById("theaterKidStatOption04")
+let theaterKidResistanceIncrease = document.getElementById("theaterKidResistanceIncrease")
+
+function displayTheaterKidModifiers() {
+    for (i=0; i<cliqueModifierDivsArray.length; i++) {
+        cliqueModifierDivsArray[i].style.display = 'none'
+    }
+    theaterKidModifiersDiv.style.display = 'block'
+    let cliqueRadioBox = document.getElementById("cliqueRadio")
+    cliqueRadioBox.style.marginRight = "50px"
+    // remove any previously-generated notices
     for (i=0; i<theaterKidNoticeDivs.length; i++) {
         if (theaterKidNoticeDivs[i].style.display == 'block') {
             theaterKidNoticeDivs[i].style.display = 'none'
@@ -1818,31 +1883,22 @@ function displayTheaterKidStatDiv() {
     talentChange()
     skillChange()
     knowledgeChange()
-    // display div "theaterKidStatPicks"
-    let theaterKidStatPicks = document.getElementById("theaterKidStatPicks")
-    theaterKidStatPicks.style.display = "block"
     // zero out any prior values
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
     // hide other clique abilities
-    nerdStatPicks.style.display = 'none'
-    jockStatPicks.style.display = 'none'
-    prepStatPicks.style.display = 'none'
-    lonerStatPicks.style.display = 'none'
-    chameleonStatPicks.style.display = 'none'
+    for (i=0; i<cliqueArray.length; i++) {
+        cliqueArray[i].style.display = 'none'
+    }
+    // display div "theaterKidStatPicks"
+    let theaterKidStatPicks = document.getElementById("theaterKidStatPicks")
+    theaterKidStatPicks.style.display = "block"
     baselineModifiers()
-    // display theater kid Abilities
+    // display theaterKidAbilities
     theaterKidAbilities.style.display = "inline"
     calculateFeelsResistancesAndSaves()
-}
-
-// declarations
-let theaterKidStatOption01 = document.getElementById("theaterKidStatOption01")
-let theaterKidStatOption02 = document.getElementById("theaterKidStatOption02")
-let theaterKidStatOption03 = document.getElementById("theaterKidStatOption03")
-let theaterKidStatOption04 = document.getElementById("theaterKidStatOption04")
-let theaterKidResistanceIncrease = document.getElementById("theaterKidResistanceIncrease")
+}    
 
 function applyTheaterKidStatModifiers() {
     // remove any previously-generated notices
@@ -1896,8 +1952,8 @@ function applyTheaterKidStatModifiers() {
         selfControlCliqueModifier.innerHTML = 1
     }
     // set saves clique modifiers
-    reflexCliqueModifier.innerHTML = 2
-    willCliqueModifier.innerHTML = 2
+    reflexCliqueModifier.innerHTML = 1
+    willCliqueModifier.innerHTML = 1
     for (i=0; i<12; i++) {
         if (theaterKidStatOption01.value == statStringArray[i] || theaterKidStatOption02.value == statStringArray[i]) {
             cliqueModifierArray[i].innerHTML = 2
@@ -1932,6 +1988,135 @@ function resetTheaterKidStatModifiers() {
     calculateFeelsResistancesAndSaves() 
 }
 
+// declarations
+let gothMustMakeEveryChoiceDiv = document.getElementById("gothMustMakeEveryChoiceDiv")
+let gothNoSameBonusAndPenaltyDiv = document.getElementById("gothNoSameBonusAndPenaltyDiv")
+let gothMustChooseTwoFeels = document.getElementById("gothMustChooseTwoFeels")
+let gothMustChooseTwoSaves = document.getElementById("gothMustChooseTwoSaves")
+let gothNoticeDivs = [gothMustMakeEveryChoiceDiv, gothNoSameBonusAndPenaltyDiv, gothMustChooseTwoFeels, gothMustChooseTwoSaves]
+let gothStatOption01 = document.getElementById("gothStatOption01")
+let gothStatOption02 = document.getElementById("gothStatOption02")
+let gothStatOption03 = document.getElementById("gothStatOption03")
+let gothStatOption04 = document.getElementById("gothStatOption04")
+let gothFeelIncrease01 = document.getElementById("gothFeelIncrease01")
+let gothFeelIncrease02 = document.getElementById("gothFeelIncrease02")
+let gothSavingThrowOption01 = document.getElementById("gothSavingThrowOption01")
+let gothSavingThrowOption02 = document.getElementById("gothSavingThrowOption02")
+
+function displayGothModifiers() {
+    for (i=0; i<cliqueModifierDivsArray.length; i++) {
+        cliqueModifierDivsArray[i].style.display = 'none'
+    }
+    gothModifiersDiv.style.display = 'block'
+    let cliqueRadioBox = document.getElementById("cliqueRadio")
+    cliqueRadioBox.style.marginRight = "50px"
+}
+
+function displayGothStatDiv() {
+    // remove any previously-generated notices
+    for (i=0; i<gothNoticeDivs.length; i++) {
+        if (gothNoticeDivs[i].style.display == 'block') {
+            gothNoticeDivs[i].style.display = 'none'
+        }
+    }
+    // remove any previously-generated Ability divs
+    for (i=0; i<cliqueAbilityArray.length; i++) {
+        cliqueAbilityArray[i].style.display = "none"
+    }
+    // remove any previously-generated Ability picks
+    resetAbilitiesToUntrained()
+    talentChange()
+    skillChange()
+    knowledgeChange()
+    // display div "gothStatPicks"
+    // zero out any prior values
+    for (i=0; i<23; i++) {
+        cliqueModifierArray[i].innerHTML = ''
+    }
+    // hide other clique abilities
+    for (i=0; i<cliqueArray.length; i++) {
+        cliqueArray[i].style.display = 'none'
+    }
+    let gothStatPicks = document.getElementById("gothStatPicks")
+    gothStatPicks.style.display = "block"
+    baselineModifiers()
+    // display goth Abilities
+//    gothAbilities.style.display = "inline"
+    calculateFeelsResistancesAndSaves()
+}
+
+function applyGothStatModifiers() {
+    // remove any previously-generated notices
+    for (i=0; i<gothNoticeDivs.length; i++) {
+        if (gothNoticeDivs[i].style.display == 'block') {
+            gothNoticeDivs[i].style.display = 'none'
+        }
+    }
+    // make sure a choice is made for every option
+    if (gothStatOption01.value == '' || gothStatOption02.value == '' || gothStatOption03.value == '' || gothStatOption04.value == '') {
+        let gothMustMakeEveryChoiceDiv = document.getElementById("gothMustMakeEveryChoiceDiv")
+        gothMustMakeEveryChoiceDiv.style.display = "block"
+        return
+    } 
+    // check for social stat bonus and penalty
+    if (gothStatOption01.value == gothStatOption02.value) {
+        gothNoSameBonusAndPenaltyNotice.style.display = "block"
+        return
+    }
+    // check for second FEEL choice
+    if (gothFeelIncrease02.value == '') {
+        gothMustChooseTwoFeels.style.display = "block"
+        return
+    }
+    // check for second save choice
+    if (gothSavingThrowOption01.value == '') {
+        gothMustChooseTwoSaves.style.display = "block"
+        return
+    }
+    // assign bonuses to selected stats
+    for (i=0; i<statStringArray.length; i++) {
+        if (gothStatOption01.value == statStringArray[i] || gothStatOption02.value == statStringArray[i]) {
+            cliqueModifierArray[i].innerHTML = 2
+        }
+    }
+    for (i=0; i<statStringArray.length; i++) {
+        if (gothStatOption03.value == statStringArray[i] || gothStatOption04.value == statStringArray[i]) {
+            cliqueModifierArray[i].innerHTML = -2
+        }
+    }
+    baselineModifiers()
+//        // set FEELS clique modifiers
+//        melancholyCliqueModifier.innerHTML = 2
+        // set resistances clique modifiers
+        focusCliqueModifier.innerHTML = 1
+        resolveCliqueModifier.innerHTML = 1
+//        // set saves clique modifiers
+//        mindCliqueModifier.innerHTML = 1
+    let feelsStringsArray = ['Agitated', 'Angry', 'Horny', 'Melancholy']
+    let savingThrowsStringArray = ['Fortitude', 'Reflex', 'Mind', 'Will']
+    let feelsCliqueModifierArray = [agitatedCliqueModifier, angryCliqueModifier, hornyCliqueModifier, melancholyCliqueModifier]
+    let savesCliqueModifierArray = [fortitudeCliqueModifier, reflexCliqueModifier, mindCliqueModifier, willCliqueModifier]
+    for (i=0; i<feelsCliqueModifierArray.length; i++) {
+        if (gothFeelIncrease01.value == feelsStringsArray[i] || gothFeelIncrease02.value == feelsStringsArray[i]) {
+            feelsCliqueModifierArray[i].innerHTML = 2
+        }
+    }
+    for (i=0; i<savesCliqueModifierArray.length; i++) {
+        if (gothSavingThrowOption01.value == savingThrowsStringArray[i] || gothSavingThrowOption02.value == savingThrowsStringArray[i]) {
+            savesCliqueModifierArray[i].innerHTML = 1
+        }
+    }
+    baselineModifiers()
+    calculateFeelsResistancesAndSaves()
+
+}
+
+
+
+
+
+
+// declarations
 let lonerMustMakeEveryChoiceDiv = document.getElementById("lonerMustMakeEveryChoiceDiv")
 let lonerNoStackingDiv = document.getElementById("lonerNoStackingDiv")
 let lonerNoSameBonusAndPenaltyDiv = document.getElementById("lonerNoSameBonusAndPenaltyDiv")
@@ -1939,6 +2124,20 @@ let lonerMustChooseOneResistanceOrTwoDiv = document.getElementById("lonerMustCho
 let lonerMustChooseAResistanceDiv = document.getElementById("lonerMustChooseAResistanceDiv")
 let lonerMustChooseTwoResistancesDiv = document.getElementById("lonerMustChooseTwoResistancesDiv")
 let lonerNoticeDivs = [lonerMustMakeEveryChoiceDiv, lonerNoStackingDiv, lonerNoSameBonusAndPenaltyDiv, lonerMustChooseOneResistanceOrTwoDiv, lonerMustChooseAResistanceDiv, lonerMustChooseTwoResistancesDiv]
+
+function displayLonerModifiers() {
+    for (i=0; i<cliqueModifierDivsArray.length; i++) {
+        cliqueModifierDivsArray[i].style.display = 'none'
+    }
+    lonerModifiersDiv.style.display = 'block'
+    let cliqueRadioBox = document.getElementById("cliqueRadio")
+    cliqueRadioBox.style.marginRight = "50px"
+     // zero out any prior values
+     for (i=0; i<23; i++) {
+        cliqueModifierArray[i].innerHTML = ''
+    }
+    
+}
 
 function displayLonerStatDiv() {
     // remove any previously-generated notices
@@ -1957,21 +2156,19 @@ function displayLonerStatDiv() {
     skillChange()
     knowledgeChange()
     // display div "lonerStatPicks"
-    let lonerStatPicks = document.getElementById("lonerStatPicks")
-    lonerStatPicks.style.display = "block"
     // zero out any prior values
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
     // hide other clique abilities
-    nerdStatPicks.style.display = 'none'
-    jockStatPicks.style.display = 'none'
-    prepStatPicks.style.display = 'none'
-    theaterKidStatPicks.style.display = 'none'
-    chameleonStatPicks.style.display = 'none'
+    for (i=0; i<cliqueArray.length; i++) {
+        cliqueArray[i].style.display = 'none'
+    }
+    let lonerStatPicks = document.getElementById("lonerStatPicks")
+    lonerStatPicks.style.display = "block"
     baselineModifiers()
     // display loner Abilities
-    lonerAbilities.style.display = "inline"
+//    lonerAbilities.style.display = "inline"
     calculateFeelsResistancesAndSaves()
 }
 
@@ -2028,8 +2225,8 @@ function applyLonerStatModifiers() {
     angryCliqueModifier.innerHTML = 2
     melancholyCliqueModifier.innerHTML = 2
     // set saves clique modifiers
-    fortitudeCliqueModifier.innerHTML = 2
-    willCliqueModifier.innerHTML = 2
+    fortitudeCliqueModifier.innerHTML = 1
+    willCliqueModifier.innerHTML = 1
     // set Resistances
     let singleResistancePick = resistanceList01.value
     if (oneResistance.checked == true) {
@@ -2065,8 +2262,6 @@ function applyLonerStatModifiers() {
     }
     calculateFeelsResistancesAndSaves()
 }
-
-
 
 function resetLonerStatModifiers() {
     // remove any previously-generated notices
@@ -2106,11 +2301,21 @@ let chameleonMustChooseTwoSavesDiv = document.getElementById("chameleonMustChoos
 let chameleonNoStackingSavesDiv = document.getElementById("chameleonNoStackingSavesDiv")
 let chameleonNoticeDivs = [chameleonMustMakeEveryChoiceDiv, chameleonNoStackingDiv, chameleonMustChooseTwoFeelsDiv, chameleonNoStackingFeelsDiv, chameleonMustChooseTwoResistancesDiv, chameleonNoStackingResistancesDiv, chameleonMustChooseTwoSavesDiv, chameleonNoStackingSavesDiv]
 
+function displayChameleonModifiers() {
+    for (i=0; i<cliqueModifierDivsArray.length; i++) {
+        cliqueModifierDivsArray[i].style.display = 'none'
+    }
+    chameleonModifiersDiv.style.display = 'block'
+    let cliqueRadioBox = document.getElementById("cliqueRadio")
+    cliqueRadioBox.style.marginRight = "50px"
+
+}
+
 function displayChameleonStatDiv() {
     // remove any previously-generated notices
     for (i=0; i<chameleonNoticeDivs.length; i++) {
-        if (chameleonNoticeDivs[i].style.display == "block") {
-            chameleonNoticeDivs[i].style.display = "none"
+        if (chameleonNoticeDivs[i].style.display == 'block') {
+            chameleonNoticeDivs[i].style.display = 'none'
         }
     }
     // remove any previously-generated Ability divs
@@ -2123,17 +2328,19 @@ function displayChameleonStatDiv() {
     skillChange()
     knowledgeChange()
     // display div "chameleonStatPicks"
+    // zero out any prior values
+    for (i=0; i<23; i++) {
+        cliqueModifierArray[i].innerHTML = ''
+    }
+    // hide other clique abilities
+    for (i=0; i<cliqueArray.length; i++) {
+        cliqueArray[i].style.display = 'none'
+    }
     let chameleonStatPicks = document.getElementById("chameleonStatPicks")
     chameleonStatPicks.style.display = "block"
-    // hide other clique abilities
-    nerdStatPicks.style.display = 'none'
-    jockStatPicks.style.display = 'none'
-    prepStatPicks.style.display = 'none'
-    theaterKidStatPicks.style.display = 'none'
-    lonerStatPicks.style.display = 'none'
     baselineModifiers()
     // display chameleon Abilities
-    chameleonAbilities.style.display = "inline"
+//    chameleonAbilities.style.display = "inline"
     calculateFeelsResistancesAndSaves()
 }
 
@@ -2215,7 +2422,7 @@ function applyChameleonStatModifiers() {
     }
     for (i=0; i<savesCliqueModifierArray.length; i++) {
         if (selection09 == savingThrowsStringArray[i] || selection10 == savingThrowsStringArray[i]) {
-            savesCliqueModifierArray[i].innerHTML = 2
+            savesCliqueModifierArray[i].innerHTML = 1
         }
     }
     baselineModifiers()

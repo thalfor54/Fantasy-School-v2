@@ -157,7 +157,7 @@
             <br>
         </div>
         <!--jocks-->
-        <input type="radio" id="jocks" name="clique" onclick="displayJockStatDiv()">
+        <input type="radio" id="jocks" name="clique" onclick="displayJockStatDiv(); displayJockModifiers()">
         <label for="jocks">Jocks</label><br>
         <div id="jockModifiers" class="cliqueModifierDivs">
             <h4>FEELS: Horny +2, Angry +2</h4><br>
@@ -223,7 +223,7 @@
             <br>
         </div>
         <!--preps-->        
-        <input type="radio" id="preps" name="clique" onclick="displayPrepStatDiv()">
+        <input type="radio" id="preps" name="clique" onclick="displayPrepStatDiv(); displayPrepModifiers()">
         <label for="preps">Preps</label><br>
         <div id="prepModifiers" class="cliqueModifierDivs">
             <h4>FEELS: Melancholy +2, Agitated +2</h4><br>
@@ -311,7 +311,7 @@
             <button type="button" onclick="resetPrepStatModifiers()">Reset</button>
         </div>
         <!--theater kids-->
-        <input type="radio" id="theaterKids" name="clique" onclick="displayTheaterKidStatDiv()">
+        <input type="radio" id="theaterKids" name="clique" onclick="displayTheaterKidStatDiv(); displayTheaterKidModifiers()">
         <label for="theaterKids">Theater Kids</label><br>
         <div id="theaterKidModifiers" class="cliqueModifierDivs">
             <h4>FEELS: Horny +2, Melancholy +2</h4><br>
@@ -328,16 +328,16 @@
             <div id="theaterKidNoSameBonusAndPenaltyDiv" class="instructionDiv">
                 <h4 id="theaterKidNoSameBonusAndPenaltyNotice" class="redNotice"><strong>You cannot put a bonus and a penalty in the same stat</strong></h4>
             </div>
-            <label for="theaterKidStatOption01">Mental Stat Bonus</label>
+            <label for="theaterKidStatOption01">Social Stat Bonus #1</label>
             <select id="theaterKidStatOption01">
                 <option value=''></option>
-                <option value='Perception'>Perception</option>
-                <option value='Insight'>Insight</option>
-                <option value='Reason'>Reason</option>
-                <option value='Intuition'>Intuition</option>
+                <option value='Persuasion'>Persuasion</option>
+                <option value='Manipulation'>Manipulation</option>
+                <option value='Ingratiation'>Ingratiation</option>
+                <option value='Charisma'>Charisma</option>
             </select>
             <br>
-            <label for="theaterKidStatOption02">Social Stat Bonus</label>
+            <label for="theaterKidStatOption02">Social Stat Bonus #2</label>
             <select id="theaterKidStatOption02">
                 <option value=''></option>
                 <option value='Persuasion'>Persuasion</option>
@@ -393,11 +393,97 @@
             <button type="button" onclick="applyTheaterKidStatModifiers()">Commit choices</button>
             <button type="button" onclick="resetTheaterKidStatModifiers()">Reset</button>
         </div>
+        <!--goths-->
+        <input type="radio" id="goths" name="clique" onclick="displayGothStatDiv(); displayGothModifiers()">
+        <label for="goths">Goths</label><br>
+        <div id="gothModifiers" class="cliqueModifierDivs">
+            <h4>FEELS: +2 to Melancholy and any other one</h4><br>
+            <h4>Resistances: +1 to Focus and Resolve</h4><br>
+            <h4>Saves: +1 either Fortitude or Reflex and +1 to Mind</h4>
+        </div>
+        <div id="gothStatPicks">
+            <div id="gothMustMakeEveryChoiceDiv" class="instructionDiv">
+                <h4 id="gothMustMakeEveryChoiceNotice" class="redNotice"><strong>You must make a choice for every stat</strong></h4>
+            </div>
+            <div id="gothNoSameBonusAndPenaltyDiv" class="instructionDiv">
+                <h4 id="gothNoSameBonusAndPenaltyNotice" class="redNotice"><strong>You cannot put a bonus and a penalty in the same stat</strong></h4>
+            </div>
+            <label for="gothStatOption01">Social Stat Bonus</label>
+            <select id="gothStatOption01">
+                <option value=''></option>
+                <option value='Persuasion'>Persuasion</option>
+                <option value='Manipulation'>Manipulation</option>
+                <option value='Ingratiation'>Ingratiation</option>
+                <option value='Charisma'>Charisma</option>
+            </select>
+            <br>
+            <label for="gothStatOption02">Mental Stat Bonus</label>
+            <select id="gothStatOption02">
+                <option value=''></option>
+                <option value='Perception'>Perception</option>
+                <option value='Insight'>Insight</option>
+                <option value='Reason'>Reason</option>
+                <option value='Intuition'>Intuition</option>
+            </select>
+            <br>
+            <label for="gothStatOption03">Physical Stat Penalty</label>
+            <select id="gothStatOption03">
+                <option value=''></option>
+                <option value='Strength'>Strength</option>
+                <option value='Dexterity'>Dexterity</option>
+                <option value='Constitution'>Constitution</option>
+                <option value='Resilience'>Resilience</option>
+            </select>
+            <br>
+            <label for="gothStatOption04">Social Stat Penalty</label>
+            <select id="gothStatOption04">
+                <option value=''></option>
+                <option value='Persuasion'>Persuasion</option>
+                <option value='Manipulation'>Manipulation</option>
+                <option value='Ingratiation'>Ingratiation</option>
+                <option value='Charisma'>Charisma</option>
+            </select>
+            <br>
+            <div id="gothMustChooseTwoFeels" class="instructionDiv">
+                <h4 id="gothMustChooseTwoFeelsNotice" class="redNotice"><strong>You must choose two FEELS</strong></h4>
+            </div>
+            <label for="gothFeelIncrease01">FEEL to increase #1</label>
+            <select id="gothFeelIncrease01">
+                <option value='Melancholy'>Melancholy</option>
+            </select>
+            <br>
+            <label for="gothFeelIncrease02">FEEL to increase #2</label>
+            <select id="gothFeelIncrease02">
+                <option value=''></option>
+                <option value='Agitated'>Agitated</option>
+                <option value='Angry'>Angry</option>
+                <option value='Horny'>Horny</option>
+            </select>
+            <br>
+            <div id="gothMustChooseTwoSaves" class="instructionDiv">
+                <h4 id="gothMustChooseTwoSavesNotice" class="redNotice"><strong>You must choose two saves</strong></h4>
+            </div>
+            <label for="gothSavingThrowOption01">Saving Throw Bonus #1</label>
+            <select id="gothSavingThrowOption01">
+                <option value=''></option>
+                <option value='Fortitude'>Fortitude</option>
+                <option value='Reflex'>Reflex</option>
+            </select>
+            <br>
+            <label for="gothSavingThrowOption02">Saving Throw Bonus #2</label>
+            <select id="gothSavingThrowOption02">
+                <option value='Mind'>Mind</option>
+            </select>
+            <br>
+            <button type="button" onclick="applyGothStatModifiers()">Commit choices</button>
+            <button type="button" onclick="resetGothStatModifiers()">Reset</button>
+        </div>
         <!--loner-->
-        <input type="radio" id="loners" name="clique" onclick="displayLonerStatDiv()">
+        <input type="radio" id="loners" name="clique" onclick="displayLonerStatDiv();  displayLonerModifiers()">
         <label for="loners">Loners</label><br>
         <div id="lonerModifiers" class="cliqueModifierDivs">
             <h4>FEELS: Angry +2, Melancholy +2</h4><br>
+            <h4>Resistances: Any one +2 or any two +1</h4>
             <h4>Saves: Fortitude +1, Will +1</h4>
         </div>
         <div id="lonerStatPicks">
@@ -515,7 +601,7 @@
             <button type="button" onclick="resetLonerStatModifiers()">Reset</button>
         </div>
         <!--chameleons-->
-        <input type="radio" id="chameleons" name="clique" onclick="displayChameleonStatDiv()">
+        <input type="radio" id="chameleons" name="clique" onclick="displayChameleonStatDiv(); displayChameleonModifiers()">
         <label for="chameleons">Chameleons</label><br>
         <div id="chameleonModifiers" class="cliqueModifierDivs">
             <h4>FEELS: +2 to any two</h4><br>
