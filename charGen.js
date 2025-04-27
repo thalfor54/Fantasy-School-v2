@@ -69,6 +69,7 @@ let nerdAbilities = document.getElementById("nerdAbilities")
 let jockAbilities = document.getElementById("jockAbilities")
 let prepAbilities = document.getElementById("prepAbilities")
 let theaterKidAbilities = document.getElementById("theaterKidAbilities")
+let gothAbilities = document.getElementById("gothAbilities")
 let lonerAbilities = document.getElementById("lonerAbilities")
 let chameleonAbilities = document.getElementById("chameleonAbilities")
 
@@ -95,7 +96,7 @@ let speciesModifierArray = [strengthSpeciesModifier, dexteritySpeciesModifier, c
 let cliqueModifierArray = [strengthCliqueModifier, dexterityCliqueModifier, constitutionCliqueModifier, resilienceCliqueModifier, persuasionCliqueModifier, manipulationCliqueModifier, ingratiationCliqueModifier, charismaCliqueModifier, perceptionCliqueModifier, insightCliqueModifier, reasonCliqueModifier, intuitionCliqueModifier, focusCliqueModifier, resolveCliqueModifier, selfControlCliqueModifier, agitatedCliqueModifier, angryCliqueModifier, hornyCliqueModifier, melancholyCliqueModifier, fortitudeCliqueModifier, reflexCliqueModifier, mindCliqueModifier, willCliqueModifier]
 // let changeRowArray = [changeStrengthRow, changeDexterityRow, changeConstitutionRow, changeResilienceRow, changePersuasionRow, changeManipulationRow, changeIngratiationRow, changeCharismaRow, changePerceptionRow, changeInsightRow, changeReasonRow, changeIntuitionRow]
 let cliqueArray = [nerdStatPicks, jockStatPicks, prepStatPicks, theaterKidStatPicks, gothStatPicks, lonerStatPicks, chameleonStatPicks]
-let cliqueAbilityArray = [nerdAbilities, jockAbilities, prepAbilities, theaterKidAbilities, lonerAbilities, chameleonAbilities]
+let cliqueAbilityArray = [nerdAbilities, jockAbilities, prepAbilities, theaterKidAbilities, gothAbilities, lonerAbilities, chameleonAbilities]
 let statStringArray = ['Strength', 'Dexterity', 'Constitution', 'Resilience', 'Persuasion', 'Manipulation', 'Ingratiation', 'Charisma', 'Perception', 'Insight', 'Reason', 'Intuition']
 let resetCliqueAbilitiesArray = [resetNerdAbilities, resetJockAbilities, resetPrepAbilities, resetTheaterKidAbilities, resetLonerAbilities, resetChameleonAbilities]
 
@@ -1472,7 +1473,7 @@ function displayNerdStatDiv() {
     let nerdStatPicks = document.getElementById("nerdStatPicks")
     nerdStatPicks.style.display = "block"
     // display nerdAbilities
-    nerdAbilities.style.display = "inline"
+    nerdAbilities.style.display = "block"
     calculateFeelsResistancesAndSaves()
 }
 
@@ -1587,7 +1588,7 @@ function displayJockStatDiv() {
     }
     baselineModifiers()
     // display jockAbilities
-    jockAbilities.style.display = "inline"
+    jockAbilities.style.display = "block"
     calculateFeelsResistancesAndSaves()
 }
 
@@ -1722,7 +1723,7 @@ function displayPrepStatDiv() {
     prepStatPicks.style.display = "block"
     baselineModifiers()
     // display prepAbilities
-    prepAbilities.style.display = "inline"
+    prepAbilities.style.display = "block"
     calculateFeelsResistancesAndSaves()
 }
 
@@ -1850,7 +1851,7 @@ function displayTheaterKidStatDiv() {
     }
     baselineModifiers()
     // display theaterKidAbilities
-    theaterKidAbilities.style.display = "inline"
+    theaterKidAbilities.style.display = "block"
     calculateFeelsResistancesAndSaves()
 }
 
@@ -1896,7 +1897,7 @@ function displayTheaterKidModifiers() {
     theaterKidStatPicks.style.display = "block"
     baselineModifiers()
     // display theaterKidAbilities
-    theaterKidAbilities.style.display = "inline"
+    theaterKidAbilities.style.display = "block"
     calculateFeelsResistancesAndSaves()
 }    
 
@@ -2041,7 +2042,7 @@ function displayGothStatDiv() {
     gothStatPicks.style.display = "block"
     baselineModifiers()
     // display goth Abilities
-//    gothAbilities.style.display = "inline"
+    gothAbilities.style.display = "block"
     calculateFeelsResistancesAndSaves()
 }
 
@@ -2111,11 +2112,6 @@ function applyGothStatModifiers() {
 
 }
 
-
-
-
-
-
 // declarations
 let lonerMustMakeEveryChoiceDiv = document.getElementById("lonerMustMakeEveryChoiceDiv")
 let lonerNoStackingDiv = document.getElementById("lonerNoStackingDiv")
@@ -2168,7 +2164,7 @@ function displayLonerStatDiv() {
     lonerStatPicks.style.display = "block"
     baselineModifiers()
     // display loner Abilities
-//    lonerAbilities.style.display = "inline"
+    lonerAbilities.style.display = "block"
     calculateFeelsResistancesAndSaves()
 }
 
@@ -2290,7 +2286,6 @@ function resetLonerStatModifiers() {
     calculateFeelsResistancesAndSaves()     
 }
 
-
 let chameleonMustMakeEveryChoiceDiv = document.getElementById("chameleonMustMakeEveryChoiceDiv")
 let chameleonNoStackingDiv = document.getElementById("chameleonNoStackingDiv")
 let chameleonMustChooseTwoFeelsDiv = document.getElementById("chameleonMustChooseTwoFeelsDiv")
@@ -2340,7 +2335,7 @@ function displayChameleonStatDiv() {
     chameleonStatPicks.style.display = "block"
     baselineModifiers()
     // display chameleon Abilities
-//    chameleonAbilities.style.display = "inline"
+    chameleonAbilities.style.display = "block"
     calculateFeelsResistancesAndSaves()
 }
 
@@ -2518,12 +2513,12 @@ let nature = document.getElementById("nature")
 let natureModifier = document.getElementById("natureModifier")
 let occult = document.getElementById("occult")
 let occultModifier = document.getElementById("occultModifier")
-let religion = document.getElementById("religion")
-let religionModifier = document.getElementById("religionModifier")
 let science = document.getElementById("science")
 let scienceModifier = document.getElementById("scienceModifier")
 let special = document.getElementById("special")
 let specialModifier = document.getElementById("specialModifier")
+let theology = document.getElementById("theology")
+let theologyModifier = document.getElementById("theologyModifier")
 
 let talentStringArray = ['Acting', 'Alertness', 'Athletics', 'Brawling', 'Calming Down', 'Dodge', 'Empathy', 'Intimidation', 'Memory', 'Stealth']
 let talentArray = [acting, alertness, athletics, brawling, calmingDown, dodge, empathy, intimidation, memory, stealth]
@@ -2531,7 +2526,7 @@ let talentModifierArray = [actingModifier, alertnessModifier, athleticsModifier,
 let skillStringArray = ['Deception', 'Firearms', 'Investigation', 'Leadership', 'Lock-Picking', 'Melee', 'Music', 'Security', 'Sleight of Hand', 'Socializing']
 let skillArray = [deception, firearms, investigation, leadership, lockPicking, melee, music, security, sleightOfHand, socializing]
 let skillModifierArray = [deceptionModifier, firearmsModifier, investigationModifier, leadershipModifier, lockPickingModifier, meleeModifier, musicModifier, securityModifier, sleightOfHandModifier, socializingModifier]
-let knowledgeStringArray = ['Arcana', 'Code-Breaking', 'Computers', 'History', 'Medicine', 'Nature', 'Occult', 'Religion', 'Science', 'Special']
+let knowledgeStringArray = ['Arcana', 'Code-Breaking', 'Computers', 'History', 'Medicine', 'Nature', 'Occult', 'Science', 'Special', 'Theology']
 let knowledgeArray = [arcana, codeBreaking, computers, history, medicine, nature, occult, science, special, theology]
 let knowledgeModifierArray = [arcanaModifier, codeBreakingModifier, computersModifier, historyModifier, medicineModifier, natureModifier, occultModifier, scienceModifier, specialModifier, theologyModifier]
 
@@ -2911,6 +2906,19 @@ let theaterKidFreebie01Knowledges = document.getElementsByClassName("theaterKidF
 let theaterKidFreebie02Knowledges = document.getElementsByClassName("theaterKidFreebie02Knowledge")
 let theaterKidFreebie03Knowledges = document.getElementsByClassName("theaterKidFreebie03Knowledge")
 
+// goth variables
+let goths = document.getElementById("goths")
+let gothTalentsArray = document.getElementsByClassName("gothTalent")
+let gothSkillsArray = document.getElementsByClassName("gothSkill")
+let gothKnowledges01Array = document.getElementsByClassName("gothKnowledge01")
+let gothKnowledges02Array = document.getElementsByClassName("gothKnowledge02")
+let gothFreebieTalentRadio = document.getElementById("gothFreebieTalentRadio")
+let gothFreebieSkillRadio = document.getElementById("gothFreebieSkillRadio")
+let gothFreebieKnowledgeRadio = document.getElementById("gothFreebieKnowledgeRadio")
+let gothFreebieTalents = document.getElementsByClassName("gothFreebieTalent")
+let gothFreebieSkills = document.getElementsByClassName("gothFreebieSkill")
+let gothFreebieKnowledges = document.getElementsByClassName("gothFreebieKnowledge")
+
 // loner variables
 let loners = document.getElementById("loners")
 let lonerFreebieTalentDiv = document.getElementById("lonerFreebieTalentDiv")
@@ -3253,6 +3261,50 @@ function spendAbilityPoints() {
         else if (theaterKidFreebie03KnowledgeRadio.checked == true) {
             for (i=0; i<theaterKidFreebie03Knowledges.length; i++) {
                 if (theaterKidFreebie03Knowledges[i].selected == true) {
+                    knowledgeCounter += 1
+                }
+            }
+        }
+    } else if (goths.checked == true) {
+        // correct for talent, skill, and knowledges
+        for (i=0; i<gothTalentsArray.length; i++) {
+            if (gothTalentsArray[i].selected == true) {
+                talentCounter += 1
+            }
+        }
+        for (i=0; i<gothSkillsArray.length; i++) {
+            if (gothSkillsArray[i].selected == true) {
+                skillCounter += 1
+            }
+        }
+        for (i=0; i<gothKnowledges01Array.length; i++) {
+            if (gothKnowledges01Array[i].selected == true) {
+                knowledgeCounter += 1
+            }
+        }
+        for (i=0; i<gothKnowledges02Array.length; i++) {
+            if (gothKnowledges02Array[i].selected == true) {
+                knowledgeCounter += 1
+            }
+        }
+        // correct for freebie
+        if (gothFreebieTalentRadio.checked == true) {
+            for (i=0; i<gothFreebieTalents.length; i++) {
+                if (gothFreebieTalents[i].selected == true) {
+                    talentCounter += 1
+                }
+            }
+        }
+        else if (gothFreebieSkillRadio.checked == true) {
+            for (i=0; i<gothFreebieSkills.length; i++) {
+                if (gothFreebieSkills[i].selected == true) {
+                    skillCounter += 1
+                }
+            }
+        }
+        else if (gothFreebieKnowledgeRadio.checked == true) {
+            for (i=0; i<gothFreebieKnowledges.length; i++) {
+                if (gothFreebieKnowledges[i].selected == true) {
                     knowledgeCounter += 1
                 }
             }
@@ -4272,7 +4324,6 @@ function applyTheaterKidAbilities() {
             }
         }
     }
-
     if (theaterKidFreebie01KnowledgeRadio.checked == true) {
         for (i=0; i<theaterKidFreebie01Knowledges.length; i++) {
             if (theaterKidFreebie01Knowledges[i].selected == true) {
@@ -4325,28 +4376,168 @@ function resetTheaterKidAbilities() {
     reAddAbilityOptions()
 }
 
-function presentLonerFreebieTalent() {
-    lonerFreebieTalentDiv.style.display = "inline"
-    lonerFreebieSkillDiv.style.display = "none"
-    lonerFreebieKnowledgeDiv.style.display = "none"
-    lonerFreebieSkillBlank.selected = true
-    lonerFreebieKnowledgeBlank.selected = true
+function presentGothFreebieTalent() {
+    gothFreebieTalentDiv.style.display = "inline"
+    gothFreebieSkillDiv.style.display = "none"
+    gothFreebieKnowledgeDiv.style.display = "none"
+    gothFreebieSkillBlank.selected = true
+    gothFreebieKnowledgeBlank.selected = true
 }
 
-function presentLonerFreebieSkill() {
-    lonerFreebieTalentDiv.style.display = "none"
-    lonerFreebieSkillDiv.style.display = "inline"
-    lonerFreebieKnowledgeDiv.style.display = "none"
-    lonerFreebieTalentBlank.selected = true
-    lonerFreebieKnowledgeBlank.selected = true
+function presentGothFreebieSkill() {
+    gothFreebieSkillDiv.style.display = "inline"
+    gothFreebieTalentDiv.style.display = "none"
+    gothFreebieKnowledgeDiv.style.display = "none"
+    gothFreebieTalentBlank.selected = true
+    gothFreebieKnowledgeBlank.selected = true
 }
 
-function presentLonerFreebieKnowledge() {
-    lonerFreebieTalentDiv.style.display = "none"
-    lonerFreebieSkillDiv.style.display = "none"
-    lonerFreebieKnowledgeDiv.style.display = "inline"
-    lonerFreebieTalentBlank.selected = true
-    lonerFreebieSkillBlank.selected = true
+function presentGothFreebieKnowledge() {
+    gothFreebieKnowledgeDiv.style.display = "inline"
+    gothFreebieTalentDiv.style.display = "none"
+    gothFreebieSkillDiv.style.display = "none"
+    gothFreebieTalentBlank.selected = true
+    gothFreebieSkillBlank.selected = true
+}
+
+// declarations
+let gothTalent = document.getElementById("gothTalent")
+let gothSkill = document.getElementById("gothSkill")
+let gothKnowledge01 = document.getElementById("gothKnowledge01")
+let gothKnowledge02 = document.getElementById("gothKnowledge02")
+let gothFreebieTalent = document.getElementById("gothFreebieTalent")
+let gothFreebieSkill = document.getElementById("gothFreebieSkill")
+let gothFreebieKnowledge = document.getElementById("gothFreebieKnowledge")
+let gothFreebieSelectArray = [gothTalent, gothSkill, gothKnowledge01, gothKnowledge02, gothFreebieTalent, gothFreebieSkill, gothFreebieKnowledge]
+let gothMustSelectTalentDiv = document.getElementById("gothMustSelectTalentDiv")
+let gothMustSelectSkillDiv = document.getElementById("gothMustSelectSkillDiv")
+let gothMustSelectTwoKnowledgesDiv = document.getElementById("gothMustSelectTwoKnowledgesDiv")
+let gothMustSelectFreebieDiv = document.getElementById("gothMustSelectFreebieDiv")
+let gothMustHaveDifferentFreebiesDiv = document.getElementById("gothMustHaveDifferentFreebiesDiv")
+let gothNotificationDivs = [gothMustSelectTalentDiv, gothMustSelectSkillDiv, gothMustSelectTwoKnowledgesDiv, gothMustSelectFreebieDiv, gothMustHaveDifferentFreebiesDiv]
+
+function applyGothAbilities() {
+    resetAbilitiesToUntrained()
+    // remove any previously-displayed notices
+    for (i=0; i<gothNotificationDivs.length; i++) {
+        gothNotificationDivs[i].style.display = 'none'
+    }
+    // gothTalent must be chosen
+    if (gothTalent.value == '') {
+        gothMustSelectTalentDiv.style.display = 'block'
+        return
+    }
+    // gothSkill must be chosen
+    if (gothSkill.value == '') {
+        gothMustSelectSkillDiv.style.display = 'block'
+        return
+    }
+    // must choose 2 different Knowledges
+    if (gothKnowledge01.value == '' || gothKnowledge02.value == '') {
+        gothMustSelectTwoKnowledgesDiv.style.display = 'block'
+        return
+    }
+    if (gothKnowledge01.value == gothKnowledge02.value) {
+        gothMustSelectTwoKnowledgesDiv.style.display = 'block'
+        return
+    }
+    // must choose one freebie type
+    if (gothFreebieTalentRadio.checked == false && gothFreebieSkillRadio.checked == false && gothFreebieKnowledgeRadio.checked == false) {
+        gothMustSelectFreebieDiv.style.display = 'block'
+        return
+    }
+    // if freebie is Talent, Talent must be selected  
+    if (gothFreebieTalentRadio.checked == true) {
+        if (gothFreebieTalentBlank.selected == true) {
+            gothMustSelectFreebieDiv.style.display = 'block'
+            return
+        }
+    }
+    // if freebie is Skill, Skill must be selected
+    if (gothFreebieSkillRadio.checked == true) {
+        if (gothFreebieSkillBlank.selected == true) {
+            gothMustSelectFreebieDiv.style.display = 'block'
+            return
+        }
+    }
+    // if freebie is Knowledge, Knowledge must be selected
+    if (gothFreebieKnowledgeRadio.checked == true) {
+        if (gothFreebieKnowledgeBlank.selected == true) {
+            gothMustSelectFreebieDiv.style.display = 'block'
+            return
+        }
+    }
+    // cannot stack selected Abilities with freebie
+    if (gothFreebieTalentRadio.checked == true) {
+        if (gothTalent.value == gothFreebieTalent.value) {
+            gothMustHaveDifferentFreebiesDiv.style.display = 'block'
+            return
+        }
+    }
+    if (gothFreebieSkillRadio.checked == true) {
+        if (gothSkill.value == gothFreebieSkill.value) {
+            gothMustHaveDifferentFreebiesDiv.style.display = 'block'
+            return
+        }
+    } 
+    if (gothFreebieKnowledgeRadio.checked == true) {
+        if (gothKnowledge01.value == gothFreebieKnowledge.value || gothKnowledge02.value == gothFreebieKnowledge.value) {
+            gothMustHaveDifferentFreebiesDiv.style.display = 'block'
+            return
+        }
+    } 
+
+    // apply selections
+    for (i=0; i<talentStringArray.length; i++) {
+        if (gothTalent.value == talentStringArray[i]) {
+            talentProficient[i].selected = true
+            talentCells[i].style.backgroundColor = '#50C878'
+            talentModifierCells[i].style.backgroundColor = '#50C878'
+        }
+    }
+    for (i=0; i<skillStringArray.length; i++) {
+        if (gothSkill.value == skillStringArray[i]) {
+            skillProficient[i].selected = true
+            skillCells[i].style.backgroundColor = '#50C878'
+            skillModifierCells[i].style.backgroundColor = '#50C878'
+        }
+    }
+    for (i=0; i<knowledgeStringArray.length; i++) {
+        if (gothKnowledge01.value == knowledgeStringArray[i] || gothKnowledge02.value == knowledgeStringArray[i]) {
+            knowledgeProficient[i].selected = true
+            knowledgeCells[i].style.backgroundColor = '#50C878'
+            knowledgeModifierCells[i].style.backgroundColor = '#50C878'
+        }
+    }    
+    if (gothFreebieTalentRadio.checked == true) {
+        for (i=0; i<gothFreebieTalents.length; i++) {
+            if (gothFreebieTalents[i].selected == true) {
+                talentProficient[i].selected = true
+                talentCells[i].style.backgroundColor = '#50C878'
+                talentModifierCells[i].style.backgroundColor = '#50C878'
+            }
+        }
+    }
+    if (gothFreebieSkillRadio.checked == true) {
+        for (i=0; i<gothFreebieSkills.length; i++) {
+            if (gothFreebieSkills[i].selected == true) {
+                skillProficient[i].selected = true
+                skillCells[i].style.backgroundColor = '#50C878'
+                skillModifierCells[i].style.backgroundColor = '#50C878'
+            }
+        }
+    }
+    if (gothFreebieKnowledgeRadio.checked == true) {
+        for (i=0; i<gothFreebieKnowledges.length; i++) {
+            if (gothFreebieKnowledges[i].selected == true) {
+                knowledgeProficient[i].selected = true
+                knowledgeCells[i].style.backgroundColor = '#50C878'
+                knowledgeModifierCells[i].style.backgroundColor = '#50C878'
+            }
+        }
+    }
+    abilityChange()
+    removeAbilityOptions()
 }
 
 // loner declarations

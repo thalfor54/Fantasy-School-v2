@@ -403,7 +403,7 @@
         </div>
         <div id="gothStatPicks">
             <div id="gothMustMakeEveryChoiceDiv" class="instructionDiv">
-                <h4 id="gothMustMakeEveryChoiceNotice" class="redNotice"><strong>You must make a choice for every stat</strong></h4>
+                <h4 id="gothMustMakeEveryChoiceNotice" class="redNotice"><strong>You must make a choice for every option</strong></h4>
             </div>
             <div id="gothNoSameBonusAndPenaltyDiv" class="instructionDiv">
                 <h4 id="gothNoSameBonusAndPenaltyNotice" class="redNotice"><strong>You cannot put a bonus and a penalty in the same stat</strong></h4>
@@ -483,7 +483,7 @@
         <label for="loners">Loners</label><br>
         <div id="lonerModifiers" class="cliqueModifierDivs">
             <h4>FEELS: Angry +2, Melancholy +2</h4><br>
-            <h4>Resistances: Any one +2 or any two +1</h4>
+            <h4>Resistances: Any one +2 or any two +1</h4><br>
             <h4>Saves: Fortitude +1, Will +1</h4>
         </div>
         <div id="lonerStatPicks">
@@ -1164,6 +1164,7 @@
                     <option id="nerdSkillMelee" class="nerdSkill">Melee</option>
                     <option id="nerdSkillMusic" class="nerdSkill">Music</option>
                     <option id="nerdSkillSecurity" class="nerdSkill">Security</option>
+                    <option id="nerdSkillSleightOfHand" class="nerdSkill">Sleight of Hand</option>
                     <option id="nerdSkillSocializing" class="nerdSkill">Socializing</option>
                 </select>    
             </div>
@@ -1181,9 +1182,9 @@
                 <option id="nerdMedicine01" class="nerdKnowledge01">Medicine</option>
                 <option id="nerdNature01" class="nerdKnowledge01">Nature</option>
                 <option id="nerdOccult01" class="nerdKnowledge01">Nature</option>
-                <option id="nerdReligion01" class="nerdKnowledge01">Religion</option>
                 <option id="nerdScience01" class="nerdKnowledge01">Science</option>
                 <option id="nerdSpecial01" class="nerdKnowledge01">Special</option>
+                <option id="nerdTheology01" class="nerdKnowledge01">Theology</option>
             </select>
             <br>
             <h4>Nerd: Knowledge 2</h4>
@@ -1196,9 +1197,9 @@
                 <option id="nerdMedicine02" class="nerdKnowledge02">Medicine</option>
                 <option id="nerdNature02" class="nerdKnowledge02">Nature</option>
                 <option id="nerdOccult02" class="nerdKnowledge01">Occult</option>
-                <option id="nerdReligion02" class="nerdKnowledge02">Religion</option>
                 <option id="nerdScience02" class="nerdKnowledge02">Science</option>
                 <option id="nerdSpecial02" class="nerdKnowledge02">Special</option>
+                <option id="nerdTheology02" class="nerdKnowledge02">Theology</option>
             </select>
             <br>
             <h4>Nerd: Knowledge 3</h4>
@@ -1211,9 +1212,9 @@
                 <option id="nerdMedicine03" class="nerdKnowledge03">Medicine</option>
                 <option id="nerdNature03" class="nerdKnowledge03">Nature</option>
                 <option id="nerdOccult03" class="nerdKnowledge01">Occult</option>
-                <option id="nerdReligion03" class="nerdKnowledge03">Religion</option>
                 <option id="nerdScience03" class="nerdKnowledge03">Science</option>
                 <option id="nerdSpecial03" class="nerdKnowledge03">Special</option>
+                <option id="nerdTheology03" class="nerdKnowledge03">Theology</option>
             </select>
             <br>
             <h4>Nerd: One Freebie</h4>
@@ -1255,6 +1256,7 @@
                     <option id="nerdMeleeFreebie" class="nerdFreebieSkill">Melee</option>
                     <option id="nerdMusicFreebie" class="nerdFreebieSkill">Music</option>
                     <option id="nerdSecurityFreebie" class="nerdFreebieSkill">Security</option>
+                    <option id="nerdSleightOfHandFreebie" class="nerdFreebieSkill">Sleight of Hand</option>
                     <option id="nerdSocializingFreebie" class="nerdFreebieSkill">Socializing</option>
                 </select>
             </div>
@@ -1271,15 +1273,16 @@
                     <option id="nerdMedicineFreebie" class="nerdFreebieKnowledge">Medicine</option>
                     <option id="nerdNatureFreebie" class="nerdFreebieKnowledge">Nature</option>
                     <option id="nerdOccultFreebie" class="nerdFreebieKnowledge">Occult</option>
-                    <option id="nerdReligionFreebie" class="nerdFreebieKnowledge">Religion</option>
                     <option id="nerdScienceFreebie" class="nerdFreebieKnowledge">Science</option>
                     <option id="nerdSpecialFreebie" class="nerdFreebieKnowledge">Special</option>
+                    <option id="nerdTheologyFreebie" class="nerdFreebieKnowledge">Theology</option>
                 </select>
             </div>
         <br>
         <button id="nerdCliqueBasedAbilitiesButton" type="button" onclick="applyNerdAbilities()">Commit Choices</button>
         <button id="nerdCliqueBasedAbilitiesResetButton" type="button" onclick="resetNerdAbilities()">Reset</button>
         </div>
+        <!--jock-->
         <div id="jockAbilities">
             <div id="jockMustChooseAthleticsDiv" class="instructionDiv">
                 <h4 id="jockMustChooseAthleticsNotice" class="redNotice"><strong>You must choose Athletics</strong></h4>
@@ -1322,6 +1325,7 @@
                 <option id="jockSkillMelee01" class="jockSkill01">Melee</option>
                 <option id="jockSkillMusic01" class="jockSkill01">Music</option>
                 <option id="jockSkillSecurity01" class="jockSkill01">Security</option>
+                <option id="jockSkillSleightOfHand01" class="jockSkill01">Sleight of Hand</option>
                 <option id="jockSkillSocializing01" class="jockSkill01">Socializing</option>
             </select>
             <br>
@@ -1336,6 +1340,7 @@
                 <option id="jockSkillMelee02" class="jockSkill02">Melee</option>
                 <option id="jockSkillMusic02" class="jockSkill02">Music</option>
                 <option id="jockSkillSecurity02" class="jockSkill02">Security</option>
+                <option id="jockSkillSleightOfHand02" class="jockSkill02">Sleight of Hand</option>
                 <option id="jockSkillSocializing02" class="jockSkill02">Socializing</option>
             </select>
             <br>
@@ -1378,6 +1383,7 @@
                    <option id="jockMeleeFreebie" class="jockFreebieSkill">Melee</option>
                    <option id="jockMusicFreebie" class="jockFreebieSkill">Music</option>
                    <option id="jockSecurityFreebie" class="jockFreebieSkill">Security</option>
+                   <option id="jockSleightOfHandFreebie" class="jockFreebieSkill">Sleight of Hand</option>
                    <option id="jockSocializingFreebie" class="jockFreebieSkill">Socializing</option>
                </select>
             </div>
@@ -1394,10 +1400,10 @@
                    <option id="jockMedicineFreebie" class="jockFreebieKnowledge">Medicine</option>
                    <option id="jockNatureFreebie" class="jockFreebieKnowledge">Nature</option>
                    <option id="jockOccultFreebie" class="jockFreebieKnowledge">Occult</option>
-                   <option id="jockReligionFreebie" class="jockFreebieKnowledge">Religion</option>
                    <option id="jockScienceFreebie" class="jockFreebieKnowledge">Science</option>
                    <option id="jockSpecialFreebie" class="jockFreebieKnowledge">Special</option>
-               </select>
+                   <option id="jockTheologyFreebie" class="jockFreebieKnowledge">Theology</option>
+                </select>
             </div>
         <br>
         <button id="jockCliqueBasedAbilitiesButton" type="button" onclick="applyJockAbilities()">Commit Choices</button>
@@ -1436,9 +1442,9 @@
                 <option id="prepKnowledgeMedicine" class="prepKnowledge">Medicine</option>
                 <option id="prepKnowledgeNature" class="prepKnowledge">Nature</option>
                 <option id="prepKnowledgeOccult" class="prepKnowledge">Occult</option>
-                <option id="prepKnowledgeReligion" class="prepKnowledge">Religion</option>
                 <option id="prepKnowledgeScience" class="prepKnowledge">Science</option>
                 <option id="prepKnowledgeSpecial" class="prepKnowledge">Special</option>
+                <option id="prepKnowledgeTheology" class="prepKnowledge">Theology</option>
             </select>
             <br>
             <div id="prepMustHaveFirstFreebieDiv" class="instructionDiv">
@@ -1498,6 +1504,7 @@
                     <option id="prepMeleeFreebie01" class="prepFreebie01Skill">Melee</option>
                     <option id="prepMusicFreebie01" class="prepFreebie01Skill">Music</option>
                     <option id="prepSecurityFreebie01" class="prepFreebie01Skill">Security</option>
+                    <option id="prepSleightOfHandFreebie01" class="prepFreebie01Skill">Sleight of Hand</option>
                     <option id="prepSocializingFreebie01" class="prepFreebie01Skill">Socializing</option>
                 </select>
                 <br>
@@ -1510,9 +1517,9 @@
                     <option id="prepMedicineFreebie01" class="prepFreebie01Knowledge">Medicine</option>
                     <option id="prepNatureFreebie01" class="prepFreebie01Knowledge">Nature</option>
                     <option id="prepOccultFreebie01" class="prepFreebie01Knowledge">Occult</option>
-                    <option id="prepReligionFreebie01" class="prepFreebie01Knowledge">Religion</option>
                     <option id="prepScienceFreebie01" class="prepFreebie01Knowledge">Science</option>
                     <option id="prepSpecialFreebie01" class="prepFreebie01Knowledge">Special</option>
+                    <option id="prepTheologyFreebie01" class="prepFreebieKnowledge">Theology</option>
                 </select>
             </div>
             <div id="prepFreebie02Div" class="prepFreebieDivs">
@@ -1552,6 +1559,7 @@
                     <option id="prepMeleeFreebie02" class="prepFreebie02Skill">Melee</option>
                     <option id="prepMusicFreebie02" class="prepFreebie02Skill">Music</option>
                     <option id="prepSecurityFreebie02" class="prepFreebie02Skill">Security</option>
+                    <option id="prepSleightOfHandFreebie02" class="prepFreebie02Skill">Sleight of Hand</option>
                     <option id="prepSocializingFreebie02" class="prepFreebie02Skill">Socializing</option>
                 </select>
                 <br>
@@ -1564,9 +1572,9 @@
                     <option id="prepMedicineFreebie02" class="prepFreebie02Knowledge">Medicine</option>
                     <option id="prepNatureFreebie02" class="prepFreebie02Knowledge">Nature</option>
                     <option id="prepOccultFreebie02" class="prepFreebie02Knowledge">Occult</option>
-                    <option id="prepReligionFreebie02" class="prepFreebie02Knowledge">Religion</option>
                     <option id="prepScienceFreebie02" class="prepFreebie02Knowledge">Science</option>
                     <option id="prepSpecialFreebie02" class="prepFreebie02Knowledge">Special</option>
+                    <option id="prepTheologyFreebie02" class="prepFreebie02Knowledge">Theology</option>
                 </select>
             </div>
             <br>
@@ -1598,9 +1606,9 @@
                 <option id="theaterKidMedicine" class="theaterKidKnowledge">Medicine</option>
                 <option id="theaterKidNature" class="theaterKidKnowledge">Nature</option>
                 <option id="theaterKidOccult" class="theaterKidKnowledge">Occult</option>
-                <option id="theaterKidReligion" class="theaterKidKnowledge">Religion</option>
                 <option id="theaterKidScience" class="theaterKidKnowledge">Science</option>
                 <option id="theaterKidSpecial" class="theaterKidKnowledge">Special</option>
+                <option id="theaterKidTheology" class="theaterKidKnowledge">Theology</option>
             </select>
             <br>
             <br>
@@ -1657,6 +1665,7 @@
                     <option id="theaterKidMeleeFreebie01" class="theaterKidFreebie01Skill">Melee</option>
                     <option id="theaterKidMusicFreebie01" class="theaterKidFreebie01Skill">Music</option>
                     <option id="theaterKidSecurityFreebie01" class="theaterKidFreebie01Skill">Security</option>
+                    <option id="theaterKidSleightOfHandFreebie01" class="theaterKidFreebie01Skill">Sleight of Hand</option>
                     <option id="theaterKidSocializingFreebie01" class="theaterKidFreebie01Skill">Socializing</option>
                 </select>
                 <br>
@@ -1669,9 +1678,9 @@
                     <option id="theaterKidMedicineFreebie01" class="theaterKidFreebie01Knowledge">Medicine</option>
                     <option id="theaterKidNatureFreebie01" class="theaterKidFreebie01Knowledge">Nature</option>
                     <option id="theaterKidOccultFreebie01" class="theaterKidFreebie01Knowledge">Occult</option>
-                    <option id="theaterKidReligionFreebie01" class="theaterKidFreebie01Knowledge">Religion</option>
                     <option id="theaterKidScienceFreebie01" class="theaterKidFreebie01Knowledge">Science</option>
                     <option id="theaterKidSpecialFreebie01" class="theaterKidFreebie01Knowledge">Special</option>
+                    <option id="theaterKidTheologyFreebie01" class="theaterKidFreebie01Knowledge">Theology</option>
                 </select>
             </div>
             <div id="theaterKidFreebie02Div" class="theaterKidFreebieDivs">
@@ -1709,6 +1718,7 @@
                     <option id="theaterKidMeleeFreebie02" class="theaterKidFreebie02Skill">Melee</option>
                     <option id="theaterKidMusicFreebie02" class="theaterKidFreebie02Skill">Music</option>
                     <option id="theaterKidSecurityFreebie02" class="theaterKidFreebie02Skill">Security</option>
+                    <option id="theaterKidSleightOfHandFreebie02" class="theaterKidFreebie02Skill">Sleight of Hand</option>
                     <option id="theaterKidSocializingFreebie02" class="theaterKidFreebie02Skill">Socializing</option>
                </select>
                <br>
@@ -1721,10 +1731,10 @@
                    <option id="theaterKidMedicineFreebie02" class="theaterKidFreebie02Knowledge">Medicine</option>
                    <option id="theaterKidNatureFreebie02" class="theaterKidFreebie02Knowledge">Nature</option>
                    <option id="theaterKidOccultFreebie02" class="theaterKidFreebie02Knowledge">Occult</option>
-                   <option id="theaterKidReligionFreebie02" class="theaterKidFreebie02Knowledge">Religion</option>
                    <option id="theaterKidScienceFreebie02" class="theaterKidFreebie02Knowledge">Science</option>
                    <option id="theaterKidSpecialFreebie02" class="theaterKidFreebie02Knowledge">Special</option>
-               </select>
+                   <option id="theaterKidTheologyFreebie02" class="theaterKidFreebie02Knowledge">Theology</option>
+                </select>
             </div>
             <div id="theaterKidFreebie03Div" class="theaterKidFreebieDivs">
                 <input id="theaterKidFreebie03TalentRadio" type="radio" name="theaterKidFreebie03">
@@ -1761,6 +1771,7 @@
                     <option id="theaterKidMeleeFreebie03" class="theaterKidFreebie03Skill">Melee</option>
                     <option id="theaterKidMusicFreebie03" class="theaterKidFreebie03Skill">Music</option>
                     <option id="theaterKidSecurityFreebie03" class="theaterKidFreebie03Skill">Security</option>
+                    <option id="theaterKidSleightOfHandFreebie03" class="theaterKidFreebie03Skill">Sleight of Hand</option>
                     <option id="theaterKidSocializingFreebie03" class="theaterKidFreebie03Skill">Socializing</option>
                </select>
                <br>
@@ -1773,15 +1784,155 @@
                    <option id="theaterKidMedicineFreebie03" class="theaterKidFreebie03Knowledge">Medicine</option>
                    <option id="theaterKidNatureFreebie03" class="theaterKidFreebie03Knowledge">Nature</option>
                    <option id="theaterKidOccultFreebie03" class="theaterKidFreebie03Knowledge">Occult</option>
-                   <option id="theaterKidReligionFreebie03" class="theaterKidFreebie03Knowledge">Religion</option>
                    <option id="theaterKidScienceFreebie03" class="theaterKidFreebie03Knowledge">Science</option>
                    <option id="theaterKidSpecialFreebie03" class="theaterKidFreebie03Knowledge">Special</option>
+                   <option id="theaterKidTheologyFreebie03" class="theaterKidFreebie03Knowledge">Theology</option>
                </select>
             </div>
             <br>
             <button id="theaterKidCliqueBasedAbilitiesButton" type="button" onclick="applyTheaterKidAbilities()">Commit Choices</button>
             <button id="theaterKidCliqueBasedAbilitiesResetButton" type="button" onclick="resetTheaterKidAbilities()">Reset</button>
         </div>
+        <!--goth-->
+        <div id="gothAbilities">
+            <div id="gothMustSelectTalentDiv" class="instructionDiv">
+                <h4 id="gothMustSelectTalentNotice" class="redNotice"><strong>You must choose a Talent</strong></h4>
+            </div>
+            <h4>Goth: Talent</h4>
+            <select id="gothTalent">
+                <option id="gothTalentBlank"></option>
+                <option id="gothTalentActing" class="gothTalent">Acting</option>
+                <option id="gothTalentAlertness" class="gothTalent">Alertness</option>
+                <option id="gothTalentAthletics" class="gothTalent">Athletics</option>
+                <option id="gothTalentBrawling" class="gothTalent">Brawling</option>
+                <option id="gothTalentCalmingDown" class="gothTalent">Calming Down</option>
+                <option id="gothTalentDodge" class="gothTalent">Dodge</option>
+                <option id="gothTalentEmpathy" class="gothTalent">Empathy</option>
+                <option id="gothTalentIntimidation" class="gothTalent">Intimidation</option>
+                <option id="gothTalentMemory" class="gothTalent">Memory</option>
+                <option id="gothTalentStealth" class="gothTalent">Stealth</option>
+            </select>
+            <br>
+            <div id="gothMustSelectSkillDiv" class="instructionDiv">
+                <h4 id="gothMustSelectSkillNotice" class="redNotice"><strong>You must choose a Skill</strong></h4>
+            </div>
+            <h4>Goth: Skill</h4>
+            <select id="gothSkill">
+                <option id="gothSkillBlank"></option>
+                <option id="gothSkillDeception" class="gothSkill">Deception</option>
+                <option id="gothSkillFirearms" class="gothSkill">Firearms</option>
+                <option id="gothSkillInvestigation" class="gothSkill">Investigation</option>
+                <option id="gothSkillLeadership" class="gothSkill">Leadership</option>
+                <option id="gothSkillLockPicking" class="gothSkill">Lock-Picking</option>
+                <option id="gothSkillMelee" class="gothSkill">Melee</option>
+                <option id="gothSkillMusic" class="gothSkill">Music</option>
+                <option id="gothSkillSecurity" class="gothSkill">Security</option>
+                <option id="gothSkillSleightOfHand" class="gothSkill">Sleight of Hand</option>
+                <option id="gothSkillSocializing" class="gothSkill">Socializing</option>
+            </select>
+            <br>
+            <div id="gothMustSelectTwoKnowledgesDiv" class="instructionDiv">
+                <h4 id="gothMustSelectTwoKnowledgeNotice" class="redNotice"><strong>You must choose two Knowledges</strong></h4>
+            </div>
+            <h4>Goth: Knowledge 1</h4>
+            <select id="gothKnowledge01">
+                <option id="gothKnowledgeBlank01"></option>
+                <option id="gothArcana01" class="gothKnowledge01">Arcana</option>
+                <option id="gothCodeBreaking01" class="gothKnowledge01">Code-Breaking</option>
+                <option id="gothComputers01" class="gothKnowledge01">Computers</option>
+                <option id="gothHistory01" class="gothKnowledge01">History</option>
+                <option id="gothMedicine01" class="gothKnowledge01">Medicine</option>
+                <option id="gothNature01" class="gothKnowledge01">Nature</option>
+                <option id="gothOccult01" class="gothKnowledge01">Nature</option>
+                <option id="gothScience01" class="gothKnowledge01">Science</option>
+                <option id="gothSpecial01" class="gothKnowledge01">Special</option>
+                <option id="gothTheology01" class="gothKnowledge01">Theology</option>
+            </select>
+            <br>
+            <h4>Goth: Knowledge 2</h4>
+            <select id="gothKnowledge02">
+                <option id="gothKnowledgeBlank02"></option>
+                <option id="gothArcana02" class="gothKnowledge02">Arcana</option>
+                <option id="gothCodeBreaking02" class="gothKnowledge02">Code-Breaking</option>
+                <option id="gothComputers02" class="gothKnowledge02">Computers</option>
+                <option id="gothHistory02" class="gothKnowledge02">History</option>
+                <option id="gothMedicine02" class="gothKnowledge02">Medicine</option>
+                <option id="gothNature02" class="gothKnowledge02">Nature</option>
+                <option id="gothOccult02" class="gothKnowledge02">Occult</option>
+                <option id="gothScience02" class="gothKnowledge02">Science</option>
+                <option id="gothSpecial02" class="gothKnowledge02">Special</option>
+                <option id="gothTheology02" class="gothKnowledge02">Theology</option>
+            </select>
+            <br>
+            <h4>Goth: One Freebie</h4>
+            <br>
+            <div id="gothMustSelectFreebieDiv" class="instructionDiv">
+                <h4 id="gothMustSelectFreebieNotice" class="redNotice"><strong>You must choose a Freebie Ability</strong></h4>
+            </div>
+            <div id="gothMustHaveDifferentFreebiesDiv" class="instructionDiv">
+                <h4 id="gothMustHaveDifferentFreebiesNotice" class="redNotice"><strong>You cannot select the same Ability twice</strong></h4>
+                <br>
+            </div>
+           <input type="radio" id="gothFreebieTalentRadio" name="gothFreebie" onclick="presentGothFreebieTalent()">
+           <label for="gothFreebieTalentRadio">Talent:</label>
+           <div id="gothFreebieTalentDiv" class="gothFreebieDivs">
+               <select id="gothFreebieTalent">
+                   <option id="gothFreebieTalentBlank"></option>
+                   <option id="gothActingFreebie" class="gothFreebieTalent">Acting</option>
+                   <option id="gothAlertnessFreebie" class="gothFreebieTalent">Alertness</option>
+                   <option id="gothAthleticsFreebie" class="gothFreebieTalent">Athletics</option>
+                   <option id="gothBrawlingFreebie" class="gothFreebieTalent">Brawling</option>
+                   <option id="gothCalmingDownFreebie" class="gothFreebieTalent">Calming Down</option>
+                   <option id="gothDodgeFreebie" class="gothFreebieTalent">Dodge</option>
+                   <option id="gothEmpathyFreebie" class="gothFreebieTalent">Empathy</option>
+                   <option id="gothIntimidationFreebie" class="gothFreebieTalent">Intimidation</option>
+                   <option id="gothMemoryFreebie" class="gothFreebieTalent">Memory</option>
+                   <option id="gothStealthFreebie" class="gothFreebieTalent">Stealth</option>
+               </select>
+            </div>
+            <br>   
+            <input type="radio" id="gothFreebieSkillRadio" name="gothFreebie" onclick="presentGothFreebieSkill()">
+            <label for="gothFreebieSkillRadio">Skill:</label>
+            <div id="gothFreebieSkillDiv" class="gothFreebieDivs">
+               <select id="gothFreebieSkill">
+                   <option id="gothFreebieSkillBlank"></option>
+                   <option id="gothDeceptionFreebie" class="gothFreebieSkill">Deception</option>
+                   <option id="gothFirearmsFreebie" class="gothFreebieSkill">Firearms</option>
+                   <option id="gothInvestigationFreebie" class="gothFreebieSkill">Investigation</option>
+                   <option id="gothLeadershipFreebie" class="gothFreebieSkill">Leadership</option>
+                   <option id="gothLockPickingFreebie" class="gothFreebieSkill">Lock-Picking</option>
+                   <option id="gothMeleeFreebie" class="gothFreebieSkill">Melee</option>
+                   <option id="gothMusicFreebie" class="gothFreebieSkill">Music</option>
+                   <option id="gothSecurityFreebie" class="gothFreebieSkill">Security</option>
+                   <option id="gothSleightOfHandFreebie" class="gothFreebieSkill">Sleight of Hand</option>
+                   <option id="gothSocializingFreebie" class="gothFreebieSkill">Socializing</option>
+               </select>
+            </div>
+            <br>
+            <input type="radio" id="gothFreebieKnowledgeRadio" name="gothFreebie" onclick="presentGothFreebieKnowledge()">
+            <label for="gothFreebieKnowledgeRadio">Knowledge:</label>
+            <div id="gothFreebieKnowledgeDiv" class="gothFreebieDivs">
+               <select id="gothFreebieKnowledge">
+                   <option id="gothFreebieKnowledgeBlank"></option>
+                   <option id="gothArcanaFreebie" class="gothFreebieKnowledge">Arcana</option>
+                   <option id="gothCodeBreakingFreebie" class="gothFreebieKnowledge">Code-Breaking</option>
+                   <option id="gothComputersFreebie" class="gothFreebieKnowledge">Computers</option>
+                   <option id="gothHistoryFreebie" class="gothFreebieKnowledge">History</option>
+                   <option id="gothMedicineFreebie" class="gothFreebieKnowledge">Medicine</option>
+                   <option id="gothNatureFreebie" class="gothFreebieKnowledge">Nature</option>
+                   <option id="gothOccultFreebie" class="gothFreebieKnowledge">Occult</option>
+                   <option id="gothScienceFreebie" class="gothFreebieKnowledge">Science</option>
+                   <option id="gothSpecialFreebie" class="gothFreebieKnowledge">Special</option>
+                   <option id="gothTheologyFreebie" class="gothFreebieKnowledge">Theology</option>
+                </select>
+            </div>
+        <br>
+        <button id="gothCliqueBasedAbilitiesButton" type="button" onclick="applyGothAbilities()">Commit Choices</button>
+        <button id="gothCliqueBasedAbilitiesResetButton" type="button" onclick="resetGothAbilities()">Reset</button>
+        </div>
+
+
+
         <!--loner-->
         <div id="lonerAbilities">
             <div id="lonerMustChooseTalentDiv" class="instructionDiv">
@@ -1822,6 +1973,7 @@
                 <option id="lonerSkill01Melee" class="lonerSkill01">Melee</option>
                 <option id="lonerSkill01Music" class="lonerSkill01">Music</option>
                 <option id="lonerSkill01Security" class="lonerSkill01">Security</option>
+                <option id="lonerSkill01SleightOfHand" class="lonerSkill01">Sleight of Hand</option>
                 <option id="lonerSkill01Socializing" class="lonerSkill01">Socializing</option>
             </select>
             <br>
@@ -1836,6 +1988,7 @@
                 <option id="lonerSkill02Melee" class="lonerSkill02">Melee</option>
                 <option id="lonerSkill02Music" class="lonerSkill02">Music</option>
                 <option id="lonerSkill02Security" class="lonerSkill02">Security</option>
+                <option id="lonerSkill02SleightOfHand" class="lonerSkill02">Sleight of Hand</option>
                 <option id="lonerSkill02Socializing" class="lonerSkill02">Socializing</option>
             </select>
             <br>
@@ -1850,6 +2003,7 @@
                 <option id="lonerSkill03Melee" class="lonerSkill03">Melee</option>
                 <option id="lonerSkill03Music" class="lonerSkill03">Music</option>
                 <option id="lonerSkill03Security" class="lonerSkill03">Security</option>
+                <option id="lonerSkill03SleightOfHand" class="lonerSkill03">Sleight of Hand</option>
                 <option id="lonerSkill03Socializing" class="lonerSkill03">Socializing</option>
             </select>
             <br>
@@ -1888,6 +2042,7 @@
                     <option id="lonerMeleeFreebie" class="lonerFreebieSkill">Melee</option>
                     <option id="lonerMusicFreebie" class="lonerFreebieSkill">Music</option>
                     <option id="lonerSecurityFreebie" class="lonerFreebieSkill">Security</option>
+                    <option id="lonerSleightOfHandFreebie" class="lonerFreebieSkill">Sleight of Hand</option>
                     <option id="lonerSocializingFreebie" class="lonerFreebieSkill">Socializing</option>
                 </select>
             </div>
@@ -1904,15 +2059,14 @@
                     <option id="lonerMedicineFreebie" class="lonerFreebieKnowledge">Medicine</option>
                     <option id="lonerNatureFreebie" class="lonerFreebieKnowledge">Nature</option>
                     <option id="lonerOccultFreebie" class="lonerFreebieKnowledge">Occult</option>
-                    <option id="lonerReligionFreebie" class="lonerFreebieKnowledge">Religion</option>
                     <option id="lonerScienceFreebie" class="lonerFreebieKnowledge">Science</option>
                     <option id="lonerSpecialFreebie" class="lonerFreebieKnowledge">Special</option>
+                    <option id="lonerTheologyFreebie" class="lonerFreebieKnowledge">Theology</option>
                 </select>
             </div>
         <br>
         <button id="lonerCliqueBasedAbilitiesButton" type="button" onclick="applyLonerAbilities()">Commit Choices</button>
         <button id="lonerCliqueBasedAbilitiesResetButton" type="button" onclick="resetLonerAbilities()">Reset</button>
-        <br>
         <br>
         </div>
         <!--chameleons-->
@@ -1949,6 +2103,7 @@
                 <option id="chameleonSkillMelee" class="chameleonSkill">Melee</option>
                 <option id="chameleonSkillMusic" class="chameleonSkill">Music</option>
                 <option id="chameleonSkillSecurity" class="chameleonSkill">Security</option>
+                <option id="chameleonSkillSleightOfHand" class="chameleonSkill">Sleight of Hand</option>
                 <option id="chameleonSkillSocializing" class="chameleonSkill">Socializing</option>
             </select>
             <br>
@@ -1965,9 +2120,9 @@
                 <option id="chameleonKnowledgeMedicine" class="chameleonKnowledge">Medicine</option>
                 <option id="chameleonKnowledgeNature" class="chameleonKnowledge">Nature</option>
                 <option id="chameleonKnowledgeOccult" class="chameleonKnowledge">Occult</option>
-                <option id="chameleonKnowledgeReligion" class="chameleonKnowledge">Religion</option>
                 <option id="chameleonKnowledgeScience" class="chameleonKnowledge">Science</option>
                 <option id="chameleonKnowledgeSpecial" class="chameleonKnowledge">Special</option>
+                <option id="chameleonKnowledgeTheology" class="chameleonKnowledge">Theology</option>
             </select>
             <br>
             <div id="chameleonMustHaveFirstFreebieDiv" class="instructionDiv">
@@ -2019,6 +2174,7 @@
                     <option id="chameleonMeleeFreebie01" class="chameleonFreebie01Skill">Melee</option>
                     <option id="chameleonMusicFreebie01" class="chameleonFreebie01Skill">Music</option>
                     <option id="chameleonSecurityFreebie01" class="chameleonFreebie01Skill">Security</option>
+                    <option id="chameleonSleightOfHandFreebie01" class="chameleonFreebie01Skill">Sleight of Hand</option>
                     <option id="chameleonSocializingFreebie01" class="chameleonFreebie01Skill">Socializing</option>
                 </select>
                 <br>
@@ -2031,9 +2187,9 @@
                     <option id="chameleonMedicineFreebie01" class="chameleonFreebie01Knowledge">Medicine</option>
                     <option id="chameleonNatureFreebie01" class="chameleonFreebie01Knowledge">Nature</option>
                     <option id="chameleonOccultFreebie01" class="chameleonFreebie01Knowledge">Occult</option>
-                    <option id="chameleonReligionFreebie01" class="chameleonFreebie01Knowledge">Religion</option>
                     <option id="chameleonScienceFreebie01" class="chameleonFreebie01Knowledge">Science</option>
                     <option id="chameleonSpecialFreebie01" class="chameleonFreebie01Knowledge">Special</option>
+                    <option id="chameleonTheologyFreebie01" class="chameleonFreebie01Knowledge">Theology</option>
                 </select>
             </div>
             <div id="chameleonFreebie02Div" class="chameleonFreebieDivs">
@@ -2073,6 +2229,7 @@
                     <option id="chameleonMeleeFreebie02" class="chameleonFreebie02Skill">Melee</option>
                     <option id="chameleonMusicFreebie02" class="chameleonFreebie02Skill">Music</option>
                     <option id="chameleonSecurityFreebie02" class="chameleonFreebie02Skill">Security</option>
+                    <option id="chameleonSleightOfHandFreebie02" class="chameleonFreebie02Skill">Sleight of Hand</option>
                     <option id="chameleonSocializingFreebie02" class="chameleonFreebie02Skill">Socializing</option>
                 </select>
                 <br>
@@ -2085,9 +2242,9 @@
                     <option id="chameleonMedicineFreebie02" class="chameleonFreebie02Knowledge">Medicine</option>
                     <option id="chameleonNatureFreebie02" class="chameleonFreebie02Knowledge">Nature</option>
                     <option id="chameleonOccultFreebie02" class="chameleonFreebie02Knowledge">Occult</option>
-                    <option id="chameleonReligionFreebie02" class="chameleonFreebie02Knowledge">Religion</option>
                     <option id="chameleonScienceFreebie02" class="chameleonFreebie02Knowledge">Science</option>
                     <option id="chameleonSpecialFreebie02" class="chameleonFreebie02Knowledge">Special</option>
+                    <option id="chameleonTheologyFreebie02" class="chameleonFreebie02Knowledge">Theology</option>
                 </select>
             </div>
             <br>
@@ -2097,6 +2254,7 @@
             <br>
         </div>
     </div>
+    <br>
     <div id="prioritizeAbilityTypes">
         <h3 id=>Prioritize Talents, Skills, and Knowledges:</h3>
         <br>

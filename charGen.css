@@ -345,6 +345,12 @@ h3 {
   width: 130px;
   display: inline-block;
 }
+#gothAbilities {
+  display: none;
+}
+.gothFreebieDivs {
+  display: none;
+}
 
 #lonerAbilities {
   display: none;
