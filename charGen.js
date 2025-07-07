@@ -1128,6 +1128,11 @@ let vampire = document.getElementById("vampire")
 let werewolf = document.getElementById("werewolf")
 let witch = document.getElementById("witch")
 let fairy = document.getElementById("fairy")
+let vampireModifiersDiv = document.getElementById("vampireModifiers")
+let werewolfModifiersDiv = document.getElementById("werewolfModifiers")
+let fairyModifiersDiv = document.getElementById("fairyModifiers")
+let speciesModifierDivsArray = [vampireModifiersDiv, werewolfModifiersDiv, fairyModifiersDiv]
+let speciesRadioBox = document.getElementById("speciesRadio")
 
 function calculateHitPoints() {
     let constitutionForHitPoints = document.getElementById("constitutionTotalModifier").innerHTML
@@ -1152,6 +1157,7 @@ function vampireModifiers() {
     resilienceSpeciesModifier.innerHTML = 2
     manipulationSpeciesModifier.innerHTML = 2
     charismaSpeciesModifier.innerHTML = 2
+    baselineModifiers()
     focusSpeciesModifier.innerHTML = 3
     resolveSpeciesModifier.innerHTML = 3
     selfControlSpeciesModifier.innerHTML = 2
@@ -1161,17 +1167,10 @@ function vampireModifiers() {
     fortitudeSpeciesModifier.innerHTML = 1
     reflexSpeciesModifier.innerHTML = 1
     willSpeciesModifier.innerHTML = 1
-    baselineModifiers()
     calculateHitPoints()
     calculateFeelsResistancesAndSaves()
     setArmorClass()
 }
-
-let vampireModifiersDiv = document.getElementById("vampireModifiers")
-let werewolfModifiersDiv = document.getElementById("werewolfModifiers")
-let fairyModifiersDiv = document.getElementById("fairyModifiers")
-let speciesModifierDivsArray = [vampireModifiersDiv, werewolfModifiersDiv, fairyModifiersDiv]
-let speciesRadioBox = document.getElementById("speciesRadio")
 
 function displayVampireModifiers() {
     for (i=0; i<speciesModifierDivsArray.length; i++) {
@@ -1343,6 +1342,7 @@ function displayFairyModifiers() {
     fairyModifiersDiv.style.display = 'block'
     speciesRadioBox.style.marginRight = "50px"
 }
+
 function removeAbilityOptions() {
     for (i=0; i<talentSkilled.length; i++) {
         if (talentSkilled[i].selected == true) {
@@ -1424,6 +1424,7 @@ function resetAbilitiesToUntrained() {
     }
 }
 
+// moving into Clique modifiers
 let nerdModifiersDiv = document.getElementById("nerdModifiers")
 let jockModifiersDiv = document.getElementById("jockModifiers")
 let prepModifiersDiv = document.getElementById("prepModifiers")
@@ -1432,6 +1433,91 @@ let gothModifiersDiv = document.getElementById("gothModifiers")
 let lonerModifiersDiv = document.getElementById("lonerModifiers")
 let chameleonModifiersDiv = document.getElementById("chameleonModifiers")
 let cliqueModifierDivsArray = [nerdModifiersDiv, jockModifiersDiv, prepModifiersDiv, theaterKidModifiersDiv, gothModifiersDiv, lonerModifiersDiv, chameleonModifiersDiv]
+
+// declarations
+
+let feelsStringsArray = ['Agitated', 'Angry', 'Horny', 'Melancholy']
+let feelsCliqueModifierArray = [agitatedCliqueModifier, angryCliqueModifier, hornyCliqueModifier, melancholyCliqueModifier]
+let savingThrowsStringArray = ['Fortitude', 'Reflex', 'Mind', 'Will']
+let savesCliqueModifierArray = [fortitudeCliqueModifier, reflexCliqueModifier, mindCliqueModifier, willCliqueModifier]
+let resistancesStringsArray = ['Focus', 'Resolve', 'Self-Control'] 
+let resistancesCliqueModifierArray = [focusCliqueModifier, resolveCliqueModifier, selfControlCliqueModifier]
+
+let nerdNoStackingDiv = document.getElementById("nerdNoStackingDiv")
+let nerdMustMakeEveryChoiceDiv = document.getElementById("nerdMustMakeEveryChoiceDiv")
+let nerdStatOption01 = document.getElementById("nerdStatOption01")
+let nerdStatOption02 = document.getElementById("nerdStatOption02")
+let nerdStatOption03 = document.getElementById("nerdStatOption03")
+let nerdStatOption04 = document.getElementById("nerdStatOption04")
+
+let jockMustMakeEveryChoiceDiv = document.getElementById("jockMustMakeEveryChoiceDiv")
+let jockNoStackingDiv = document.getElementById("jockNoStackingDiv")
+let jockNoSameBonusAndPenaltyDiv = document.getElementById("jockNoSameBonusAndPenaltyDiv")
+let jockStatOption01 = document.getElementById("jockStatOption01")
+let jockStatOption02 = document.getElementById("jockStatOption02")
+let jockStatOption03 = document.getElementById("jockStatOption03")
+let jockStatOption04 = document.getElementById("jockStatOption04")
+
+let prepMustMakeEveryChoiceDiv = document.getElementById("prepMustMakeEveryChoiceDiv")
+let prepNoStackingDiv = document.getElementById("prepNoStackingDiv")
+let prepNoSameBonusAndPenaltyDiv = document.getElementById("prepNoSameBonusAndPenaltyDiv")
+let prepMustChooseASaveDiv = document.getElementById("prepMustChooseASaveDiv")
+let prepNoticeDivs = [prepMustMakeEveryChoiceDiv, prepNoStackingDiv, prepNoSameBonusAndPenaltyDiv, prepMustChooseASaveDiv]
+let prepStatOption01 = document.getElementById("prepStatOption01")
+let prepStatOption02 = document.getElementById("prepStatOption02")
+let prepStatOption03 = document.getElementById("prepStatOption03")
+let prepStatOption04 = document.getElementById("prepStatOption04")
+let prepSaveIncrease = document.getElementById("prepSaveIncrease")
+
+let theaterKidMustMakeEveryChoiceDiv = document.getElementById("theaterKidMustMakeEveryChoiceDiv")
+let theaterKidNoStackingDiv = document.getElementById("theaterKidNoStackingDiv")
+let theaterKidNoSameBonusAndPenaltyDiv = document.getElementById("theaterKidNoSameBonusAndPenaltyDiv")
+let theaterKidMustChooseAResistanceDiv = document.getElementById("theaterKidMustChooseAResistanceDiv")
+let theaterKidNoticeDivs = [theaterKidMustMakeEveryChoiceDiv, theaterKidNoStackingDiv, theaterKidNoSameBonusAndPenaltyDiv, theaterKidMustChooseAResistanceDiv]
+let theaterKidStatOption01 = document.getElementById("theaterKidStatOption01")
+let theaterKidStatOption02 = document.getElementById("theaterKidStatOption02")
+let theaterKidStatOption03 = document.getElementById("theaterKidStatOption03")
+let theaterKidStatOption04 = document.getElementById("theaterKidStatOption04")
+let theaterKidResistanceIncrease = document.getElementById("theaterKidResistanceIncrease")
+
+let gothMustMakeEveryChoiceDiv = document.getElementById("gothMustMakeEveryChoiceDiv")
+let gothNoSameBonusAndPenaltyDiv = document.getElementById("gothNoSameBonusAndPenaltyDiv")
+let gothMustChooseTwoFeels = document.getElementById("gothMustChooseTwoFeels")
+let gothMustChooseTwoSaves = document.getElementById("gothMustChooseTwoSaves")
+let gothNoticeDivs = [gothMustMakeEveryChoiceDiv, gothNoSameBonusAndPenaltyDiv, gothMustChooseTwoFeels, gothMustChooseTwoSaves]
+let gothStatOption01 = document.getElementById("gothStatOption01")
+let gothStatOption02 = document.getElementById("gothStatOption02")
+let gothStatOption03 = document.getElementById("gothStatOption03")
+let gothStatOption04 = document.getElementById("gothStatOption04")
+let gothFeelIncrease01 = document.getElementById("gothFeelIncrease01")
+let gothFeelIncrease02 = document.getElementById("gothFeelIncrease02")
+let gothSavingThrowOption01 = document.getElementById("gothSavingThrowOption01")
+let gothSavingThrowOption02 = document.getElementById("gothSavingThrowOption02")
+
+let lonerMustMakeEveryChoiceDiv = document.getElementById("lonerMustMakeEveryChoiceDiv")
+let lonerNoStackingDiv = document.getElementById("lonerNoStackingDiv")
+let lonerNoSameBonusAndPenaltyDiv = document.getElementById("lonerNoSameBonusAndPenaltyDiv")
+let lonerMustChooseOneResistanceOrTwoDiv = document.getElementById("lonerMustChooseOneResistanceOrTwoDiv")
+let lonerMustChooseAResistanceDiv = document.getElementById("lonerMustChooseAResistanceDiv")
+let lonerMustChooseTwoResistancesDiv = document.getElementById("lonerMustChooseTwoResistancesDiv")
+let lonerNoticeDivs = [lonerMustMakeEveryChoiceDiv, lonerNoStackingDiv, lonerNoSameBonusAndPenaltyDiv, lonerMustChooseOneResistanceOrTwoDiv, lonerMustChooseAResistanceDiv, lonerMustChooseTwoResistancesDiv]
+let lonerStatOption01 = document.getElementById("lonerStatOption01")
+let lonerStatOption02 = document.getElementById("lonerStatOption02")
+let lonerStatOption03 = document.getElementById("lonerStatOption03")
+let lonerStatOption04 = document.getElementById("lonerStatOption04")
+
+let chameleonMustMakeEveryChoiceDiv = document.getElementById("chameleonMustMakeEveryChoiceDiv")
+let chameleonNoStackingDiv = document.getElementById("chameleonNoStackingDiv")
+let chameleonMustChooseTwoFeelsDiv = document.getElementById("chameleonMustChooseTwoFeelsDiv")
+let chameleonNoStackingFeelsDiv = document.getElementById("chameleonNoStackingFeelsDiv")
+let chameleonMustChooseTwoResistancesDiv = document.getElementById("chameleonMustChooseTwoResistancesDiv")
+let chameleonNoStackingResistancesDiv = document.getElementById("chameleonNoStackingResistancesDiv")
+let chameleonMustChooseTwoSavesDiv = document.getElementById("chameleonMustChooseTwoSavesDiv")
+let chameleonNoStackingSavesDiv = document.getElementById("chameleonNoStackingSavesDiv")
+let chameleonNoticeDivs = [chameleonMustMakeEveryChoiceDiv, chameleonNoStackingDiv, chameleonMustChooseTwoFeelsDiv, chameleonNoStackingFeelsDiv, chameleonMustChooseTwoResistancesDiv, chameleonNoStackingResistancesDiv, chameleonMustChooseTwoSavesDiv, chameleonNoStackingSavesDiv]
+
+
+
 
 function displayNerdModifiers() {
     for (i=0; i<cliqueModifierDivsArray.length; i++) {
@@ -1444,7 +1530,6 @@ function displayNerdModifiers() {
 
 function displayNerdStatDiv() {
     // remove any previously-generated notices
-    let nerdMustMakeEveryChoiceDiv = document.getElementById("nerdMustMakeEveryChoiceDiv")
     if (nerdMustMakeEveryChoiceDiv.style.display == 'block') {
         nerdMustMakeEveryChoiceDiv.style.display = 'none'
     }
@@ -1476,15 +1561,6 @@ function displayNerdStatDiv() {
     nerdAbilities.style.display = "block"
     calculateFeelsResistancesAndSaves()
 }
-
-// declarations
-let nerdNoStackingDiv = document.getElementById("nerdNoStackingDiv")
-let nerdMustMakeEveryChoiceDiv = document.getElementById("nerdMustMakeEveryChoiceDiv")
-let nerdStatOption01 = document.getElementById("nerdStatOption01")
-let nerdStatOption02 = document.getElementById("nerdStatOption02")
-let nerdStatOption03 = document.getElementById("nerdStatOption03")
-let nerdStatOption04 = document.getElementById("nerdStatOption04")
-
 
 function applyNerdStatModifiers() {
     // remove any previously-generated notices
@@ -1558,11 +1634,9 @@ function displayJockModifiers() {
 
 function displayJockStatDiv() {
     // remove any previously-generated notices
-    let jockMustMakeEveryChoiceDiv = document.getElementById("jockMustMakeEveryChoiceDiv")
     if (jockMustMakeEveryChoiceDiv.style.display == 'block') {
         jockMustMakeEveryChoiceDiv.style.display = 'none'
     }
-    let jockNoStackingDiv = document.getElementById("jockNoStackingDiv")
     if (jockNoStackingDiv.style.display == "block") {
         jockNoStackingDiv.style.display = "none"
     }
@@ -1592,15 +1666,8 @@ function displayJockStatDiv() {
     calculateFeelsResistancesAndSaves()
 }
 
-let jockStatOption01 = document.getElementById("jockStatOption01")
-let jockStatOption02 = document.getElementById("jockStatOption02")
-let jockStatOption03 = document.getElementById("jockStatOption03")
-let jockStatOption04 = document.getElementById("jockStatOption04")
-
 function applyJockStatModifiers() {
     // remove any previously-generated notices
-    let jockMustMakeEveryChoiceDiv = document.getElementById("jockMustMakeEveryChoiceDiv")
-    let jockNoStackingDiv = document.getElementById("jockNoStackingDiv")
     if (jockMustMakeEveryChoiceDiv.style.display == "block") {
         jockMustMakeEveryChoiceDiv.style.display = "none"
     }
@@ -1610,13 +1677,11 @@ function applyJockStatModifiers() {
     // assign selected values  
     // make sure a choice is made for every option
     if (jockStatOption01.value == '' || jockStatOption02.value == '' || jockStatOption03.value == '' || jockStatOption04.value == '') {
-        let jockMustMakeEveryChoiceDiv = document.getElementById("jockMustMakeEveryChoiceDiv")
         jockMustMakeEveryChoiceDiv.style.display = "block"
         return
     } 
     // check for no stacking
     if (jockStatOption01.value == jockStatOption02.value) {
-        let jockNoStackingDiv = document.getElementById("jockNoStackingDiv")
         jockNoStackingDiv.style.display = "block"
         return
     } else if (jockStatOption02.value == jockStatOption04.value) {
@@ -1650,10 +1715,6 @@ function applyJockStatModifiers() {
     calculateFeelsResistancesAndSaves()
 }
 
-let jockMustMakeEveryChoiceDiv = document.getElementById("jockMustMakeEveryChoiceDiv")
-let jockNoStackingDiv = document.getElementById("jockNoStackingDiv")
-let jockNoSameBonusAndPenaltyDiv = document.getElementById("jockNoSameBonusAndPenaltyDiv")
-
 function resetJockStatModifiers() {
     // remove any previously-generated notices
     if (jockMustMakeEveryChoiceDiv.style.display == "block") {
@@ -1677,14 +1738,7 @@ function resetJockStatModifiers() {
     calculateFeelsResistancesAndSaves() 
 }
 
-let prepMustMakeEveryChoiceDiv = document.getElementById("prepMustMakeEveryChoiceDiv")
-let prepNoStackingDiv = document.getElementById("prepNoStackingDiv")
-let prepNoSameBonusAndPenaltyDiv = document.getElementById("prepNoSameBonusAndPenaltyDiv")
-let prepMustChooseASaveDiv = document.getElementById("prepMustChooseASaveDiv")
-let prepNoticeDivs = [prepMustMakeEveryChoiceDiv, prepNoStackingDiv, prepNoSameBonusAndPenaltyDiv, prepMustChooseASaveDiv]
-
 function displayPrepModifiers() {
-
     for (i=0; i<cliqueModifierDivsArray.length; i++) {
         cliqueModifierDivsArray[i].style.display = 'none'
     }
@@ -1727,13 +1781,6 @@ function displayPrepStatDiv() {
     calculateFeelsResistancesAndSaves()
 }
 
-// declarations
-let prepStatOption01 = document.getElementById("prepStatOption01")
-let prepStatOption02 = document.getElementById("prepStatOption02")
-let prepStatOption03 = document.getElementById("prepStatOption03")
-let prepStatOption04 = document.getElementById("prepStatOption04")
-let prepSaveIncrease = document.getElementById("prepSaveIncrease")
-
 function applyPrepStatModifiers() {
      // remove any previously-generated notices
      for (i=0; i<prepNoticeDivs.length; i++) {
@@ -1752,7 +1799,6 @@ function applyPrepStatModifiers() {
         prepNoStackingDiv.style.display = "block"
         return
     } else if (prepStatOption01.value == prepStatOption03.value || prepStatOption01.value == prepStatOption04.value || prepStatOption02.value == prepStatOption03.value || prepStatOption02.value == prepStatOption04.value) {
-        let prepNoSameBonusAndPenaltyDiv = document.getElementById("prepNoSameBonusAndPenaltyDiv")
         prepNoSameBonusAndPenaltyDiv.style.display = "block"
         return
     } else {
@@ -1813,19 +1859,11 @@ function resetPrepStatModifiers() {
     calculateFeelsResistancesAndSaves() 
  }
 
-let theaterKidMustMakeEveryChoiceDiv = document.getElementById("theaterKidMustMakeEveryChoiceDiv")
-let theaterKidNoStackingDiv = document.getElementById("theaterKidNoStackingDiv")
-let theaterKidNoSameBonusAndPenaltyDiv = document.getElementById("theaterKidNoSameBonusAndPenaltyDiv")
-let theaterKidMustChooseAResistanceDiv = document.getElementById("theaterKidMustChooseAResistanceDiv")
-let theaterKidNoticeDivs = [theaterKidMustMakeEveryChoiceDiv, theaterKidNoStackingDiv, theaterKidNoSameBonusAndPenaltyDiv, theaterKidMustChooseAResistanceDiv]
-
 function displayTheaterKidStatDiv() {
     // remove any previously-generated notices
-    let theaterKidMustMakeEveryChoiceDiv = document.getElementById("theaterKidMustMakeEveryChoiceDiv")
     if (theaterKidMustMakeEveryChoiceDiv.style.display == 'block') {
         theaterKidMustMakeEveryChoiceDiv.style.display = 'none'
     }
-    let theaterKidNoStackingDiv = document.getElementById("theaterKidNoStackingDiv")
     if (theaterKidNoStackingDiv.style.display == "block") {
         theaterKidNoStackingDiv.style.display = "none"
     }
@@ -1843,7 +1881,6 @@ function displayTheaterKidStatDiv() {
         cliqueArray[i].style.display = 'none'
     }
     // display div "theaterKidStatPicks"
-    let theaterKidStatPicks = document.getElementById("theaterKidStatPicks")
     theaterKidStatPicks.style.display = "block"
     // zero out any prior values
     for (i=0; i<23; i++) {
@@ -1854,13 +1891,6 @@ function displayTheaterKidStatDiv() {
     theaterKidAbilities.style.display = "block"
     calculateFeelsResistancesAndSaves()
 }
-
-// declarations
-let theaterKidStatOption01 = document.getElementById("theaterKidStatOption01")
-let theaterKidStatOption02 = document.getElementById("theaterKidStatOption02")
-let theaterKidStatOption03 = document.getElementById("theaterKidStatOption03")
-let theaterKidStatOption04 = document.getElementById("theaterKidStatOption04")
-let theaterKidResistanceIncrease = document.getElementById("theaterKidResistanceIncrease")
 
 function displayTheaterKidModifiers() {
     for (i=0; i<cliqueModifierDivsArray.length; i++) {
@@ -1989,21 +2019,6 @@ function resetTheaterKidStatModifiers() {
     calculateFeelsResistancesAndSaves() 
 }
 
-// declarations
-let gothMustMakeEveryChoiceDiv = document.getElementById("gothMustMakeEveryChoiceDiv")
-let gothNoSameBonusAndPenaltyDiv = document.getElementById("gothNoSameBonusAndPenaltyDiv")
-let gothMustChooseTwoFeels = document.getElementById("gothMustChooseTwoFeels")
-let gothMustChooseTwoSaves = document.getElementById("gothMustChooseTwoSaves")
-let gothNoticeDivs = [gothMustMakeEveryChoiceDiv, gothNoSameBonusAndPenaltyDiv, gothMustChooseTwoFeels, gothMustChooseTwoSaves]
-let gothStatOption01 = document.getElementById("gothStatOption01")
-let gothStatOption02 = document.getElementById("gothStatOption02")
-let gothStatOption03 = document.getElementById("gothStatOption03")
-let gothStatOption04 = document.getElementById("gothStatOption04")
-let gothFeelIncrease01 = document.getElementById("gothFeelIncrease01")
-let gothFeelIncrease02 = document.getElementById("gothFeelIncrease02")
-let gothSavingThrowOption01 = document.getElementById("gothSavingThrowOption01")
-let gothSavingThrowOption02 = document.getElementById("gothSavingThrowOption02")
-
 function displayGothModifiers() {
     for (i=0; i<cliqueModifierDivsArray.length; i++) {
         cliqueModifierDivsArray[i].style.display = 'none'
@@ -2030,6 +2045,7 @@ function displayGothStatDiv() {
     skillChange()
     knowledgeChange()
     // display div "gothStatPicks"
+        // problem here?
     // zero out any prior values
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
@@ -2038,7 +2054,6 @@ function displayGothStatDiv() {
     for (i=0; i<cliqueArray.length; i++) {
         cliqueArray[i].style.display = 'none'
     }
-    let gothStatPicks = document.getElementById("gothStatPicks")
     gothStatPicks.style.display = "block"
     baselineModifiers()
     // display goth Abilities
@@ -2086,22 +2101,16 @@ function applyGothStatModifiers() {
         }
     }
     baselineModifiers()
-//        // set FEELS clique modifiers
-//        melancholyCliqueModifier.innerHTML = 2
-        // set resistances clique modifiers
-        focusCliqueModifier.innerHTML = 1
-        resolveCliqueModifier.innerHTML = 1
-//        // set saves clique modifiers
-//        mindCliqueModifier.innerHTML = 1
-    let feelsStringsArray = ['Agitated', 'Angry', 'Horny', 'Melancholy']
-    let savingThrowsStringArray = ['Fortitude', 'Reflex', 'Mind', 'Will']
-    let feelsCliqueModifierArray = [agitatedCliqueModifier, angryCliqueModifier, hornyCliqueModifier, melancholyCliqueModifier]
-    let savesCliqueModifierArray = [fortitudeCliqueModifier, reflexCliqueModifier, mindCliqueModifier, willCliqueModifier]
+    // set FEELS clique modifiers
     for (i=0; i<feelsCliqueModifierArray.length; i++) {
         if (gothFeelIncrease01.value == feelsStringsArray[i] || gothFeelIncrease02.value == feelsStringsArray[i]) {
             feelsCliqueModifierArray[i].innerHTML = 2
         }
     }
+    // set resistances clique modifiers
+    focusCliqueModifier.innerHTML = 1
+    resolveCliqueModifier.innerHTML = 1
+    // set saves clique modifiers
     for (i=0; i<savesCliqueModifierArray.length; i++) {
         if (gothSavingThrowOption01.value == savingThrowsStringArray[i] || gothSavingThrowOption02.value == savingThrowsStringArray[i]) {
             savesCliqueModifierArray[i].innerHTML = 1
@@ -2109,17 +2118,7 @@ function applyGothStatModifiers() {
     }
     baselineModifiers()
     calculateFeelsResistancesAndSaves()
-
 }
-
-// declarations
-let lonerMustMakeEveryChoiceDiv = document.getElementById("lonerMustMakeEveryChoiceDiv")
-let lonerNoStackingDiv = document.getElementById("lonerNoStackingDiv")
-let lonerNoSameBonusAndPenaltyDiv = document.getElementById("lonerNoSameBonusAndPenaltyDiv")
-let lonerMustChooseOneResistanceOrTwoDiv = document.getElementById("lonerMustChooseOneResistanceOrTwoDiv")
-let lonerMustChooseAResistanceDiv = document.getElementById("lonerMustChooseAResistanceDiv")
-let lonerMustChooseTwoResistancesDiv = document.getElementById("lonerMustChooseTwoResistancesDiv")
-let lonerNoticeDivs = [lonerMustMakeEveryChoiceDiv, lonerNoStackingDiv, lonerNoSameBonusAndPenaltyDiv, lonerMustChooseOneResistanceOrTwoDiv, lonerMustChooseAResistanceDiv, lonerMustChooseTwoResistancesDiv]
 
 function displayLonerModifiers() {
     for (i=0; i<cliqueModifierDivsArray.length; i++) {
@@ -2132,7 +2131,6 @@ function displayLonerModifiers() {
      for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
     }
-    
 }
 
 function displayLonerStatDiv() {
@@ -2151,7 +2149,6 @@ function displayLonerStatDiv() {
     talentChange()
     skillChange()
     knowledgeChange()
-    // display div "lonerStatPicks"
     // zero out any prior values
     for (i=0; i<23; i++) {
         cliqueModifierArray[i].innerHTML = ''
@@ -2160,18 +2157,13 @@ function displayLonerStatDiv() {
     for (i=0; i<cliqueArray.length; i++) {
         cliqueArray[i].style.display = 'none'
     }
-    let lonerStatPicks = document.getElementById("lonerStatPicks")
+    // display div "lonerStatPicks"
     lonerStatPicks.style.display = "block"
     baselineModifiers()
     // display loner Abilities
     lonerAbilities.style.display = "block"
     calculateFeelsResistancesAndSaves()
 }
-
-let lonerStatOption01 = document.getElementById("lonerStatOption01")
-let lonerStatOption02 = document.getElementById("lonerStatOption02")
-let lonerStatOption03 = document.getElementById("lonerStatOption03")
-let lonerStatOption04 = document.getElementById("lonerStatOption04")
 
 function applyLonerStatModifiers() {
      // remove any previously-generated notices
@@ -2286,16 +2278,6 @@ function resetLonerStatModifiers() {
     calculateFeelsResistancesAndSaves()     
 }
 
-let chameleonMustMakeEveryChoiceDiv = document.getElementById("chameleonMustMakeEveryChoiceDiv")
-let chameleonNoStackingDiv = document.getElementById("chameleonNoStackingDiv")
-let chameleonMustChooseTwoFeelsDiv = document.getElementById("chameleonMustChooseTwoFeelsDiv")
-let chameleonNoStackingFeelsDiv = document.getElementById("chameleonNoStackingFeelsDiv")
-let chameleonMustChooseTwoResistancesDiv = document.getElementById("chameleonMustChooseTwoResistancesDiv")
-let chameleonNoStackingResistancesDiv = document.getElementById("chameleonNoStackingResistancesDiv")
-let chameleonMustChooseTwoSavesDiv = document.getElementById("chameleonMustChooseTwoSavesDiv")
-let chameleonNoStackingSavesDiv = document.getElementById("chameleonNoStackingSavesDiv")
-let chameleonNoticeDivs = [chameleonMustMakeEveryChoiceDiv, chameleonNoStackingDiv, chameleonMustChooseTwoFeelsDiv, chameleonNoStackingFeelsDiv, chameleonMustChooseTwoResistancesDiv, chameleonNoStackingResistancesDiv, chameleonMustChooseTwoSavesDiv, chameleonNoStackingSavesDiv]
-
 function displayChameleonModifiers() {
     for (i=0; i<cliqueModifierDivsArray.length; i++) {
         cliqueModifierDivsArray[i].style.display = 'none'
@@ -2339,18 +2321,7 @@ function displayChameleonStatDiv() {
     calculateFeelsResistancesAndSaves()
 }
 
-function applyChameleonStatModifiers() {
-     // check for prior instructions
-    for (i=0; i<chameleonNoticeDivs.length; i++) {
-        if (chameleonNoticeDivs[i].style.display == "block") {
-            chameleonNoticeDivs[i].style.display = "none"
-        }
-    }
-    // zero out any prior values
-    for (i=0; i<23; i++) {
-        cliqueModifierArray[i].innerHTML = ''
-    }
-    // assign selected values
+// chameleon selection declarations
     let selection01 = document.getElementById("chameleonStatOption01").value
     let selection02 = document.getElementById("chameleonStatOption02").value
     let selection03 = document.getElementById("chameleonStatOption03").value
@@ -2362,6 +2333,18 @@ function applyChameleonStatModifiers() {
     let selection09 = document.getElementById("chameleonSavingThrowOption01").value
     let selection10 = document.getElementById("chameleonSavingThrowOption02").value
      let selectionArray = [selection01, selection02, selection03, selection04, selection05, selection06, selection07, selection08, selection09, selection10]
+
+function applyChameleonStatModifiers() {
+     // check for prior instructions
+    for (i=0; i<chameleonNoticeDivs.length; i++) {
+        if (chameleonNoticeDivs[i].style.display == "block") {
+            chameleonNoticeDivs[i].style.display = "none"
+        }
+    }
+    // zero out any prior values
+    for (i=0; i<23; i++) {
+        cliqueModifierArray[i].innerHTML = ''
+    }
     // make sure a choice is made for every option
      for (i=0; i<selectionArray.length; i++) {
         if (selectionArray[i] == '') {
@@ -2399,12 +2382,6 @@ function applyChameleonStatModifiers() {
         }
         baselineModifiers()
     }
-    let feelsStringsArray = ['Agitated', 'Angry', 'Horny', 'Melancholy']
-    let resistancesStringsArray = ['Focus', 'Resolve', 'Self-Control'] 
-    let savingThrowsStringArray = ['Fortitude', 'Reflex', 'Mind', 'Will']
-    let feelsCliqueModifierArray = [agitatedCliqueModifier, angryCliqueModifier, hornyCliqueModifier, melancholyCliqueModifier]
-    let resistancesCliqueModifierArray = [focusCliqueModifier, resolveCliqueModifier, selfControlCliqueModifier]
-    let savesCliqueModifierArray = [fortitudeCliqueModifier, reflexCliqueModifier, mindCliqueModifier, willCliqueModifier]
     for (i=0; i<feelsCliqueModifierArray.length; i++) {
         if (selection05 == feelsStringsArray[i] || selection06 == feelsStringsArray[i]) {
             feelsCliqueModifierArray[i].innerHTML = 2
@@ -2431,16 +2408,6 @@ function resetChameleonStatModifiers() {
             chameleonNoticeDivs[i].style.display = 'none'
         }
     }
-    let selection01 = document.getElementById("chameleonStatOption01")
-    let selection02 = document.getElementById("chameleonStatOption02")
-    let selection03 = document.getElementById("chameleonStatOption03")
-    let selection04 = document.getElementById("chameleonStatOption04")
-    let selection05 = document.getElementById("chameleonFeelIncrease01")
-    let selection06 = document.getElementById("chameleonFeelIncrease02")
-    let selection07 = document.getElementById("chameleonResistanceIncrease01")
-    let selection08 = document.getElementById("chameleonResistanceIncrease02")
-    let selection09 = document.getElementById("chameleonSavingThrowOption01")
-    let selection10 = document.getElementById("chameleonSavingThrowOption02")
     selection01.value = ''
     selection02.value = ''
     selection03.value = ''
@@ -2458,7 +2425,7 @@ function resetChameleonStatModifiers() {
     calculateFeelsResistancesAndSaves()
 }
 
-
+// ability declarations
 let acting = document.getElementById("acting")
 let actingModifier = document.getElementById("actingModifier")
 let alertness = document.getElementById("alertness")
@@ -2520,6 +2487,7 @@ let specialModifier = document.getElementById("specialModifier")
 let theology = document.getElementById("theology")
 let theologyModifier = document.getElementById("theologyModifier")
 
+// ability array declarations
 let talentStringArray = ['Acting', 'Alertness', 'Athletics', 'Brawling', 'Calming Down', 'Dodge', 'Empathy', 'Intimidation', 'Memory', 'Stealth']
 let talentArray = [acting, alertness, athletics, brawling, calmingDown, dodge, empathy, intimidation, memory, stealth]
 let talentModifierArray = [actingModifier, alertnessModifier, athleticsModifier, brawlingModifier, calmingDownModifier, dodgeModifier, empathyModifier, intimidationModifier, memoryModifier, stealthModifier]
